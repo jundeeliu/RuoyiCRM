@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.tenant.mapper.MasterTenantMapper">
+
+    <resultMap type="MasterTenant" id="MasterTenantResult">
+        <id property="id" column="id"/>
+        <result property="tenant" column="tenant"/>
+        <result property="url" column="url"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+    </resultMap>
+
+
+    <sql id="selectMasterTeantVO">
+        select *
+        from master_tenant
+    </sql>
+
+    <select id="selectMasterTenant" parameterType="MasterTenant" resultMap="MasterTenantResult">
+        <include refid="selectMasterTeantVO"/>
+        <where>
+            <if test="tenant != null and tenant != ''">
+                AND tenant = #{tenant}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectMasterTenantList" parameterType="MasterTenant" resultMap="MasterTenantResult">
+        <include refid="selectMasterTeantVO"/>
+        <where>
+            <if test="tenant != null and tenant != ''">
+                AND tenant = #{tenant}
+            </if>
+        </where>
+    </select>
+
+
+</mapper> 
