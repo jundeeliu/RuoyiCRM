@@ -78,4 +78,13 @@ import java.util.List;
      * @return 结果
      */
      int deleteCrmCustomerById(Long id);
+
+
+    /**
+     * 领取客户
+     * @param id 客户ID
+     * @param owner 负责人
+     * @return
+     */
+    int receiveCustomerById(Long id, String owner);
 }

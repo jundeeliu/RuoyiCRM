@@ -120,4 +120,15 @@ public class CrmCustomerServiceImpl implements ICrmCustomerService
     {
         return crmCustomerMapper.deleteCrmCustomerById(id);
     }
+
+    /**
+     * 领取客户
+     * @param id 客户ID
+     * @param owner 负责人
+     * @return
+     */
+    @Override
+    public int receiveCustomerById(Long id, String owner) {
+        return crmCustomerMapper.receiveCustomerById(id, owner, CustomerFolder.CUSTOMER.getCode());
+    }
 }

@@ -25,7 +25,7 @@
         <el-button type="primary" plain icon="el-icon-plus" size="mini" @click="handleAdd" v-hasPermi="['crm:pool:add']">添加线索</el-button>
       </el-col>
       <el-col :span="1.5">
-        <el-button type="warning" plain icon="el-icon-s-promotion" size="mini" @click="handleTransfer" v-hasPermi="['crm:clues:transfer']">转移线索</el-button>
+        <el-button type="warning" plain icon="el-icon-s-promotion" size="mini" :disabled="!selected" @click="handleTransfer" v-hasPermi="['crm:clues:transfer']">转移线索</el-button>
       </el-col>
       <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
     </el-row>
@@ -165,6 +165,8 @@ export default {
       single: true,
       // 非多个禁用
       multiple: true,
+      // 是否勾选
+      selected: false,
       // 显示搜索条件
       showSearch: true,
       // 总条数
@@ -271,6 +273,7 @@ export default {
       this.ids = selection.map((item) => item.id)
       this.single = selection.length !== 1
       this.multiple = !selection.length
+      this.selected = selection.length
     },
     /** 新增按钮操作 */
     handleAdd () {

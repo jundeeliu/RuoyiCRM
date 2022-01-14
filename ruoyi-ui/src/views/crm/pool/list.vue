@@ -45,7 +45,7 @@
       <el-table-column label="前负责人" align="center" prop="preManager" />
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
-          <el-button size="mini" type="text" icon="el-icon-edit" @click="handleUpdate(scope.row)" v-hasPermi="['crm:pool:lock']">抢客户</el-button>
+          <el-button size="mini" type="text" icon="el-icon-finished" @click="handleReceive(scope.row)" v-hasPermi="['crm:pool:receive']">领取</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import { listCustomer, updateCustomer } from '@/api/crm/pool'
+import { listCustomer, receiveCustomer } from '@/api/crm/pool'
 
 export default {
   name: 'Pool',
@@ -123,39 +123,7 @@ export default {
         this.loading = false
       })
     },
-    // 取消按钮
-    cancel () {
-      this.open = false
-      this.reset()
-    },
-    // 表单重置
-    reset () {
-      this.form = {
-        id: null,
-        code: null,
-        name: null,
-        linkman: null,
-        phone: null,
-        region: null,
-        customerIndustry: null,
-        customerRank: null,
-        customerStatus: null,
-        status: '0',
-        cluesName: null,
-        cluesSource: null,
-        cluesStatus: null,
-        dealStatus: '0',
-        manager: null,
-        delFlag: null,
-        version: null,
-        createBy: null,
-        createTime: null,
-        updateBy: null,
-        updateTime: null,
-        remark: null,
-      }
-      this.resetForm('form')
-    },
+
     /** 搜索按钮操作 */
     handleQuery () {
       this.queryParams.pageNum = 1
@@ -172,36 +140,7 @@ export default {
       this.single = selection.length !== 1
       this.multiple = !selection.length
     },
-    /** 修改按钮操作 */
-    handleUpdate (row) {
-      this.reset()
-      const id = row.id || this.ids
-      getCustomer(id).then((response) => {
-        this.form = response.data
-        this.open = true
-        this.title = '修改客户'
-      })
-    },
-    /** 提交按钮 */
-    submitForm () {
-      this.$refs['form'].validate((valid) => {
-        if (valid) {
-          if (this.form.id != null) {
-            updateCustomer(this.form).then((response) => {
-              this.$modal.msgSuccess('修改成功')
-              this.open = false
-              this.getList()
-            })
-          } else {
-            addCustomer(this.form).then((response) => {
-              this.$modal.msgSuccess('新增成功')
-              this.open = false
-              this.getList()
-            })
-          }
-        }
-      })
-    },
+
     /** 导出按钮操作 */
     handleExport () {
       this.download(
@@ -212,6 +151,13 @@ export default {
         `客户公海_${new Date().getTime()}.xlsx`
       )
     },
+    handleReceive (row) {
+      const id = row.id;
+      receiveCustomer(id).then((response) => {
+        this.$modal.msgSuccess('领取成功')
+        this.getList()
+      })
+    }
   },
 }
 </script>

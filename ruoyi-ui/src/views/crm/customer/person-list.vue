@@ -188,7 +188,7 @@ export default {
       single: true,
       // 非多个禁用
       multiple: true,
-      // 非勾选禁用
+      // 是否勾选
       selected: false,
       // 显示搜索条件
       showSearch: true,

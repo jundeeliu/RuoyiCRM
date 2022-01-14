@@ -9,3 +9,10 @@ export function listCustomer(query) {
   })
 }
 
+// 领取客户
+export function receiveCustomer(id){
+  return request({
+    url:'/crm/pool/receive/'+id,
+    method: 'get'
+  })
+}

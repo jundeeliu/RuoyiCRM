@@ -79,4 +79,13 @@ public interface CrmCustomerMapper
      * @return
      */
     int customerToPoolByIds(@Param("ids") Long[] ids, @Param("poolType") String poolType, @Param("status") String status);
+
+    /**
+     * 领取客户
+     * @param id 客户ID
+     * @param owner 负责人
+     * @param status 记录状态
+     * @return
+     */
+    int receiveCustomerById(@Param("id") Long id, @Param("owner") String owner, @Param("status") String status);
 }

@@ -187,4 +187,8 @@
             #{id}
         </foreach>
     </update>
+
+    <update id="receiveCustomerById">
+        update crm_customer set owner=#{owner} , status=#{status} where id=#{id}
+    </update>
 </mapper>

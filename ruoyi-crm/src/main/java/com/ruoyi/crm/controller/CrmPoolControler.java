@@ -52,4 +52,15 @@ public class CrmPoolControler extends BaseController
         return AjaxResult.success(crmCustomerService.selectCrmCustomerById(id));
     }
 
+    /**
+     * 领取客户
+     * @param id 客户ID
+     * @return
+     */
+    @PreAuthorize("@ss.hasPermi('crm:pool:receive')")
+    @GetMapping(value="/receive/{id}")
+    public AjaxResult receive(@PathVariable("id") Long id){
+        return AjaxResult.success(crmCustomerService.receiveCustomerById(id, getUsername()));
+    }
+
 }
