@@ -70,4 +70,13 @@ public interface CrmCustomerMapper
      * @return 结果
      */
     int transferCrmCustomerByIds(@Param("ids") Long[] ids,@Param("newOwner") String newOwner,@Param("oldOwner") String oldOwner);
+
+    /**
+     * 移入公海
+     * @param ids 需要转移的客户主键集合
+     * @param poolType 公海类型
+     * @param status 状态码
+     * @return
+     */
+    int customerToPoolByIds(@Param("ids") Long[] ids, @Param("poolType") String poolType, @Param("status") String status);
 }

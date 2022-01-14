@@ -2,16 +2,11 @@ package com.ruoyi.crm.controller;
 
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
+
+import com.ruoyi.crm.domain.enums.CustomerFolder;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import com.ruoyi.common.annotation.Log;
 import com.ruoyi.common.core.controller.BaseController;
 import com.ruoyi.common.core.domain.AjaxResult;
@@ -35,6 +30,20 @@ public class CrmCustomerController extends BaseController
     private ICrmCustomerService crmCustomerService;
 
     /**
+     * 查询我的客户列表
+     */
+    @PreAuthorize("@ss.hasPermi('crm:customer:person:list')")
+    @GetMapping("/person-list")
+    public TableDataInfo personList(CrmCustomer crmCustomer)
+    {
+        startPage();
+        crmCustomer.setStatus(CustomerFolder.CUSTOMER.getCode());
+        crmCustomer.setOwner(getUsername());
+        List<CrmCustomer> list = crmCustomerService.selectCrmCustomerList(crmCustomer);
+        return getDataTable(list);
+    }
+
+    /**
      * 查询客户列表
      */
     @PreAuthorize("@ss.hasPermi('crm:customer:list')")
@@ -42,6 +51,7 @@ public class CrmCustomerController extends BaseController
     public TableDataInfo list(CrmCustomer crmCustomer)
     {
         startPage();
+        crmCustomer.setStatus(CustomerFolder.CUSTOMER.getCode());
         List<CrmCustomer> list = crmCustomerService.selectCrmCustomerList(crmCustomer);
         return getDataTable(list);
     }
@@ -54,6 +64,7 @@ public class CrmCustomerController extends BaseController
     @PostMapping("/export")
     public void export(HttpServletResponse response, CrmCustomer crmCustomer)
     {
+        crmCustomer.setStatus(CustomerFolder.CUSTOMER.getCode());
         List<CrmCustomer> list = crmCustomerService.selectCrmCustomerList(crmCustomer);
         ExcelUtil<CrmCustomer> util = new ExcelUtil<CrmCustomer>(CrmCustomer.class);
         util.exportExcel(response, list, "客户数据");
@@ -100,5 +111,25 @@ public class CrmCustomerController extends BaseController
     public AjaxResult remove(@PathVariable Long[] ids)
     {
         return toAjax(crmCustomerService.deleteCrmCustomerByIds(ids));
+    }
+
+    /**
+     * 转移客户
+     */
+    @PreAuthorize("@ss.hasPermi('crm:customer:transfer')")
+    @Log(title = "客户", businessType = BusinessType.UPDATE)
+    @PostMapping("/transfer")
+    public AjaxResult transfer(@RequestParam("ids") Long[] ids, @RequestParam("owner") String newOwner){
+        return toAjax(crmCustomerService.transferCrmCustomerByIds(ids, newOwner, getUsername()));
+    }
+
+     /**
+     * 转入公海
+     */
+    @PreAuthorize("@ss.hasPermi('crm:customer:toPool')")
+    @Log(title = "客户", businessType = BusinessType.UPDATE)
+    @PostMapping("/to-pool")
+    public AjaxResult toPool(@RequestParam("ids") Long[] ids, @RequestParam("poolType") String poolType){
+        return toAjax(crmCustomerService.customerToPoolByIds(ids, poolType));
     }
 }

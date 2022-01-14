@@ -1,140 +1,64 @@
 <template>
   <div class="app-container">
-    <el-form
-      :model="queryParams"
-      ref="queryForm"
-      :inline="true"
-      v-show="showSearch"
-      label-width="68px"
-    >
+    <el-form :model="queryParams" ref="queryForm" :inline="true" v-show="showSearch" label-width="68px">
       <el-form-item label="日期查询" prop="createTime">
-        <el-date-picker
-          clearable
-          size="small"
-          v-model="queryParams.createTime"
-          type="date"
-          value-format="yyyy-MM-dd"
-          placeholder="选择日期"
-        >
+        <el-date-picker clearable size="small" v-model="queryParams.createTime" type="date" value-format="yyyy-MM-dd" placeholder="选择日期">
         </el-date-picker>
       </el-form-item>
       <el-form-item label="客户名称" prop="name">
-        <el-input
-          v-model="queryParams.name"
-          placeholder="请输入客户名称"
-          clearable
-          size="small"
-          @keyup.enter.native="handleQuery"
-        />
+        <el-input v-model="queryParams.name" placeholder="请输入客户名称" clearable size="small" @keyup.enter.native="handleQuery" />
       </el-form-item>
       <el-form-item label="联系电话" prop="phone">
-        <el-input
-          v-model="queryParams.phone"
-          placeholder="请输入联系电话"
-          clearable
-          size="small"
-          @keyup.enter.native="handleQuery"
-        />
+        <el-input v-model="queryParams.phone" placeholder="请输入联系电话" clearable size="small" @keyup.enter.native="handleQuery" />
       </el-form-item>
 
       <el-form-item>
-        <el-button
-          type="primary"
-          icon="el-icon-search"
-          size="mini"
-          @click="handleQuery"
-          >搜索</el-button
-        >
-        <el-button icon="el-icon-refresh" size="mini" @click="resetQuery"
-          >重置</el-button
-        >
+        <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
+        <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
       </el-form-item>
     </el-form>
 
-    <el-table
-      v-loading="loading"
-      :data="customerList"
-      @selection-change="handleSelectionChange"
-    >
+    <el-table v-loading="loading" :data="customerList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
       <el-table-column label="客户名称" align="left" prop="name" />
       <el-table-column label="客户级别" align="left" prop="customerRank">
         <template slot-scope="scope">
-          <dict-tag
-            :options="dict.type.customer_rank"
-            :value="scope.row.customerRank"
-          />
+          <dict-tag :options="dict.type.customer_rank" :value="scope.row.customerRank" />
         </template>
       </el-table-column>
-      <el-table-column
-        label="最后跟进记录"
-        align="center"
-        prop="lastUpdateRecord"
-      />
-      <el-table-column
-        label="最后跟进时间"
-        align="center"
-        prop="lastFollowupTime"
-        width="180"
-      >
+      <el-table-column label="最后跟进记录" align="center" prop="lastUpdateRecord" />
+      <el-table-column label="最后跟进时间" align="center" prop="lastFollowupTime" width="180">
         <template slot-scope="scope">
           <span>{{ parseTime(scope.row.lastFollowupTime) }}</span>
         </template>
       </el-table-column>
-      <el-table-column
-        label="创建时间"
-        align="center"
-        prop="createTime"
-        width="180"
-      >
+      <el-table-column label="创建时间" align="center" prop="createTime" width="180">
         <template slot-scope="scope">
           <span>{{ parseTime(scope.row.createTime) }}</span>
         </template>
       </el-table-column>
-      <el-table-column
-        label="转公海时间"
-        align="center"
-        prop="toLiberumTime"
-        width="180"
-      >
+      <el-table-column label="转公海时间" align="center" prop="toPoolTime" width="180">
         <template slot-scope="scope">
-          <span>{{ parseTime(scope.row.toLiberumTime) }}</span>
+          <span>{{ parseTime(scope.row.toPoolTime) }}</span>
         </template>
       </el-table-column>
       <el-table-column label="前负责人" align="center" prop="preManager" />
-      <el-table-column
-        label="操作"
-        align="center"
-        class-name="small-padding fixed-width"
-      >
+      <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
-          <el-button
-            size="mini"
-            type="text"
-            icon="el-icon-edit"
-            @click="handleUpdate(scope.row)"
-            v-hasPermi="['crm:liberum:lock']"
-            >抢客户</el-button
-          >
+          <el-button size="mini" type="text" icon="el-icon-edit" @click="handleUpdate(scope.row)" v-hasPermi="['crm:pool:lock']">抢客户</el-button>
         </template>
       </el-table-column>
     </el-table>
 
-    <pagination
-      v-show="total > 0"
-      :total="total"
-      :page.sync="queryParams.pageNum"
-      :limit.sync="queryParams.pageSize"
-      @pagination="getList"
-    />
+    <pagination v-show="total > 0" :total="total" :page.sync="queryParams.pageNum" :limit.sync="queryParams.pageSize" @pagination="getList" />
   </div>
 </template>
 
 <script>
-import { listCustomer, updateCustomer } from '@/api/crm/liberum'
+import { listCustomer, updateCustomer } from '@/api/crm/pool'
 
 export default {
-  name: 'Liberum',
+  name: 'Pool',
   dicts: [
     'clues_source',
     'customer_industry',
@@ -143,7 +67,7 @@ export default {
     'region_list',
     'customer_status',
   ],
-  data() {
+  data () {
     return {
       // 遮罩层
       loading: true,
@@ -186,12 +110,12 @@ export default {
       rules: {},
     }
   },
-  created() {
+  created () {
     this.getList()
   },
   methods: {
     /** 查询客户列表 */
-    getList() {
+    getList () {
       this.loading = true
       listCustomer(this.queryParams).then((response) => {
         this.customerList = response.rows
@@ -200,12 +124,12 @@ export default {
       })
     },
     // 取消按钮
-    cancel() {
+    cancel () {
       this.open = false
       this.reset()
     },
     // 表单重置
-    reset() {
+    reset () {
       this.form = {
         id: null,
         code: null,
@@ -233,23 +157,23 @@ export default {
       this.resetForm('form')
     },
     /** 搜索按钮操作 */
-    handleQuery() {
+    handleQuery () {
       this.queryParams.pageNum = 1
       this.getList()
     },
     /** 重置按钮操作 */
-    resetQuery() {
+    resetQuery () {
       this.resetForm('queryForm')
       this.handleQuery()
     },
     // 多选框选中数据
-    handleSelectionChange(selection) {
+    handleSelectionChange (selection) {
       this.ids = selection.map((item) => item.id)
       this.single = selection.length !== 1
       this.multiple = !selection.length
     },
     /** 修改按钮操作 */
-    handleUpdate(row) {
+    handleUpdate (row) {
       this.reset()
       const id = row.id || this.ids
       getCustomer(id).then((response) => {
@@ -259,7 +183,7 @@ export default {
       })
     },
     /** 提交按钮 */
-    submitForm() {
+    submitForm () {
       this.$refs['form'].validate((valid) => {
         if (valid) {
           if (this.form.id != null) {
@@ -279,9 +203,9 @@ export default {
       })
     },
     /** 导出按钮操作 */
-    handleExport() {
+    handleExport () {
       this.download(
-        'crm/liberum/export',
+        'crm/pool/export',
         {
           ...this.queryParams,
         },

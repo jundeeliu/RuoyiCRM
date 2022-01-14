@@ -4,7 +4,7 @@
     <el-form ref="form" :model="form" :rules="rules" label-width="120px">
       <el-row>
         <el-col :span="12">
-          <el-form-item label="线索名称" prop="name">
+          <el-form-item label="线索名称" prop="cluesName">
             <el-input :disabled="true" v-model="form.cluesName" placeholder="请输入客户名称" />
           </el-form-item>
         </el-col>

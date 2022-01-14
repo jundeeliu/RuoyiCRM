@@ -93,13 +93,13 @@ public class CrmCustomer extends BaseEntity
     private String preOwner;
 
     /** 转公海时间 */
-    private Date toLiberumTime;
+    private Date toPoolTime;
 
     /** 转客户时间 */
     private Date toCustomerTime;
 
     /** 公海类型 */
-    private String liberumType;
+    private String poolType;
 
     public void setId(Long id)
     {
@@ -290,14 +290,14 @@ public class CrmCustomer extends BaseEntity
     {
         return preOwner;
     }
-    public void setToLiberumTime(Date toLiberumTime)
+    public void setToPoolTime(Date toPoolTime)
     {
-        this.toLiberumTime = toLiberumTime;
+        this.toPoolTime = toPoolTime;
     }
 
-    public Date getToLiberumTime()
+    public Date getToPoolTime()
     {
-        return toLiberumTime;
+        return toPoolTime;
     }
     public void setToCustomerTime(Date toCustomerTime)
     {
@@ -308,14 +308,14 @@ public class CrmCustomer extends BaseEntity
     {
         return toCustomerTime;
     }
-    public void setLiberumType(String liberumType)
+    public void setPoolType(String poolType)
     {
-        this.liberumType = liberumType;
+        this.poolType = poolType;
     }
 
-    public String getLiberumType()
+    public String getPoolType()
     {
-        return liberumType;
+        return poolType;
     }
 
     @Override
@@ -347,9 +347,9 @@ public class CrmCustomer extends BaseEntity
                 .append("lastFollowupTime", getLastFollowupTime())
                 .append("nextFollowupTime", getNextFollowupTime())
                 .append("preOwner", getPreOwner())
-                .append("toLiberumTime", getToLiberumTime())
+                .append("toPoolTime", getToPoolTime())
                 .append("toCustomerTime", getToCustomerTime())
-                .append("liberumType", getLiberumType())
+                .append("poolType", getPoolType())
                 .toString();
     }
 }

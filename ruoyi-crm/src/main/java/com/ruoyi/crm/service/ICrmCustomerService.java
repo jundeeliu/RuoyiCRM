@@ -1,7 +1,8 @@
 package com.ruoyi.crm.service;
 
-import java.util.List;
 import com.ruoyi.crm.domain.CrmCustomer;
+
+import java.util.List;
 
 /**
  * 客户Service接口
@@ -61,6 +62,14 @@ import com.ruoyi.crm.domain.CrmCustomer;
      * @return 结果
      */
     int transferCrmCustomerByIds(Long[] ids, String newOwner, String oldOwner);
+
+    /**
+     * 移入公海
+     * @param ids 需要转移的客户主键集合
+     * @param poolType 公海类型
+     * @return
+     */
+    int customerToPoolByIds(Long[] ids, String poolType);
 
     /**
      * 删除客户信息

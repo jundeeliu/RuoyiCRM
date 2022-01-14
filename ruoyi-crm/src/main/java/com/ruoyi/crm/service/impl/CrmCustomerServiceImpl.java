@@ -2,6 +2,7 @@ package com.ruoyi.crm.service.impl;
 
 import java.util.List;
 import com.ruoyi.common.utils.DateUtils;
+import com.ruoyi.crm.domain.enums.CustomerFolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.crm.mapper.CrmCustomerMapper;
@@ -83,10 +84,29 @@ public class CrmCustomerServiceImpl implements ICrmCustomerService
         return crmCustomerMapper.deleteCrmCustomerByIds(ids);
     }
 
+    /**
+     * 转移
+     * @param ids 需要转移的客户主键集合
+     * @param newOwner 新负责人
+     * @param oldOwner 旧负责人
+     * @return
+     */
     @Override
     @Transactional
     public int transferCrmCustomerByIds(Long[] ids, String newOwner, String oldOwner) {
         return crmCustomerMapper.transferCrmCustomerByIds(ids, newOwner, oldOwner);
+    }
+
+    /**
+     * 移入公海
+     * @param ids 需要转移的客户主键集合
+     * @param poolType 公海类型
+     * @return
+     */
+    @Override
+    @Transactional
+    public int customerToPoolByIds(Long[] ids, String poolType) {
+        return crmCustomerMapper.customerToPoolByIds(ids, poolType, CustomerFolder.POOL.getCode());
     }
 
     /**

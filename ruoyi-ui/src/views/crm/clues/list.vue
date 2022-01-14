@@ -22,7 +22,7 @@
 
     <el-row :gutter="10" class="mb8">
       <el-col :span="1.5">
-        <el-button type="primary" plain icon="el-icon-plus" size="mini" @click="handleAdd" v-hasPermi="['crm:liberum:add']">添加线索</el-button>
+        <el-button type="primary" plain icon="el-icon-plus" size="mini" @click="handleAdd" v-hasPermi="['crm:pool:add']">添加线索</el-button>
       </el-col>
       <el-col :span="1.5">
         <el-button type="warning" plain icon="el-icon-s-promotion" size="mini" @click="handleTransfer" v-hasPermi="['crm:clues:transfer']">转移线索</el-button>

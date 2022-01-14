@@ -56,7 +56,7 @@ export function delClues(id) {
 export function transferClues(data){
   return request({
     url: '/crm/clues/transfer',
-    method: 'put',
+    method: 'post',
     params: data
   })
 }

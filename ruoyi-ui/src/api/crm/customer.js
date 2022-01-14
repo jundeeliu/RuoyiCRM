@@ -1,6 +1,15 @@
 import request from '@/utils/request'
 
 // 查询客户列表
+export function listPersonCustomer(query) {
+  return request({
+    url: '/crm/customer/person-list',
+    method: 'get',
+    params: query
+  })
+}
+
+// 查询客户列表
 export function listCustomer(query) {
   return request({
     url: '/crm/customer/list',
@@ -40,5 +49,24 @@ export function delCustomer(id) {
   return request({
     url: '/crm/customer/' + id,
     method: 'delete'
+  })
+}
+
+
+//转移客户
+export function transferCustomer(data){
+  return request({
+    url: '/crm/customer/transfer',
+    method: 'post',
+    params: data
+  })
+}
+
+//移入公海
+export function toPool(data){
+  return request({
+    url: '/crm/customer/to-pool',
+    method: 'post',
+    params: data
   })
 }

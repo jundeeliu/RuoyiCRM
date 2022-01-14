@@ -122,8 +122,8 @@ public class CrmCluesController extends BaseController
      */
     @PreAuthorize("@ss.hasPermi('crm:clues:transfer')")
     @Log(title = "线索", businessType = BusinessType.UPDATE)
-    @PutMapping("/transfer")
-    public AjaxResult transfer(@RequestParam("") Long[] ids, @RequestParam("owner") String newOwner){
+    @PostMapping("/transfer")
+    public AjaxResult transfer(@RequestParam("ids") Long[] ids, @RequestParam("owner") String newOwner){
         return toAjax(cluesService.transferCrmCustomerByIds(ids, newOwner, getUsername()));
     }
 
