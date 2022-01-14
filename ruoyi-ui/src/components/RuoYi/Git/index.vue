@@ -6,16 +6,16 @@
 
 <script>
 export default {
-  name: 'RuoYiGit',
+  name: 'RuoyiCRMGit',
   data() {
     return {
-      url: 'https://gitee.com/y_project/RuoYi-Vue'
+      url: 'https://gitee.com/jundee/RuoyiCRM',
     }
   },
   methods: {
     goto() {
       window.open(this.url)
-    }
-  }
+    },
+  },
 }
 </script>

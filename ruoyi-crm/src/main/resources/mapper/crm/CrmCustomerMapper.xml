@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.crm.mapper.CrmCustomerMapper">
+
+    <resultMap type="CrmCustomer" id="CrmCustomerResult">
+        <result property="id"    column="id"    />
+        <result property="code"    column="code"    />
+        <result property="name"    column="name"    />
+        <result property="linkman"    column="linkman"    />
+        <result property="phone"    column="phone"    />
+        <result property="region"    column="region"    />
+        <result property="customerIndustry"    column="customer_industry"    />
+        <result property="customerRank"    column="customer_rank"    />
+        <result property="customerStatus"    column="customer_status"    />
+        <result property="status"    column="status"    />
+        <result property="cluesName"    column="clues_name"    />
+        <result property="cluesSource"    column="clues_source"    />
+        <result property="cluesStatus"    column="clues_status"    />
+        <result property="dealStatus"    column="deal_status"    />
+        <result property="owner"    column="owner"    />
+        <result property="delFlag"    column="del_flag"    />
+        <result property="version"    column="version"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+        <result property="lastUpdateRecord"    column="last_update_record"    />
+        <result property="lastFollowupTime"    column="last_followup_time"    />
+        <result property="nextFollowupTime"    column="next_followup_time"    />
+        <result property="preOwner"    column="pre_owner"    />
+        <result property="toLiberumTime"    column="to_liberum_time"    />
+        <result property="toCustomerTime"    column="to_customer_time"    />
+        <result property="liberumType"    column="liberum_type"    />
+    </resultMap>
+
+    <sql id="selectCrmCustomerVo">
+        select id, code, name, linkman, phone, region, customer_industry, customer_rank, customer_status, status, clues_name, clues_source, clues_status, deal_status, owner, del_flag, version, create_by, create_time, update_by, update_time, remark, last_update_record, last_followup_time, next_followup_time, pre_owner, to_liberum_time, to_customer_time, liberum_type from crm_customer
+    </sql>
+
+    <select id="selectCrmCustomerList" parameterType="CrmCustomer" resultMap="CrmCustomerResult">
+        <include refid="selectCrmCustomerVo"/>
+        <where>
+            <if test="code != null  and code != ''"> and code like concat('%', #{code}, '%')</if>
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="linkman != null  and linkman != ''"> and linkman like concat('%', #{linkman}, '%')</if>
+            <if test="phone != null  and phone != ''"> and phone like concat('%', #{phone}, '%')</if>
+            <if test="region != null  and region != ''"> and region = #{region}</if>
+            <if test="customerIndustry != null  and customerIndustry != ''"> and customer_industry = #{customerIndustry}</if>
+            <if test="customerRank != null  and customerRank != ''"> and customer_rank = #{customerRank}</if>
+            <if test="customerStatus != null  and customerStatus != ''"> and customer_status = #{customerStatus}</if>
+            <if test="cluesName != null  and cluesName != ''"> and clues_name like concat('%', #{cluesName}, '%')</if>
+            <if test="cluesSource != null  and cluesSource != ''"> and clues_source = #{cluesSource}</if>
+            <if test="cluesStatus != null  and cluesStatus != ''"> and clues_status = #{cluesStatus}</if>
+            <if test="owner != null  and owner != ''"> and owner = #{owner}</if>
+            <if test="status != null  and status != ''"> and status = #{status}</if>
+        </where>
+    </select>
+
+    <select id="selectCrmCustomerById" parameterType="Long" resultMap="CrmCustomerResult">
+        <include refid="selectCrmCustomerVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertCrmCustomer" parameterType="CrmCustomer" useGeneratedKeys="true" keyProperty="id">
+        insert into crm_customer
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="code != null">code,</if>
+            <if test="name != null">name,</if>
+            <if test="linkman != null">linkman,</if>
+            <if test="phone != null">phone,</if>
+            <if test="region != null">region,</if>
+            <if test="customerIndustry != null">customer_industry,</if>
+            <if test="customerRank != null">customer_rank,</if>
+            <if test="customerStatus != null">customer_status,</if>
+            <if test="status != null">status,</if>
+            <if test="cluesName != null">clues_name,</if>
+            <if test="cluesSource != null">clues_source,</if>
+            <if test="cluesStatus != null">clues_status,</if>
+            <if test="dealStatus != null">deal_status,</if>
+            <if test="owner != null">owner,</if>
+            <if test="delFlag != null">del_flag,</if>
+            <if test="version != null">version,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null">remark,</if>
+            <if test="lastUpdateRecord != null">last_update_record,</if>
+            <if test="lastFollowupTime != null">last_followup_time,</if>
+            <if test="nextFollowupTime != null">next_followup_time,</if>
+            <if test="preOwner != null">pre_owner,</if>
+            <if test="toLiberumTime != null">to_liberum_time,</if>
+            <if test="toCustomerTime != null">to_customer_time,</if>
+            <if test="liberumType != null">liberum_type,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="code != null">#{code},</if>
+            <if test="name != null">#{name},</if>
+            <if test="linkman != null">#{linkman},</if>
+            <if test="phone != null">#{phone},</if>
+            <if test="region != null">#{region},</if>
+            <if test="customerIndustry != null">#{customerIndustry},</if>
+            <if test="customerRank != null">#{customerRank},</if>
+            <if test="customerStatus != null">#{customerStatus},</if>
+            <if test="status != null">#{status},</if>
+            <if test="cluesName != null">#{cluesName},</if>
+            <if test="cluesSource != null">#{cluesSource},</if>
+            <if test="cluesStatus != null">#{cluesStatus},</if>
+            <if test="dealStatus != null">#{dealStatus},</if>
+            <if test="owner != null">#{owner},</if>
+            <if test="delFlag != null">#{delFlag},</if>
+            <if test="version != null">#{version},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null">#{remark},</if>
+            <if test="lastUpdateRecord != null">#{lastUpdateRecord},</if>
+            <if test="lastFollowupTime != null">#{lastFollowupTime},</if>
+            <if test="nextFollowupTime != null">#{nextFollowupTime},</if>
+            <if test="preOwner != null">#{preOwner},</if>
+            <if test="toLiberumTime != null">#{toLiberumTime},</if>
+            <if test="toCustomerTime != null">#{toCustomerTime},</if>
+            <if test="liberumType != null">#{liberumType},</if>
+        </trim>
+    </insert>
+
+    <update id="updateCrmCustomer" parameterType="CrmCustomer">
+        update crm_customer
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="code != null">code = #{code},</if>
+            <if test="name != null">name = #{name},</if>
+            <if test="linkman != null">linkman = #{linkman},</if>
+            <if test="phone != null">phone = #{phone},</if>
+            <if test="region != null">region = #{region},</if>
+            <if test="customerIndustry != null">customer_industry = #{customerIndustry},</if>
+            <if test="customerRank != null">customer_rank = #{customerRank},</if>
+            <if test="customerStatus != null">customer_status = #{customerStatus},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="cluesName != null">clues_name = #{cluesName},</if>
+            <if test="cluesSource != null">clues_source = #{cluesSource},</if>
+            <if test="cluesStatus != null">clues_status = #{cluesStatus},</if>
+            <if test="dealStatus != null">deal_status = #{dealStatus},</if>
+            <if test="owner != null">owner = #{owner},</if>
+            <if test="delFlag != null">del_flag = #{delFlag},</if>
+            <if test="version != null">version = #{version},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="lastUpdateRecord != null">last_update_record = #{lastUpdateRecord},</if>
+            <if test="lastFollowupTime != null">last_followup_time = #{lastFollowupTime},</if>
+            <if test="nextFollowupTime != null">next_followup_time = #{nextFollowupTime},</if>
+            <if test="preOwner != null">pre_owner = #{preOwner},</if>
+            <if test="toLiberumTime != null">to_liberum_time = #{toLiberumTime},</if>
+            <if test="toCustomerTime != null">to_customer_time = #{toCustomerTime},</if>
+            <if test="liberumType != null">liberum_type = #{liberumType},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteCrmCustomerById" parameterType="Long">
+        delete from crm_customer where id = #{id}
+    </delete>
+
+    <delete id="deleteCrmCustomerByIds" parameterType="String">
+        delete from crm_customer where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <update id="transferCrmCustomerByIds">
+        update crm_customer set owner=#{newOwner} ,pre_owner=#{oldOwner} where id in
+        <foreach item="id" collection="ids" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </update>
+</mapper>

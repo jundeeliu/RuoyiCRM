@@ -46,11 +46,13 @@ public class CaptchaController
     {
         AjaxResult ajax = AjaxResult.success();
         boolean captchaOnOff = configService.selectCaptchaOnOff();
-        ajax.put("captchaOnOff", captchaOnOff);
-        if (!captchaOnOff)
-        {
-            return ajax;
-        }
+        //TODO: 线上部署出现验证码问题，先注释
+        ajax.put("captchaOnOff", false);
+//        ajax.put("captchaOnOff", captchaOnOff);
+//        if (!captchaOnOff)
+//        {
+//            return ajax;
+//        }
 
         // 保存验证码信息
         String uuid = IdUtils.simpleUUID();

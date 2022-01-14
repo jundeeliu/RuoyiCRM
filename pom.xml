@@ -220,6 +220,13 @@
                 <version>${ruoyi.version}</version>
             </dependency>
 
+            <!-- CRM模块 -->
+            <dependency>
+                <groupId>com.ruoyi</groupId>
+                <artifactId>ruoyi-crm</artifactId>
+                <version>${ruoyi.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -231,6 +238,7 @@
         <module>ruoyi-generator</module>
         <module>ruoyi-common</module>
         <module>ruoyi-tenant</module>
+        <module>ruoyi-crm</module>
     </modules>
     <packaging>pom</packaging>
 
