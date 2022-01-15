@@ -177,6 +177,7 @@ export default {
     'customer_rank',
     'region_list',
     'customer_status',
+    'deal_status'
   ],
   data () {
     return {

@@ -30,6 +30,20 @@ public class CrmCustomerController extends BaseController
     private ICrmCustomerService crmCustomerService;
 
     /**
+     * 查询成交客户列表
+     */
+    @PreAuthorize("@ss.hasPermi('crm:customer:deal:list')")
+    @GetMapping("/deal-list")
+    public TableDataInfo dealList(CrmCustomer crmCustomer)
+    {
+        startPage();
+        crmCustomer.setStatus(CustomerFolder.CUSTOMER.getCode());
+        crmCustomer.setDealStatus("1");
+        List<CrmCustomer> list = crmCustomerService.selectCrmCustomerList(crmCustomer);
+        return getDataTable(list);
+    }
+
+    /**
      * 查询我的客户列表
      */
     @PreAuthorize("@ss.hasPermi('crm:customer:person:list')")

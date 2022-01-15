@@ -18,6 +18,15 @@ export function listCustomer(query) {
   })
 }
 
+// 查询成交客户列表
+export function listDealCustomer(query){
+  return request({
+    url: '/crm/customer/deal-list',
+    method: 'get',
+    params: query
+  })
+}
+
 // 查询客户详细
 export function getCustomer(id) {
   return request({
