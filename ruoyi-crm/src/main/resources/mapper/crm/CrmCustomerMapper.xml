@@ -54,6 +54,7 @@
             <if test="cluesName != null  and cluesName != ''"> and clues_name like concat('%', #{cluesName}, '%')</if>
             <if test="cluesSource != null  and cluesSource != ''"> and clues_source = #{cluesSource}</if>
             <if test="cluesStatus != null  and cluesStatus != ''"> and clues_status = #{cluesStatus}</if>
+            <if test="dealStatus != null  and dealStatus != ''"> and deal_status = #{dealStatus}</if>
             <if test="owner != null  and owner != ''"> and owner = #{owner}</if>
             <if test="status != null  and status != ''"> and status = #{status}</if>
         </where>
