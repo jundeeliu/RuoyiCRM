@@ -40,5 +40,8 @@ RuoyiCRM基于若依平台二次开发的开源CRM系统，以SaaS方向实现�
 
 演示地址：https://ruoyi.nxcrm.cn
 
+## 数据库
 
-
+1.  首先建立主数据库：rycrm-master，执行rycrm-master.sql脚本
+2.  建立租户数据库（手动）：rycrm-tenant-1与rycrm-tenant-2
+3.  rycrm-master的master_tenant表增加租户的数据库连接信息，rycrm-master.sql里内置了两条记录。
