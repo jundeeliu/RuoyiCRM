@@ -58,6 +58,19 @@ public class CrmCustomerController extends BaseController
     }
 
     /**
+     * 查询我的客户列表
+     */
+    @PreAuthorize("@ss.hasPermi('crm:customer:person:list')")
+    @GetMapping("/person-customers")
+    public AjaxResult personCustomers(CrmCustomer crmCustomer)
+    {
+        crmCustomer.setStatus(CustomerFolder.CUSTOMER.getCode());
+        crmCustomer.setOwner(getUsername());
+        List<CrmCustomer> list = crmCustomerService.selectCrmCustomerList(crmCustomer);
+        return AjaxResult.success(list);
+    }
+
+    /**
      * 查询客户列表
      */
     @PreAuthorize("@ss.hasPermi('crm:customer:list')")

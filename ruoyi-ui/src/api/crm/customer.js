@@ -10,6 +10,15 @@ export function listPersonCustomer(query) {
 }
 
 // 查询客户列表
+export function listPersonCustomers(query) {
+  return request({
+    url: '/crm/customer/person-customers',
+    method: 'get',
+    params: query
+  })
+}
+
+// 查询客户列表
 export function listCustomer(query) {
   return request({
     url: '/crm/customer/list',
