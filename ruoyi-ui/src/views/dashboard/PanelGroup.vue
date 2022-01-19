@@ -72,7 +72,7 @@ export default {
   margin-top: 18px;
 
   .card-panel-col {
-    margin-bottom: 32px;
+    margin-bottom: 10px;
   }
 
   .card-panel {
@@ -85,6 +85,7 @@ export default {
     background: #fff;
     box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.137);
     border-color: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
 
     &:hover {
       .card-panel-icon-wrapper {
