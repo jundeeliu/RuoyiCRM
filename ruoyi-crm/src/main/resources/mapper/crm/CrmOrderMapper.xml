@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.crm.mapper.CrmOrderMapper">
+
+    <resultMap type="CrmOrder" id="CrmOrderResult">
+        <result property="id"    column="id"    />
+        <result property="orderNo"    column="order_no"    />
+        <result property="customerId"    column="customer_id"    />
+        <result property="amount"    column="amount"    />
+        <result property="owner"    column="owner"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+        <result property="status"    column="status"    />
+        <result property="customerName" column="customer_name"/>
+    </resultMap>
+
+    <sql id="selectCrmOrderVo">
+        select o.id, order_no, o.customer_id, c.name customer_name,o.amount, o.owner, o.create_by, o.create_time, o.update_by, o.update_time, o.remark, o.status from crm_order o
+        left join crm_customer c on c.id=o.customer_id
+    </sql>
+
+    <select id="selectCrmOrderList" parameterType="CrmOrder" resultMap="CrmOrderResult">
+        <include refid="selectCrmOrderVo"/>
+        <where>
+            <if test="orderNo != null  and orderNo != ''"> and o.order_no = #{orderNo}</if>
+            <if test="customerId != null "> and o.customer_id = #{customerId}</if>
+            <if test="owner != null  and owner != ''"> and o.owner = #{owner}</if>
+            <if test="status != null  and status != ''"> and o.status = #{status}</if>
+        </where>
+    </select>
+
+    <select id="selectCrmOrderById" parameterType="Long" resultMap="CrmOrderResult">
+        <include refid="selectCrmOrderVo"/>
+        where o.id = #{id}
+    </select>
+
+    <insert id="insertCrmOrder" parameterType="CrmOrder">
+        insert into crm_order
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="orderNo != null and orderNo != ''">order_no,</if>
+            <if test="customerId != null">customer_id,</if>
+            <if test="amount != null">amount,</if>
+            <if test="owner != null">owner,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null">remark,</if>
+            <if test="status != null">status,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="orderNo != null and orderNo != ''">#{orderNo},</if>
+            <if test="customerId != null">#{customerId},</if>
+            <if test="amount != null">#{amount},</if>
+            <if test="owner != null">#{owner},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null">#{remark},</if>
+            <if test="status != null">#{status},</if>
+        </trim>
+    </insert>
+
+    <update id="updateCrmOrder" parameterType="CrmOrder">
+        update crm_order
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="orderNo != null and orderNo != ''">order_no = #{orderNo},</if>
+            <if test="customerId != null">customer_id = #{customerId},</if>
+            <if test="amount != null">amount = #{amount},</if>
+            <if test="owner != null">owner = #{owner},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="status != null">status = #{status},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteCrmOrderById" parameterType="Long">
+        delete from crm_order where id = #{id}
+    </delete>
+
+    <delete id="deleteCrmOrderByIds" parameterType="String">
+        delete from crm_order where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
