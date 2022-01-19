@@ -2,6 +2,7 @@ package com.ruoyi.crm.mapper;
 
 import java.util.List;
 import com.ruoyi.crm.domain.CrmCustomer;
+import com.ruoyi.crm.vo.TodayUpdatesVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -88,4 +89,11 @@ public interface CrmCustomerMapper
      * @return
      */
     int receiveCustomerById(@Param("id") Long id, @Param("owner") String owner, @Param("status") String status);
+
+    /**
+     * 获取今天动态
+     * @param owner 负责人
+     * @return
+     */
+    List<TodayUpdatesVO> todayUpdates(@Param("owner") String owner );
 }

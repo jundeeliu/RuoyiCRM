@@ -113,6 +113,7 @@ public class CrmCommentServiceImpl implements ICrmCommentService
     public int insertCrmComment(CrmComment crmComment, Date nextFollowupTime) {
         CrmCustomer crmCustomer = customerService.selectCrmCustomerById(crmComment.getCustomerId());
         crmCustomer.setLastUpdateRecord(crmComment.getContent());
+        crmCustomer.setLastFollowupTime(DateUtils.getNowDate());
         crmCustomer.setNextFollowupTime(nextFollowupTime);
         customerService.updateCrmCustomer(crmCustomer);
 

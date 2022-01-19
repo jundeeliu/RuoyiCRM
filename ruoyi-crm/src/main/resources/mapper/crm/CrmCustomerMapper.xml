@@ -36,6 +36,14 @@
         <result property="poolType"    column="pool_type"    />
     </resultMap>
 
+    <resultMap id="TodayUpdatesResult" type="com.ruoyi.crm.vo.TodayUpdatesVO">
+        <result property="id"    column="id"    />
+        <result property="owner"    column="owner"    />
+        <result property="customerName"    column="name"    />
+        <result property="content"    column="content"    />
+        <result property="createTime"    column="create_time"    />
+    </resultMap>
+
     <sql id="selectCrmCustomerVo">
         select id, code, name, linkman, phone, region, customer_industry, customer_rank, customer_status, status, clues_name, clues_source, clues_status, deal_status, owner, del_flag, version, create_by, create_time, update_by, update_time, remark, last_update_record, last_followup_time, next_followup_time, pre_owner, to_pool_time, to_customer_time, pool_type from crm_customer
     </sql>
@@ -57,6 +65,8 @@
             <if test="dealStatus != null  and dealStatus != ''"> and deal_status = #{dealStatus}</if>
             <if test="owner != null  and owner != ''"> and owner = #{owner}</if>
             <if test="status != null  and status != ''"> and status = #{status}</if>
+            <if test="params.beginLastFollowupTime != null and params.beginLastFollowupTime != '' and params.endLastFollowupTime != null and params.endLastFollowupTime != ''"> and last_followup_time between #{params.beginLastFollowupTime} and date_add(#{params.endLastFollowupTime}, interval 1 day)</if>
+            <if test="params.beginNextFollowupTime != null and params.beginNextFollowupTime != '' and params.endNextFollowupTime != null and params.endNextFollowupTime != ''"> and next_followup_time between #{params.beginNextFollowupTime} and date_add(#{params.endNextFollowupTime}, interval 1 day)</if>
         </where>
     </select>
 
@@ -190,6 +200,15 @@
     </update>
 
     <update id="receiveCustomerById">
-        update crm_customer set owner=#{owner} , status=#{status} where id=#{id}
+        update crm_customer set owner=#{owner} , status=#{status}, last_followup_time=now() where id=#{id}
     </update>
+
+    <select id="todayUpdates"  resultMap="TodayUpdatesResult" >
+        select
+            c.id, c.owner, c.name, m.content, m.create_time
+        from crm_customer c
+                 inner join crm_comment m on m.customer_id=c.id
+        where c.owner= #{owner}
+        order by m.create_time desc limit 10
+    </select>
 </mapper>

@@ -1,6 +1,7 @@
 package com.ruoyi.crm.service;
 
 import com.ruoyi.crm.domain.CrmCustomer;
+import com.ruoyi.crm.vo.TodayUpdatesVO;
 
 import java.util.List;
 
@@ -87,4 +88,11 @@ import java.util.List;
      * @return
      */
     int receiveCustomerById(Long id, String owner);
+
+    /**
+     * 今日动态
+     * @param owner
+     * @return
+     */
+    List<TodayUpdatesVO> todayUpdates(String owner);
 }

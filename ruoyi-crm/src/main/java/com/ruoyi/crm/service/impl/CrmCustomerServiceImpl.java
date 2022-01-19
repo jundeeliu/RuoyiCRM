@@ -3,6 +3,7 @@ package com.ruoyi.crm.service.impl;
 import java.util.List;
 import com.ruoyi.common.utils.DateUtils;
 import com.ruoyi.crm.domain.enums.CustomerFolder;
+import com.ruoyi.crm.vo.TodayUpdatesVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.crm.mapper.CrmCustomerMapper;
@@ -130,5 +131,15 @@ public class CrmCustomerServiceImpl implements ICrmCustomerService
     @Override
     public int receiveCustomerById(Long id, String owner) {
         return crmCustomerMapper.receiveCustomerById(id, owner, CustomerFolder.CUSTOMER.getCode());
+    }
+
+    /**
+     * 今日动态
+     * @param owner
+     * @return
+     */
+    @Override
+    public List<TodayUpdatesVO> todayUpdates(String owner){
+        return crmCustomerMapper.todayUpdates(owner);
     }
 }
