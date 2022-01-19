@@ -3,58 +3,99 @@ SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
+-- Table structure for crm_comment
+-- ----------------------------
+DROP TABLE IF EXISTS `crm_comment`;
+CREATE TABLE `crm_comment` (
+                               `id` bigint(20) NOT NULL AUTO_INCREMENT,
+                               `customer_id` bigint(20) DEFAULT NULL COMMENT '客户ID',
+                               `content` varchar(512) DEFAULT NULL COMMENT '回复内容',
+                               `create_by` varchar(64) DEFAULT '' COMMENT '创建者',
+                               `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+                               `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
+                               `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+                               PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='客户跟进记录表';
+
+-- ----------------------------
+-- Records of crm_comment
+-- ----------------------------
+BEGIN;
+COMMIT;
+
+-- ----------------------------
 -- Table structure for crm_customer
 -- ----------------------------
 DROP TABLE IF EXISTS `crm_customer`;
 CREATE TABLE `crm_customer` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '客户ID',
-  `code` varchar(32) DEFAULT '' COMMENT '客户编号',
-  `name` varchar(64) DEFAULT '' COMMENT '客户名称',
-  `linkman` varchar(64) DEFAULT '' COMMENT '联系人',
-  `phone` varchar(64) DEFAULT '' COMMENT '联系电话',
-  `region` varchar(64) DEFAULT '' COMMENT '地区',
-  `customer_industry` varchar(64) DEFAULT '' COMMENT '客户行业',
-  `customer_rank` varchar(64) DEFAULT '' COMMENT '客户级别',
-  `customer_status` varchar(64) DEFAULT '' COMMENT '客户状态',
-  `clues_name` varchar(64) DEFAULT '' COMMENT '线索名称',
-  `clues_source` varchar(64) DEFAULT '' COMMENT '线索来源',
-  `clues_status` varchar(64) DEFAULT '' COMMENT '线索状态',
-  `deal_status` char(1) DEFAULT '0' COMMENT '是否成交(0未成交 1成交)',
-  `status` char(1) DEFAULT '1' COMMENT '状态(0线索 1客户 2公海)',
-  `owner` varchar(64) DEFAULT NULL COMMENT '负责人',
-  `del_flag` char(1) DEFAULT '0' COMMENT '删除标志(0代表存在 2代表删除)',
-  `version` int(11) DEFAULT '0' COMMENT '版本',
-  `create_by` varchar(64) DEFAULT '' COMMENT '创建者',
-  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
-  `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  `remark` varchar(500) DEFAULT NULL COMMENT '备注',
-  `last_update_record` varchar(255) DEFAULT '' COMMENT '最后跟进记录',
-  `last_followup_time` datetime DEFAULT NULL COMMENT '最后跟进时间',
-  `next_followup_time` datetime DEFAULT NULL COMMENT '下次跟进时间',
-  `pre_owner` varchar(64) DEFAULT '' COMMENT '前负责人',
-  `to_pool_time` datetime DEFAULT NULL COMMENT '转公海时间',
-  `to_customer_time` datetime DEFAULT NULL COMMENT '转客户时间',
-  `pool_type` varchar(64) DEFAULT '' COMMENT '公海类型',
-  PRIMARY KEY (`id`) USING BTREE,
-  KEY `idx_name` (`name`) USING BTREE,
-  KEY `idx_phone` (`phone`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COMMENT='客户表';
+                                `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '客户ID',
+                                `code` varchar(32) DEFAULT '' COMMENT '客户编号',
+                                `name` varchar(64) DEFAULT '' COMMENT '客户名称',
+                                `linkman` varchar(64) DEFAULT '' COMMENT '联系人',
+                                `phone` varchar(64) DEFAULT '' COMMENT '联系电话',
+                                `region` varchar(64) DEFAULT '' COMMENT '地区',
+                                `customer_industry` varchar(64) DEFAULT '' COMMENT '客户行业',
+                                `customer_rank` varchar(64) DEFAULT '' COMMENT '客户级别',
+                                `customer_status` varchar(64) DEFAULT '' COMMENT '客户状态',
+                                `clues_name` varchar(64) DEFAULT '' COMMENT '线索名称',
+                                `clues_source` varchar(64) DEFAULT '' COMMENT '线索来源',
+                                `clues_status` varchar(64) DEFAULT '' COMMENT '线索状态',
+                                `deal_status` char(1) DEFAULT '0' COMMENT '是否成交(0未成交 1成交)',
+                                `status` char(1) DEFAULT '1' COMMENT '状态(0线索 1客户 2公海)',
+                                `owner` varchar(64) DEFAULT NULL COMMENT '负责人',
+                                `del_flag` char(1) DEFAULT '0' COMMENT '删除标志(0代表存在 2代表删除)',
+                                `version` int(11) DEFAULT '0' COMMENT '版本',
+                                `create_by` varchar(64) DEFAULT '' COMMENT '创建者',
+                                `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+                                `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
+                                `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+                                `remark` varchar(500) DEFAULT NULL COMMENT '备注',
+                                `last_update_record` varchar(255) DEFAULT '' COMMENT '最后跟进记录',
+                                `last_followup_time` datetime DEFAULT NULL COMMENT '最后跟进时间',
+                                `next_followup_time` datetime DEFAULT NULL COMMENT '下次跟进时间',
+                                `pre_owner` varchar(64) DEFAULT '' COMMENT '前负责人',
+                                `to_pool_time` datetime DEFAULT NULL COMMENT '转公海时间',
+                                `to_customer_time` datetime DEFAULT NULL COMMENT '转客户时间',
+                                `pool_type` varchar(64) DEFAULT '' COMMENT '公海类型',
+                                PRIMARY KEY (`id`) USING BTREE,
+                                KEY `idx_name` (`name`) USING BTREE,
+                                KEY `idx_phone` (`phone`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COMMENT='客户表';
 
 -- ----------------------------
 -- Records of crm_customer
 -- ----------------------------
 BEGIN;
-INSERT INTO `crm_customer` VALUES (2, NULL, '新线索客户', '刘俊迪', '13829988152', '北京市', NULL, 'C', '签单客户', '新线索', '百度', '有效', '0', '2', 'TenantUser01', '0', 0, '', '2022-01-13 16:21:48', '', '2022-01-14 15:01:05', NULL, NULL, NULL, NULL, 'admin', NULL, '2022-01-14 15:01:05', 'normal');
-INSERT INTO `crm_customer` VALUES (3, '', '线索2转客户', '李四', '13829988323', '', '', '', '', '线索2', '头条', '有效', '0', '2', 'TenantUser01', '0', 0, 'admin', '2022-01-13 19:49:46', '', '2022-01-14 17:04:53', NULL, '', NULL, NULL, 'admin', NULL, '2022-01-14 17:04:53', 'normal');
-INSERT INTO `crm_customer` VALUES (4, '', 'att', 'a1', '15622222222', '北京市', '', '', '', 'a', '抖音', '有效', '0', '1', 'admin', '0', 0, 'admin', '2022-01-15 14:16:54', '', '2022-01-15 19:34:35', 'am', '', NULL, NULL, '', NULL, '2022-01-15 14:23:11', '');
-INSERT INTO `crm_customer` VALUES (12, '', '', '2342', '4234', '', '', '', '', '去42', '', '', '0', '0', 'admin', '0', 0, 'admin', '2022-01-15 23:38:45', '', NULL, NULL, '', NULL, NULL, '', NULL, NULL, '');
-INSERT INTO `crm_customer` VALUES (13, '', '', '2342', '4234', '', '', '', '', '去42', '', '', '0', '0', 'admin', '0', 0, 'admin', '2022-01-15 23:39:19', '', NULL, NULL, '', NULL, NULL, '', NULL, NULL, '');
-INSERT INTO `crm_customer` VALUES (14, '', '', '1234', '42343', '', '', '', '', '4213', '', '', '0', '0', 'admin', '0', 0, 'admin', '2022-01-15 23:40:47', '', NULL, NULL, '', NULL, NULL, '', NULL, NULL, '');
-INSERT INTO `crm_customer` VALUES (15, '', '', '532', '234', '', '', '', '', '543', '', '', '0', '0', 'admin', '0', 0, 'admin', '2022-01-15 23:52:27', '', NULL, NULL, '', NULL, NULL, '', NULL, NULL, '');
-INSERT INTO `crm_customer` VALUES (16, '', '', '324', '52345', '', '', '', '', '5135', '', '', '0', '0', 'admin', '0', 0, 'admin', '2022-01-15 23:54:34', '', NULL, NULL, '', NULL, NULL, '', NULL, NULL, '');
-INSERT INTO `crm_customer` VALUES (17, '', '', '324', '52345', '', '', '', '', '5135', '', '', '0', '0', 'admin', '0', 0, 'admin', '2022-01-15 23:54:47', '', NULL, NULL, '', NULL, NULL, '', NULL, NULL, '');
-INSERT INTO `crm_customer` VALUES (18, '', '', 'qwreqwer', '人42', '', '', '', '', 'rqwer', '', '', '0', '0', 'admin', '0', 0, 'admin', '2022-01-16 00:14:25', '', NULL, NULL, '', NULL, NULL, '', NULL, NULL, '');
+INSERT INTO `crm_customer` VALUES (1, '', '线索转客户1', '张三', '13800138000', '', '', 'A', '意向客户', '新线索1', '', '', '0', '2', 'admin', '0', 0, 'admin', '2022-01-19 17:10:47', '', '2022-01-19 17:11:41', NULL, '', '2022-01-19 17:11:41', NULL, '', NULL, '2022-01-19 17:11:41', 'normal');
+INSERT INTO `crm_customer` VALUES (2, '', '', '李四', '13800138001', '', '', '', '', '新线索2', '', '', '0', '0', 'admin', '0', 0, 'admin', '2022-01-19 17:11:04', '', NULL, NULL, '', NULL, NULL, '', NULL, NULL, '');
+INSERT INTO `crm_customer` VALUES (3, '', '', '王五', '13800138002', '', '', '', '', '新线索3', '', '', '0', '0', 'admin', '0', 0, 'admin', '2022-01-19 17:11:21', '', NULL, NULL, '', NULL, NULL, '', NULL, NULL, '');
+COMMIT;
+
+-- ----------------------------
+-- Table structure for crm_order
+-- ----------------------------
+DROP TABLE IF EXISTS `crm_order`;
+CREATE TABLE `crm_order` (
+                             `id` bigint(20) NOT NULL AUTO_INCREMENT,
+                             `order_no` varchar(32) NOT NULL COMMENT '订单编号',
+                             `customer_id` bigint(20) NOT NULL COMMENT '客户ID',
+                             `amount` decimal(19,2) DEFAULT '0.00' COMMENT '订单金额',
+                             `owner` varchar(64) DEFAULT NULL COMMENT '负责人',
+                             `create_by` varchar(64) DEFAULT '' COMMENT '创建者',
+                             `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+                             `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
+                             `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+                             `remark` varchar(500) DEFAULT NULL COMMENT '备注',
+                             `status` char(1) DEFAULT '1' COMMENT '状态(0待审核 1审核通过 2审核不通过)',
+                             PRIMARY KEY (`id`),
+                             UNIQUE KEY `idx_order_no` (`order_no`) USING BTREE,
+                             KEY `idx_customer_id` (`customer_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='订单表';
+
+-- ----------------------------
+-- Records of crm_order
+-- ----------------------------
+BEGIN;
 COMMIT;
 
 -- ----------------------------
@@ -62,34 +103,36 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `gen_table`;
 CREATE TABLE `gen_table` (
-  `table_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '编号',
-  `table_name` varchar(200) DEFAULT '' COMMENT '表名称',
-  `table_comment` varchar(500) DEFAULT '' COMMENT '表描述',
-  `sub_table_name` varchar(64) DEFAULT NULL COMMENT '关联子表的表名',
-  `sub_table_fk_name` varchar(64) DEFAULT NULL COMMENT '子表关联的外键名',
-  `class_name` varchar(100) DEFAULT '' COMMENT '实体类名称',
-  `tpl_category` varchar(200) DEFAULT 'crud' COMMENT '使用的模板（crud单表操作 tree树表操作）',
-  `package_name` varchar(100) DEFAULT NULL COMMENT '生成包路径',
-  `module_name` varchar(30) DEFAULT NULL COMMENT '生成模块名',
-  `business_name` varchar(30) DEFAULT NULL COMMENT '生成业务名',
-  `function_name` varchar(50) DEFAULT NULL COMMENT '生成功能名',
-  `function_author` varchar(50) DEFAULT NULL COMMENT '生成功能作者',
-  `gen_type` char(1) DEFAULT '0' COMMENT '生成代码方式（0zip压缩包 1自定义路径）',
-  `gen_path` varchar(200) DEFAULT '/' COMMENT '生成路径（不填默认项目路径）',
-  `options` varchar(1000) DEFAULT NULL COMMENT '其它生成选项',
-  `create_by` varchar(64) DEFAULT '' COMMENT '创建者',
-  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
-  `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  `remark` varchar(500) DEFAULT NULL COMMENT '备注',
-  PRIMARY KEY (`table_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COMMENT='代码生成业务表';
+                             `table_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '编号',
+                             `table_name` varchar(200) DEFAULT '' COMMENT '表名称',
+                             `table_comment` varchar(500) DEFAULT '' COMMENT '表描述',
+                             `sub_table_name` varchar(64) DEFAULT NULL COMMENT '关联子表的表名',
+                             `sub_table_fk_name` varchar(64) DEFAULT NULL COMMENT '子表关联的外键名',
+                             `class_name` varchar(100) DEFAULT '' COMMENT '实体类名称',
+                             `tpl_category` varchar(200) DEFAULT 'crud' COMMENT '使用的模板（crud单表操作 tree树表操作）',
+                             `package_name` varchar(100) DEFAULT NULL COMMENT '生成包路径',
+                             `module_name` varchar(30) DEFAULT NULL COMMENT '生成模块名',
+                             `business_name` varchar(30) DEFAULT NULL COMMENT '生成业务名',
+                             `function_name` varchar(50) DEFAULT NULL COMMENT '生成功能名',
+                             `function_author` varchar(50) DEFAULT NULL COMMENT '生成功能作者',
+                             `gen_type` char(1) DEFAULT '0' COMMENT '生成代码方式（0zip压缩包 1自定义路径）',
+                             `gen_path` varchar(200) DEFAULT '/' COMMENT '生成路径（不填默认项目路径）',
+                             `options` varchar(1000) DEFAULT NULL COMMENT '其它生成选项',
+                             `create_by` varchar(64) DEFAULT '' COMMENT '创建者',
+                             `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+                             `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
+                             `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+                             `remark` varchar(500) DEFAULT NULL COMMENT '备注',
+                             PRIMARY KEY (`table_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COMMENT='代码生成业务表';
 
 -- ----------------------------
 -- Records of gen_table
 -- ----------------------------
 BEGIN;
-INSERT INTO `gen_table` VALUES (1, 'crm_customer', '客户表', NULL, NULL, 'CrmCustomer', 'crud', 'com.ruoyi.crm', 'crm', 'customer', '客户', 'ruoyi', '0', '/', '{}', 'admin', '2022-01-12 18:02:20', '', '2022-01-14 10:07:26', NULL);
+INSERT INTO `gen_table` VALUES (1, 'crm_customer', '客户表', NULL, NULL, 'CrmCustomer', 'crud', 'com.ruoyi.crm', 'crm', 'customer', '客户', 'ruoyi', '0', '/', '{}', 'admin', '2022-01-12 18:02:20', '', '2022-01-19 15:18:30', NULL);
+INSERT INTO `gen_table` VALUES (2, 'crm_comment', '客户跟进记录表', NULL, NULL, 'CrmComment', 'crud', 'com.ruoyi.crm', 'crm', 'comment', '跟进记录', 'ruoyi', '0', '/', '{\"parentMenuId\":\"2008\"}', 'admin', '2022-01-18 14:56:58', '', '2022-01-18 15:06:30', NULL);
+INSERT INTO `gen_table` VALUES (3, 'crm_order', '订单表', NULL, NULL, 'CrmOrder', 'crud', 'com.ruoyi.crm', 'crm', 'order', '我的订单', 'ruoyi', '0', '/', '{\"parentMenuId\":\"2008\"}', 'admin', '2022-01-18 18:10:56', '', '2022-01-19 10:54:01', NULL);
 COMMIT;
 
 -- ----------------------------
@@ -97,64 +140,82 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `gen_table_column`;
 CREATE TABLE `gen_table_column` (
-  `column_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '编号',
-  `table_id` varchar(64) DEFAULT NULL COMMENT '归属表编号',
-  `column_name` varchar(200) DEFAULT NULL COMMENT '列名称',
-  `column_comment` varchar(500) DEFAULT NULL COMMENT '列描述',
-  `column_type` varchar(100) DEFAULT NULL COMMENT '列类型',
-  `java_type` varchar(500) DEFAULT NULL COMMENT 'JAVA类型',
-  `java_field` varchar(200) DEFAULT NULL COMMENT 'JAVA字段名',
-  `is_pk` char(1) DEFAULT NULL COMMENT '是否主键（1是）',
-  `is_increment` char(1) DEFAULT NULL COMMENT '是否自增（1是）',
-  `is_required` char(1) DEFAULT NULL COMMENT '是否必填（1是）',
-  `is_insert` char(1) DEFAULT NULL COMMENT '是否为插入字段（1是）',
-  `is_edit` char(1) DEFAULT NULL COMMENT '是否编辑字段（1是）',
-  `is_list` char(1) DEFAULT NULL COMMENT '是否列表字段（1是）',
-  `is_query` char(1) DEFAULT NULL COMMENT '是否查询字段（1是）',
-  `query_type` varchar(200) DEFAULT 'EQ' COMMENT '查询方式（等于、不等于、大于、小于、范围）',
-  `html_type` varchar(200) DEFAULT NULL COMMENT '显示类型（文本框、文本域、下拉框、复选框、单选框、日期控件）',
-  `dict_type` varchar(200) DEFAULT '' COMMENT '字典类型',
-  `sort` int(11) DEFAULT NULL COMMENT '排序',
-  `create_by` varchar(64) DEFAULT '' COMMENT '创建者',
-  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
-  `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  PRIMARY KEY (`column_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COMMENT='代码生成业务表字段';
+                                    `column_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '编号',
+                                    `table_id` varchar(64) DEFAULT NULL COMMENT '归属表编号',
+                                    `column_name` varchar(200) DEFAULT NULL COMMENT '列名称',
+                                    `column_comment` varchar(500) DEFAULT NULL COMMENT '列描述',
+                                    `column_type` varchar(100) DEFAULT NULL COMMENT '列类型',
+                                    `java_type` varchar(500) DEFAULT NULL COMMENT 'JAVA类型',
+                                    `java_field` varchar(200) DEFAULT NULL COMMENT 'JAVA字段名',
+                                    `is_pk` char(1) DEFAULT NULL COMMENT '是否主键（1是）',
+                                    `is_increment` char(1) DEFAULT NULL COMMENT '是否自增（1是）',
+                                    `is_required` char(1) DEFAULT NULL COMMENT '是否必填（1是）',
+                                    `is_insert` char(1) DEFAULT NULL COMMENT '是否为插入字段（1是）',
+                                    `is_edit` char(1) DEFAULT NULL COMMENT '是否编辑字段（1是）',
+                                    `is_list` char(1) DEFAULT NULL COMMENT '是否列表字段（1是）',
+                                    `is_query` char(1) DEFAULT NULL COMMENT '是否查询字段（1是）',
+                                    `query_type` varchar(200) DEFAULT 'EQ' COMMENT '查询方式（等于、不等于、大于、小于、范围）',
+                                    `html_type` varchar(200) DEFAULT NULL COMMENT '显示类型（文本框、文本域、下拉框、复选框、单选框、日期控件）',
+                                    `dict_type` varchar(200) DEFAULT '' COMMENT '字典类型',
+                                    `sort` int(11) DEFAULT NULL COMMENT '排序',
+                                    `create_by` varchar(64) DEFAULT '' COMMENT '创建者',
+                                    `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+                                    `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
+                                    `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+                                    PRIMARY KEY (`column_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4 COMMENT='代码生成业务表字段';
 
 -- ----------------------------
 -- Records of gen_table_column
 -- ----------------------------
 BEGIN;
-INSERT INTO `gen_table_column` VALUES (1, '1', 'id', '客户ID', 'bigint(20)', 'Long', 'id', '1', '1', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2022-01-12 18:02:20', '', '2022-01-14 10:07:26');
-INSERT INTO `gen_table_column` VALUES (2, '1', 'code', '客户编号', 'varchar(32)', 'String', 'code', '0', '0', NULL, '1', '1', '1', '1', 'LIKE', 'input', '', 2, 'admin', '2022-01-12 18:02:20', '', '2022-01-14 10:07:26');
-INSERT INTO `gen_table_column` VALUES (3, '1', 'name', '客户名称', 'varchar(64)', 'String', 'name', '0', '0', '1', '1', '1', '1', '1', 'LIKE', 'input', '', 3, 'admin', '2022-01-12 18:02:20', '', '2022-01-14 10:07:26');
-INSERT INTO `gen_table_column` VALUES (4, '1', 'linkman', '联系人', 'varchar(64)', 'String', 'linkman', '0', '0', '1', '1', '1', '1', '1', 'LIKE', 'input', '', 4, 'admin', '2022-01-12 18:02:20', '', '2022-01-14 10:07:26');
-INSERT INTO `gen_table_column` VALUES (5, '1', 'phone', '联系电话', 'varchar(64)', 'String', 'phone', '0', '0', '1', '1', '1', '1', '1', 'LIKE', 'input', '', 5, 'admin', '2022-01-12 18:02:20', '', '2022-01-14 10:07:26');
-INSERT INTO `gen_table_column` VALUES (6, '1', 'region', '地区', 'varchar(64)', 'String', 'region', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'select', 'region_list', 6, 'admin', '2022-01-12 18:02:20', '', '2022-01-14 10:07:26');
-INSERT INTO `gen_table_column` VALUES (7, '1', 'customer_industry', '客户行业', 'varchar(64)', 'String', 'customerIndustry', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'select', 'customer_industry', 7, 'admin', '2022-01-12 18:02:20', '', '2022-01-14 10:07:26');
-INSERT INTO `gen_table_column` VALUES (8, '1', 'customer_rank', '客户级别', 'varchar(64)', 'String', 'customerRank', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'select', 'customer_rank', 8, 'admin', '2022-01-12 18:02:20', '', '2022-01-14 10:07:26');
-INSERT INTO `gen_table_column` VALUES (9, '1', 'customer_status', '客户状态', 'varchar(64)', 'String', 'customerStatus', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'select', 'customer_status', 9, 'admin', '2022-01-12 18:02:20', '', '2022-01-14 10:07:26');
-INSERT INTO `gen_table_column` VALUES (10, '1', 'status', '状态(0线索 1客户 2公海)', 'char(1)', 'String', 'status', '0', '0', NULL, NULL, NULL, NULL, NULL, 'EQ', 'radio', '', 10, 'admin', '2022-01-12 18:02:20', '', '2022-01-14 10:07:26');
-INSERT INTO `gen_table_column` VALUES (11, '1', 'clues_name', '线索名称', 'varchar(64)', 'String', 'cluesName', '0', '0', '1', '1', '1', '1', '1', 'LIKE', 'input', '', 11, 'admin', '2022-01-12 18:02:20', '', '2022-01-14 10:07:26');
-INSERT INTO `gen_table_column` VALUES (12, '1', 'clues_source', '线索来源', 'varchar(64)', 'String', 'cluesSource', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'select', 'clues_source', 12, 'admin', '2022-01-12 18:02:20', '', '2022-01-14 10:07:26');
-INSERT INTO `gen_table_column` VALUES (13, '1', 'clues_status', '线索状态', 'varchar(64)', 'String', 'cluesStatus', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'select', 'clues_status', 13, 'admin', '2022-01-12 18:02:20', '', '2022-01-14 10:07:26');
-INSERT INTO `gen_table_column` VALUES (14, '1', 'deal_status', '是否成交(0未成交 1成交)', 'char(1)', 'String', 'dealStatus', '0', '0', NULL, NULL, NULL, NULL, NULL, 'EQ', 'radio', '', 14, 'admin', '2022-01-12 18:02:20', '', '2022-01-14 10:07:26');
-INSERT INTO `gen_table_column` VALUES (16, '1', 'del_flag', '删除标志(0代表存在 2代表删除)', 'char(1)', 'String', 'delFlag', '0', '0', NULL, NULL, NULL, NULL, NULL, 'EQ', 'input', '', 16, 'admin', '2022-01-12 18:02:20', '', '2022-01-14 10:07:26');
-INSERT INTO `gen_table_column` VALUES (17, '1', 'version', '版本', 'int(11)', 'Long', 'version', '0', '0', NULL, NULL, NULL, NULL, NULL, 'EQ', 'input', '', 17, 'admin', '2022-01-12 18:02:20', '', '2022-01-14 10:07:26');
-INSERT INTO `gen_table_column` VALUES (18, '1', 'create_by', '创建者', 'varchar(64)', 'String', 'createBy', '0', '0', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 18, 'admin', '2022-01-12 18:02:20', '', '2022-01-14 10:07:26');
-INSERT INTO `gen_table_column` VALUES (19, '1', 'create_time', '创建时间', 'datetime', 'Date', 'createTime', '0', '0', NULL, '1', NULL, NULL, '1', 'EQ', 'datetime', '', 19, 'admin', '2022-01-12 18:02:20', '', '2022-01-14 10:07:26');
-INSERT INTO `gen_table_column` VALUES (20, '1', 'update_by', '更新者', 'varchar(64)', 'String', 'updateBy', '0', '0', NULL, '1', '1', NULL, NULL, 'EQ', 'input', '', 20, 'admin', '2022-01-12 18:02:20', '', '2022-01-14 10:07:26');
-INSERT INTO `gen_table_column` VALUES (21, '1', 'update_time', '更新时间', 'datetime', 'Date', 'updateTime', '0', '0', NULL, '1', '1', NULL, NULL, 'EQ', 'datetime', '', 21, 'admin', '2022-01-12 18:02:20', '', '2022-01-14 10:07:26');
-INSERT INTO `gen_table_column` VALUES (22, '1', 'remark', '备注', 'varchar(500)', 'String', 'remark', '0', '0', NULL, '1', '1', NULL, NULL, 'EQ', 'textarea', '', 22, 'admin', '2022-01-12 18:02:20', '', '2022-01-14 10:07:26');
-INSERT INTO `gen_table_column` VALUES (23, '1', 'last_update_record', '最后跟进记录', 'varchar(255)', 'String', 'lastUpdateRecord', '0', '0', NULL, NULL, NULL, '1', NULL, 'EQ', 'input', '', 23, '', '2022-01-13 10:40:24', '', '2022-01-14 10:07:26');
-INSERT INTO `gen_table_column` VALUES (24, '1', 'last_followup_time', '最后跟进时间', 'datetime', 'Date', 'lastFollowupTime', '0', '0', NULL, NULL, NULL, '1', NULL, 'EQ', 'datetime', '', 24, '', '2022-01-13 10:40:24', '', '2022-01-14 10:07:26');
-INSERT INTO `gen_table_column` VALUES (25, '1', 'next_followup_time', '下次跟进时间', 'datetime', 'Date', 'nextFollowupTime', '0', '0', NULL, NULL, NULL, '1', NULL, 'EQ', 'datetime', '', 25, '', '2022-01-13 10:40:24', '', '2022-01-14 10:07:26');
-INSERT INTO `gen_table_column` VALUES (27, '1', 'to_liberum_time', '转公海时间', 'datetime', 'Date', 'toLiberumTime', '0', '0', NULL, NULL, NULL, '1', NULL, 'EQ', 'datetime', '', 27, '', '2022-01-13 10:40:24', '', '2022-01-14 10:07:26');
-INSERT INTO `gen_table_column` VALUES (28, '1', 'to_customer_time', '转客户时间', 'datetime', 'Date', 'toCustomerTime', '0', '0', NULL, NULL, NULL, '1', NULL, 'EQ', 'datetime', '', 28, '', '2022-01-13 10:40:24', '', '2022-01-14 10:07:26');
-INSERT INTO `gen_table_column` VALUES (29, '1', 'liberum_type', '公海类型', 'varchar(64)', 'String', 'liberumType', '0', '0', NULL, NULL, NULL, NULL, NULL, 'EQ', 'select', '', 29, '', '2022-01-13 10:40:24', '', '2022-01-14 10:07:26');
-INSERT INTO `gen_table_column` VALUES (30, '1', 'owner', '负责人', 'varchar(64)', 'String', 'owner', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 15, '', '2022-01-14 10:07:17', '', '2022-01-14 10:07:26');
-INSERT INTO `gen_table_column` VALUES (31, '1', 'pre_owner', '前负责人', 'varchar(64)', 'String', 'preOwner', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 26, '', '2022-01-14 10:07:17', '', '2022-01-14 10:07:26');
+INSERT INTO `gen_table_column` VALUES (1, '1', 'id', '客户ID', 'bigint(20)', 'Long', 'id', '1', '1', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2022-01-12 18:02:20', '', '2022-01-19 15:18:30');
+INSERT INTO `gen_table_column` VALUES (2, '1', 'code', '客户编号', 'varchar(32)', 'String', 'code', '0', '0', NULL, '1', '1', '1', '1', 'LIKE', 'input', '', 2, 'admin', '2022-01-12 18:02:20', '', '2022-01-19 15:18:30');
+INSERT INTO `gen_table_column` VALUES (3, '1', 'name', '客户名称', 'varchar(64)', 'String', 'name', '0', '0', '1', '1', '1', '1', '1', 'LIKE', 'input', '', 3, 'admin', '2022-01-12 18:02:20', '', '2022-01-19 15:18:30');
+INSERT INTO `gen_table_column` VALUES (4, '1', 'linkman', '联系人', 'varchar(64)', 'String', 'linkman', '0', '0', '1', '1', '1', '1', '1', 'LIKE', 'input', '', 4, 'admin', '2022-01-12 18:02:20', '', '2022-01-19 15:18:30');
+INSERT INTO `gen_table_column` VALUES (5, '1', 'phone', '联系电话', 'varchar(64)', 'String', 'phone', '0', '0', '1', '1', '1', '1', '1', 'LIKE', 'input', '', 5, 'admin', '2022-01-12 18:02:20', '', '2022-01-19 15:18:30');
+INSERT INTO `gen_table_column` VALUES (6, '1', 'region', '地区', 'varchar(64)', 'String', 'region', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'select', 'region_list', 6, 'admin', '2022-01-12 18:02:20', '', '2022-01-19 15:18:30');
+INSERT INTO `gen_table_column` VALUES (7, '1', 'customer_industry', '客户行业', 'varchar(64)', 'String', 'customerIndustry', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'select', 'customer_industry', 7, 'admin', '2022-01-12 18:02:20', '', '2022-01-19 15:18:30');
+INSERT INTO `gen_table_column` VALUES (8, '1', 'customer_rank', '客户级别', 'varchar(64)', 'String', 'customerRank', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'select', 'customer_rank', 8, 'admin', '2022-01-12 18:02:20', '', '2022-01-19 15:18:30');
+INSERT INTO `gen_table_column` VALUES (9, '1', 'customer_status', '客户状态', 'varchar(64)', 'String', 'customerStatus', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'select', 'customer_status', 9, 'admin', '2022-01-12 18:02:20', '', '2022-01-19 15:18:30');
+INSERT INTO `gen_table_column` VALUES (10, '1', 'status', '状态(0线索 1客户 2公海)', 'char(1)', 'String', 'status', '0', '0', NULL, NULL, NULL, NULL, NULL, 'EQ', 'radio', '', 10, 'admin', '2022-01-12 18:02:20', '', '2022-01-19 15:18:30');
+INSERT INTO `gen_table_column` VALUES (11, '1', 'clues_name', '线索名称', 'varchar(64)', 'String', 'cluesName', '0', '0', '1', '1', '1', '1', '1', 'LIKE', 'input', '', 11, 'admin', '2022-01-12 18:02:20', '', '2022-01-19 15:18:30');
+INSERT INTO `gen_table_column` VALUES (12, '1', 'clues_source', '线索来源', 'varchar(64)', 'String', 'cluesSource', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'select', 'clues_source', 12, 'admin', '2022-01-12 18:02:20', '', '2022-01-19 15:18:30');
+INSERT INTO `gen_table_column` VALUES (13, '1', 'clues_status', '线索状态', 'varchar(64)', 'String', 'cluesStatus', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'select', 'clues_status', 13, 'admin', '2022-01-12 18:02:20', '', '2022-01-19 15:18:30');
+INSERT INTO `gen_table_column` VALUES (14, '1', 'deal_status', '是否成交(0未成交 1成交)', 'char(1)', 'String', 'dealStatus', '0', '0', NULL, NULL, NULL, NULL, NULL, 'EQ', 'radio', '', 14, 'admin', '2022-01-12 18:02:20', '', '2022-01-19 15:18:30');
+INSERT INTO `gen_table_column` VALUES (16, '1', 'del_flag', '删除标志(0代表存在 2代表删除)', 'char(1)', 'String', 'delFlag', '0', '0', NULL, NULL, NULL, NULL, NULL, 'EQ', 'input', '', 16, 'admin', '2022-01-12 18:02:20', '', '2022-01-19 15:18:30');
+INSERT INTO `gen_table_column` VALUES (17, '1', 'version', '版本', 'int(11)', 'Long', 'version', '0', '0', NULL, NULL, NULL, NULL, NULL, 'EQ', 'input', '', 17, 'admin', '2022-01-12 18:02:20', '', '2022-01-19 15:18:30');
+INSERT INTO `gen_table_column` VALUES (18, '1', 'create_by', '创建者', 'varchar(64)', 'String', 'createBy', '0', '0', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 18, 'admin', '2022-01-12 18:02:20', '', '2022-01-19 15:18:30');
+INSERT INTO `gen_table_column` VALUES (19, '1', 'create_time', '创建时间', 'datetime', 'Date', 'createTime', '0', '0', NULL, '1', NULL, NULL, '1', 'EQ', 'datetime', '', 19, 'admin', '2022-01-12 18:02:20', '', '2022-01-19 15:18:30');
+INSERT INTO `gen_table_column` VALUES (20, '1', 'update_by', '更新者', 'varchar(64)', 'String', 'updateBy', '0', '0', NULL, '1', '1', NULL, NULL, 'EQ', 'input', '', 20, 'admin', '2022-01-12 18:02:20', '', '2022-01-19 15:18:30');
+INSERT INTO `gen_table_column` VALUES (21, '1', 'update_time', '更新时间', 'datetime', 'Date', 'updateTime', '0', '0', NULL, '1', '1', NULL, NULL, 'EQ', 'datetime', '', 21, 'admin', '2022-01-12 18:02:20', '', '2022-01-19 15:18:30');
+INSERT INTO `gen_table_column` VALUES (22, '1', 'remark', '备注', 'varchar(500)', 'String', 'remark', '0', '0', NULL, '1', '1', NULL, NULL, 'EQ', 'textarea', '', 22, 'admin', '2022-01-12 18:02:20', '', '2022-01-19 15:18:30');
+INSERT INTO `gen_table_column` VALUES (23, '1', 'last_update_record', '最后跟进记录', 'varchar(255)', 'String', 'lastUpdateRecord', '0', '0', NULL, NULL, NULL, '1', NULL, 'EQ', 'input', '', 23, '', '2022-01-13 10:40:24', '', '2022-01-19 15:18:30');
+INSERT INTO `gen_table_column` VALUES (24, '1', 'last_followup_time', '最后跟进时间', 'datetime', 'Date', 'lastFollowupTime', '0', '0', NULL, NULL, NULL, '1', '1', 'BETWEEN', 'datetime', '', 24, '', '2022-01-13 10:40:24', '', '2022-01-19 15:18:30');
+INSERT INTO `gen_table_column` VALUES (25, '1', 'next_followup_time', '下次跟进时间', 'datetime', 'Date', 'nextFollowupTime', '0', '0', NULL, NULL, NULL, '1', NULL, 'EQ', 'datetime', '', 25, '', '2022-01-13 10:40:24', '', '2022-01-19 15:18:30');
+INSERT INTO `gen_table_column` VALUES (27, '1', 'to_liberum_time', '转公海时间', 'datetime', 'Date', 'toLiberumTime', '0', '0', NULL, NULL, NULL, '1', NULL, 'EQ', 'datetime', '', 27, '', '2022-01-13 10:40:24', '', '2022-01-19 15:18:30');
+INSERT INTO `gen_table_column` VALUES (28, '1', 'to_customer_time', '转客户时间', 'datetime', 'Date', 'toCustomerTime', '0', '0', NULL, NULL, NULL, '1', NULL, 'EQ', 'datetime', '', 28, '', '2022-01-13 10:40:24', '', '2022-01-19 15:18:30');
+INSERT INTO `gen_table_column` VALUES (29, '1', 'liberum_type', '公海类型', 'varchar(64)', 'String', 'liberumType', '0', '0', NULL, NULL, NULL, NULL, NULL, 'EQ', 'select', '', 29, '', '2022-01-13 10:40:24', '', '2022-01-19 15:18:30');
+INSERT INTO `gen_table_column` VALUES (30, '1', 'owner', '负责人', 'varchar(64)', 'String', 'owner', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 15, '', '2022-01-14 10:07:17', '', '2022-01-19 15:18:30');
+INSERT INTO `gen_table_column` VALUES (31, '1', 'pre_owner', '前负责人', 'varchar(64)', 'String', 'preOwner', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 26, '', '2022-01-14 10:07:17', '', '2022-01-19 15:18:30');
+INSERT INTO `gen_table_column` VALUES (32, '2', 'id', NULL, 'bigint(20)', 'Long', 'id', '1', '0', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2022-01-18 14:56:58', '', '2022-01-18 15:06:30');
+INSERT INTO `gen_table_column` VALUES (33, '2', 'customer_id', '客户ID', 'bigint(20)', 'Long', 'customerId', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2022-01-18 14:56:58', '', '2022-01-18 15:06:30');
+INSERT INTO `gen_table_column` VALUES (34, '2', 'content', '回复内容', 'varchar(512)', 'String', 'content', '0', '0', '1', '1', '1', '1', NULL, 'EQ', 'editor', '', 3, 'admin', '2022-01-18 14:56:58', '', '2022-01-18 15:06:30');
+INSERT INTO `gen_table_column` VALUES (35, '2', 'create_by', '创建者', 'varchar(64)', 'String', 'createBy', '0', '0', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 4, 'admin', '2022-01-18 14:56:58', '', '2022-01-18 15:06:30');
+INSERT INTO `gen_table_column` VALUES (36, '2', 'create_time', '创建时间', 'datetime', 'Date', 'createTime', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'datetime', '', 5, 'admin', '2022-01-18 14:56:58', '', '2022-01-18 15:06:30');
+INSERT INTO `gen_table_column` VALUES (37, '2', 'update_by', '更新者', 'varchar(64)', 'String', 'updateBy', '0', '0', NULL, '1', '1', NULL, NULL, 'EQ', 'input', '', 6, 'admin', '2022-01-18 14:56:58', '', '2022-01-18 15:06:30');
+INSERT INTO `gen_table_column` VALUES (38, '2', 'update_time', '更新时间', 'datetime', 'Date', 'updateTime', '0', '0', NULL, '1', '1', NULL, NULL, 'EQ', 'datetime', '', 7, 'admin', '2022-01-18 14:56:58', '', '2022-01-18 15:06:30');
+INSERT INTO `gen_table_column` VALUES (39, '3', 'id', NULL, 'bigint(20)', 'Long', 'id', '1', '0', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2022-01-18 18:10:57', '', '2022-01-19 10:54:02');
+INSERT INTO `gen_table_column` VALUES (40, '3', 'order_no', '订单编号', 'varchar(32)', 'String', 'orderNo', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2022-01-18 18:10:57', '', '2022-01-19 10:54:02');
+INSERT INTO `gen_table_column` VALUES (41, '3', 'customer_id', '客户ID', 'bigint(20)', 'Long', 'customerId', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2022-01-18 18:10:57', '', '2022-01-19 10:54:02');
+INSERT INTO `gen_table_column` VALUES (42, '3', 'amount', '订单金额', 'decimal(19,2)', 'BigDecimal', 'amount', '0', '0', '1', '1', '1', '1', NULL, 'EQ', 'input', '', 4, 'admin', '2022-01-18 18:10:57', '', '2022-01-19 10:54:02');
+INSERT INTO `gen_table_column` VALUES (43, '3', 'owner', '负责人', 'varchar(64)', 'String', 'owner', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 5, 'admin', '2022-01-18 18:10:57', '', '2022-01-19 10:54:02');
+INSERT INTO `gen_table_column` VALUES (44, '3', 'create_by', '创建者', 'varchar(64)', 'String', 'createBy', '0', '0', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 6, 'admin', '2022-01-18 18:10:57', '', '2022-01-19 10:54:02');
+INSERT INTO `gen_table_column` VALUES (45, '3', 'create_time', '创建时间', 'datetime', 'Date', 'createTime', '0', '0', NULL, '1', NULL, NULL, '1', 'BETWEEN', 'datetime', '', 7, 'admin', '2022-01-18 18:10:57', '', '2022-01-19 10:54:02');
+INSERT INTO `gen_table_column` VALUES (46, '3', 'update_by', '更新者', 'varchar(64)', 'String', 'updateBy', '0', '0', NULL, '1', '1', NULL, NULL, 'EQ', 'input', '', 8, 'admin', '2022-01-18 18:10:57', '', '2022-01-19 10:54:02');
+INSERT INTO `gen_table_column` VALUES (47, '3', 'update_time', '更新时间', 'datetime', 'Date', 'updateTime', '0', '0', NULL, '1', '1', NULL, NULL, 'EQ', 'datetime', '', 9, 'admin', '2022-01-18 18:10:57', '', '2022-01-19 10:54:02');
+INSERT INTO `gen_table_column` VALUES (48, '3', 'remark', '备注', 'varchar(500)', 'String', 'remark', '0', '0', NULL, '1', '1', '1', NULL, 'EQ', 'textarea', '', 10, 'admin', '2022-01-18 18:10:57', '', '2022-01-19 10:54:02');
+INSERT INTO `gen_table_column` VALUES (49, '3', 'status', '状态(0待审核 1审核通过 2审核不通过)', 'char(1)', 'String', 'status', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'radio', 'order_review_status', 11, 'admin', '2022-01-18 18:10:57', '', '2022-01-19 10:54:02');
 COMMIT;
 
 -- ----------------------------
@@ -162,18 +223,18 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_config`;
 CREATE TABLE `sys_config` (
-  `config_id` int(5) NOT NULL AUTO_INCREMENT COMMENT '参数主键',
-  `config_name` varchar(100) DEFAULT '' COMMENT '参数名称',
-  `config_key` varchar(100) DEFAULT '' COMMENT '参数键名',
-  `config_value` varchar(500) DEFAULT '' COMMENT '参数键值',
-  `config_type` char(1) DEFAULT 'N' COMMENT '系统内置（Y是 N否）',
-  `create_by` varchar(64) DEFAULT '' COMMENT '创建者',
-  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
-  `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  `remark` varchar(500) DEFAULT NULL COMMENT '备注',
-  PRIMARY KEY (`config_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COMMENT='参数配置表';
+                              `config_id` int(5) NOT NULL AUTO_INCREMENT COMMENT '参数主键',
+                              `config_name` varchar(100) DEFAULT '' COMMENT '参数名称',
+                              `config_key` varchar(100) DEFAULT '' COMMENT '参数键名',
+                              `config_value` varchar(500) DEFAULT '' COMMENT '参数键值',
+                              `config_type` char(1) DEFAULT 'N' COMMENT '系统内置（Y是 N否）',
+                              `create_by` varchar(64) DEFAULT '' COMMENT '创建者',
+                              `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+                              `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
+                              `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+                              `remark` varchar(500) DEFAULT NULL COMMENT '备注',
+                              PRIMARY KEY (`config_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COMMENT='参数配置表';
 
 -- ----------------------------
 -- Records of sys_config
@@ -184,6 +245,7 @@ INSERT INTO `sys_config` VALUES (2, '用户管理-账号初始密码', 'sys.user
 INSERT INTO `sys_config` VALUES (3, '主框架页-侧边栏主题', 'sys.index.sideTheme', 'theme-dark', 'Y', 'admin', '2022-01-11 19:11:40', '', NULL, '深色主题theme-dark，浅色主题theme-light');
 INSERT INTO `sys_config` VALUES (4, '账号自助-验证码开关', 'sys.account.captchaOnOff', 'true', 'Y', 'admin', '2022-01-11 19:11:40', '', NULL, '是否开启验证码功能（true开启，false关闭）');
 INSERT INTO `sys_config` VALUES (5, '账号自助-是否开启用户注册功能', 'sys.account.registerUser', 'false', 'Y', 'admin', '2022-01-11 19:11:40', '', NULL, '是否开启注册用户功能（true开启，false关闭）');
+INSERT INTO `sys_config` VALUES (6, '公海规则', 'crm.pool.days', '10', 'Y', 'admin', '2022-01-18 17:07:48', '', NULL, '超过时间未跟进将客户移入公海，单位：天');
 COMMIT;
 
 -- ----------------------------
@@ -191,21 +253,21 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_dept`;
 CREATE TABLE `sys_dept` (
-  `dept_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '部门id',
-  `parent_id` bigint(20) DEFAULT '0' COMMENT '父部门id',
-  `ancestors` varchar(50) DEFAULT '' COMMENT '祖级列表',
-  `dept_name` varchar(30) DEFAULT '' COMMENT '部门名称',
-  `order_num` int(4) DEFAULT '0' COMMENT '显示顺序',
-  `leader` varchar(20) DEFAULT NULL COMMENT '负责人',
-  `phone` varchar(11) DEFAULT NULL COMMENT '联系电话',
-  `email` varchar(50) DEFAULT NULL COMMENT '邮箱',
-  `status` char(1) DEFAULT '0' COMMENT '部门状态（0正常 1停用）',
-  `del_flag` char(1) DEFAULT '0' COMMENT '删除标志（0代表存在 2代表删除）',
-  `create_by` varchar(64) DEFAULT '' COMMENT '创建者',
-  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
-  `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  PRIMARY KEY (`dept_id`)
+                            `dept_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '部门id',
+                            `parent_id` bigint(20) DEFAULT '0' COMMENT '父部门id',
+                            `ancestors` varchar(50) DEFAULT '' COMMENT '祖级列表',
+                            `dept_name` varchar(30) DEFAULT '' COMMENT '部门名称',
+                            `order_num` int(4) DEFAULT '0' COMMENT '显示顺序',
+                            `leader` varchar(20) DEFAULT NULL COMMENT '负责人',
+                            `phone` varchar(11) DEFAULT NULL COMMENT '联系电话',
+                            `email` varchar(50) DEFAULT NULL COMMENT '邮箱',
+                            `status` char(1) DEFAULT '0' COMMENT '部门状态（0正常 1停用）',
+                            `del_flag` char(1) DEFAULT '0' COMMENT '删除标志（0代表存在 2代表删除）',
+                            `create_by` varchar(64) DEFAULT '' COMMENT '创建者',
+                            `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+                            `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
+                            `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+                            PRIMARY KEY (`dept_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=utf8mb4 COMMENT='部门表';
 
 -- ----------------------------
@@ -229,22 +291,22 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_dict_data`;
 CREATE TABLE `sys_dict_data` (
-  `dict_code` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '字典编码',
-  `dict_sort` int(4) DEFAULT '0' COMMENT '字典排序',
-  `dict_label` varchar(100) DEFAULT '' COMMENT '字典标签',
-  `dict_value` varchar(100) DEFAULT '' COMMENT '字典键值',
-  `dict_type` varchar(100) DEFAULT '' COMMENT '字典类型',
-  `css_class` varchar(100) DEFAULT NULL COMMENT '样式属性（其他样式扩展）',
-  `list_class` varchar(100) DEFAULT NULL COMMENT '表格回显样式',
-  `is_default` char(1) DEFAULT 'N' COMMENT '是否默认（Y是 N否）',
-  `status` char(1) DEFAULT '0' COMMENT '状态（0正常 1停用）',
-  `create_by` varchar(64) DEFAULT '' COMMENT '创建者',
-  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
-  `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  `remark` varchar(500) DEFAULT NULL COMMENT '备注',
-  PRIMARY KEY (`dict_code`)
-) ENGINE=InnoDB AUTO_INCREMENT=127 DEFAULT CHARSET=utf8mb4 COMMENT='字典数据表';
+                                 `dict_code` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '字典编码',
+                                 `dict_sort` int(4) DEFAULT '0' COMMENT '字典排序',
+                                 `dict_label` varchar(100) DEFAULT '' COMMENT '字典标签',
+                                 `dict_value` varchar(100) DEFAULT '' COMMENT '字典键值',
+                                 `dict_type` varchar(100) DEFAULT '' COMMENT '字典类型',
+                                 `css_class` varchar(100) DEFAULT NULL COMMENT '样式属性（其他样式扩展）',
+                                 `list_class` varchar(100) DEFAULT NULL COMMENT '表格回显样式',
+                                 `is_default` char(1) DEFAULT 'N' COMMENT '是否默认（Y是 N否）',
+                                 `status` char(1) DEFAULT '0' COMMENT '状态（0正常 1停用）',
+                                 `create_by` varchar(64) DEFAULT '' COMMENT '创建者',
+                                 `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+                                 `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
+                                 `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+                                 `remark` varchar(500) DEFAULT NULL COMMENT '备注',
+                                 PRIMARY KEY (`dict_code`)
+) ENGINE=InnoDB AUTO_INCREMENT=130 DEFAULT CHARSET=utf8mb4 COMMENT='字典数据表';
 
 -- ----------------------------
 -- Records of sys_dict_data
@@ -305,6 +367,9 @@ INSERT INTO `sys_dict_data` VALUES (123, 0, '普通', 'normal', 'pool_type', NUL
 INSERT INTO `sys_dict_data` VALUES (124, 1, '高级', 'high', 'pool_type', NULL, 'default', 'N', '0', 'admin', '2022-01-13 13:33:24', '', NULL, NULL);
 INSERT INTO `sys_dict_data` VALUES (125, 0, '未成交', '0', 'deal_status', NULL, 'default', 'N', '0', 'admin', '2022-01-15 18:11:42', 'admin', '2022-01-15 18:12:15', NULL);
 INSERT INTO `sys_dict_data` VALUES (126, 1, '已成交', '1', 'deal_status', NULL, 'default', 'N', '0', 'admin', '2022-01-15 18:11:58', 'admin', '2022-01-15 18:12:09', NULL);
+INSERT INTO `sys_dict_data` VALUES (127, 0, '待审核', '0', 'order_review_status', NULL, 'default', 'N', '0', 'admin', '2022-01-19 10:52:06', '', NULL, NULL);
+INSERT INTO `sys_dict_data` VALUES (128, 1, '审核通过', '1', 'order_review_status', NULL, 'default', 'N', '0', 'admin', '2022-01-19 10:52:15', '', NULL, NULL);
+INSERT INTO `sys_dict_data` VALUES (129, 2, '审核不通过', '2', 'order_review_status', NULL, 'default', 'N', '0', 'admin', '2022-01-19 10:52:23', '', NULL, NULL);
 COMMIT;
 
 -- ----------------------------
@@ -312,18 +377,18 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_dict_type`;
 CREATE TABLE `sys_dict_type` (
-  `dict_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '字典主键',
-  `dict_name` varchar(100) DEFAULT '' COMMENT '字典名称',
-  `dict_type` varchar(100) DEFAULT '' COMMENT '字典类型',
-  `status` char(1) DEFAULT '0' COMMENT '状态（0正常 1停用）',
-  `create_by` varchar(64) DEFAULT '' COMMENT '创建者',
-  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
-  `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  `remark` varchar(500) DEFAULT NULL COMMENT '备注',
-  PRIMARY KEY (`dict_id`),
-  UNIQUE KEY `dict_type` (`dict_type`)
-) ENGINE=InnoDB AUTO_INCREMENT=108 DEFAULT CHARSET=utf8mb4 COMMENT='字典类型表';
+                                 `dict_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '字典主键',
+                                 `dict_name` varchar(100) DEFAULT '' COMMENT '字典名称',
+                                 `dict_type` varchar(100) DEFAULT '' COMMENT '字典类型',
+                                 `status` char(1) DEFAULT '0' COMMENT '状态（0正常 1停用）',
+                                 `create_by` varchar(64) DEFAULT '' COMMENT '创建者',
+                                 `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+                                 `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
+                                 `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+                                 `remark` varchar(500) DEFAULT NULL COMMENT '备注',
+                                 PRIMARY KEY (`dict_id`),
+                                 UNIQUE KEY `dict_type` (`dict_type`)
+) ENGINE=InnoDB AUTO_INCREMENT=109 DEFAULT CHARSET=utf8mb4 COMMENT='字典类型表';
 
 -- ----------------------------
 -- Records of sys_dict_type
@@ -347,6 +412,7 @@ INSERT INTO `sys_dict_type` VALUES (104, '客户状态', 'customer_status', '0',
 INSERT INTO `sys_dict_type` VALUES (105, '所在地区', 'region_list', '0', 'admin', '2022-01-12 18:07:47', '', NULL, NULL);
 INSERT INTO `sys_dict_type` VALUES (106, '公海类型', 'pool_type', '0', 'admin', '2022-01-13 13:28:04', '', NULL, NULL);
 INSERT INTO `sys_dict_type` VALUES (107, '成交状态', 'deal_status', '0', 'admin', '2022-01-15 18:10:43', '', NULL, NULL);
+INSERT INTO `sys_dict_type` VALUES (108, '订单审核状态', 'order_review_status', '0', 'admin', '2022-01-19 10:51:35', 'admin', '2022-01-19 10:53:41', NULL);
 COMMIT;
 
 -- ----------------------------
@@ -354,20 +420,20 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_job`;
 CREATE TABLE `sys_job` (
-  `job_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '任务ID',
-  `job_name` varchar(64) NOT NULL DEFAULT '' COMMENT '任务名称',
-  `job_group` varchar(64) NOT NULL DEFAULT 'DEFAULT' COMMENT '任务组名',
-  `invoke_target` varchar(500) NOT NULL COMMENT '调用目标字符串',
-  `cron_expression` varchar(255) DEFAULT '' COMMENT 'cron执行表达式',
-  `misfire_policy` varchar(20) DEFAULT '3' COMMENT '计划执行错误策略（1立即执行 2执行一次 3放弃执行）',
-  `concurrent` char(1) DEFAULT '1' COMMENT '是否并发执行（0允许 1禁止）',
-  `status` char(1) DEFAULT '0' COMMENT '状态（0正常 1暂停）',
-  `create_by` varchar(64) DEFAULT '' COMMENT '创建者',
-  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
-  `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  `remark` varchar(500) DEFAULT '' COMMENT '备注信息',
-  PRIMARY KEY (`job_id`,`job_name`,`job_group`)
+                           `job_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '任务ID',
+                           `job_name` varchar(64) NOT NULL DEFAULT '' COMMENT '任务名称',
+                           `job_group` varchar(64) NOT NULL DEFAULT 'DEFAULT' COMMENT '任务组名',
+                           `invoke_target` varchar(500) NOT NULL COMMENT '调用目标字符串',
+                           `cron_expression` varchar(255) DEFAULT '' COMMENT 'cron执行表达式',
+                           `misfire_policy` varchar(20) DEFAULT '3' COMMENT '计划执行错误策略（1立即执行 2执行一次 3放弃执行）',
+                           `concurrent` char(1) DEFAULT '1' COMMENT '是否并发执行（0允许 1禁止）',
+                           `status` char(1) DEFAULT '0' COMMENT '状态（0正常 1暂停）',
+                           `create_by` varchar(64) DEFAULT '' COMMENT '创建者',
+                           `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+                           `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
+                           `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+                           `remark` varchar(500) DEFAULT '' COMMENT '备注信息',
+                           PRIMARY KEY (`job_id`,`job_name`,`job_group`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COMMENT='定时任务调度表';
 
 -- ----------------------------
@@ -384,15 +450,15 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_job_log`;
 CREATE TABLE `sys_job_log` (
-  `job_log_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '任务日志ID',
-  `job_name` varchar(64) NOT NULL COMMENT '任务名称',
-  `job_group` varchar(64) NOT NULL COMMENT '任务组名',
-  `invoke_target` varchar(500) NOT NULL COMMENT '调用目标字符串',
-  `job_message` varchar(500) DEFAULT NULL COMMENT '日志信息',
-  `status` char(1) DEFAULT '0' COMMENT '执行状态（0正常 1失败）',
-  `exception_info` varchar(2000) DEFAULT '' COMMENT '异常信息',
-  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
-  PRIMARY KEY (`job_log_id`)
+                               `job_log_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '任务日志ID',
+                               `job_name` varchar(64) NOT NULL COMMENT '任务名称',
+                               `job_group` varchar(64) NOT NULL COMMENT '任务组名',
+                               `invoke_target` varchar(500) NOT NULL COMMENT '调用目标字符串',
+                               `job_message` varchar(500) DEFAULT NULL COMMENT '日志信息',
+                               `status` char(1) DEFAULT '0' COMMENT '执行状态（0正常 1失败）',
+                               `exception_info` varchar(2000) DEFAULT '' COMMENT '异常信息',
+                               `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+                               PRIMARY KEY (`job_log_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='定时任务调度日志表';
 
 -- ----------------------------
@@ -406,22 +472,24 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_logininfor`;
 CREATE TABLE `sys_logininfor` (
-  `info_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '访问ID',
-  `user_name` varchar(50) DEFAULT '' COMMENT '用户账号',
-  `ipaddr` varchar(128) DEFAULT '' COMMENT '登录IP地址',
-  `login_location` varchar(255) DEFAULT '' COMMENT '登录地点',
-  `browser` varchar(50) DEFAULT '' COMMENT '浏览器类型',
-  `os` varchar(50) DEFAULT '' COMMENT '操作系统',
-  `status` char(1) DEFAULT '0' COMMENT '登录状态（0成功 1失败）',
-  `msg` varchar(255) DEFAULT '' COMMENT '提示消息',
-  `login_time` datetime DEFAULT NULL COMMENT '访问时间',
-  PRIMARY KEY (`info_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='系统访问记录';
+                                  `info_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '访问ID',
+                                  `user_name` varchar(50) DEFAULT '' COMMENT '用户账号',
+                                  `ipaddr` varchar(128) DEFAULT '' COMMENT '登录IP地址',
+                                  `login_location` varchar(255) DEFAULT '' COMMENT '登录地点',
+                                  `browser` varchar(50) DEFAULT '' COMMENT '浏览器类型',
+                                  `os` varchar(50) DEFAULT '' COMMENT '操作系统',
+                                  `status` char(1) DEFAULT '0' COMMENT '登录状态（0成功 1失败）',
+                                  `msg` varchar(255) DEFAULT '' COMMENT '提示消息',
+                                  `login_time` datetime DEFAULT NULL COMMENT '访问时间',
+                                  PRIMARY KEY (`info_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COMMENT='系统访问记录';
 
 -- ----------------------------
 -- Records of sys_logininfor
 -- ----------------------------
 BEGIN;
+INSERT INTO `sys_logininfor` VALUES (1, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Mac OS X', '0', '登录成功', '2022-01-18 19:23:27');
+INSERT INTO `sys_logininfor` VALUES (2, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Mac OS X', '0', '登录成功', '2022-01-18 21:30:11');
 COMMIT;
 
 -- ----------------------------
@@ -429,27 +497,27 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_menu`;
 CREATE TABLE `sys_menu` (
-  `menu_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '菜单ID',
-  `menu_name` varchar(50) NOT NULL COMMENT '菜单名称',
-  `parent_id` bigint(20) DEFAULT '0' COMMENT '父菜单ID',
-  `order_num` int(4) DEFAULT '0' COMMENT '显示顺序',
-  `path` varchar(200) DEFAULT '' COMMENT '路由地址',
-  `component` varchar(255) DEFAULT NULL COMMENT '组件路径',
-  `query` varchar(255) DEFAULT NULL COMMENT '路由参数',
-  `is_frame` int(1) DEFAULT '1' COMMENT '是否为外链（0是 1否）',
-  `is_cache` int(1) DEFAULT '0' COMMENT '是否缓存（0缓存 1不缓存）',
-  `menu_type` char(1) DEFAULT '' COMMENT '菜单类型（M目录 C菜单 F按钮）',
-  `visible` char(1) DEFAULT '0' COMMENT '菜单状态（0显示 1隐藏）',
-  `status` char(1) DEFAULT '0' COMMENT '菜单状态（0正常 1停用）',
-  `perms` varchar(100) DEFAULT NULL COMMENT '权限标识',
-  `icon` varchar(100) DEFAULT '#' COMMENT '菜单图标',
-  `create_by` varchar(64) DEFAULT '' COMMENT '创建者',
-  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
-  `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  `remark` varchar(500) DEFAULT '' COMMENT '备注',
-  PRIMARY KEY (`menu_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2015 DEFAULT CHARSET=utf8mb4 COMMENT='菜单权限表';
+                            `menu_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '菜单ID',
+                            `menu_name` varchar(50) NOT NULL COMMENT '菜单名称',
+                            `parent_id` bigint(20) DEFAULT '0' COMMENT '父菜单ID',
+                            `order_num` int(4) DEFAULT '0' COMMENT '显示顺序',
+                            `path` varchar(200) DEFAULT '' COMMENT '路由地址',
+                            `component` varchar(255) DEFAULT NULL COMMENT '组件路径',
+                            `query` varchar(255) DEFAULT NULL COMMENT '路由参数',
+                            `is_frame` int(1) DEFAULT '1' COMMENT '是否为外链（0是 1否）',
+                            `is_cache` int(1) DEFAULT '0' COMMENT '是否缓存（0缓存 1不缓存）',
+                            `menu_type` char(1) DEFAULT '' COMMENT '菜单类型（M目录 C菜单 F按钮）',
+                            `visible` char(1) DEFAULT '0' COMMENT '菜单状态（0显示 1隐藏）',
+                            `status` char(1) DEFAULT '0' COMMENT '菜单状态（0正常 1停用）',
+                            `perms` varchar(100) DEFAULT NULL COMMENT '权限标识',
+                            `icon` varchar(100) DEFAULT '#' COMMENT '菜单图标',
+                            `create_by` varchar(64) DEFAULT '' COMMENT '创建者',
+                            `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+                            `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
+                            `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+                            `remark` varchar(500) DEFAULT '' COMMENT '备注',
+                            PRIMARY KEY (`menu_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2018 DEFAULT CHARSET=utf8mb4 COMMENT='菜单权限表';
 
 -- ----------------------------
 -- Records of sys_menu
@@ -546,6 +614,9 @@ INSERT INTO `sys_menu` VALUES (2011, '线索列表', 2007, 101, 'list', 'crm/clu
 INSERT INTO `sys_menu` VALUES (2012, '我的客户', 2008, 100, 'person', 'crm/customer/person-list', NULL, 1, 0, 'C', '0', '0', 'crm:customer:person:list', '#', 'admin', '2022-01-12 19:42:14', 'admin', '2022-01-12 19:47:26', '');
 INSERT INTO `sys_menu` VALUES (2013, '客户列表', 2008, 101, 'list', 'crm/customer/list', NULL, 1, 0, 'C', '0', '0', 'crm:customer:list', '#', 'admin', '2022-01-12 19:42:44', 'admin', '2022-01-12 19:50:29', '');
 INSERT INTO `sys_menu` VALUES (2014, '成交客户', 2008, 102, 'deal', 'crm/customer/deal-list', NULL, 1, 0, 'C', '0', '0', 'crm:customer:deal:list', '#', 'admin', '2022-01-12 19:43:37', 'admin', '2022-01-12 19:50:32', '');
+INSERT INTO `sys_menu` VALUES (2015, '业绩订单', 0, 103, 'crm/order', NULL, NULL, 1, 0, 'M', '0', '0', '', 'money', 'admin', '2022-01-19 10:20:01', 'admin', '2022-01-19 10:20:17', '');
+INSERT INTO `sys_menu` VALUES (2016, '我的订单', 2015, 0, 'crm/customer', 'crm/order/person-list', NULL, 1, 0, 'C', '0', '0', 'crm:order:person:list', '#', 'admin', '2022-01-19 10:20:36', 'admin', '2022-01-19 10:21:08', '');
+INSERT INTO `sys_menu` VALUES (2017, '订单列表', 2015, 1, 'crm/order', 'crm/order/list', NULL, 1, 0, 'C', '0', '0', 'crm:order:list', '#', 'admin', '2022-01-19 11:07:45', '', NULL, '');
 COMMIT;
 
 -- ----------------------------
@@ -553,17 +624,17 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_notice`;
 CREATE TABLE `sys_notice` (
-  `notice_id` int(4) NOT NULL AUTO_INCREMENT COMMENT '公告ID',
-  `notice_title` varchar(50) NOT NULL COMMENT '公告标题',
-  `notice_type` char(1) NOT NULL COMMENT '公告类型（1通知 2公告）',
-  `notice_content` longblob COMMENT '公告内容',
-  `status` char(1) DEFAULT '0' COMMENT '公告状态（0正常 1关闭）',
-  `create_by` varchar(64) DEFAULT '' COMMENT '创建者',
-  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
-  `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  `remark` varchar(255) DEFAULT NULL COMMENT '备注',
-  PRIMARY KEY (`notice_id`)
+                              `notice_id` int(4) NOT NULL AUTO_INCREMENT COMMENT '公告ID',
+                              `notice_title` varchar(50) NOT NULL COMMENT '公告标题',
+                              `notice_type` char(1) NOT NULL COMMENT '公告类型（1通知 2公告）',
+                              `notice_content` longblob COMMENT '公告内容',
+                              `status` char(1) DEFAULT '0' COMMENT '公告状态（0正常 1关闭）',
+                              `create_by` varchar(64) DEFAULT '' COMMENT '创建者',
+                              `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+                              `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
+                              `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+                              `remark` varchar(255) DEFAULT NULL COMMENT '备注',
+                              PRIMARY KEY (`notice_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COMMENT='通知公告表';
 
 -- ----------------------------
@@ -579,23 +650,23 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_oper_log`;
 CREATE TABLE `sys_oper_log` (
-  `oper_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '日志主键',
-  `title` varchar(50) DEFAULT '' COMMENT '模块标题',
-  `business_type` int(2) DEFAULT '0' COMMENT '业务类型（0其它 1新增 2修改 3删除）',
-  `method` varchar(100) DEFAULT '' COMMENT '方法名称',
-  `request_method` varchar(10) DEFAULT '' COMMENT '请求方式',
-  `operator_type` int(1) DEFAULT '0' COMMENT '操作类别（0其它 1后台用户 2手机端用户）',
-  `oper_name` varchar(50) DEFAULT '' COMMENT '操作人员',
-  `dept_name` varchar(50) DEFAULT '' COMMENT '部门名称',
-  `oper_url` varchar(255) DEFAULT '' COMMENT '请求URL',
-  `oper_ip` varchar(128) DEFAULT '' COMMENT '主机地址',
-  `oper_location` varchar(255) DEFAULT '' COMMENT '操作地点',
-  `oper_param` varchar(2000) DEFAULT '' COMMENT '请求参数',
-  `json_result` varchar(2000) DEFAULT '' COMMENT '返回参数',
-  `status` int(1) DEFAULT '0' COMMENT '操作状态（0正常 1异常）',
-  `error_msg` varchar(2000) DEFAULT '' COMMENT '错误消息',
-  `oper_time` datetime DEFAULT NULL COMMENT '操作时间',
-  PRIMARY KEY (`oper_id`)
+                                `oper_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '日志主键',
+                                `title` varchar(50) DEFAULT '' COMMENT '模块标题',
+                                `business_type` int(2) DEFAULT '0' COMMENT '业务类型（0其它 1新增 2修改 3删除）',
+                                `method` varchar(100) DEFAULT '' COMMENT '方法名称',
+                                `request_method` varchar(10) DEFAULT '' COMMENT '请求方式',
+                                `operator_type` int(1) DEFAULT '0' COMMENT '操作类别（0其它 1后台用户 2手机端用户）',
+                                `oper_name` varchar(50) DEFAULT '' COMMENT '操作人员',
+                                `dept_name` varchar(50) DEFAULT '' COMMENT '部门名称',
+                                `oper_url` varchar(255) DEFAULT '' COMMENT '请求URL',
+                                `oper_ip` varchar(128) DEFAULT '' COMMENT '主机地址',
+                                `oper_location` varchar(255) DEFAULT '' COMMENT '操作地点',
+                                `oper_param` varchar(2000) DEFAULT '' COMMENT '请求参数',
+                                `json_result` varchar(2000) DEFAULT '' COMMENT '返回参数',
+                                `status` int(1) DEFAULT '0' COMMENT '操作状态（0正常 1异常）',
+                                `error_msg` varchar(2000) DEFAULT '' COMMENT '错误消息',
+                                `oper_time` datetime DEFAULT NULL COMMENT '操作时间',
+                                PRIMARY KEY (`oper_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='操作日志记录';
 
 -- ----------------------------
@@ -609,17 +680,17 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_post`;
 CREATE TABLE `sys_post` (
-  `post_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '岗位ID',
-  `post_code` varchar(64) NOT NULL COMMENT '岗位编码',
-  `post_name` varchar(50) NOT NULL COMMENT '岗位名称',
-  `post_sort` int(4) NOT NULL COMMENT '显示顺序',
-  `status` char(1) NOT NULL COMMENT '状态（0正常 1停用）',
-  `create_by` varchar(64) DEFAULT '' COMMENT '创建者',
-  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
-  `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  `remark` varchar(500) DEFAULT NULL COMMENT '备注',
-  PRIMARY KEY (`post_id`)
+                            `post_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '岗位ID',
+                            `post_code` varchar(64) NOT NULL COMMENT '岗位编码',
+                            `post_name` varchar(50) NOT NULL COMMENT '岗位名称',
+                            `post_sort` int(4) NOT NULL COMMENT '显示顺序',
+                            `status` char(1) NOT NULL COMMENT '状态（0正常 1停用）',
+                            `create_by` varchar(64) DEFAULT '' COMMENT '创建者',
+                            `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+                            `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
+                            `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+                            `remark` varchar(500) DEFAULT NULL COMMENT '备注',
+                            PRIMARY KEY (`post_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COMMENT='岗位信息表';
 
 -- ----------------------------
@@ -637,21 +708,21 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_role`;
 CREATE TABLE `sys_role` (
-  `role_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '角色ID',
-  `role_name` varchar(30) NOT NULL COMMENT '角色名称',
-  `role_key` varchar(100) NOT NULL COMMENT '角色权限字符串',
-  `role_sort` int(4) NOT NULL COMMENT '显示顺序',
-  `data_scope` char(1) DEFAULT '1' COMMENT '数据范围（1：全部数据权限 2：自定数据权限 3：本部门数据权限 4：本部门及以下数据权限）',
-  `menu_check_strictly` tinyint(1) DEFAULT '1' COMMENT '菜单树选择项是否关联显示',
-  `dept_check_strictly` tinyint(1) DEFAULT '1' COMMENT '部门树选择项是否关联显示',
-  `status` char(1) NOT NULL COMMENT '角色状态（0正常 1停用）',
-  `del_flag` char(1) DEFAULT '0' COMMENT '删除标志（0代表存在 2代表删除）',
-  `create_by` varchar(64) DEFAULT '' COMMENT '创建者',
-  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
-  `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  `remark` varchar(500) DEFAULT NULL COMMENT '备注',
-  PRIMARY KEY (`role_id`)
+                            `role_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '角色ID',
+                            `role_name` varchar(30) NOT NULL COMMENT '角色名称',
+                            `role_key` varchar(100) NOT NULL COMMENT '角色权限字符串',
+                            `role_sort` int(4) NOT NULL COMMENT '显示顺序',
+                            `data_scope` char(1) DEFAULT '1' COMMENT '数据范围（1：全部数据权限 2：自定数据权限 3：本部门数据权限 4：本部门及以下数据权限）',
+                            `menu_check_strictly` tinyint(1) DEFAULT '1' COMMENT '菜单树选择项是否关联显示',
+                            `dept_check_strictly` tinyint(1) DEFAULT '1' COMMENT '部门树选择项是否关联显示',
+                            `status` char(1) NOT NULL COMMENT '角色状态（0正常 1停用）',
+                            `del_flag` char(1) DEFAULT '0' COMMENT '删除标志（0代表存在 2代表删除）',
+                            `create_by` varchar(64) DEFAULT '' COMMENT '创建者',
+                            `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+                            `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
+                            `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+                            `remark` varchar(500) DEFAULT NULL COMMENT '备注',
+                            PRIMARY KEY (`role_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COMMENT='角色信息表';
 
 -- ----------------------------
@@ -667,9 +738,9 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_role_dept`;
 CREATE TABLE `sys_role_dept` (
-  `role_id` bigint(20) NOT NULL COMMENT '角色ID',
-  `dept_id` bigint(20) NOT NULL COMMENT '部门ID',
-  PRIMARY KEY (`role_id`,`dept_id`)
+                                 `role_id` bigint(20) NOT NULL COMMENT '角色ID',
+                                 `dept_id` bigint(20) NOT NULL COMMENT '部门ID',
+                                 PRIMARY KEY (`role_id`,`dept_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='角色和部门关联表';
 
 -- ----------------------------
@@ -686,9 +757,9 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_role_menu`;
 CREATE TABLE `sys_role_menu` (
-  `role_id` bigint(20) NOT NULL COMMENT '角色ID',
-  `menu_id` bigint(20) NOT NULL COMMENT '菜单ID',
-  PRIMARY KEY (`role_id`,`menu_id`)
+                                 `role_id` bigint(20) NOT NULL COMMENT '角色ID',
+                                 `menu_id` bigint(20) NOT NULL COMMENT '菜单ID',
+                                 PRIMARY KEY (`role_id`,`menu_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='角色和菜单关联表';
 
 -- ----------------------------
@@ -791,33 +862,33 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_user`;
 CREATE TABLE `sys_user` (
-  `user_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '用户ID',
-  `dept_id` bigint(20) DEFAULT NULL COMMENT '部门ID',
-  `user_name` varchar(30) NOT NULL COMMENT '用户账号',
-  `nick_name` varchar(30) NOT NULL COMMENT '用户昵称',
-  `user_type` varchar(2) DEFAULT '00' COMMENT '用户类型（00系统用户）',
-  `email` varchar(50) DEFAULT '' COMMENT '用户邮箱',
-  `phonenumber` varchar(11) DEFAULT '' COMMENT '手机号码',
-  `sex` char(1) DEFAULT '0' COMMENT '用户性别（0男 1女 2未知）',
-  `avatar` varchar(100) DEFAULT '' COMMENT '头像地址',
-  `password` varchar(100) DEFAULT '' COMMENT '密码',
-  `status` char(1) DEFAULT '0' COMMENT '帐号状态（0正常 1停用）',
-  `del_flag` char(1) DEFAULT '0' COMMENT '删除标志（0代表存在 2代表删除）',
-  `login_ip` varchar(128) DEFAULT '' COMMENT '最后登录IP',
-  `login_date` datetime DEFAULT NULL COMMENT '最后登录时间',
-  `create_by` varchar(64) DEFAULT '' COMMENT '创建者',
-  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
-  `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  `remark` varchar(500) DEFAULT NULL COMMENT '备注',
-  PRIMARY KEY (`user_id`)
+                            `user_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '用户ID',
+                            `dept_id` bigint(20) DEFAULT NULL COMMENT '部门ID',
+                            `user_name` varchar(30) NOT NULL COMMENT '用户账号',
+                            `nick_name` varchar(30) NOT NULL COMMENT '用户昵称',
+                            `user_type` varchar(2) DEFAULT '00' COMMENT '用户类型（00系统用户）',
+                            `email` varchar(50) DEFAULT '' COMMENT '用户邮箱',
+                            `phonenumber` varchar(11) DEFAULT '' COMMENT '手机号码',
+                            `sex` char(1) DEFAULT '0' COMMENT '用户性别（0男 1女 2未知）',
+                            `avatar` varchar(100) DEFAULT '' COMMENT '头像地址',
+                            `password` varchar(100) DEFAULT '' COMMENT '密码',
+                            `status` char(1) DEFAULT '0' COMMENT '帐号状态（0正常 1停用）',
+                            `del_flag` char(1) DEFAULT '0' COMMENT '删除标志（0代表存在 2代表删除）',
+                            `login_ip` varchar(128) DEFAULT '' COMMENT '最后登录IP',
+                            `login_date` datetime DEFAULT NULL COMMENT '最后登录时间',
+                            `create_by` varchar(64) DEFAULT '' COMMENT '创建者',
+                            `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+                            `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
+                            `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+                            `remark` varchar(500) DEFAULT NULL COMMENT '备注',
+                            PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8mb4 COMMENT='用户信息表';
 
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
 BEGIN;
-INSERT INTO `sys_user` VALUES (1, 103, 'admin', '若依', '00', 'ry@163.com', '15888888888', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2022-01-18 11:27:31', 'admin', '2022-01-11 19:11:40', '', '2022-01-18 11:27:30', '管理员');
+INSERT INTO `sys_user` VALUES (1, 103, 'admin', '若依', '00', 'ry@163.com', '15888888888', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2022-01-19 15:07:46', 'admin', '2022-01-11 19:11:40', '', '2022-01-19 15:07:45', '管理员');
 INSERT INTO `sys_user` VALUES (2, 105, 'ry', '若依-Tenant-1', '00', 'ry@qq.com', '15666666666', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2022-01-11 19:11:40', 'admin', '2022-01-11 19:11:40', 'admin', '2022-01-11 19:14:51', '测试员');
 INSERT INTO `sys_user` VALUES (100, NULL, '234234', '34234234', '00', '', '', '0', '', '$2a$10$yBLvNuj5ifOmi07klqlZWenVv3eF.aYo1wzatgAtsFEzot1RGK/kq', '0', '2', '', NULL, 'admin', '2022-01-12 11:03:06', '', NULL, NULL);
 INSERT INTO `sys_user` VALUES (101, NULL, 'TenantUser01', 'TenantUser01', '00', '', '', '0', '', '$2a$10$nBpTvNi//kRZbY.vT0057OKe71HlUZsKQIBcmg2rTLVaJVFM0A5uK', '0', '0', '127.0.0.1', '2022-01-14 10:01:20', 'admin', '2022-01-14 00:24:02', 'admin', '2022-01-14 10:01:20', NULL);
@@ -828,9 +899,9 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_user_post`;
 CREATE TABLE `sys_user_post` (
-  `user_id` bigint(20) NOT NULL COMMENT '用户ID',
-  `post_id` bigint(20) NOT NULL COMMENT '岗位ID',
-  PRIMARY KEY (`user_id`,`post_id`)
+                                 `user_id` bigint(20) NOT NULL COMMENT '用户ID',
+                                 `post_id` bigint(20) NOT NULL COMMENT '岗位ID',
+                                 PRIMARY KEY (`user_id`,`post_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户与岗位关联表';
 
 -- ----------------------------
@@ -846,9 +917,9 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_user_role`;
 CREATE TABLE `sys_user_role` (
-  `user_id` bigint(20) NOT NULL COMMENT '用户ID',
-  `role_id` bigint(20) NOT NULL COMMENT '角色ID',
-  PRIMARY KEY (`user_id`,`role_id`)
+                                 `user_id` bigint(20) NOT NULL COMMENT '用户ID',
+                                 `role_id` bigint(20) NOT NULL COMMENT '角色ID',
+                                 PRIMARY KEY (`user_id`,`role_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户和角色关联表';
 
 -- ----------------------------
