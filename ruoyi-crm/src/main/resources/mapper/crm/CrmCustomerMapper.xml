@@ -200,7 +200,7 @@
     </update>
 
     <update id="receiveCustomerById">
-        update crm_customer set owner=#{owner} , status=#{status}, last_followup_time=now() where id=#{id}
+        update crm_customer set owner=#{owner} , status=#{status}, next_followup_time=now() where id=#{id}
     </update>
 
     <select id="todayUpdates"  resultMap="TodayUpdatesResult" >
