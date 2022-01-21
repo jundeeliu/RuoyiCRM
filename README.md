@@ -13,6 +13,10 @@ RuoyiCRM基于若依平台二次开发的开源CRM系统，以SaaS方向实现�
 * 支持加载动态权限菜单，多方式轻松权限控制。
 * 多租户功能，物理数据库隔离。
 
+项目导图：https://devjd.com/build-a-multi-tenant-crm-based-on-ruoyi-vue/
+
+项目不断迭代中，欢迎Star，给我一些动力。谢谢！
+
 ## 内置功能
 
 1.  用户管理：用户是系统操作者，该功能主要完成系统用户配置。
@@ -39,6 +43,8 @@ RuoyiCRM基于若依平台二次开发的开源CRM系统，以SaaS方向实现�
 - tenant2/admin/admin123
 
 演示地址：https://ruoyi.nxcrm.cn
+
+
 
 ## 数据库
 
