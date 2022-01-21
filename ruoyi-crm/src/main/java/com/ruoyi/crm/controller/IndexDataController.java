@@ -101,12 +101,16 @@ public class IndexDataController extends BaseController {
         List<CrmCustomer> nextFollowup = customerService.selectCrmCustomerList(crmCustomer);
         Integer nextFollowupCount=nextFollowup.size();
 
-        //未跟进个数=待跟进-已跟进
-        Integer noFollowupCount=nextFollowupCount-lastFollowupCount;
+
+        //今日需跟进合计=今日已经跟进个数+今日待跟进个数
+        Integer totalFollowup=lastFollowupCount+nextFollowupCount;
+
+        //未跟进个数=今日需跟进合计-已跟进
+        Integer noFollowupCount=totalFollowup-lastFollowupCount;
         map.put("no_followup", noFollowupCount);
 
         //跟进率=已经跟进/待跟进
-        map.put("followup_rate",nextFollowupCount!=0?((lastFollowupCount / nextFollowupCount)*100):0 );
+        map.put("followup_rate",totalFollowup!=0?((lastFollowupCount / totalFollowup)*100):0 );
 
         return map;
     }
