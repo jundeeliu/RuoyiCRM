@@ -3,6 +3,7 @@ package com.ruoyi.crm.controller;
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ruoyi.common.utils.DateUtils;
 import com.ruoyi.crm.form.CommentDTO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -97,6 +98,9 @@ public class CrmCommentController extends BaseController
 
         CrmComment crmComment=new CrmComment();
         BeanUtils.copyProperties(commentDTO, crmComment);
+        if(commentDTO.getNextFollowupTime()==null){
+            commentDTO.setNextFollowupTime(DateUtils.addDays(DateUtils.getNowDate(), 1));
+        }
         crmComment.setCreateBy(getUsername());
         return toAjax(crmCommentService.insertCrmComment(crmComment, commentDTO.nextFollowupTime));
     }

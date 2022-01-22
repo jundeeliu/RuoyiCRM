@@ -140,7 +140,6 @@ public class CrmCluesController extends BaseController
         crmCustomer.setCustomerStatus(customerDTO.getCustomerStatus());
         crmCustomer.setStatus(CustomerFolder.CUSTOMER.getCode());
         crmCustomer.setToCustomerTime(DateUtils.getNowDate());
-        crmCustomer.setLastFollowupTime(DateUtils.getNowDate());
         return toAjax(cluesService.updateCrmCustomer(crmCustomer));
     }
 }

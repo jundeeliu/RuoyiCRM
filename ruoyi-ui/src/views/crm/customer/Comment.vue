@@ -11,7 +11,7 @@
         <el-input type="textarea" v-model="form.content" :autosize="{ minRows: 2, maxRows: 4}" />
       </el-form-item>
       <el-form-item label="下次跟进时间" prop="nextFollowupTime">
-        <el-date-picker clearable size="small" v-model="form.nextFollowupTime" type="date" value-format="yyyy-MM-dd" placeholder="选择下次跟进时间">
+        <el-date-picker clearable size="small" v-model="form.nextFollowupTime" :picker-options="nextFollowTimePicker" type="date" value-format="yyyy-MM-dd" placeholder="选择下次跟进时间">
         </el-date-picker>
       </el-form-item>
     </el-form>
@@ -57,6 +57,11 @@ export default {
           { required: true, message: '请填写内容', trigger: 'blur' }
         ]
       },
+      nextFollowTimePicker: {
+        disabledDate: time => {
+          return time.getTime() < Date.now();
+        }
+      }
     }
   },
   created () {
@@ -97,7 +102,8 @@ export default {
       listCustomerComment(this.form.customerId).then((response) => {
         this.commentList = response.data;
       });
-    }
+    },
+
   },
 }
 </script>
