@@ -17,6 +17,8 @@ RuoyiCRM基于若依平台二次开发的开源CRM系统，以SaaS方向实现�
 
 项目不断迭代中，欢迎Star，给我一些动力。谢谢！
 
+ **演示项目已支持注册功能，自动生成数据库。欢迎提BUG交流~** [https://ruoyi.nxcrm.cn/register](https://ruoyi.nxcrm.cn/register)
+
 ## 内置功能
 
 1.  用户管理：用户是系统操作者，该功能主要完成系统用户配置。
