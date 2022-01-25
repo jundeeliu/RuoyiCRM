@@ -5,13 +5,14 @@
 
 ## 系统简介
 
-RuoyiCRM基于若依平台二次开发的开源CRM系统，以SaaS方向实现多租户功能。
+RuoyiCRM基于若依平台二次开发的开源CRM系统，以SaaS方向实现多租户功能，动态创建数据库，独立数据库安全级别，不是按字段隔离。
 
+* 多租户功能，物理数据库隔离。
 * 前端采用Vue、Element UI。
 * 后端采用Spring Boot、Spring Security、Redis & Jwt。
 * 权限认证使用Jwt，支持多终端认证系统。
 * 支持加载动态权限菜单，多方式轻松权限控制。
-* 多租户功能，物理数据库隔离。
+
 
 项目导图：https://devjd.com/build-a-multi-tenant-crm-based-on-ruoyi-vue/
 
@@ -19,7 +20,12 @@ RuoyiCRM基于若依平台二次开发的开源CRM系统，以SaaS方向实现�
 
  **演示项目已支持注册功能，自动生成数据库。欢迎提BUG交流~** [https://ruoyi.nxcrm.cn/register](https://ruoyi.nxcrm.cn/register)
 
-## 内置功能
+## CRM系统功能
+1.  公海管理：等待跟进的客户资源。
+2.  线索管理：记录线索信息后续转成客户。
+3.  客户管理：对客户信息进行管理及以跟进。
+
+## Ruoyi-Vue内置功能
 
 1.  用户管理：用户是系统操作者，该功能主要完成系统用户配置。
 2.  部门管理：配置系统组织机构（公司、部门、小组），树结构展现支持数据权限。
