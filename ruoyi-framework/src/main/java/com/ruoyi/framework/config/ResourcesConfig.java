@@ -47,7 +47,7 @@ public class ResourcesConfig implements WebMvcConfigurer
     public void addInterceptors(InterceptorRegistry registry)
     {
         registry.addInterceptor(repeatSubmitInterceptor).addPathPatterns("/**");
-        registry.addInterceptor(tenantInterceptor).addPathPatterns("/**").excludePathPatterns("/captchaImage");
+        registry.addInterceptor(tenantInterceptor).addPathPatterns("/**").excludePathPatterns("/captchaImage").excludePathPatterns("/register");
     }
 
     /**

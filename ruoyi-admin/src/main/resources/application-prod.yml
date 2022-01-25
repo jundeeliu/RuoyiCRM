@@ -55,3 +55,12 @@ spring:
                 wall:
                     config:
                         multi-statement-allow: true
+tenant:
+    database:
+        #mysql 用于连接数据库服务器以生成数据库,URL 不指定数据库
+        host: localhost
+        port: 3306
+        username: root
+        password: 535f55b4d2fb6306
+    #生成数据库名称的前缀
+    prefix: ryt_

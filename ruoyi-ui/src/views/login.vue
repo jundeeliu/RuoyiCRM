@@ -1,93 +1,38 @@
 <template>
   <div class="login">
-    <el-form
-      ref="loginForm"
-      :model="loginForm"
-      :rules="loginRules"
-      class="login-form"
-    >
+    <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form">
       <h3 class="title">RuoyiCRM</h3>
       <el-form-item prop="tenant">
-        <el-input
-          v-model="loginForm.tenant"
-          type="text"
-          auto-complete="off"
-          placeholder="租户编号"
-        >
-          <svg-icon
-            slot="prefix"
-            icon-class="user"
-            class="el-input__icon input-icon"
-          />
+        <el-input v-model="loginForm.tenant" type="text" auto-complete="off" placeholder="租户编号">
+          <svg-icon slot="prefix" icon-class="user" class="el-input__icon input-icon" />
         </el-input>
       </el-form-item>
       <el-form-item prop="username">
-        <el-input
-          v-model="loginForm.username"
-          type="text"
-          auto-complete="off"
-          placeholder="账号"
-        >
-          <svg-icon
-            slot="prefix"
-            icon-class="user"
-            class="el-input__icon input-icon"
-          />
+        <el-input v-model="loginForm.username" type="text" auto-complete="off" placeholder="账号">
+          <svg-icon slot="prefix" icon-class="user" class="el-input__icon input-icon" />
         </el-input>
       </el-form-item>
       <el-form-item prop="password">
-        <el-input
-          v-model="loginForm.password"
-          type="password"
-          auto-complete="off"
-          placeholder="密码"
-          @keyup.enter.native="handleLogin"
-        >
-          <svg-icon
-            slot="prefix"
-            icon-class="password"
-            class="el-input__icon input-icon"
-          />
+        <el-input v-model="loginForm.password" type="password" auto-complete="off" placeholder="密码" @keyup.enter.native="handleLogin">
+          <svg-icon slot="prefix" icon-class="password" class="el-input__icon input-icon" />
         </el-input>
       </el-form-item>
       <el-form-item prop="code" v-if="captchaOnOff">
-        <el-input
-          v-model="loginForm.code"
-          auto-complete="off"
-          placeholder="验证码"
-          style="width: 63%"
-          @keyup.enter.native="handleLogin"
-        >
-          <svg-icon
-            slot="prefix"
-            icon-class="validCode"
-            class="el-input__icon input-icon"
-          />
+        <el-input v-model="loginForm.code" auto-complete="off" placeholder="验证码" style="width: 63%" @keyup.enter.native="handleLogin">
+          <svg-icon slot="prefix" icon-class="validCode" class="el-input__icon input-icon" />
         </el-input>
         <div class="login-code">
           <img :src="codeUrl" @click="getCode" class="login-code-img" />
         </div>
       </el-form-item>
-      <el-checkbox
-        v-model="loginForm.rememberMe"
-        style="margin: 0px 0px 25px 0px"
-        >记住密码</el-checkbox
-      >
+      <el-checkbox v-model="loginForm.rememberMe" style="margin: 0px 0px 25px 0px">记住密码</el-checkbox>
       <el-form-item style="width: 100%">
-        <el-button
-          :loading="loading"
-          size="medium"
-          type="primary"
-          style="width: 100%"
-          @click.native.prevent="handleLogin"
-        >
+        <el-button :loading="loading" size="medium" type="primary" style="width: 100%" @click.native.prevent="handleLogin">
           <span v-if="!loading">登 录</span>
           <span v-else>登 录 中...</span>
         </el-button>
-        <div style="float: right" v-if="register">
-          <router-link class="link-type" :to="'/register'"
-            >立即注册</router-link
-          >
+        <div style="float: right">
+          <router-link class="link-type" :to="'/register'">立即注册</router-link>
         </div>
       </el-form-item>
     </el-form>
@@ -105,7 +50,7 @@ import { encrypt, decrypt } from '@/utils/jsencrypt'
 
 export default {
   name: 'Login',
-  data() {
+  data () {
     return {
       codeUrl: '',
       loginForm: {
@@ -132,7 +77,7 @@ export default {
       // 验证码开关
       captchaOnOff: false,
       // 注册开关
-      register: false,
+      register: true,
       redirect: undefined,
     }
   },
@@ -144,12 +89,12 @@ export default {
       immediate: true,
     },
   },
-  created() {
+  created () {
     this.getCode()
     this.getCookie()
   },
   methods: {
-    getCode() {
+    getCode () {
       getCodeImg().then((res) => {
         this.captchaOnOff =
           res.captchaOnOff === undefined ? true : res.captchaOnOff
@@ -159,7 +104,7 @@ export default {
         }
       })
     },
-    getCookie() {
+    getCookie () {
       const tenant = Cookies.get('tenant')
       const username = Cookies.get('username')
       const password = Cookies.get('password')
@@ -172,7 +117,7 @@ export default {
         rememberMe: rememberMe === undefined ? false : Boolean(rememberMe),
       }
     },
-    handleLogin() {
+    handleLogin () {
       this.$refs.loginForm.validate((valid) => {
         if (valid) {
           this.loading = true
@@ -194,7 +139,7 @@ export default {
           this.$store
             .dispatch('Login', this.loginForm)
             .then(() => {
-              this.$router.push({ path: this.redirect || '/' }).catch(() => {})
+              this.$router.push({ path: this.redirect || '/' }).catch(() => { })
             })
             .catch(() => {
               this.loading = false

@@ -5,21 +5,22 @@
 <mapper namespace="com.ruoyi.tenant.mapper.MasterTenantMapper">
 
     <resultMap type="MasterTenant" id="MasterTenantResult">
-        <id property="id" column="id"/>
-        <result property="tenant" column="tenant"/>
-        <result property="url" column="url"/>
-        <result property="username" column="username"/>
-        <result property="password" column="password"/>
+        <result property="id"    column="ID"    />
+        <result property="tenant"    column="TENANT"    />
+        <result property="url"    column="URL"    />
+        <result property="username"    column="USERNAME"    />
+        <result property="password"    column="PASSWORD"    />
+        <result property="databaseName"    column="database_name"    />
+        <result property="createTime"    column="create_time"    />
     </resultMap>
 
 
-    <sql id="selectMasterTeantVO">
-        select *
-        from master_tenant
+    <sql id="selectMasterTenantVo">
+        select ID, TENANT, URL, USERNAME, PASSWORD, database_name, create_time from master_tenant
     </sql>
 
     <select id="selectMasterTenant" parameterType="MasterTenant" resultMap="MasterTenantResult">
-        <include refid="selectMasterTeantVO"/>
+        <include refid="selectMasterTenantVo"/>
         <where>
             <if test="tenant != null and tenant != ''">
                 AND tenant = #{tenant}
@@ -28,7 +29,7 @@
     </select>
 
     <select id="selectMasterTenantList" parameterType="MasterTenant" resultMap="MasterTenantResult">
-        <include refid="selectMasterTeantVO"/>
+        <include refid="selectMasterTenantVo"/>
         <where>
             <if test="tenant != null and tenant != ''">
                 AND tenant = #{tenant}
@@ -36,5 +37,42 @@
         </where>
     </select>
 
+    <insert id="insertMasterTenant" parameterType="MasterTenant" useGeneratedKeys="true" keyProperty="id">
+        insert into master_tenant
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="tenant != null">TENANT,</if>
+            <if test="url != null">URL,</if>
+            <if test="username != null">USERNAME,</if>
+            <if test="password != null">PASSWORD,</if>
+            <if test="databaseName != null">database_name,</if>
+            <if test="createTime != null">create_time,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="tenant != null">#{tenant},</if>
+            <if test="url != null">#{url},</if>
+            <if test="username != null">#{username},</if>
+            <if test="password != null">#{password},</if>
+            <if test="databaseName != null">#{databaseName},</if>
+            <if test="createTime != null">#{createTime},</if>
+        </trim>
+    </insert>
 
-</mapper> 
+    <update id="updateMasterTenant" parameterType="MasterTenant">
+        update master_tenant
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="tenant != null">TENANT = #{tenant},</if>
+            <if test="url != null">URL = #{url},</if>
+            <if test="username != null">USERNAME = #{username},</if>
+            <if test="password != null">PASSWORD = #{password},</if>
+            <if test="databaseName != null">database_name = #{databaseName},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+        </trim>
+        where ID = #{id}
+    </update>
+
+    <select id="checkTenantNameUnique" parameterType="String" resultType="int">
+        select count(1) from master_tenant where tenant = #{tenantName} limit 1
+    </select>
+
+
+</mapper>
