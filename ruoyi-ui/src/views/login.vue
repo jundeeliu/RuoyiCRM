@@ -75,7 +75,7 @@ export default {
       },
       loading: false,
       // 验证码开关
-      captchaOnOff: false,
+      captchaOnOff: true,
       // 注册开关
       register: true,
       redirect: undefined,

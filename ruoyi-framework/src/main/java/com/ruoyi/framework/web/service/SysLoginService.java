@@ -62,14 +62,9 @@ public class SysLoginService
      */
     public String login(String tenant, String username, String password, String code, String uuid)
     {
-        //TODO: 线上部署出现验证码问题，先注释
 
-//        boolean captchaOnOff = configService.selectCaptchaOnOff();
-//        // 验证码开关
-//        if (captchaOnOff)
-//        {
-//            validateCaptcha(username, code, uuid);
-//        }
+        validateCaptcha(username, code, uuid);
+
         // 用户验证
         Authentication authentication = null;
         try
