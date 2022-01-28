@@ -103,7 +103,19 @@ public class CrmCluesController extends BaseController
     @PutMapping
     public AjaxResult edit(@RequestBody CrmCustomer crmCustomer)
     {
+        crmCustomer.setUpdateBy(getUsername());
         return toAjax(cluesService.updateCrmCustomer(crmCustomer));
+    }
+
+    /**
+     * 删除我的线索
+     */
+    @PreAuthorize("@ss.hasPermi('crm:clues:remove')")
+    @Log(title = "线索", businessType = BusinessType.DELETE)
+    @DeleteMapping("/{ids}")
+    public AjaxResult remove(@PathVariable Long[] ids)
+    {
+        return toAjax(cluesService.deleteCrmCustomerByIds(ids));
     }
 
     /**
