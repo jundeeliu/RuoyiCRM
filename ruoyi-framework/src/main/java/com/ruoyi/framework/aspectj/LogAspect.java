@@ -96,7 +96,8 @@ public class LogAspect
             // 处理设置注解上的参数
             getControllerMethodDescription(joinPoint, controllerLog, operLog, jsonResult);
             // 保存数据库
-            AsyncManager.me().execute(AsyncFactory.recordOper(operLog));
+            String tenant=loginUser.getTenant();
+            AsyncManager.me().execute(AsyncFactory.recordOper(tenant, operLog));
         }
         catch (Exception exp)
         {
