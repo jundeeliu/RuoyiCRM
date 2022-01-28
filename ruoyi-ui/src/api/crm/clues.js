@@ -45,6 +45,14 @@ export function updateClues(data) {
 }
 
 // 删除线索
+export function delPersonClues(id) {
+  return request({
+    url: '/crm/clues/person/' + id,
+    method: 'delete'
+  })
+}
+
+// 删除线索
 export function delClues(id) {
   return request({
     url: '/crm/clues/' + id,

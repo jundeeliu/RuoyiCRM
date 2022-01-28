@@ -133,7 +133,7 @@
 import {
   listPersonClues,
   getClues,
-  delClues,
+  delPersonClues,
   addClues,
   updateClues,
 } from '@/api/crm/clues'
@@ -317,7 +317,7 @@ export default {
       this.$modal
         .confirm('是否确认删除线索编号为"' + ids + '"的数据项？')
         .then(function () {
-          return delClues(ids)
+          return delPersonClues(ids)
         })
         .then(() => {
           this.getList()
