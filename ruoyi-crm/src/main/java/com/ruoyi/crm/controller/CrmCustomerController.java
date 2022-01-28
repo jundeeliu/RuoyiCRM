@@ -1,20 +1,20 @@
 package com.ruoyi.crm.controller;
 
-import java.util.List;
-import javax.servlet.http.HttpServletResponse;
-
-import com.ruoyi.crm.domain.enums.CustomerFolder;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 import com.ruoyi.common.annotation.Log;
 import com.ruoyi.common.core.controller.BaseController;
 import com.ruoyi.common.core.domain.AjaxResult;
-import com.ruoyi.common.enums.BusinessType;
-import com.ruoyi.crm.domain.CrmCustomer;
-import com.ruoyi.crm.service.ICrmCustomerService;
-import com.ruoyi.common.utils.poi.ExcelUtil;
 import com.ruoyi.common.core.page.TableDataInfo;
+import com.ruoyi.common.enums.BusinessType;
+import com.ruoyi.common.utils.poi.ExcelUtil;
+import com.ruoyi.crm.domain.CrmCustomer;
+import com.ruoyi.crm.domain.enums.CustomerFolder;
+import com.ruoyi.crm.service.ICrmCustomerService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  * 客户Controller
@@ -115,6 +115,9 @@ public class CrmCustomerController extends BaseController
     @PostMapping
     public AjaxResult add(@RequestBody CrmCustomer crmCustomer)
     {
+        crmCustomer.setStatus(CustomerFolder.CUSTOMER.getCode());
+        crmCustomer.setOwner(getUsername());
+        crmCustomer.setCreateBy(getUsername());
         return toAjax(crmCustomerService.insertCrmCustomer(crmCustomer));
     }
 
@@ -126,6 +129,7 @@ public class CrmCustomerController extends BaseController
     @PutMapping
     public AjaxResult edit(@RequestBody CrmCustomer crmCustomer)
     {
+        crmCustomer.setUpdateBy(getUsername());
         return toAjax(crmCustomerService.updateCrmCustomer(crmCustomer));
     }
 
