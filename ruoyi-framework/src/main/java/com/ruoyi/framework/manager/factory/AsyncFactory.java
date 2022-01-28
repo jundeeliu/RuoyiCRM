@@ -7,6 +7,7 @@ import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.common.utils.ip.AddressUtils;
 import com.ruoyi.common.utils.ip.IpUtils;
 import com.ruoyi.common.utils.spring.SpringUtils;
+import com.ruoyi.framework.datasource.DynamicDataSourceContextHolder;
 import com.ruoyi.system.domain.SysLogininfor;
 import com.ruoyi.system.domain.SysOperLog;
 import com.ruoyi.system.service.ISysLogininforService;
@@ -26,17 +27,24 @@ public class AsyncFactory
 {
     private static final Logger sys_user_logger = LoggerFactory.getLogger("sys-user");
 
+    public static TimerTask recordLogininfor(final String username, final String status, final String message,
+                                             final Object... args) {
+        return recordLogininfor(null, username, status, message, args);
+    }
+
     /**
      * 记录登录信息
      * 
+     *
+     * @param tenant
      * @param username 用户名
      * @param status 状态
      * @param message 消息
      * @param args 列表
      * @return 任务task
      */
-    public static TimerTask recordLogininfor(final String username, final String status, final String message,
-            final Object... args)
+    public static TimerTask recordLogininfor(String tenant, final String username, final String status, final String message,
+                                             final Object... args)
     {
         final UserAgent userAgent = UserAgent.parseUserAgentString(ServletUtils.getRequest().getHeader("User-Agent"));
         final String ip = IpUtils.getIpAddr(ServletUtils.getRequest());
@@ -75,6 +83,9 @@ public class AsyncFactory
                 {
                     logininfor.setStatus(Constants.FAIL);
                 }
+                //切换数据源
+                if(StringUtils.isNotBlank(tenant))
+                    DynamicDataSourceContextHolder.setDataSourceKey(tenant);
                 // 插入数据
                 SpringUtils.getBean(ISysLogininforService.class).insertLogininfor(logininfor);
             }
@@ -85,10 +96,12 @@ public class AsyncFactory
     /**
      * 操作日志记录
      * 
+     *
+     * @param tenant
      * @param operLog 操作日志信息
      * @return 任务task
      */
-    public static TimerTask recordOper(final SysOperLog operLog)
+    public static TimerTask recordOper(String tenant, final SysOperLog operLog)
     {
         return new TimerTask()
         {
@@ -96,6 +109,8 @@ public class AsyncFactory
             public void run()
 
             {
+                //切换数据源
+                DynamicDataSourceContextHolder.setDataSourceKey(tenant);
                 // 远程查询操作地点
                 operLog.setOperLocation(AddressUtils.getRealAddressByIP(operLog.getOperIp()));
                 SpringUtils.getBean(ISysOperLogService.class).insertOperlog(operLog);

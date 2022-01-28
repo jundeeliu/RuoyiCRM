@@ -49,7 +49,7 @@ public class LogoutSuccessHandlerImpl implements LogoutSuccessHandler
             String tenant= request.getHeader("tenant");
 
             // 记录用户退出日志
-            AsyncManager.me().execute(AsyncFactory.recordLogininfor( userName, Constants.LOGOUT, "退出成功"));
+            AsyncManager.me().execute(AsyncFactory.recordLogininfor(tenant, userName, Constants.LOGOUT, "退出成功"));
         }
         ServletUtils.renderString(response, JSON.toJSONString(AjaxResult.error(HttpStatus.SUCCESS, "退出成功")));
     }
