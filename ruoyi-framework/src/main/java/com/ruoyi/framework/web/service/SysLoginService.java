@@ -88,7 +88,7 @@ public class SysLoginService
         AsyncManager.me().execute(AsyncFactory.recordLogininfor(tenant, username, Constants.LOGIN_SUCCESS, MessageUtils.message("user.login.success")));
         LoginUser loginUser = (LoginUser) authentication.getPrincipal();
         loginUser.setTenant(tenant);
-        recordLoginInfo(loginUser.getUserId());
+        recordLoginInfo(loginUser.getUserId())                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ;
         // 生成token
         return tokenService.createToken(loginUser);
     }
