@@ -68,3 +68,7 @@ RuoyiCRM基于若依平台二次开发的开源CRM系统，以SaaS方向实现�
 | ![输入图片说明](https://oscimg.oschina.net/oscnet/up-1eb62b24f1c041663f2218ce4038ff6588c.png) | ![输入图片说明](https://oscimg.oschina.net/oscnet/up-bbfcc53984cc7dd60bddaba796e6c36a0bd.png) |
 | ![输入图片说明](https://oscimg.oschina.net/oscnet/up-ca9cee342c98170c08645e4177187f5e4e3.png) | ![输入图片说明](https://oscimg.oschina.net/oscnet/up-3198b72e4d47f55d3b447f003dd033c9bea.png) |
 
+ **如需服务器部署、二开等需求，请与我联系~** 
+
+![加我QQ](https://devjd.com/wp-content/uploads/2022/01/IMG_7898-2.jpg)
+
