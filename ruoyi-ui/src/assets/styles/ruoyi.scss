@@ -1,10 +1,10 @@
  /**
  * 通用css样式布局处理
- * Copyright (c) 2019 ruoyi
+ * Copyright (c) 2022 devjd
  */
 
  /** 基础通用 **/
-.pt5 {
+ .pt5 {
 	padding-top: 5px;
 }
 .pr5 {
@@ -37,7 +37,7 @@
 .mb10 {
 	margin-bottom: 10px;
 }
-.ml0 {
+.ml10 {
 	margin-left: 10px;
 }
 .mt20 {
@@ -49,7 +49,7 @@
 .mb20 {
 	margin-bottom: 20px;
 }
-.m20 {
+.ml20 {
 	margin-left: 20px;
 }
 
@@ -102,7 +102,7 @@
 	position: relative;
 	height: 25px;
 	margin-bottom: 10px;
-	margin-top: 15px;
+	margin-top: 0;
 	padding: 10px 20px !important;
 }
 
@@ -119,6 +119,11 @@
 	position: absolute;
 }
 
+.el-pagination .el-select .el-input .el-input__inner,
+.el-pagination.is-background .btn-prev, .el-pagination.is-background .btn-next, .el-pagination.is-background .el-pager li{
+	border-radius: 0;
+}
+
 @media ( max-width : 768px) {
   .pagination-container .el-pagination > .el-pagination__jump {
     display: none !important;
@@ -132,6 +137,25 @@
 	padding-left: 0;
 	padding-right: 0;
 	width: inherit;
+}
+
+ .el-button--mini, .el-input__inner {
+   border-radius: 0;
+ }
+ .el-input__inner{
+	 padding:0 8px;
+ }
+ .el-textarea__inner{
+	border-radius: 0;
+ }
+
+ .el-input--small .el-input__inner {
+	height: 30px;
+	line-height: 30px;
+}
+
+.el-form-item__label{
+	font-size:12px;
 }
 
 /** 表格更多操作下拉样式 */
@@ -270,4 +294,18 @@
 .top-right-btn {
 	position: relative;
 	float: right;
+}
+
+.el-date-editor.el-input, .el-date-editor.el-input__inner{
+	width:100%
+}
+
+*, .el-button, .el-date-editor .el-input__inner, .el-select .el-input__inner, .el-table th {
+	font-weight: 500;
+}
+
+.el-table th.el-table__cell > .cell{
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
