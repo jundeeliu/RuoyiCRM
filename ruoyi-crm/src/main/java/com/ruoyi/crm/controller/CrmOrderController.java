@@ -123,8 +123,7 @@ public class CrmOrderController extends BaseController
     @Log(title = "订单", businessType = BusinessType.UPDATE)
     @PutMapping("/approve/{id}")
     public AjaxResult approve(@PathVariable Long id){
-        CrmOrder crmOrder = crmOrderService.selectCrmOrderById(id);
-        crmOrder.setStatus("1");
-        return toAjax(crmOrderService.updateCrmOrder(crmOrder));
+
+        return toAjax(crmOrderService.approve(id));
     }
 }

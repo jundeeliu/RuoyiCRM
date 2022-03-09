@@ -58,4 +58,11 @@ public interface ICrmOrderService
      * @return 结果
      */
      int deleteCrmOrderById(Long id);
+
+    /**
+     * 审核订单
+     * @param id
+     * @return
+     */
+    int approve(Long id);
 }

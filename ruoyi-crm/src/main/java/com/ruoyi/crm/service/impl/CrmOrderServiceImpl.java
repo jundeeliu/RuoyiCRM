@@ -2,11 +2,15 @@ package com.ruoyi.crm.service.impl;
 
 import java.util.List;
 import com.ruoyi.common.utils.DateUtils;
+import com.ruoyi.crm.domain.CrmCustomer;
+import com.ruoyi.crm.domain.enums.CustomerFolder;
+import com.ruoyi.crm.service.ICrmCustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.crm.mapper.CrmOrderMapper;
 import com.ruoyi.crm.domain.CrmOrder;
 import com.ruoyi.crm.service.ICrmOrderService;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 订单Service业务层处理
@@ -19,6 +23,9 @@ public class CrmOrderServiceImpl implements ICrmOrderService
 {
     @Autowired
     private CrmOrderMapper crmOrderMapper;
+
+    @Autowired
+    private ICrmCustomerService customerService;
 
     /**
      * 查询订单
@@ -92,5 +99,19 @@ public class CrmOrderServiceImpl implements ICrmOrderService
     public int deleteCrmOrderById(Long id)
     {
         return crmOrderMapper.deleteCrmOrderById(id);
+    }
+
+    /** 审核订单 */
+    @Transactional
+    @Override
+    public int approve(Long id) {
+        CrmOrder crmOrder = crmOrderMapper.selectCrmOrderById(id);
+        crmOrder.setStatus("1");
+
+        CrmCustomer crmCustomer = customerService.selectCrmCustomerById(crmOrder.getCustomerId());
+        crmCustomer.setStatus(CustomerFolder.CUSTOMER.getCode());
+        crmCustomer.setDealStatus("1");
+        customerService.updateCrmCustomer(crmCustomer);
+        return crmOrderMapper.updateCrmOrder(crmOrder);
     }
 }
