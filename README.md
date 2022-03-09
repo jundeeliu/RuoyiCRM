@@ -57,6 +57,8 @@ RuoyiCRM基于若依平台二次开发的开源CRM系统，以SaaS方向实现�
 2.  建立租户数据库（手动）：rycrm-tenant-1与rycrm-tenant-2
 3.  rycrm-master的master_tenant表增加租户的数据库连接信息，rycrm-master.sql里内置了两条记录。
 
+ **注：新版本中已经不需要手动创建tenant数据库了，注册的时候系统会自动创建。** 
+
 ## 项目导图
 
 ![输入图片说明](https://oscimg.oschina.net/oscnet/up-fc18a6102b182f0eb981e1114be155dbca4.png)
@@ -68,3 +70,5 @@ RuoyiCRM基于若依平台二次开发的开源CRM系统，以SaaS方向实现�
 | ![输入图片说明](https://oscimg.oschina.net/oscnet/up-1eb62b24f1c041663f2218ce4038ff6588c.png) | ![输入图片说明](https://oscimg.oschina.net/oscnet/up-bbfcc53984cc7dd60bddaba796e6c36a0bd.png) |
 | ![输入图片说明](https://oscimg.oschina.net/oscnet/up-ca9cee342c98170c08645e4177187f5e4e3.png) | ![输入图片说明](https://oscimg.oschina.net/oscnet/up-3198b72e4d47f55d3b447f003dd033c9bea.png) |
 
+## 交流群 
+QQ群： [![加入QQ群](https://img.shields.io/badge/556427333-blue.svg)](https://jq.qq.com/?_wv=1027&k=0vwIveTF) 点击按钮入群。
