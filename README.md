@@ -50,6 +50,7 @@ RuoyiCRM基于若依平台二次开发的开源CRM系统，以SaaS方向实现�
 
 演示地址：https://ruoyi.devjd.com
 
+管理后台演示地址：https://ruoyiboss.devjd.com (BOSS业务运营支撑系统)
 
 
 ## 数据库
