@@ -40,6 +40,7 @@ public class MasterTenantServiceImpl implements IMasterTenantService {
         masterTenant.setUsername(tenantDatabaseDTO.getDbUser());
         masterTenant.setPassword(tenantDatabaseDTO.getDbPass());
         masterTenant.setCreateTime(DateUtils.getNowDate());
+        masterTenant.setExpirationDate(DateUtils.addDays(DateUtils.getNowDate(), 7));//有效期7天
         return masterTenantMapper.insertMasterTenant(masterTenant);
     }
 

@@ -3,6 +3,8 @@ package com.ruoyi.tenant.domain;
 import com.ruoyi.common.core.domain.BaseEntity;
 import lombok.Data;
 
+import java.util.Date;
+
 /**
  * @Author: devjd
  * @Date: 2021/7/25
@@ -16,4 +18,7 @@ public class MasterTenant extends BaseEntity {
     private String databaseName;
     private String username;
     private String password;
+    private String hostName;
+    private String status;
+    private Date expirationDate;
 }

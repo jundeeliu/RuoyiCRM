@@ -5,18 +5,21 @@
 <mapper namespace="com.ruoyi.tenant.mapper.MasterTenantMapper">
 
     <resultMap type="MasterTenant" id="MasterTenantResult">
-        <result property="id"    column="ID"    />
-        <result property="tenant"    column="TENANT"    />
-        <result property="url"    column="URL"    />
-        <result property="username"    column="USERNAME"    />
-        <result property="password"    column="PASSWORD"    />
+        <result property="id"    column="id"    />
+        <result property="tenant"    column="tenant"    />
+        <result property="url"    column="url"    />
+        <result property="username"    column="username"    />
+        <result property="password"    column="password"    />
         <result property="databaseName"    column="database_name"    />
+        <result property="hostName"    column="host_name"    />
         <result property="createTime"    column="create_time"    />
+        <result property="status"    column="status"    />
+        <result property="expirationDate"    column="expiration_date"    />
     </resultMap>
 
 
     <sql id="selectMasterTenantVo">
-        select ID, TENANT, URL, USERNAME, PASSWORD, database_name, create_time from master_tenant
+        select id, tenant, url, username, password, database_name, host_name, create_time, status, expiration_date from master_tenant
     </sql>
 
     <select id="selectMasterTenant" parameterType="MasterTenant" resultMap="MasterTenantResult">
@@ -40,12 +43,15 @@
     <insert id="insertMasterTenant" parameterType="MasterTenant" useGeneratedKeys="true" keyProperty="id">
         insert into master_tenant
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="tenant != null">TENANT,</if>
-            <if test="url != null">URL,</if>
-            <if test="username != null">USERNAME,</if>
-            <if test="password != null">PASSWORD,</if>
+            <if test="tenant != null">tenant,</if>
+            <if test="url != null">url,</if>
+            <if test="username != null">username,</if>
+            <if test="password != null">password,</if>
             <if test="databaseName != null">database_name,</if>
+            <if test="hostName != null">host_name,</if>
             <if test="createTime != null">create_time,</if>
+            <if test="status != null">status,</if>
+            <if test="expirationDate != null">expiration_date,</if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="tenant != null">#{tenant},</if>
@@ -53,21 +59,27 @@
             <if test="username != null">#{username},</if>
             <if test="password != null">#{password},</if>
             <if test="databaseName != null">#{databaseName},</if>
+            <if test="hostName != null">#{hostName},</if>
             <if test="createTime != null">#{createTime},</if>
+            <if test="status != null">#{status},</if>
+            <if test="expirationDate != null">#{expirationDate},</if>
         </trim>
     </insert>
 
     <update id="updateMasterTenant" parameterType="MasterTenant">
         update master_tenant
         <trim prefix="SET" suffixOverrides=",">
-            <if test="tenant != null">TENANT = #{tenant},</if>
-            <if test="url != null">URL = #{url},</if>
-            <if test="username != null">USERNAME = #{username},</if>
-            <if test="password != null">PASSWORD = #{password},</if>
+            <if test="tenant != null">tenant = #{tenant},</if>
+            <if test="url != null">url = #{url},</if>
+            <if test="username != null">username = #{username},</if>
+            <if test="password != null">password = #{password},</if>
             <if test="databaseName != null">database_name = #{databaseName},</if>
+            <if test="hostName != null">host_name = #{hostName},</if>
             <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="expirationDate != null">expiration_date = #{expirationDate},</if>
         </trim>
-        where ID = #{id}
+        where id = #{id}
     </update>
 
     <select id="checkTenantNameUnique" parameterType="String" resultType="int">

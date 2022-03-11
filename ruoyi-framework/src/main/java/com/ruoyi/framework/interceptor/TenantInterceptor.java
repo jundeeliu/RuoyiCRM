@@ -1,9 +1,11 @@
 package com.ruoyi.framework.interceptor;
 
+import com.ruoyi.common.utils.DateUtils;
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.framework.datasource.DynamicDataSourceContextHolder;
 import com.ruoyi.framework.datasource.DynamicRoutingDataSource;
 import com.ruoyi.tenant.domain.MasterTenant;
+import com.ruoyi.tenant.domain.enums.TenantStatus;
 import com.ruoyi.tenant.service.IMasterTenantService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +50,12 @@ public class TenantInterceptor implements HandlerInterceptor {
                 MasterTenant masterTenant = masterTenantService.selectMasterTenant(tenant);
                 if (masterTenant == null) {
                     throw new RuntimeException("无此租户:"+tenant );
+                }else if(TenantStatus.DISABLE.getCode().equals(masterTenant.getStatus())){
+                    throw new RuntimeException("租户["+tenant+"]已停用" );
+                }else if(masterTenant.getExpirationDate()!=null){
+                    if(masterTenant.getExpirationDate().before(DateUtils.getNowDate())){
+                        throw new RuntimeException("租户["+tenant+"]已过期");
+                    }
                 }
                 Map<String, Object> map = new HashMap<>();
                 map.put("driverClassName", driverClassName);
