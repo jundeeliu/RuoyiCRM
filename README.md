@@ -37,16 +37,17 @@ RuoyiCRM基于若依平台二次开发的开源CRM系统，以SaaS方向实现�
 10. 登录日志：系统登录日志记录查询包含登录异常。
 11. 在线用户：当前系统中活跃用户状态监控。
 
-**删除了系统工具及代码生成等模块。
+    **删除了系统工具及代码生成等模块。** 
 
 ## 在线体验
 - tenant1/admin/admin123
 - tenant2/admin/admin123
 
-演示地址：https://ruoyi.devjd.com
+- 演示地址：https://ruoyi.devjd.com
 
-管理后台演示地址：https://ruoyiboss.devjd.com (BOSS业务运营支撑系统)
+- 管理后台演示地址：https://ruoyiboss.devjd.com (BOSS业务运营支撑系统)
 
+     **域名没有备案，而免备案服务器资源又有限，api服务放在国内服务器，所以前后端不在相同的网络，速度会有所影响。** 
 
 ## 数据库
 
