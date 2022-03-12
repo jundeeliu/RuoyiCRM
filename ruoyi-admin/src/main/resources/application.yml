@@ -38,7 +38,7 @@ logging:
   level:
     com.ruoyi: debug
     org.springframework: warn
-  config: classpath:logback-${spring.profiles.active}.xml
+  config: classpath:logback.xml
 
 # Spring配置
 spring:
@@ -47,7 +47,7 @@ spring:
     # 国际化资源文件路径
     basename: i18n/messages
   profiles: 
-    active: dev
+    active: druid
   # 文件上传
   servlet:
      multipart:
