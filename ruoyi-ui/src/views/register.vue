@@ -42,7 +42,7 @@
     </el-form>
     <!--  底部  -->
     <div class="el-register-footer">
-      <span>Copyright © 2022 ruoyi.nxcrm.cn All Rights Reserved.</span>
+      <span>Copyright © 2022 devjd.com.</span>
     </div>
   </div>
 </template>

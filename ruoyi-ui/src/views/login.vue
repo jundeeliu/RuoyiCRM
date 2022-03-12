@@ -38,7 +38,7 @@
     </el-form>
     <!--  底部  -->
     <div class="el-login-footer">
-      <span>Copyright © 2022 ruoyi.nxcrm.cn</span>
+      <span>Copyright © 2022 devjd.com</span>
     </div>
   </div>
 </template>
