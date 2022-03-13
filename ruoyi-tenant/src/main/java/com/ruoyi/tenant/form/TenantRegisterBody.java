@@ -1,5 +1,6 @@
 package com.ruoyi.tenant.form;
 
+import com.ruoyi.common.core.domain.model.LoginBody;
 import lombok.Data;
 
 /**
@@ -8,7 +9,8 @@ import lombok.Data;
  * @Description:
  */
 @Data
-public class TenantRegisterForm {
+public class TenantRegisterBody extends LoginBody {
+
     /** 租户ID，唯一 */
     public String tenantName;
 

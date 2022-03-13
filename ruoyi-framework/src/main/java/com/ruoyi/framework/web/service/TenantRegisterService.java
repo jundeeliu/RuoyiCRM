@@ -6,7 +6,7 @@ import com.ruoyi.common.utils.SecurityUtils;
 import com.ruoyi.common.utils.SnowflakeIdWorker;
 import com.ruoyi.common.utils.uuid.ShortUUID;
 import com.ruoyi.tenant.dto.TenantDatabaseDTO;
-import com.ruoyi.tenant.form.TenantRegisterForm;
+import com.ruoyi.tenant.form.TenantRegisterBody;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.jdbc.ScriptRunner;
@@ -57,7 +57,7 @@ public class TenantRegisterService {
     }
 
 
-    public TenantDatabaseDTO initDatabase(TenantRegisterForm form) throws Exception {
+    public TenantDatabaseDTO initDatabase(TenantRegisterBody form) throws Exception {
         Connection conn = getConnection();
         Statement stmt = null;
         TenantDatabaseDTO tenantDatabaseDTO = null;
