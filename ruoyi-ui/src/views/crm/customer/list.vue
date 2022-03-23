@@ -68,7 +68,7 @@
       </el-table-column>
       <el-table-column fixed="right" label="操作" align="left" class="small-padding" width="250px">
         <template slot-scope="scope">
-          <el-button size="mini" type="text" icon="el-icon-edit-outline" @click="handleFollowup(scope.row)" v-hasPermi="['crm:customer:followup']">写跟进</el-button>
+          <el-button size="mini" type="text" icon="el-icon-edit-outline" @click="handleComment(scope.row)" v-hasPermi="['crm:customer:followup']">写跟进</el-button>
           <el-button size="mini" type="text" icon="el-icon-s-promotion" @click="handleTransfer(scope.row)" v-hasPermi="['crm:customer:transfer']">转移</el-button>
           <el-button size="mini" type="text" icon="el-icon-edit" @click="handleUpdate(scope.row)" v-hasPermi="['crm:customer:edit']">修改</el-button>
           <el-button size="mini" type="text" icon="el-icon-delete" @click="handleDelete(scope.row)" v-hasPermi="['crm:customer:remove']">删除</el-button>
@@ -149,6 +149,7 @@
 
     <TransferCustomerComponent v-if="transferCustomer" ref="transferCustomer" @close-dialog="handleTransferCustomerClose" />
     <ToPoolComponent v-if="toPool" ref="toPool" @close-dialog="handleToPoolClose" />
+    <CommentComponent v-if="commentCustomer" ref="commentCustomer" @close-dialog="handleCommentClose" />
   </div>
 </template>
 
@@ -163,12 +164,14 @@ import {
 
 import TransferCustomerComponent from './Transfer'
 import ToPoolComponent from './ToPool'
+import CommentComponent from './Comment'
 
 export default {
   name: 'Customer',
   components: {
     TransferCustomerComponent,
-    ToPoolComponent
+    ToPoolComponent,
+    CommentComponent
   },
   dicts: [
     'clues_source',
@@ -234,6 +237,7 @@ export default {
       },
       transferCustomer: false,
       toPool: false,
+      commentCustomer: false
     }
   },
   created () {
@@ -379,6 +383,18 @@ export default {
     },
     handleToPoolClose () {
       this.toPool = false;
+      this.getList();
+    },
+
+    handleComment (row) {
+      const id = row.id
+      this.commentCustomer = true
+      this.$nextTick(() => {
+        this.$refs.commentCustomer.open(id)
+      })
+    },
+    handleCommentClose () {
+      this.commentCustomer = false;
       this.getList();
     },
   },
