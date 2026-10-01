@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * Entity基类
@@ -37,6 +38,9 @@ public class BaseEntity implements Serializable
 
     /** 请求参数 */
     private Map<String, Object> params;
+
+    /** Server-owned authorization decision; never populated from request params. */
+    private transient DataScopeCriteria dataScopeCriteria;
 
     public String getSearchValue()
     {
@@ -110,5 +114,17 @@ public class BaseEntity implements Serializable
     public void setParams(Map<String, Object> params)
     {
         this.params = params;
+    }
+
+    @JsonIgnore
+    public DataScopeCriteria getDataScopeCriteria()
+    {
+        return dataScopeCriteria == null ? DataScopeCriteria.denied() : dataScopeCriteria;
+    }
+
+    /** Deliberately not a JavaBean setter: web binding must not grant scope. */
+    public void applyDataScope(DataScopeCriteria criteria)
+    {
+        this.dataScopeCriteria = criteria == null ? DataScopeCriteria.denied() : criteria;
     }
 }

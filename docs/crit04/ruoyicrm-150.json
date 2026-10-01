@@ -1,0 +1,2533 @@
+{
+  "schema": "ruoyicrm.crit04.replay-plan.v1",
+  "source_revision": "d7423309",
+  "evidence_status": "NOT_RUN",
+  "execution_contract": "Dual-run only on isolated loopback source and target runtimes; compare status, content type, and exact body bytes.",
+  "mapper_sources": [
+    {
+      "path": "ruoyi-crm/src/main/resources/mapper/crm/CrmCommentMapper.xml",
+      "sha256": "1a956addb9893fe906fa170ab7507285d8df8792ddeed63bd9e82d855b800d7d",
+      "statements": [
+        {
+          "kind": "select",
+          "id": "selectCrmCommentList",
+          "line": 21
+        },
+        {
+          "kind": "select",
+          "id": "selectCrmCommentById",
+          "line": 28
+        },
+        {
+          "kind": "insert",
+          "id": "insertCrmComment",
+          "line": 33
+        },
+        {
+          "kind": "update",
+          "id": "updateCrmComment",
+          "line": 55
+        },
+        {
+          "kind": "delete",
+          "id": "deleteCrmCommentById",
+          "line": 68
+        },
+        {
+          "kind": "delete",
+          "id": "deleteCrmCommentByIds",
+          "line": 72
+        }
+      ]
+    },
+    {
+      "path": "ruoyi-crm/src/main/resources/mapper/crm/CrmCustomerMapper.xml",
+      "sha256": "cede3fe399d6f1e7db9449b7edb8568f1ae90e985248fac56490471a4a03e4c7",
+      "statements": [
+        {
+          "kind": "select",
+          "id": "selectCrmCustomerList",
+          "line": 51
+        },
+        {
+          "kind": "select",
+          "id": "selectCrmCustomerById",
+          "line": 73
+        },
+        {
+          "kind": "insert",
+          "id": "insertCrmCustomer",
+          "line": 78
+        },
+        {
+          "kind": "update",
+          "id": "updateCrmCustomer",
+          "line": 142
+        },
+        {
+          "kind": "delete",
+          "id": "deleteCrmCustomerById",
+          "line": 177
+        },
+        {
+          "kind": "delete",
+          "id": "deleteCrmCustomerByIds",
+          "line": 181
+        },
+        {
+          "kind": "update",
+          "id": "transferCrmCustomerByIds",
+          "line": 188
+        },
+        {
+          "kind": "update",
+          "id": "customerToPoolByIds",
+          "line": 195
+        },
+        {
+          "kind": "update",
+          "id": "receiveCustomerById",
+          "line": 202
+        },
+        {
+          "kind": "select",
+          "id": "todayUpdates",
+          "line": 206
+        }
+      ]
+    },
+    {
+      "path": "ruoyi-crm/src/main/resources/mapper/crm/CrmOrderMapper.xml",
+      "sha256": "5a096b6ccfaf2d5f81fe25ad7bce86f1c94faa3423ffb83ca1356fa274ed16c0",
+      "statements": [
+        {
+          "kind": "select",
+          "id": "selectCrmOrderList",
+          "line": 27
+        },
+        {
+          "kind": "select",
+          "id": "selectCrmOrderById",
+          "line": 37
+        },
+        {
+          "kind": "insert",
+          "id": "insertCrmOrder",
+          "line": 42
+        },
+        {
+          "kind": "update",
+          "id": "updateCrmOrder",
+          "line": 72
+        },
+        {
+          "kind": "delete",
+          "id": "deleteCrmOrderById",
+          "line": 89
+        },
+        {
+          "kind": "delete",
+          "id": "deleteCrmOrderByIds",
+          "line": 93
+        }
+      ]
+    },
+    {
+      "path": "ruoyi-system/src/main/resources/mapper/system/SysConfigMapper.xml",
+      "sha256": "b9916af5f60599d58a6cb0500a618fb7e2d7a6671bad63ae4ff891e835d4c7e3",
+      "statements": [
+        {
+          "kind": "select",
+          "id": "selectConfig",
+          "line": 36
+        },
+        {
+          "kind": "select",
+          "id": "selectConfigList",
+          "line": 41
+        },
+        {
+          "kind": "select",
+          "id": "checkConfigKeyUnique",
+          "line": 62
+        },
+        {
+          "kind": "insert",
+          "id": "insertConfig",
+          "line": 67
+        },
+        {
+          "kind": "update",
+          "id": "updateConfig",
+          "line": 87
+        },
+        {
+          "kind": "delete",
+          "id": "deleteConfigById",
+          "line": 101
+        },
+        {
+          "kind": "delete",
+          "id": "deleteConfigByIds",
+          "line": 105
+        }
+      ]
+    },
+    {
+      "path": "ruoyi-system/src/main/resources/mapper/system/SysDeptMapper.xml",
+      "sha256": "180629bda2581c6da6343d395982545c819371630a4d2248ce86882807b5e4e7",
+      "statements": [
+        {
+          "kind": "select",
+          "id": "selectDeptList",
+          "line": 54
+        },
+        {
+          "kind": "select",
+          "id": "selectDeptListByRoleId",
+          "line": 74
+        },
+        {
+          "kind": "select",
+          "id": "selectDeptById",
+          "line": 85
+        },
+        {
+          "kind": "select",
+          "id": "checkDeptExistUser",
+          "line": 90
+        },
+        {
+          "kind": "select",
+          "id": "hasChildByDeptId",
+          "line": 94
+        },
+        {
+          "kind": "select",
+          "id": "selectChildrenDeptById",
+          "line": 99
+        },
+        {
+          "kind": "select",
+          "id": "selectNormalChildrenDeptById",
+          "line": 103
+        },
+        {
+          "kind": "select",
+          "id": "checkDeptNameUnique",
+          "line": 107
+        },
+        {
+          "kind": "insert",
+          "id": "insertDept",
+          "line": 112
+        },
+        {
+          "kind": "update",
+          "id": "updateDept",
+          "line": 140
+        },
+        {
+          "kind": "update",
+          "id": "updateDeptChildren",
+          "line": 157
+        },
+        {
+          "kind": "update",
+          "id": "updateDeptStatusNormal",
+          "line": 170
+        },
+        {
+          "kind": "delete",
+          "id": "deleteDeptById",
+          "line": 177
+        }
+      ]
+    },
+    {
+      "path": "ruoyi-system/src/main/resources/mapper/system/SysDictDataMapper.xml",
+      "sha256": "e12be4ae5e10ae34e6b6a18024dda77d727dea45684b2fde2a2ddcdb23d0d63f",
+      "statements": [
+        {
+          "kind": "select",
+          "id": "selectDictDataList",
+          "line": 28
+        },
+        {
+          "kind": "select",
+          "id": "selectDictDataByType",
+          "line": 44
+        },
+        {
+          "kind": "select",
+          "id": "selectDictLabel",
+          "line": 49
+        },
+        {
+          "kind": "select",
+          "id": "selectDictDataById",
+          "line": 54
+        },
+        {
+          "kind": "select",
+          "id": "countDictDataByType",
+          "line": 59
+        },
+        {
+          "kind": "delete",
+          "id": "deleteDictDataById",
+          "line": 63
+        },
+        {
+          "kind": "delete",
+          "id": "deleteDictDataByIds",
+          "line": 67
+        },
+        {
+          "kind": "update",
+          "id": "updateDictData",
+          "line": 74
+        },
+        {
+          "kind": "update",
+          "id": "updateDictDataType",
+          "line": 92
+        },
+        {
+          "kind": "insert",
+          "id": "insertDictData",
+          "line": 96
+        }
+      ]
+    },
+    {
+      "path": "ruoyi-system/src/main/resources/mapper/system/SysDictTypeMapper.xml",
+      "sha256": "86ba298a76bd17262a3c02f902f68b7597e73ee62c0fe29e009e3139957eb010",
+      "statements": [
+        {
+          "kind": "select",
+          "id": "selectDictTypeList",
+          "line": 23
+        },
+        {
+          "kind": "select",
+          "id": "selectDictTypeAll",
+          "line": 44
+        },
+        {
+          "kind": "select",
+          "id": "selectDictTypeById",
+          "line": 48
+        },
+        {
+          "kind": "select",
+          "id": "selectDictTypeByType",
+          "line": 53
+        },
+        {
+          "kind": "select",
+          "id": "checkDictTypeUnique",
+          "line": 58
+        },
+        {
+          "kind": "delete",
+          "id": "deleteDictTypeById",
+          "line": 63
+        },
+        {
+          "kind": "delete",
+          "id": "deleteDictTypeByIds",
+          "line": 67
+        },
+        {
+          "kind": "update",
+          "id": "updateDictType",
+          "line": 74
+        },
+        {
+          "kind": "insert",
+          "id": "insertDictType",
+          "line": 87
+        }
+      ]
+    },
+    {
+      "path": "ruoyi-system/src/main/resources/mapper/system/SysLogininforMapper.xml",
+      "sha256": "b09b461f7e8d162aaff526b17547970dbf681f2c8c28ac50cd97286b9de0af42",
+      "statements": [
+        {
+          "kind": "insert",
+          "id": "insertLogininfor",
+          "line": 19
+        },
+        {
+          "kind": "select",
+          "id": "selectLogininforList",
+          "line": 24
+        },
+        {
+          "kind": "delete",
+          "id": "deleteLogininforByIds",
+          "line": 46
+        },
+        {
+          "kind": "update",
+          "id": "cleanLogininfor",
+          "line": 53
+        }
+      ]
+    },
+    {
+      "path": "ruoyi-system/src/main/resources/mapper/system/SysMenuMapper.xml",
+      "sha256": "048a7c5be31b574d1b25f6c1b5ad86e50f1afa9015523d8e6614d0264abdd9ed",
+      "statements": [
+        {
+          "kind": "select",
+          "id": "selectMenuList",
+          "line": 35
+        },
+        {
+          "kind": "select",
+          "id": "selectMenuTreeAll",
+          "line": 51
+        },
+        {
+          "kind": "select",
+          "id": "selectMenuListByUserId",
+          "line": 57
+        },
+        {
+          "kind": "select",
+          "id": "selectMenuTreeByUserId",
+          "line": 76
+        },
+        {
+          "kind": "select",
+          "id": "selectMenuListByRoleId",
+          "line": 87
+        },
+        {
+          "kind": "select",
+          "id": "selectMenuPerms",
+          "line": 98
+        },
+        {
+          "kind": "select",
+          "id": "selectMenuPermsByUserId",
+          "line": 105
+        },
+        {
+          "kind": "select",
+          "id": "selectMenuById",
+          "line": 114
+        },
+        {
+          "kind": "select",
+          "id": "hasChildByMenuId",
+          "line": 119
+        },
+        {
+          "kind": "select",
+          "id": "checkMenuNameUnique",
+          "line": 123
+        },
+        {
+          "kind": "update",
+          "id": "updateMenu",
+          "line": 128
+        },
+        {
+          "kind": "insert",
+          "id": "insertMenu",
+          "line": 151
+        },
+        {
+          "kind": "delete",
+          "id": "deleteMenuById",
+          "line": 191
+        }
+      ]
+    },
+    {
+      "path": "ruoyi-system/src/main/resources/mapper/system/SysNoticeMapper.xml",
+      "sha256": "d03dc2f36afe20581cb530504ce10125c61deb98d0adbb074747ef9a7c415f66",
+      "statements": [
+        {
+          "kind": "select",
+          "id": "selectNoticeById",
+          "line": 25
+        },
+        {
+          "kind": "select",
+          "id": "selectNoticeList",
+          "line": 30
+        },
+        {
+          "kind": "insert",
+          "id": "insertNotice",
+          "line": 45
+        },
+        {
+          "kind": "update",
+          "id": "updateNotice",
+          "line": 65
+        },
+        {
+          "kind": "delete",
+          "id": "deleteNoticeById",
+          "line": 78
+        },
+        {
+          "kind": "delete",
+          "id": "deleteNoticeByIds",
+          "line": 82
+        }
+      ]
+    },
+    {
+      "path": "ruoyi-system/src/main/resources/mapper/system/SysOperLogMapper.xml",
+      "sha256": "e40d3a9e764ae113505e557bc80b73809842348d9752152fd920b2bf849148c7",
+      "statements": [
+        {
+          "kind": "insert",
+          "id": "insertOperlog",
+          "line": 31
+        },
+        {
+          "kind": "select",
+          "id": "selectOperLogList",
+          "line": 36
+        },
+        {
+          "kind": "delete",
+          "id": "deleteOperLogByIds",
+          "line": 67
+        },
+        {
+          "kind": "select",
+          "id": "selectOperLogById",
+          "line": 74
+        },
+        {
+          "kind": "update",
+          "id": "cleanOperLog",
+          "line": 79
+        }
+      ]
+    },
+    {
+      "path": "ruoyi-system/src/main/resources/mapper/system/SysPostMapper.xml",
+      "sha256": "4e0fd2a0bebf887a487949474d65eb8a6d72997f5884aeb1a0f008e081e796ed",
+      "statements": [
+        {
+          "kind": "select",
+          "id": "selectPostList",
+          "line": 25
+        },
+        {
+          "kind": "select",
+          "id": "selectPostAll",
+          "line": 40
+        },
+        {
+          "kind": "select",
+          "id": "selectPostById",
+          "line": 44
+        },
+        {
+          "kind": "select",
+          "id": "selectPostListByUserId",
+          "line": 49
+        },
+        {
+          "kind": "select",
+          "id": "selectPostsByUserName",
+          "line": 57
+        },
+        {
+          "kind": "select",
+          "id": "checkPostNameUnique",
+          "line": 65
+        },
+        {
+          "kind": "select",
+          "id": "checkPostCodeUnique",
+          "line": 70
+        },
+        {
+          "kind": "update",
+          "id": "updatePost",
+          "line": 75
+        },
+        {
+          "kind": "insert",
+          "id": "insertPost",
+          "line": 89
+        },
+        {
+          "kind": "delete",
+          "id": "deletePostById",
+          "line": 111
+        },
+        {
+          "kind": "delete",
+          "id": "deletePostByIds",
+          "line": 115
+        }
+      ]
+    },
+    {
+      "path": "ruoyi-system/src/main/resources/mapper/system/SysRoleDeptMapper.xml",
+      "sha256": "f8cb6b1e43074fd0ce318c8ee008ae3dbbf1aa8ec0cc6e16107165966480fcba",
+      "statements": [
+        {
+          "kind": "delete",
+          "id": "deleteRoleDeptByRoleId",
+          "line": 12
+        },
+        {
+          "kind": "select",
+          "id": "selectCountRoleDeptByDeptId",
+          "line": 16
+        },
+        {
+          "kind": "delete",
+          "id": "deleteRoleDept",
+          "line": 20
+        },
+        {
+          "kind": "insert",
+          "id": "batchRoleDept",
+          "line": 27
+        }
+      ]
+    },
+    {
+      "path": "ruoyi-system/src/main/resources/mapper/system/SysRoleMapper.xml",
+      "sha256": "1ce53b98436cc9836004bbec2a9ff6b3ec421b48bfee8796f9df9905a8a2beab",
+      "statements": [
+        {
+          "kind": "select",
+          "id": "selectRoleList",
+          "line": 57
+        },
+        {
+          "kind": "select",
+          "id": "selectRolePermissionByUserId",
+          "line": 83
+        },
+        {
+          "kind": "select",
+          "id": "selectRoleAll",
+          "line": 88
+        },
+        {
+          "kind": "select",
+          "id": "selectRoleListByUserId",
+          "line": 92
+        },
+        {
+          "kind": "select",
+          "id": "selectRoleById",
+          "line": 100
+        },
+        {
+          "kind": "select",
+          "id": "selectRolesByUserName",
+          "line": 105
+        },
+        {
+          "kind": "select",
+          "id": "checkRoleNameUnique",
+          "line": 110
+        },
+        {
+          "kind": "select",
+          "id": "checkRoleKeyUnique",
+          "line": 115
+        },
+        {
+          "kind": "insert",
+          "id": "insertRole",
+          "line": 120
+        },
+        {
+          "kind": "update",
+          "id": "updateRole",
+          "line": 148
+        },
+        {
+          "kind": "delete",
+          "id": "deleteRoleById",
+          "line": 165
+        },
+        {
+          "kind": "delete",
+          "id": "deleteRoleByIds",
+          "line": 169
+        }
+      ]
+    },
+    {
+      "path": "ruoyi-system/src/main/resources/mapper/system/SysRoleMenuMapper.xml",
+      "sha256": "d19d8291548a9bb4e1a8de8f5d32fecaa2d51c6bb5fa116984da8ddeaf4d953d",
+      "statements": [
+        {
+          "kind": "select",
+          "id": "checkMenuExistRole",
+          "line": 12
+        },
+        {
+          "kind": "delete",
+          "id": "deleteRoleMenuByRoleId",
+          "line": 16
+        },
+        {
+          "kind": "delete",
+          "id": "deleteRoleMenu",
+          "line": 20
+        },
+        {
+          "kind": "insert",
+          "id": "batchRoleMenu",
+          "line": 27
+        }
+      ]
+    },
+    {
+      "path": "ruoyi-system/src/main/resources/mapper/system/SysUserMapper.xml",
+      "sha256": "bc212f60900a9365ac37ef5f453e5604b50bbefb7e603d6400d076ad62f64abc",
+      "statements": [
+        {
+          "kind": "select",
+          "id": "selectUserList",
+          "line": 85
+        },
+        {
+          "kind": "select",
+          "id": "selectAllocatedList",
+          "line": 114
+        },
+        {
+          "kind": "select",
+          "id": "selectUnallocatedList",
+          "line": 131
+        },
+        {
+          "kind": "select",
+          "id": "selectUserByUserName",
+          "line": 149
+        },
+        {
+          "kind": "select",
+          "id": "selectUserById",
+          "line": 154
+        },
+        {
+          "kind": "select",
+          "id": "checkUserNameUnique",
+          "line": 159
+        },
+        {
+          "kind": "select",
+          "id": "checkPhoneUnique",
+          "line": 163
+        },
+        {
+          "kind": "select",
+          "id": "checkEmailUnique",
+          "line": 167
+        },
+        {
+          "kind": "insert",
+          "id": "insertUser",
+          "line": 171
+        },
+        {
+          "kind": "update",
+          "id": "updateUser",
+          "line": 203
+        },
+        {
+          "kind": "update",
+          "id": "updateUserStatus",
+          "line": 224
+        },
+        {
+          "kind": "update",
+          "id": "updateUserAvatar",
+          "line": 228
+        },
+        {
+          "kind": "update",
+          "id": "resetUserPwd",
+          "line": 232
+        },
+        {
+          "kind": "delete",
+          "id": "deleteUserById",
+          "line": 236
+        },
+        {
+          "kind": "delete",
+          "id": "deleteUserByIds",
+          "line": 240
+        }
+      ]
+    },
+    {
+      "path": "ruoyi-system/src/main/resources/mapper/system/SysUserPostMapper.xml",
+      "sha256": "7ddf518b0acc2c774c29ad0f21e5df4de7a1cf6964e4d9324973236521b4641f",
+      "statements": [
+        {
+          "kind": "delete",
+          "id": "deleteUserPostByUserId",
+          "line": 12
+        },
+        {
+          "kind": "select",
+          "id": "countUserPostById",
+          "line": 16
+        },
+        {
+          "kind": "delete",
+          "id": "deleteUserPost",
+          "line": 20
+        },
+        {
+          "kind": "insert",
+          "id": "batchUserPost",
+          "line": 27
+        }
+      ]
+    },
+    {
+      "path": "ruoyi-system/src/main/resources/mapper/system/SysUserRoleMapper.xml",
+      "sha256": "81cbece552c3eee8fe7c0cf62d09a5b4b9109e37f199d04847ebe0b143f8dd28",
+      "statements": [
+        {
+          "kind": "delete",
+          "id": "deleteUserRoleByUserId",
+          "line": 12
+        },
+        {
+          "kind": "select",
+          "id": "countUserRoleByRoleId",
+          "line": 16
+        },
+        {
+          "kind": "delete",
+          "id": "deleteUserRole",
+          "line": 20
+        },
+        {
+          "kind": "insert",
+          "id": "batchUserRole",
+          "line": 27
+        },
+        {
+          "kind": "delete",
+          "id": "deleteUserRoleInfo",
+          "line": 34
+        },
+        {
+          "kind": "delete",
+          "id": "deleteUserRoleInfos",
+          "line": 38
+        }
+      ]
+    },
+    {
+      "path": "ruoyi-tenant/src/main/resources/mapper/tenant/MasterTenantMapper.xml",
+      "sha256": "28c28a5185b0818ede3210e4a67bafd65579f84160609c2c4511fefa52ffb2aa",
+      "statements": [
+        {
+          "kind": "select",
+          "id": "selectMasterTenant",
+          "line": 25
+        },
+        {
+          "kind": "select",
+          "id": "selectMasterTenantList",
+          "line": 34
+        },
+        {
+          "kind": "insert",
+          "id": "insertMasterTenant",
+          "line": 43
+        },
+        {
+          "kind": "update",
+          "id": "updateMasterTenant",
+          "line": 69
+        },
+        {
+          "kind": "select",
+          "id": "checkTenantNameUnique",
+          "line": 85
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "http_method": "GET",
+      "path_template": "/captchaImage",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/common/CaptchaController.java",
+      "controller_line": 44,
+      "controller_sha256": "6eb8ed3cd656ff3db104bd0521266876fc41e2c5950652a24782d6345c50b72a",
+      "java_method": "getCode",
+      "permission_expression": null,
+      "id": "RUOYICRM-001",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/common/download",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/common/CommonController.java",
+      "controller_line": 40,
+      "controller_sha256": "d257076c87332474dbbdd439697ed7b5ebb0ac7f2e0e52b281b0be40f0a4d041",
+      "java_method": "fileDownload",
+      "permission_expression": null,
+      "id": "RUOYICRM-002",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "POST",
+      "path_template": "/common/upload",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/common/CommonController.java",
+      "controller_line": 69,
+      "controller_sha256": "d257076c87332474dbbdd439697ed7b5ebb0ac7f2e0e52b281b0be40f0a4d041",
+      "java_method": "uploadFile",
+      "permission_expression": null,
+      "id": "RUOYICRM-003",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/common/download/resource",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/common/CommonController.java",
+      "controller_line": 93,
+      "controller_sha256": "d257076c87332474dbbdd439697ed7b5ebb0ac7f2e0e52b281b0be40f0a4d041",
+      "java_method": "resourceDownload",
+      "permission_expression": null,
+      "id": "RUOYICRM-004",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/monitor/logininfor/list",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/monitor/SysLogininforController.java",
+      "controller_line": 35,
+      "controller_sha256": "1f13e2342768d0f5ccf5e16d0fa09b41d51c51b1672f569410a4142e3db4df80",
+      "java_method": "list",
+      "permission_expression": "@ss.hasPermi('monitor:logininfor:list')",
+      "id": "RUOYICRM-005",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "POST",
+      "path_template": "/monitor/logininfor/export",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/monitor/SysLogininforController.java",
+      "controller_line": 45,
+      "controller_sha256": "1f13e2342768d0f5ccf5e16d0fa09b41d51c51b1672f569410a4142e3db4df80",
+      "java_method": "export",
+      "permission_expression": "@ss.hasPermi('monitor:logininfor:export')",
+      "id": "RUOYICRM-006",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "DELETE",
+      "path_template": "/monitor/logininfor/{infoIds}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/monitor/SysLogininforController.java",
+      "controller_line": 55,
+      "controller_sha256": "1f13e2342768d0f5ccf5e16d0fa09b41d51c51b1672f569410a4142e3db4df80",
+      "java_method": "remove",
+      "permission_expression": "@ss.hasPermi('monitor:logininfor:remove')",
+      "id": "RUOYICRM-007",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "DELETE",
+      "path_template": "/monitor/logininfor/clean",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/monitor/SysLogininforController.java",
+      "controller_line": 63,
+      "controller_sha256": "1f13e2342768d0f5ccf5e16d0fa09b41d51c51b1672f569410a4142e3db4df80",
+      "java_method": "clean",
+      "permission_expression": "@ss.hasPermi('monitor:logininfor:remove')",
+      "id": "RUOYICRM-008",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/monitor/operlog/list",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/monitor/SysOperlogController.java",
+      "controller_line": 35,
+      "controller_sha256": "55dc3913c1eabc424f8bc4b2139be9c27d825c7ffd1d97b0eed5d3cdcde28b41",
+      "java_method": "list",
+      "permission_expression": "@ss.hasPermi('monitor:operlog:list')",
+      "id": "RUOYICRM-009",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "POST",
+      "path_template": "/monitor/operlog/export",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/monitor/SysOperlogController.java",
+      "controller_line": 45,
+      "controller_sha256": "55dc3913c1eabc424f8bc4b2139be9c27d825c7ffd1d97b0eed5d3cdcde28b41",
+      "java_method": "export",
+      "permission_expression": "@ss.hasPermi('monitor:operlog:export')",
+      "id": "RUOYICRM-010",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "DELETE",
+      "path_template": "/monitor/operlog/{operIds}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/monitor/SysOperlogController.java",
+      "controller_line": 55,
+      "controller_sha256": "55dc3913c1eabc424f8bc4b2139be9c27d825c7ffd1d97b0eed5d3cdcde28b41",
+      "java_method": "remove",
+      "permission_expression": "@ss.hasPermi('monitor:operlog:remove')",
+      "id": "RUOYICRM-011",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "DELETE",
+      "path_template": "/monitor/operlog/clean",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/monitor/SysOperlogController.java",
+      "controller_line": 63,
+      "controller_sha256": "55dc3913c1eabc424f8bc4b2139be9c27d825c7ffd1d97b0eed5d3cdcde28b41",
+      "java_method": "clean",
+      "permission_expression": "@ss.hasPermi('monitor:operlog:remove')",
+      "id": "RUOYICRM-012",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/monitor/online/list",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/monitor/SysUserOnlineController.java",
+      "controller_line": 42,
+      "controller_sha256": "0b2aa02698abbff31fbb095ca2904603fbc3ac11438622a7e02a10b532c1f2e4",
+      "java_method": "list",
+      "permission_expression": "@ss.hasPermi('monitor:online:list')",
+      "id": "RUOYICRM-013",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "DELETE",
+      "path_template": "/monitor/online/{tokenId}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/monitor/SysUserOnlineController.java",
+      "controller_line": 86,
+      "controller_sha256": "0b2aa02698abbff31fbb095ca2904603fbc3ac11438622a7e02a10b532c1f2e4",
+      "java_method": "forceLogout",
+      "permission_expression": "@ss.hasPermi('monitor:online:forceLogout')",
+      "id": "RUOYICRM-014",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/config/list",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysConfigController.java",
+      "controller_line": 42,
+      "controller_sha256": "61ebc9467df73e192ca5d7394f78ca95f2e20c1256e60cef64b26f5be6731424",
+      "java_method": "list",
+      "permission_expression": "@ss.hasPermi('system:config:list')",
+      "id": "RUOYICRM-015",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "POST",
+      "path_template": "/system/config/export",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysConfigController.java",
+      "controller_line": 52,
+      "controller_sha256": "61ebc9467df73e192ca5d7394f78ca95f2e20c1256e60cef64b26f5be6731424",
+      "java_method": "export",
+      "permission_expression": "@ss.hasPermi('system:config:export')",
+      "id": "RUOYICRM-016",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/config/{configId}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysConfigController.java",
+      "controller_line": 64,
+      "controller_sha256": "61ebc9467df73e192ca5d7394f78ca95f2e20c1256e60cef64b26f5be6731424",
+      "java_method": "getInfo",
+      "permission_expression": "@ss.hasPermi('system:config:query')",
+      "id": "RUOYICRM-017",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/config/configKey/{configKey}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysConfigController.java",
+      "controller_line": 73,
+      "controller_sha256": "61ebc9467df73e192ca5d7394f78ca95f2e20c1256e60cef64b26f5be6731424",
+      "java_method": "getConfigKey",
+      "permission_expression": null,
+      "id": "RUOYICRM-018",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "POST",
+      "path_template": "/system/config",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysConfigController.java",
+      "controller_line": 84,
+      "controller_sha256": "61ebc9467df73e192ca5d7394f78ca95f2e20c1256e60cef64b26f5be6731424",
+      "java_method": "add",
+      "permission_expression": "@ss.hasPermi('system:config:add')",
+      "id": "RUOYICRM-019",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "PUT",
+      "path_template": "/system/config",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysConfigController.java",
+      "controller_line": 100,
+      "controller_sha256": "61ebc9467df73e192ca5d7394f78ca95f2e20c1256e60cef64b26f5be6731424",
+      "java_method": "edit",
+      "permission_expression": "@ss.hasPermi('system:config:edit')",
+      "id": "RUOYICRM-020",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "DELETE",
+      "path_template": "/system/config/{configIds}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysConfigController.java",
+      "controller_line": 116,
+      "controller_sha256": "61ebc9467df73e192ca5d7394f78ca95f2e20c1256e60cef64b26f5be6731424",
+      "java_method": "remove",
+      "permission_expression": "@ss.hasPermi('system:config:remove')",
+      "id": "RUOYICRM-021",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "DELETE",
+      "path_template": "/system/config/refreshCache",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysConfigController.java",
+      "controller_line": 128,
+      "controller_sha256": "61ebc9467df73e192ca5d7394f78ca95f2e20c1256e60cef64b26f5be6731424",
+      "java_method": "refreshCache",
+      "permission_expression": "@ss.hasPermi('system:config:remove')",
+      "id": "RUOYICRM-022",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/dept/list",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDeptController.java",
+      "controller_line": 42,
+      "controller_sha256": "5a8066c773241db3d4650facda4bbaa1bb2a6765b7045720be5c3e85e3b4a52a",
+      "java_method": "list",
+      "permission_expression": "@ss.hasPermi('system:dept:list')",
+      "id": "RUOYICRM-023",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/dept/list/exclude/{deptId}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDeptController.java",
+      "controller_line": 53,
+      "controller_sha256": "5a8066c773241db3d4650facda4bbaa1bb2a6765b7045720be5c3e85e3b4a52a",
+      "java_method": "excludeChild",
+      "permission_expression": "@ss.hasPermi('system:dept:list')",
+      "id": "RUOYICRM-024",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/dept/{deptId}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDeptController.java",
+      "controller_line": 74,
+      "controller_sha256": "5a8066c773241db3d4650facda4bbaa1bb2a6765b7045720be5c3e85e3b4a52a",
+      "java_method": "getInfo",
+      "permission_expression": "@ss.hasPermi('system:dept:query')",
+      "id": "RUOYICRM-025",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/dept/treeselect",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDeptController.java",
+      "controller_line": 84,
+      "controller_sha256": "5a8066c773241db3d4650facda4bbaa1bb2a6765b7045720be5c3e85e3b4a52a",
+      "java_method": "treeselect",
+      "permission_expression": null,
+      "id": "RUOYICRM-026",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/dept/roleDeptTreeselect/{roleId}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDeptController.java",
+      "controller_line": 94,
+      "controller_sha256": "5a8066c773241db3d4650facda4bbaa1bb2a6765b7045720be5c3e85e3b4a52a",
+      "java_method": "roleDeptTreeselect",
+      "permission_expression": null,
+      "id": "RUOYICRM-027",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "POST",
+      "path_template": "/system/dept",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDeptController.java",
+      "controller_line": 109,
+      "controller_sha256": "5a8066c773241db3d4650facda4bbaa1bb2a6765b7045720be5c3e85e3b4a52a",
+      "java_method": "add",
+      "permission_expression": "@ss.hasPermi('system:dept:add')",
+      "id": "RUOYICRM-028",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "PUT",
+      "path_template": "/system/dept",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDeptController.java",
+      "controller_line": 125,
+      "controller_sha256": "5a8066c773241db3d4650facda4bbaa1bb2a6765b7045720be5c3e85e3b4a52a",
+      "java_method": "edit",
+      "permission_expression": "@ss.hasPermi('system:dept:edit')",
+      "id": "RUOYICRM-029",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "DELETE",
+      "path_template": "/system/dept/{deptId}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDeptController.java",
+      "controller_line": 151,
+      "controller_sha256": "5a8066c773241db3d4650facda4bbaa1bb2a6765b7045720be5c3e85e3b4a52a",
+      "java_method": "remove",
+      "permission_expression": "@ss.hasPermi('system:dept:remove')",
+      "id": "RUOYICRM-030",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/dict/data/list",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDictDataController.java",
+      "controller_line": 44,
+      "controller_sha256": "73f71bdde70570743a998f531ce7b89900e87dcb034b53b488825148a838c98c",
+      "java_method": "list",
+      "permission_expression": "@ss.hasPermi('system:dict:list')",
+      "id": "RUOYICRM-031",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "POST",
+      "path_template": "/system/dict/data/export",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDictDataController.java",
+      "controller_line": 54,
+      "controller_sha256": "73f71bdde70570743a998f531ce7b89900e87dcb034b53b488825148a838c98c",
+      "java_method": "export",
+      "permission_expression": "@ss.hasPermi('system:dict:export')",
+      "id": "RUOYICRM-032",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/dict/data/{dictCode}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDictDataController.java",
+      "controller_line": 66,
+      "controller_sha256": "73f71bdde70570743a998f531ce7b89900e87dcb034b53b488825148a838c98c",
+      "java_method": "getInfo",
+      "permission_expression": "@ss.hasPermi('system:dict:query')",
+      "id": "RUOYICRM-033",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/dict/data/type/{dictType}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDictDataController.java",
+      "controller_line": 75,
+      "controller_sha256": "73f71bdde70570743a998f531ce7b89900e87dcb034b53b488825148a838c98c",
+      "java_method": "dictType",
+      "permission_expression": null,
+      "id": "RUOYICRM-034",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "POST",
+      "path_template": "/system/dict/data",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDictDataController.java",
+      "controller_line": 91,
+      "controller_sha256": "73f71bdde70570743a998f531ce7b89900e87dcb034b53b488825148a838c98c",
+      "java_method": "add",
+      "permission_expression": "@ss.hasPermi('system:dict:add')",
+      "id": "RUOYICRM-035",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "PUT",
+      "path_template": "/system/dict/data",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDictDataController.java",
+      "controller_line": 103,
+      "controller_sha256": "73f71bdde70570743a998f531ce7b89900e87dcb034b53b488825148a838c98c",
+      "java_method": "edit",
+      "permission_expression": "@ss.hasPermi('system:dict:edit')",
+      "id": "RUOYICRM-036",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "DELETE",
+      "path_template": "/system/dict/data/{dictCodes}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDictDataController.java",
+      "controller_line": 115,
+      "controller_sha256": "73f71bdde70570743a998f531ce7b89900e87dcb034b53b488825148a838c98c",
+      "java_method": "remove",
+      "permission_expression": "@ss.hasPermi('system:dict:remove')",
+      "id": "RUOYICRM-037",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/dict/type/list",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDictTypeController.java",
+      "controller_line": 39,
+      "controller_sha256": "188d476fd251c57cafb1e62e3bf717a938fb90f4e416be2aafca9bde54e9cc1f",
+      "java_method": "list",
+      "permission_expression": "@ss.hasPermi('system:dict:list')",
+      "id": "RUOYICRM-038",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "POST",
+      "path_template": "/system/dict/type/export",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDictTypeController.java",
+      "controller_line": 49,
+      "controller_sha256": "188d476fd251c57cafb1e62e3bf717a938fb90f4e416be2aafca9bde54e9cc1f",
+      "java_method": "export",
+      "permission_expression": "@ss.hasPermi('system:dict:export')",
+      "id": "RUOYICRM-039",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/dict/type/{dictId}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDictTypeController.java",
+      "controller_line": 61,
+      "controller_sha256": "188d476fd251c57cafb1e62e3bf717a938fb90f4e416be2aafca9bde54e9cc1f",
+      "java_method": "getInfo",
+      "permission_expression": "@ss.hasPermi('system:dict:query')",
+      "id": "RUOYICRM-040",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "POST",
+      "path_template": "/system/dict/type",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDictTypeController.java",
+      "controller_line": 72,
+      "controller_sha256": "188d476fd251c57cafb1e62e3bf717a938fb90f4e416be2aafca9bde54e9cc1f",
+      "java_method": "add",
+      "permission_expression": "@ss.hasPermi('system:dict:add')",
+      "id": "RUOYICRM-041",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "PUT",
+      "path_template": "/system/dict/type",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDictTypeController.java",
+      "controller_line": 88,
+      "controller_sha256": "188d476fd251c57cafb1e62e3bf717a938fb90f4e416be2aafca9bde54e9cc1f",
+      "java_method": "edit",
+      "permission_expression": "@ss.hasPermi('system:dict:edit')",
+      "id": "RUOYICRM-042",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "DELETE",
+      "path_template": "/system/dict/type/{dictIds}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDictTypeController.java",
+      "controller_line": 104,
+      "controller_sha256": "188d476fd251c57cafb1e62e3bf717a938fb90f4e416be2aafca9bde54e9cc1f",
+      "java_method": "remove",
+      "permission_expression": "@ss.hasPermi('system:dict:remove')",
+      "id": "RUOYICRM-043",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "DELETE",
+      "path_template": "/system/dict/type/refreshCache",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDictTypeController.java",
+      "controller_line": 116,
+      "controller_sha256": "188d476fd251c57cafb1e62e3bf717a938fb90f4e416be2aafca9bde54e9cc1f",
+      "java_method": "refreshCache",
+      "permission_expression": "@ss.hasPermi('system:dict:remove')",
+      "id": "RUOYICRM-044",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/dict/type/optionselect",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDictTypeController.java",
+      "controller_line": 126,
+      "controller_sha256": "188d476fd251c57cafb1e62e3bf717a938fb90f4e416be2aafca9bde54e9cc1f",
+      "java_method": "optionselect",
+      "permission_expression": null,
+      "id": "RUOYICRM-045",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysIndexController.java",
+      "controller_line": 24,
+      "controller_sha256": "8d196402efbb99dc23b87139438a40d5fdc5611f161805dc24c728f33dfac136",
+      "java_method": "index",
+      "permission_expression": null,
+      "id": "RUOYICRM-046",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "POST",
+      "path_template": "/login",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysLoginController.java",
+      "controller_line": 47,
+      "controller_sha256": "40bf7586005fe5d4a427e14aaa078b2484b50826cd364bfa7572ae6a933d32df",
+      "java_method": "login",
+      "permission_expression": null,
+      "id": "RUOYICRM-047",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/getInfo",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysLoginController.java",
+      "controller_line": 69,
+      "controller_sha256": "40bf7586005fe5d4a427e14aaa078b2484b50826cd364bfa7572ae6a933d32df",
+      "java_method": "getInfo",
+      "permission_expression": null,
+      "id": "RUOYICRM-048",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/getRouters",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysLoginController.java",
+      "controller_line": 89,
+      "controller_sha256": "40bf7586005fe5d4a427e14aaa078b2484b50826cd364bfa7572ae6a933d32df",
+      "java_method": "getRouters",
+      "permission_expression": null,
+      "id": "RUOYICRM-049",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/menu/list",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysMenuController.java",
+      "controller_line": 40,
+      "controller_sha256": "4435a54e4de497a9f9e4a7c3c0f3e462b29b782b0f635fb65acba0f339d7489f",
+      "java_method": "list",
+      "permission_expression": "@ss.hasPermi('system:menu:list')",
+      "id": "RUOYICRM-050",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/menu/{menuId}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysMenuController.java",
+      "controller_line": 51,
+      "controller_sha256": "4435a54e4de497a9f9e4a7c3c0f3e462b29b782b0f635fb65acba0f339d7489f",
+      "java_method": "getInfo",
+      "permission_expression": "@ss.hasPermi('system:menu:query')",
+      "id": "RUOYICRM-051",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/menu/treeselect",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysMenuController.java",
+      "controller_line": 60,
+      "controller_sha256": "4435a54e4de497a9f9e4a7c3c0f3e462b29b782b0f635fb65acba0f339d7489f",
+      "java_method": "treeselect",
+      "permission_expression": null,
+      "id": "RUOYICRM-052",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/menu/roleMenuTreeselect/{roleId}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysMenuController.java",
+      "controller_line": 70,
+      "controller_sha256": "4435a54e4de497a9f9e4a7c3c0f3e462b29b782b0f635fb65acba0f339d7489f",
+      "java_method": "roleMenuTreeselect",
+      "permission_expression": null,
+      "id": "RUOYICRM-053",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "POST",
+      "path_template": "/system/menu",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysMenuController.java",
+      "controller_line": 85,
+      "controller_sha256": "4435a54e4de497a9f9e4a7c3c0f3e462b29b782b0f635fb65acba0f339d7489f",
+      "java_method": "add",
+      "permission_expression": "@ss.hasPermi('system:menu:add')",
+      "id": "RUOYICRM-054",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "PUT",
+      "path_template": "/system/menu",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysMenuController.java",
+      "controller_line": 105,
+      "controller_sha256": "4435a54e4de497a9f9e4a7c3c0f3e462b29b782b0f635fb65acba0f339d7489f",
+      "java_method": "edit",
+      "permission_expression": "@ss.hasPermi('system:menu:edit')",
+      "id": "RUOYICRM-055",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "DELETE",
+      "path_template": "/system/menu/{menuId}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysMenuController.java",
+      "controller_line": 129,
+      "controller_sha256": "4435a54e4de497a9f9e4a7c3c0f3e462b29b782b0f635fb65acba0f339d7489f",
+      "java_method": "remove",
+      "permission_expression": "@ss.hasPermi('system:menu:remove')",
+      "id": "RUOYICRM-056",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/notice/list",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysNoticeController.java",
+      "controller_line": 39,
+      "controller_sha256": "0ab92eaadc5aadfd494bf6df647cd84298e898d3145f1e476aee8eaa8d6611b6",
+      "java_method": "list",
+      "permission_expression": "@ss.hasPermi('system:notice:list')",
+      "id": "RUOYICRM-057",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/notice/{noticeId}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysNoticeController.java",
+      "controller_line": 51,
+      "controller_sha256": "0ab92eaadc5aadfd494bf6df647cd84298e898d3145f1e476aee8eaa8d6611b6",
+      "java_method": "getInfo",
+      "permission_expression": "@ss.hasPermi('system:notice:query')",
+      "id": "RUOYICRM-058",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "POST",
+      "path_template": "/system/notice",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysNoticeController.java",
+      "controller_line": 62,
+      "controller_sha256": "0ab92eaadc5aadfd494bf6df647cd84298e898d3145f1e476aee8eaa8d6611b6",
+      "java_method": "add",
+      "permission_expression": "@ss.hasPermi('system:notice:add')",
+      "id": "RUOYICRM-059",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "PUT",
+      "path_template": "/system/notice",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysNoticeController.java",
+      "controller_line": 74,
+      "controller_sha256": "0ab92eaadc5aadfd494bf6df647cd84298e898d3145f1e476aee8eaa8d6611b6",
+      "java_method": "edit",
+      "permission_expression": "@ss.hasPermi('system:notice:edit')",
+      "id": "RUOYICRM-060",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "DELETE",
+      "path_template": "/system/notice/{noticeIds}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysNoticeController.java",
+      "controller_line": 86,
+      "controller_sha256": "0ab92eaadc5aadfd494bf6df647cd84298e898d3145f1e476aee8eaa8d6611b6",
+      "java_method": "remove",
+      "permission_expression": "@ss.hasPermi('system:notice:remove')",
+      "id": "RUOYICRM-061",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/post/list",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysPostController.java",
+      "controller_line": 42,
+      "controller_sha256": "f51233a87dbb5f449c160174ecdc3fcb7e5937ce8450c5cd3963f86416e814cc",
+      "java_method": "list",
+      "permission_expression": "@ss.hasPermi('system:post:list')",
+      "id": "RUOYICRM-062",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "POST",
+      "path_template": "/system/post/export",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysPostController.java",
+      "controller_line": 52,
+      "controller_sha256": "f51233a87dbb5f449c160174ecdc3fcb7e5937ce8450c5cd3963f86416e814cc",
+      "java_method": "export",
+      "permission_expression": "@ss.hasPermi('system:post:export')",
+      "id": "RUOYICRM-063",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/post/{postId}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysPostController.java",
+      "controller_line": 64,
+      "controller_sha256": "f51233a87dbb5f449c160174ecdc3fcb7e5937ce8450c5cd3963f86416e814cc",
+      "java_method": "getInfo",
+      "permission_expression": "@ss.hasPermi('system:post:query')",
+      "id": "RUOYICRM-064",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "POST",
+      "path_template": "/system/post",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysPostController.java",
+      "controller_line": 75,
+      "controller_sha256": "f51233a87dbb5f449c160174ecdc3fcb7e5937ce8450c5cd3963f86416e814cc",
+      "java_method": "add",
+      "permission_expression": "@ss.hasPermi('system:post:add')",
+      "id": "RUOYICRM-065",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "PUT",
+      "path_template": "/system/post",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysPostController.java",
+      "controller_line": 95,
+      "controller_sha256": "f51233a87dbb5f449c160174ecdc3fcb7e5937ce8450c5cd3963f86416e814cc",
+      "java_method": "edit",
+      "permission_expression": "@ss.hasPermi('system:post:edit')",
+      "id": "RUOYICRM-066",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "DELETE",
+      "path_template": "/system/post/{postIds}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysPostController.java",
+      "controller_line": 115,
+      "controller_sha256": "f51233a87dbb5f449c160174ecdc3fcb7e5937ce8450c5cd3963f86416e814cc",
+      "java_method": "remove",
+      "permission_expression": "@ss.hasPermi('system:post:remove')",
+      "id": "RUOYICRM-067",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/post/optionselect",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysPostController.java",
+      "controller_line": 124,
+      "controller_sha256": "f51233a87dbb5f449c160174ecdc3fcb7e5937ce8450c5cd3963f86416e814cc",
+      "java_method": "optionselect",
+      "permission_expression": null,
+      "id": "RUOYICRM-068",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/user/profile",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysProfileController.java",
+      "controller_line": 45,
+      "controller_sha256": "ff49058325b22be246542cc80feaadc61581fb065805474a003e2036789eb872",
+      "java_method": "profile",
+      "permission_expression": null,
+      "id": "RUOYICRM-069",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "PUT",
+      "path_template": "/system/user/profile",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysProfileController.java",
+      "controller_line": 60,
+      "controller_sha256": "ff49058325b22be246542cc80feaadc61581fb065805474a003e2036789eb872",
+      "java_method": "updateProfile",
+      "permission_expression": null,
+      "id": "RUOYICRM-070",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "PUT",
+      "path_template": "/system/user/profile/updatePwd",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysProfileController.java",
+      "controller_line": 95,
+      "controller_sha256": "ff49058325b22be246542cc80feaadc61581fb065805474a003e2036789eb872",
+      "java_method": "updatePwd",
+      "permission_expression": null,
+      "id": "RUOYICRM-071",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "POST",
+      "path_template": "/system/user/profile/avatar",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysProfileController.java",
+      "controller_line": 123,
+      "controller_sha256": "ff49058325b22be246542cc80feaadc61581fb065805474a003e2036789eb872",
+      "java_method": "avatar",
+      "permission_expression": null,
+      "id": "RUOYICRM-072",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "POST",
+      "path_template": "/register",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysRegisterController.java",
+      "controller_line": 45,
+      "controller_sha256": "6c1840a148a3947be7f1edaf323b5579edfb1ce00cb8c2b7feec76183522c755",
+      "java_method": "registerTenant",
+      "permission_expression": null,
+      "id": "RUOYICRM-073",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/role/list",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysRoleController.java",
+      "controller_line": 55,
+      "controller_sha256": "6456be479479129f64cef4f51650097a37396b6bff658cf9ebb95b62fb6f1049",
+      "java_method": "list",
+      "permission_expression": "@ss.hasPermi('system:role:list')",
+      "id": "RUOYICRM-074",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "POST",
+      "path_template": "/system/role/export",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysRoleController.java",
+      "controller_line": 65,
+      "controller_sha256": "6456be479479129f64cef4f51650097a37396b6bff658cf9ebb95b62fb6f1049",
+      "java_method": "export",
+      "permission_expression": "@ss.hasPermi('system:role:export')",
+      "id": "RUOYICRM-075",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/role/{roleId}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysRoleController.java",
+      "controller_line": 77,
+      "controller_sha256": "6456be479479129f64cef4f51650097a37396b6bff658cf9ebb95b62fb6f1049",
+      "java_method": "getInfo",
+      "permission_expression": "@ss.hasPermi('system:role:query')",
+      "id": "RUOYICRM-076",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "POST",
+      "path_template": "/system/role",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysRoleController.java",
+      "controller_line": 89,
+      "controller_sha256": "6456be479479129f64cef4f51650097a37396b6bff658cf9ebb95b62fb6f1049",
+      "java_method": "add",
+      "permission_expression": "@ss.hasPermi('system:role:add')",
+      "id": "RUOYICRM-077",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "PUT",
+      "path_template": "/system/role",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysRoleController.java",
+      "controller_line": 110,
+      "controller_sha256": "6456be479479129f64cef4f51650097a37396b6bff658cf9ebb95b62fb6f1049",
+      "java_method": "edit",
+      "permission_expression": "@ss.hasPermi('system:role:edit')",
+      "id": "RUOYICRM-078",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "PUT",
+      "path_template": "/system/role/dataScope",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysRoleController.java",
+      "controller_line": 145,
+      "controller_sha256": "6456be479479129f64cef4f51650097a37396b6bff658cf9ebb95b62fb6f1049",
+      "java_method": "dataScope",
+      "permission_expression": "@ss.hasPermi('system:role:edit')",
+      "id": "RUOYICRM-079",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "PUT",
+      "path_template": "/system/role/changeStatus",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysRoleController.java",
+      "controller_line": 158,
+      "controller_sha256": "6456be479479129f64cef4f51650097a37396b6bff658cf9ebb95b62fb6f1049",
+      "java_method": "changeStatus",
+      "permission_expression": "@ss.hasPermi('system:role:edit')",
+      "id": "RUOYICRM-080",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "DELETE",
+      "path_template": "/system/role/{roleIds}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysRoleController.java",
+      "controller_line": 172,
+      "controller_sha256": "6456be479479129f64cef4f51650097a37396b6bff658cf9ebb95b62fb6f1049",
+      "java_method": "remove",
+      "permission_expression": "@ss.hasPermi('system:role:remove')",
+      "id": "RUOYICRM-081",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/role/optionselect",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysRoleController.java",
+      "controller_line": 182,
+      "controller_sha256": "6456be479479129f64cef4f51650097a37396b6bff658cf9ebb95b62fb6f1049",
+      "java_method": "optionselect",
+      "permission_expression": "@ss.hasPermi('system:role:query')",
+      "id": "RUOYICRM-082",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/role/authUser/allocatedList",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysRoleController.java",
+      "controller_line": 192,
+      "controller_sha256": "6456be479479129f64cef4f51650097a37396b6bff658cf9ebb95b62fb6f1049",
+      "java_method": "allocatedList",
+      "permission_expression": "@ss.hasPermi('system:role:list')",
+      "id": "RUOYICRM-083",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/role/authUser/unallocatedList",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysRoleController.java",
+      "controller_line": 204,
+      "controller_sha256": "6456be479479129f64cef4f51650097a37396b6bff658cf9ebb95b62fb6f1049",
+      "java_method": "unallocatedList",
+      "permission_expression": "@ss.hasPermi('system:role:list')",
+      "id": "RUOYICRM-084",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "PUT",
+      "path_template": "/system/role/authUser/cancel",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysRoleController.java",
+      "controller_line": 217,
+      "controller_sha256": "6456be479479129f64cef4f51650097a37396b6bff658cf9ebb95b62fb6f1049",
+      "java_method": "cancelAuthUser",
+      "permission_expression": "@ss.hasPermi('system:role:edit')",
+      "id": "RUOYICRM-085",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "PUT",
+      "path_template": "/system/role/authUser/cancelAll",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysRoleController.java",
+      "controller_line": 228,
+      "controller_sha256": "6456be479479129f64cef4f51650097a37396b6bff658cf9ebb95b62fb6f1049",
+      "java_method": "cancelAuthUserAll",
+      "permission_expression": "@ss.hasPermi('system:role:edit')",
+      "id": "RUOYICRM-086",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "PUT",
+      "path_template": "/system/role/authUser/selectAll",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysRoleController.java",
+      "controller_line": 239,
+      "controller_sha256": "6456be479479129f64cef4f51650097a37396b6bff658cf9ebb95b62fb6f1049",
+      "java_method": "selectAuthUserAll",
+      "permission_expression": "@ss.hasPermi('system:role:edit')",
+      "id": "RUOYICRM-087",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/user/list",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysUserController.java",
+      "controller_line": 56,
+      "controller_sha256": "eb21c8fbfc57d76be6ca3fab61f3add378d14d56c62354d52ead4cbcffd8c416",
+      "java_method": "list",
+      "permission_expression": "@ss.hasPermi('system:user:list')",
+      "id": "RUOYICRM-088",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "POST",
+      "path_template": "/system/user/export",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysUserController.java",
+      "controller_line": 66,
+      "controller_sha256": "eb21c8fbfc57d76be6ca3fab61f3add378d14d56c62354d52ead4cbcffd8c416",
+      "java_method": "export",
+      "permission_expression": "@ss.hasPermi('system:user:export')",
+      "id": "RUOYICRM-089",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "POST",
+      "path_template": "/system/user/importData",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysUserController.java",
+      "controller_line": 76,
+      "controller_sha256": "eb21c8fbfc57d76be6ca3fab61f3add378d14d56c62354d52ead4cbcffd8c416",
+      "java_method": "importData",
+      "permission_expression": "@ss.hasPermi('system:user:import')",
+      "id": "RUOYICRM-090",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "POST",
+      "path_template": "/system/user/importTemplate",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysUserController.java",
+      "controller_line": 86,
+      "controller_sha256": "eb21c8fbfc57d76be6ca3fab61f3add378d14d56c62354d52ead4cbcffd8c416",
+      "java_method": "importTemplate",
+      "permission_expression": null,
+      "id": "RUOYICRM-091",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/user/",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysUserController.java",
+      "controller_line": 97,
+      "controller_sha256": "eb21c8fbfc57d76be6ca3fab61f3add378d14d56c62354d52ead4cbcffd8c416",
+      "java_method": "getInfo",
+      "permission_expression": "@ss.hasPermi('system:user:query')",
+      "id": "RUOYICRM-092",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/user/{userId}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysUserController.java",
+      "controller_line": 97,
+      "controller_sha256": "eb21c8fbfc57d76be6ca3fab61f3add378d14d56c62354d52ead4cbcffd8c416",
+      "java_method": "getInfo",
+      "permission_expression": "@ss.hasPermi('system:user:query')",
+      "id": "RUOYICRM-093",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "POST",
+      "path_template": "/system/user",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysUserController.java",
+      "controller_line": 120,
+      "controller_sha256": "eb21c8fbfc57d76be6ca3fab61f3add378d14d56c62354d52ead4cbcffd8c416",
+      "java_method": "add",
+      "permission_expression": "@ss.hasPermi('system:user:add')",
+      "id": "RUOYICRM-094",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "PUT",
+      "path_template": "/system/user",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysUserController.java",
+      "controller_line": 147,
+      "controller_sha256": "eb21c8fbfc57d76be6ca3fab61f3add378d14d56c62354d52ead4cbcffd8c416",
+      "java_method": "edit",
+      "permission_expression": "@ss.hasPermi('system:user:edit')",
+      "id": "RUOYICRM-095",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "DELETE",
+      "path_template": "/system/user/{userIds}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysUserController.java",
+      "controller_line": 171,
+      "controller_sha256": "eb21c8fbfc57d76be6ca3fab61f3add378d14d56c62354d52ead4cbcffd8c416",
+      "java_method": "remove",
+      "permission_expression": "@ss.hasPermi('system:user:remove')",
+      "id": "RUOYICRM-096",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "PUT",
+      "path_template": "/system/user/resetPwd",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysUserController.java",
+      "controller_line": 186,
+      "controller_sha256": "eb21c8fbfc57d76be6ca3fab61f3add378d14d56c62354d52ead4cbcffd8c416",
+      "java_method": "resetPwd",
+      "permission_expression": "@ss.hasPermi('system:user:resetPwd')",
+      "id": "RUOYICRM-097",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "PUT",
+      "path_template": "/system/user/changeStatus",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysUserController.java",
+      "controller_line": 201,
+      "controller_sha256": "eb21c8fbfc57d76be6ca3fab61f3add378d14d56c62354d52ead4cbcffd8c416",
+      "java_method": "changeStatus",
+      "permission_expression": "@ss.hasPermi('system:user:edit')",
+      "id": "RUOYICRM-098",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/user/authRole/{userId}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysUserController.java",
+      "controller_line": 214,
+      "controller_sha256": "eb21c8fbfc57d76be6ca3fab61f3add378d14d56c62354d52ead4cbcffd8c416",
+      "java_method": "authRole",
+      "permission_expression": "@ss.hasPermi('system:user:query')",
+      "id": "RUOYICRM-099",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "PUT",
+      "path_template": "/system/user/authRole",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysUserController.java",
+      "controller_line": 230,
+      "controller_sha256": "eb21c8fbfc57d76be6ca3fab61f3add378d14d56c62354d52ead4cbcffd8c416",
+      "java_method": "insertAuthRole",
+      "permission_expression": "@ss.hasPermi('system:user:edit')",
+      "id": "RUOYICRM-100",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/crm/clues/person-list",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCluesController.java",
+      "controller_line": 38,
+      "controller_sha256": "ba2cc6e997dc4dc31095ddf22477eba732bc11b347e141ffc6da592b494b5df7",
+      "java_method": "personList",
+      "permission_expression": "@ss.hasPermi('crm:clues:person:list')",
+      "id": "RUOYICRM-101",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/crm/clues/list",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCluesController.java",
+      "controller_line": 52,
+      "controller_sha256": "ba2cc6e997dc4dc31095ddf22477eba732bc11b347e141ffc6da592b494b5df7",
+      "java_method": "list",
+      "permission_expression": "@ss.hasPermi('crm:clues:list')",
+      "id": "RUOYICRM-102",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "POST",
+      "path_template": "/crm/clues/export",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCluesController.java",
+      "controller_line": 66,
+      "controller_sha256": "ba2cc6e997dc4dc31095ddf22477eba732bc11b347e141ffc6da592b494b5df7",
+      "java_method": "export",
+      "permission_expression": "@ss.hasPermi('crm:clues:export')",
+      "id": "RUOYICRM-103",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/crm/clues/{id}",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCluesController.java",
+      "controller_line": 78,
+      "controller_sha256": "ba2cc6e997dc4dc31095ddf22477eba732bc11b347e141ffc6da592b494b5df7",
+      "java_method": "getInfo",
+      "permission_expression": "@ss.hasPermi('crm:clues:query')",
+      "id": "RUOYICRM-104",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "POST",
+      "path_template": "/crm/clues",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCluesController.java",
+      "controller_line": 89,
+      "controller_sha256": "ba2cc6e997dc4dc31095ddf22477eba732bc11b347e141ffc6da592b494b5df7",
+      "java_method": "add",
+      "permission_expression": "@ss.hasPermi('crm:clues:add')",
+      "id": "RUOYICRM-105",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "PUT",
+      "path_template": "/crm/clues",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCluesController.java",
+      "controller_line": 103,
+      "controller_sha256": "ba2cc6e997dc4dc31095ddf22477eba732bc11b347e141ffc6da592b494b5df7",
+      "java_method": "edit",
+      "permission_expression": "@ss.hasPermi('crm:clues:edit')",
+      "id": "RUOYICRM-106",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "DELETE",
+      "path_template": "/crm/clues/{ids}",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCluesController.java",
+      "controller_line": 115,
+      "controller_sha256": "ba2cc6e997dc4dc31095ddf22477eba732bc11b347e141ffc6da592b494b5df7",
+      "java_method": "remove",
+      "permission_expression": "@ss.hasPermi('crm:clues:remove')",
+      "id": "RUOYICRM-107",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "DELETE",
+      "path_template": "/crm/clues/person/{ids}",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCluesController.java",
+      "controller_line": 126,
+      "controller_sha256": "ba2cc6e997dc4dc31095ddf22477eba732bc11b347e141ffc6da592b494b5df7",
+      "java_method": "personRemove",
+      "permission_expression": "@ss.hasPermi('crm:clues:person:remove')",
+      "id": "RUOYICRM-108",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "POST",
+      "path_template": "/crm/clues/transfer",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCluesController.java",
+      "controller_line": 137,
+      "controller_sha256": "ba2cc6e997dc4dc31095ddf22477eba732bc11b347e141ffc6da592b494b5df7",
+      "java_method": "transfer",
+      "permission_expression": "@ss.hasPermi('crm:clues:transfer')",
+      "id": "RUOYICRM-109",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "PUT",
+      "path_template": "/crm/clues/to-customer",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCluesController.java",
+      "controller_line": 147,
+      "controller_sha256": "ba2cc6e997dc4dc31095ddf22477eba732bc11b347e141ffc6da592b494b5df7",
+      "java_method": "toCustomer",
+      "permission_expression": "@ss.hasPermi('crm:clues:tocustomer')",
+      "id": "RUOYICRM-110",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/crm/comment/list",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCommentController.java",
+      "controller_line": 45,
+      "controller_sha256": "ed39d5ddd9959cb137592c9b1de6fa40530bb88ad690cad4dd518bd39f2c30c2",
+      "java_method": "list",
+      "permission_expression": "@ss.hasPermi('crm:comment:list')",
+      "id": "RUOYICRM-111",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/crm/comment/customer/{customerId}",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCommentController.java",
+      "controller_line": 59,
+      "controller_sha256": "ed39d5ddd9959cb137592c9b1de6fa40530bb88ad690cad4dd518bd39f2c30c2",
+      "java_method": "listByCustomer",
+      "permission_expression": "@ss.hasPermi('crm:comment:list')",
+      "id": "RUOYICRM-112",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "POST",
+      "path_template": "/crm/comment/export",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCommentController.java",
+      "controller_line": 72,
+      "controller_sha256": "ed39d5ddd9959cb137592c9b1de6fa40530bb88ad690cad4dd518bd39f2c30c2",
+      "java_method": "export",
+      "permission_expression": "@ss.hasPermi('crm:comment:export')",
+      "id": "RUOYICRM-113",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/crm/comment/{id}",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCommentController.java",
+      "controller_line": 84,
+      "controller_sha256": "ed39d5ddd9959cb137592c9b1de6fa40530bb88ad690cad4dd518bd39f2c30c2",
+      "java_method": "getInfo",
+      "permission_expression": "@ss.hasPermi('crm:comment:query')",
+      "id": "RUOYICRM-114",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "POST",
+      "path_template": "/crm/comment",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCommentController.java",
+      "controller_line": 95,
+      "controller_sha256": "ed39d5ddd9959cb137592c9b1de6fa40530bb88ad690cad4dd518bd39f2c30c2",
+      "java_method": "add",
+      "permission_expression": "@ss.hasPermi('crm:comment:add')",
+      "id": "RUOYICRM-115",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "PUT",
+      "path_template": "/crm/comment",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCommentController.java",
+      "controller_line": 113,
+      "controller_sha256": "ed39d5ddd9959cb137592c9b1de6fa40530bb88ad690cad4dd518bd39f2c30c2",
+      "java_method": "edit",
+      "permission_expression": "@ss.hasPermi('crm:comment:edit')",
+      "id": "RUOYICRM-116",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "DELETE",
+      "path_template": "/crm/comment/{ids}",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCommentController.java",
+      "controller_line": 124,
+      "controller_sha256": "ed39d5ddd9959cb137592c9b1de6fa40530bb88ad690cad4dd518bd39f2c30c2",
+      "java_method": "remove",
+      "permission_expression": "@ss.hasPermi('crm:comment:remove')",
+      "id": "RUOYICRM-117",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/crm/customer/deal-list",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCustomerController.java",
+      "controller_line": 36,
+      "controller_sha256": "6cb5013a134022b89c01cde9b996ed10654e2be46c80eee87fb2f872a213bd0c",
+      "java_method": "dealList",
+      "permission_expression": "@ss.hasPermi('crm:customer:deal:list')",
+      "id": "RUOYICRM-118",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/crm/customer/person-list",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCustomerController.java",
+      "controller_line": 50,
+      "controller_sha256": "6cb5013a134022b89c01cde9b996ed10654e2be46c80eee87fb2f872a213bd0c",
+      "java_method": "personList",
+      "permission_expression": "@ss.hasPermi('crm:customer:person:list')",
+      "id": "RUOYICRM-119",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/crm/customer/person-customers",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCustomerController.java",
+      "controller_line": 64,
+      "controller_sha256": "6cb5013a134022b89c01cde9b996ed10654e2be46c80eee87fb2f872a213bd0c",
+      "java_method": "personCustomers",
+      "permission_expression": "@ss.hasPermi('crm:customer:person:list')",
+      "id": "RUOYICRM-120",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/crm/customer/list",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCustomerController.java",
+      "controller_line": 77,
+      "controller_sha256": "6cb5013a134022b89c01cde9b996ed10654e2be46c80eee87fb2f872a213bd0c",
+      "java_method": "list",
+      "permission_expression": "@ss.hasPermi('crm:customer:list')",
+      "id": "RUOYICRM-121",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "POST",
+      "path_template": "/crm/customer/export",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCustomerController.java",
+      "controller_line": 91,
+      "controller_sha256": "6cb5013a134022b89c01cde9b996ed10654e2be46c80eee87fb2f872a213bd0c",
+      "java_method": "export",
+      "permission_expression": "@ss.hasPermi('crm:customer:export')",
+      "id": "RUOYICRM-122",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/crm/customer/{id}",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCustomerController.java",
+      "controller_line": 104,
+      "controller_sha256": "6cb5013a134022b89c01cde9b996ed10654e2be46c80eee87fb2f872a213bd0c",
+      "java_method": "getInfo",
+      "permission_expression": "@ss.hasPermi('crm:customer:query')",
+      "id": "RUOYICRM-123",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "POST",
+      "path_template": "/crm/customer",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCustomerController.java",
+      "controller_line": 115,
+      "controller_sha256": "6cb5013a134022b89c01cde9b996ed10654e2be46c80eee87fb2f872a213bd0c",
+      "java_method": "add",
+      "permission_expression": "@ss.hasPermi('crm:customer:add')",
+      "id": "RUOYICRM-124",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "PUT",
+      "path_template": "/crm/customer",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCustomerController.java",
+      "controller_line": 129,
+      "controller_sha256": "6cb5013a134022b89c01cde9b996ed10654e2be46c80eee87fb2f872a213bd0c",
+      "java_method": "edit",
+      "permission_expression": "@ss.hasPermi('crm:customer:edit')",
+      "id": "RUOYICRM-125",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "DELETE",
+      "path_template": "/crm/customer/{ids}",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCustomerController.java",
+      "controller_line": 141,
+      "controller_sha256": "6cb5013a134022b89c01cde9b996ed10654e2be46c80eee87fb2f872a213bd0c",
+      "java_method": "remove",
+      "permission_expression": "@ss.hasPermi('crm:customer:remove')",
+      "id": "RUOYICRM-126",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "POST",
+      "path_template": "/crm/customer/transfer",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCustomerController.java",
+      "controller_line": 152,
+      "controller_sha256": "6cb5013a134022b89c01cde9b996ed10654e2be46c80eee87fb2f872a213bd0c",
+      "java_method": "transfer",
+      "permission_expression": "@ss.hasPermi('crm:customer:transfer')",
+      "id": "RUOYICRM-127",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "POST",
+      "path_template": "/crm/customer/to-pool",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCustomerController.java",
+      "controller_line": 162,
+      "controller_sha256": "6cb5013a134022b89c01cde9b996ed10654e2be46c80eee87fb2f872a213bd0c",
+      "java_method": "toPool",
+      "permission_expression": "@ss.hasPermi('crm:customer:toPool')",
+      "id": "RUOYICRM-128",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/crm/order/list",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmOrderController.java",
+      "controller_line": 41,
+      "controller_sha256": "57828e855bb5b91285a22fa472b79debd66ad7ef6344ae6fe505f3a7a2741719",
+      "java_method": "list",
+      "permission_expression": "@ss.hasPermi('crm:order:list')",
+      "id": "RUOYICRM-129",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/crm/order/person-list",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmOrderController.java",
+      "controller_line": 53,
+      "controller_sha256": "57828e855bb5b91285a22fa472b79debd66ad7ef6344ae6fe505f3a7a2741719",
+      "java_method": "personList",
+      "permission_expression": "@ss.hasPermi('crm:order:person:list')",
+      "id": "RUOYICRM-130",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "POST",
+      "path_template": "/crm/order/export",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmOrderController.java",
+      "controller_line": 67,
+      "controller_sha256": "57828e855bb5b91285a22fa472b79debd66ad7ef6344ae6fe505f3a7a2741719",
+      "java_method": "export",
+      "permission_expression": "@ss.hasPermi('crm:order:export')",
+      "id": "RUOYICRM-131",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/crm/order/{id}",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmOrderController.java",
+      "controller_line": 79,
+      "controller_sha256": "57828e855bb5b91285a22fa472b79debd66ad7ef6344ae6fe505f3a7a2741719",
+      "java_method": "getInfo",
+      "permission_expression": "@ss.hasPermi('crm:order:query')",
+      "id": "RUOYICRM-132",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "POST",
+      "path_template": "/crm/order",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmOrderController.java",
+      "controller_line": 90,
+      "controller_sha256": "57828e855bb5b91285a22fa472b79debd66ad7ef6344ae6fe505f3a7a2741719",
+      "java_method": "add",
+      "permission_expression": "@ss.hasPermi('crm:order:add')",
+      "id": "RUOYICRM-133",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "PUT",
+      "path_template": "/crm/order",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmOrderController.java",
+      "controller_line": 103,
+      "controller_sha256": "57828e855bb5b91285a22fa472b79debd66ad7ef6344ae6fe505f3a7a2741719",
+      "java_method": "edit",
+      "permission_expression": "@ss.hasPermi('crm:order:edit')",
+      "id": "RUOYICRM-134",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "DELETE",
+      "path_template": "/crm/order/{ids}",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmOrderController.java",
+      "controller_line": 115,
+      "controller_sha256": "57828e855bb5b91285a22fa472b79debd66ad7ef6344ae6fe505f3a7a2741719",
+      "java_method": "remove",
+      "permission_expression": "@ss.hasPermi('crm:order:remove')",
+      "id": "RUOYICRM-135",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "PUT",
+      "path_template": "/crm/order/approve/{id}",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmOrderController.java",
+      "controller_line": 124,
+      "controller_sha256": "57828e855bb5b91285a22fa472b79debd66ad7ef6344ae6fe505f3a7a2741719",
+      "java_method": "approve",
+      "permission_expression": "@ss.hasPermi('crm:order:approve')",
+      "id": "RUOYICRM-136",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/crm/pool/list",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmPoolControler.java",
+      "controller_line": 35,
+      "controller_sha256": "a1d1aea2b0f143b83ed7b572816f18cf815d5a7f27678e761fbedefa04c10dd4",
+      "java_method": "list",
+      "permission_expression": "@ss.hasPermi('crm:pool:list')",
+      "id": "RUOYICRM-137",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/crm/pool/{id}",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmPoolControler.java",
+      "controller_line": 49,
+      "controller_sha256": "a1d1aea2b0f143b83ed7b572816f18cf815d5a7f27678e761fbedefa04c10dd4",
+      "java_method": "getInfo",
+      "permission_expression": "@ss.hasPermi('crm:pool:query')",
+      "id": "RUOYICRM-138",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/crm/pool/receive/{id}",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmPoolControler.java",
+      "controller_line": 61,
+      "controller_sha256": "a1d1aea2b0f143b83ed7b572816f18cf815d5a7f27678e761fbedefa04c10dd4",
+      "java_method": "receive",
+      "permission_expression": "@ss.hasPermi('crm:pool:receive')",
+      "id": "RUOYICRM-139",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/crm/index-data/info",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/IndexDataController.java",
+      "controller_line": 36,
+      "controller_sha256": "9b21a2c547302ba621ee100c925d4a8a1ab24c6b4704310014ad9ae55f6836a0",
+      "java_method": "indexData",
+      "permission_expression": null,
+      "id": "RUOYICRM-140",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/crm/owner/list",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/OwnerController.java",
+      "controller_line": 30,
+      "controller_sha256": "626fd54182789ffb843939fa7759356b5dcceab4305984983789de42fd83ae8d",
+      "java_method": "list",
+      "permission_expression": null,
+      "id": "RUOYICRM-141",
+      "auth_variant": "AUTHENTICATED"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/monitor/logininfor/list",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/monitor/SysLogininforController.java",
+      "controller_line": 35,
+      "controller_sha256": "1f13e2342768d0f5ccf5e16d0fa09b41d51c51b1672f569410a4142e3db4df80",
+      "java_method": "list",
+      "permission_expression": "@ss.hasPermi('monitor:logininfor:list')",
+      "id": "RUOYICRM-142",
+      "auth_variant": "UNAUTHENTICATED",
+      "expected_status_class": "4xx"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/monitor/operlog/list",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/monitor/SysOperlogController.java",
+      "controller_line": 35,
+      "controller_sha256": "55dc3913c1eabc424f8bc4b2139be9c27d825c7ffd1d97b0eed5d3cdcde28b41",
+      "java_method": "list",
+      "permission_expression": "@ss.hasPermi('monitor:operlog:list')",
+      "id": "RUOYICRM-143",
+      "auth_variant": "UNAUTHENTICATED",
+      "expected_status_class": "4xx"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/monitor/online/list",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/monitor/SysUserOnlineController.java",
+      "controller_line": 42,
+      "controller_sha256": "0b2aa02698abbff31fbb095ca2904603fbc3ac11438622a7e02a10b532c1f2e4",
+      "java_method": "list",
+      "permission_expression": "@ss.hasPermi('monitor:online:list')",
+      "id": "RUOYICRM-144",
+      "auth_variant": "UNAUTHENTICATED",
+      "expected_status_class": "4xx"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/config/list",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysConfigController.java",
+      "controller_line": 42,
+      "controller_sha256": "61ebc9467df73e192ca5d7394f78ca95f2e20c1256e60cef64b26f5be6731424",
+      "java_method": "list",
+      "permission_expression": "@ss.hasPermi('system:config:list')",
+      "id": "RUOYICRM-145",
+      "auth_variant": "UNAUTHENTICATED",
+      "expected_status_class": "4xx"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/config/{configId}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysConfigController.java",
+      "controller_line": 64,
+      "controller_sha256": "61ebc9467df73e192ca5d7394f78ca95f2e20c1256e60cef64b26f5be6731424",
+      "java_method": "getInfo",
+      "permission_expression": "@ss.hasPermi('system:config:query')",
+      "id": "RUOYICRM-146",
+      "auth_variant": "UNAUTHENTICATED",
+      "expected_status_class": "4xx"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/dept/list",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDeptController.java",
+      "controller_line": 42,
+      "controller_sha256": "5a8066c773241db3d4650facda4bbaa1bb2a6765b7045720be5c3e85e3b4a52a",
+      "java_method": "list",
+      "permission_expression": "@ss.hasPermi('system:dept:list')",
+      "id": "RUOYICRM-147",
+      "auth_variant": "UNAUTHENTICATED",
+      "expected_status_class": "4xx"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/dept/list/exclude/{deptId}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDeptController.java",
+      "controller_line": 53,
+      "controller_sha256": "5a8066c773241db3d4650facda4bbaa1bb2a6765b7045720be5c3e85e3b4a52a",
+      "java_method": "excludeChild",
+      "permission_expression": "@ss.hasPermi('system:dept:list')",
+      "id": "RUOYICRM-148",
+      "auth_variant": "UNAUTHENTICATED",
+      "expected_status_class": "4xx"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/dept/{deptId}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDeptController.java",
+      "controller_line": 74,
+      "controller_sha256": "5a8066c773241db3d4650facda4bbaa1bb2a6765b7045720be5c3e85e3b4a52a",
+      "java_method": "getInfo",
+      "permission_expression": "@ss.hasPermi('system:dept:query')",
+      "id": "RUOYICRM-149",
+      "auth_variant": "UNAUTHENTICATED",
+      "expected_status_class": "4xx"
+    },
+    {
+      "http_method": "GET",
+      "path_template": "/system/dict/data/list",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDictDataController.java",
+      "controller_line": 44,
+      "controller_sha256": "73f71bdde70570743a998f531ce7b89900e87dcb034b53b488825148a838c98c",
+      "java_method": "list",
+      "permission_expression": "@ss.hasPermi('system:dict:list')",
+      "id": "RUOYICRM-150",
+      "auth_variant": "UNAUTHENTICATED",
+      "expected_status_class": "4xx"
+    }
+  ]
+}

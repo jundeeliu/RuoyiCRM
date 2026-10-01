@@ -6,8 +6,10 @@
   "license": "MIT",
   "scripts": {
     "dev": "vue-cli-service serve",
-    "build:prod": "vue-cli-service build",
-    "build:stage": "vue-cli-service build --mode staging",
+    "build:prod": "vue-cli-service build && node build/compress.js",
+    "build:stage": "vue-cli-service build --mode staging && node build/compress.js",
+    "test:compression": "node build/verify-compression.js",
+    "test:dependency-contract": "node --test tests/dependency-contract.test.mjs",
     "preview": "node build/index.js --preview",
     "lint": "eslint --ext .js,.vue src"
   },
@@ -36,7 +38,7 @@
   },
   "dependencies": {
     "@riophae/vue-treeselect": "0.4.0",
-    "axios": "0.24.0",
+    "axios": "0.34.0",
     "clipboard": "2.0.8",
     "core-js": "3.19.1",
     "echarts": "4.9.0",
@@ -45,7 +47,7 @@
     "fuse.js": "6.4.3",
     "highlight.js": "9.18.5",
     "js-beautify": "1.13.0",
-    "js-cookie": "3.0.1",
+    "js-cookie": "3.0.8",
     "jsencrypt": "3.2.1",
     "nprogress": "0.2.0",
     "quill": "1.3.7",
@@ -66,7 +68,6 @@
     "babel-eslint": "10.1.0",
     "babel-plugin-dynamic-import-node": "2.3.3",
     "chalk": "4.1.0",
-    "compression-webpack-plugin": "5.0.2",
     "connect": "3.6.6",
     "eslint": "7.15.0",
     "eslint-plugin-vue": "7.2.0",
@@ -79,8 +80,8 @@
     "vue-template-compiler": "2.6.12"
   },
   "engines": {
-    "node": ">=8.9",
-    "npm": ">= 3.0.0"
+    "node": ">=24 <25",
+    "npm": ">=11 <12"
   },
   "browserslist": [
     "> 1%",

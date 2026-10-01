@@ -1,0 +1,385 @@
+{
+  "schema": "ruoyicrm.crit04.direct-write-candidates.v1",
+  "run_nonce": "w98790c6c",
+  "source_manifest": "docs/crit04/ruoyicrm-150.json",
+  "cases_total": 11,
+  "environment": "TWO_DISPOSABLE_STACKS_ONLY",
+  "execution_status": "NOT_RUN",
+  "baseline_oracles_captured": 0,
+  "write_isolation": "NOT_AUTHORIZED",
+  "fixtures": [
+    {
+      "id": "RUOYICRM-019",
+      "http_method": "POST",
+      "path_template": "/system/config",
+      "controller_sha256": "61ebc9467df73e192ca5d7394f78ca95f2e20c1256e60cef64b26f5be6731424",
+      "environment": "TWO_DISPOSABLE_STACKS_ONLY",
+      "tenant": "tenant1",
+      "token_ref": "env:CRIT04_BASELINE_TOKEN|CRIT04_TARGET_TOKEN",
+      "request": {
+        "content_type": "application/json",
+        "json": {
+          "configName": "CRIT04 w98790c6c config",
+          "configKey": "crit04.w98790c6c.config",
+          "configValue": "synthetic-only",
+          "configType": "N"
+        }
+      },
+      "planning_status": "CANDIDATE_BLOCKED",
+      "blocking_reason": "AUTH_SNAPSHOT_ORACLE_MISSING",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": {
+        "status": "NOT_CAPTURED",
+        "expected_status": null,
+        "expected_body_sha256": null
+      },
+      "prewrite_snapshot": {
+        "status": "NOT_CAPTURED",
+        "source": null,
+        "target": null
+      },
+      "single_use": true,
+      "cleanup": "restore both disposable stacks from pre-case snapshots or destroy their volumes; never delete by broad business predicate"
+    },
+    {
+      "id": "RUOYICRM-028",
+      "http_method": "POST",
+      "path_template": "/system/dept",
+      "controller_sha256": "5a8066c773241db3d4650facda4bbaa1bb2a6765b7045720be5c3e85e3b4a52a",
+      "environment": "TWO_DISPOSABLE_STACKS_ONLY",
+      "tenant": "tenant1",
+      "token_ref": "env:CRIT04_BASELINE_TOKEN|CRIT04_TARGET_TOKEN",
+      "request": {
+        "content_type": "application/json",
+        "json": {
+          "deptName": "CRIT04 w98790c6c dept",
+          "orderNum": "98028",
+          "parentId": "$REF:synthetic_active_dept_id",
+          "status": "0"
+        }
+      },
+      "planning_status": "CANDIDATE_BLOCKED",
+      "blocking_reason": "SYNTHETIC_ACTIVE_PARENT_ID_MISSING",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": {
+        "status": "NOT_CAPTURED",
+        "expected_status": null,
+        "expected_body_sha256": null
+      },
+      "prewrite_snapshot": {
+        "status": "NOT_CAPTURED",
+        "source": null,
+        "target": null
+      },
+      "single_use": true,
+      "cleanup": "restore both disposable stacks from pre-case snapshots or destroy their volumes; never delete by broad business predicate"
+    },
+    {
+      "id": "RUOYICRM-035",
+      "http_method": "POST",
+      "path_template": "/system/dict/data",
+      "controller_sha256": "73f71bdde70570743a998f531ce7b89900e87dcb034b53b488825148a838c98c",
+      "environment": "TWO_DISPOSABLE_STACKS_ONLY",
+      "tenant": "tenant1",
+      "token_ref": "env:CRIT04_BASELINE_TOKEN|CRIT04_TARGET_TOKEN",
+      "request": {
+        "content_type": "application/json",
+        "json": {
+          "dictLabel": "CRIT04 w98790c6c label",
+          "dictValue": "value_w98790c6c",
+          "dictType": "crit04_w98790c6c",
+          "dictSort": 1,
+          "status": "0"
+        }
+      },
+      "planning_status": "CANDIDATE_BLOCKED",
+      "blocking_reason": "DICT_TYPE_CREATE_MUST_PRECEDE_DATA",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": {
+        "status": "NOT_CAPTURED",
+        "expected_status": null,
+        "expected_body_sha256": null
+      },
+      "prewrite_snapshot": {
+        "status": "NOT_CAPTURED",
+        "source": null,
+        "target": null
+      },
+      "single_use": true,
+      "cleanup": "restore both disposable stacks from pre-case snapshots or destroy their volumes; never delete by broad business predicate"
+    },
+    {
+      "id": "RUOYICRM-041",
+      "http_method": "POST",
+      "path_template": "/system/dict/type",
+      "controller_sha256": "188d476fd251c57cafb1e62e3bf717a938fb90f4e416be2aafca9bde54e9cc1f",
+      "environment": "TWO_DISPOSABLE_STACKS_ONLY",
+      "tenant": "tenant1",
+      "token_ref": "env:CRIT04_BASELINE_TOKEN|CRIT04_TARGET_TOKEN",
+      "request": {
+        "content_type": "application/json",
+        "json": {
+          "dictName": "CRIT04 w98790c6c dictionary",
+          "dictType": "crit04_w98790c6c",
+          "status": "0"
+        }
+      },
+      "planning_status": "CANDIDATE_BLOCKED",
+      "blocking_reason": "AUTH_SNAPSHOT_ORACLE_MISSING",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": {
+        "status": "NOT_CAPTURED",
+        "expected_status": null,
+        "expected_body_sha256": null
+      },
+      "prewrite_snapshot": {
+        "status": "NOT_CAPTURED",
+        "source": null,
+        "target": null
+      },
+      "single_use": true,
+      "cleanup": "restore both disposable stacks from pre-case snapshots or destroy their volumes; never delete by broad business predicate"
+    },
+    {
+      "id": "RUOYICRM-054",
+      "http_method": "POST",
+      "path_template": "/system/menu",
+      "controller_sha256": "4435a54e4de497a9f9e4a7c3c0f3e462b29b782b0f635fb65acba0f339d7489f",
+      "environment": "TWO_DISPOSABLE_STACKS_ONLY",
+      "tenant": "tenant1",
+      "token_ref": "env:CRIT04_BASELINE_TOKEN|CRIT04_TARGET_TOKEN",
+      "request": {
+        "content_type": "application/json",
+        "json": {
+          "menuName": "CRIT04 w98790c6c menu",
+          "orderNum": "98054",
+          "menuType": "C",
+          "parentId": 0,
+          "path": "crit04/w98790c6c",
+          "isFrame": "1",
+          "status": "0",
+          "visible": "0"
+        }
+      },
+      "planning_status": "CANDIDATE_BLOCKED",
+      "blocking_reason": "AUTH_SNAPSHOT_ORACLE_MISSING",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": {
+        "status": "NOT_CAPTURED",
+        "expected_status": null,
+        "expected_body_sha256": null
+      },
+      "prewrite_snapshot": {
+        "status": "NOT_CAPTURED",
+        "source": null,
+        "target": null
+      },
+      "single_use": true,
+      "cleanup": "restore both disposable stacks from pre-case snapshots or destroy their volumes; never delete by broad business predicate"
+    },
+    {
+      "id": "RUOYICRM-059",
+      "http_method": "POST",
+      "path_template": "/system/notice",
+      "controller_sha256": "0ab92eaadc5aadfd494bf6df647cd84298e898d3145f1e476aee8eaa8d6611b6",
+      "environment": "TWO_DISPOSABLE_STACKS_ONLY",
+      "tenant": "tenant1",
+      "token_ref": "env:CRIT04_BASELINE_TOKEN|CRIT04_TARGET_TOKEN",
+      "request": {
+        "content_type": "application/json",
+        "json": {
+          "noticeTitle": "CRIT04 w98790c6c notice",
+          "noticeType": "1",
+          "noticeContent": "Synthetic disposable replay notice w98790c6c",
+          "status": "0"
+        }
+      },
+      "planning_status": "CANDIDATE_BLOCKED",
+      "blocking_reason": "AUTH_SNAPSHOT_ORACLE_MISSING",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": {
+        "status": "NOT_CAPTURED",
+        "expected_status": null,
+        "expected_body_sha256": null
+      },
+      "prewrite_snapshot": {
+        "status": "NOT_CAPTURED",
+        "source": null,
+        "target": null
+      },
+      "single_use": true,
+      "cleanup": "restore both disposable stacks from pre-case snapshots or destroy their volumes; never delete by broad business predicate"
+    },
+    {
+      "id": "RUOYICRM-065",
+      "http_method": "POST",
+      "path_template": "/system/post",
+      "controller_sha256": "f51233a87dbb5f449c160174ecdc3fcb7e5937ce8450c5cd3963f86416e814cc",
+      "environment": "TWO_DISPOSABLE_STACKS_ONLY",
+      "tenant": "tenant1",
+      "token_ref": "env:CRIT04_BASELINE_TOKEN|CRIT04_TARGET_TOKEN",
+      "request": {
+        "content_type": "application/json",
+        "json": {
+          "postCode": "crit04_w98790c6c",
+          "postName": "CRIT04 w98790c6c post",
+          "postSort": "98065",
+          "status": "0"
+        }
+      },
+      "planning_status": "CANDIDATE_BLOCKED",
+      "blocking_reason": "AUTH_SNAPSHOT_ORACLE_MISSING",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": {
+        "status": "NOT_CAPTURED",
+        "expected_status": null,
+        "expected_body_sha256": null
+      },
+      "prewrite_snapshot": {
+        "status": "NOT_CAPTURED",
+        "source": null,
+        "target": null
+      },
+      "single_use": true,
+      "cleanup": "restore both disposable stacks from pre-case snapshots or destroy their volumes; never delete by broad business predicate"
+    },
+    {
+      "id": "RUOYICRM-077",
+      "http_method": "POST",
+      "path_template": "/system/role",
+      "controller_sha256": "6456be479479129f64cef4f51650097a37396b6bff658cf9ebb95b62fb6f1049",
+      "environment": "TWO_DISPOSABLE_STACKS_ONLY",
+      "tenant": "tenant1",
+      "token_ref": "env:CRIT04_BASELINE_TOKEN|CRIT04_TARGET_TOKEN",
+      "request": {
+        "content_type": "application/json",
+        "json": {
+          "roleName": "CRIT04 w98790c6c role",
+          "roleKey": "crit04_w98790c6c",
+          "roleSort": "98077",
+          "dataScope": "1",
+          "status": "0",
+          "menuIds": []
+        }
+      },
+      "planning_status": "CANDIDATE_BLOCKED",
+      "blocking_reason": "AUTH_SNAPSHOT_ORACLE_MISSING",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": {
+        "status": "NOT_CAPTURED",
+        "expected_status": null,
+        "expected_body_sha256": null
+      },
+      "prewrite_snapshot": {
+        "status": "NOT_CAPTURED",
+        "source": null,
+        "target": null
+      },
+      "single_use": true,
+      "cleanup": "restore both disposable stacks from pre-case snapshots or destroy their volumes; never delete by broad business predicate"
+    },
+    {
+      "id": "RUOYICRM-094",
+      "http_method": "POST",
+      "path_template": "/system/user",
+      "controller_sha256": "eb21c8fbfc57d76be6ca3fab61f3add378d14d56c62354d52ead4cbcffd8c416",
+      "environment": "TWO_DISPOSABLE_STACKS_ONLY",
+      "tenant": "tenant1",
+      "token_ref": "env:CRIT04_BASELINE_TOKEN|CRIT04_TARGET_TOKEN",
+      "request": {
+        "content_type": "application/json",
+        "json": {
+          "userName": "crit04_w98790c6c",
+          "nickName": "CRIT04 w98790c6c user",
+          "password": "$ENV:CRIT04_SYNTHETIC_USER_PASSWORD",
+          "deptId": null,
+          "roleIds": [],
+          "postIds": [],
+          "status": "0"
+        }
+      },
+      "planning_status": "CANDIDATE_BLOCKED",
+      "blocking_reason": "PRIVATE_PASSWORD_MATERIALIZATION_MISSING",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": {
+        "status": "NOT_CAPTURED",
+        "expected_status": null,
+        "expected_body_sha256": null
+      },
+      "prewrite_snapshot": {
+        "status": "NOT_CAPTURED",
+        "source": null,
+        "target": null
+      },
+      "single_use": true,
+      "cleanup": "restore both disposable stacks from pre-case snapshots or destroy their volumes; never delete by broad business predicate"
+    },
+    {
+      "id": "RUOYICRM-105",
+      "http_method": "POST",
+      "path_template": "/crm/clues",
+      "controller_sha256": "ba2cc6e997dc4dc31095ddf22477eba732bc11b347e141ffc6da592b494b5df7",
+      "environment": "TWO_DISPOSABLE_STACKS_ONLY",
+      "tenant": "tenant1",
+      "token_ref": "env:CRIT04_BASELINE_TOKEN|CRIT04_TARGET_TOKEN",
+      "request": {
+        "content_type": "application/json",
+        "json": {
+          "cluesName": "CRIT04 w98790c6c clue",
+          "linkman": "Synthetic Contact",
+          "phone": "00000000000",
+          "cluesSource": "local-replay"
+        }
+      },
+      "planning_status": "CANDIDATE_BLOCKED",
+      "blocking_reason": "AUTH_SNAPSHOT_ORACLE_MISSING",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": {
+        "status": "NOT_CAPTURED",
+        "expected_status": null,
+        "expected_body_sha256": null
+      },
+      "prewrite_snapshot": {
+        "status": "NOT_CAPTURED",
+        "source": null,
+        "target": null
+      },
+      "single_use": true,
+      "cleanup": "restore both disposable stacks from pre-case snapshots or destroy their volumes; never delete by broad business predicate"
+    },
+    {
+      "id": "RUOYICRM-124",
+      "http_method": "POST",
+      "path_template": "/crm/customer",
+      "controller_sha256": "6cb5013a134022b89c01cde9b996ed10654e2be46c80eee87fb2f872a213bd0c",
+      "environment": "TWO_DISPOSABLE_STACKS_ONLY",
+      "tenant": "tenant1",
+      "token_ref": "env:CRIT04_BASELINE_TOKEN|CRIT04_TARGET_TOKEN",
+      "request": {
+        "content_type": "application/json",
+        "json": {
+          "name": "CRIT04 w98790c6c customer",
+          "linkman": "Synthetic Contact",
+          "phone": "00000000001",
+          "customerRank": "A",
+          "customerStatus": "synthetic"
+        }
+      },
+      "planning_status": "CANDIDATE_BLOCKED",
+      "blocking_reason": "AUTH_SNAPSHOT_ORACLE_MISSING",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": {
+        "status": "NOT_CAPTURED",
+        "expected_status": null,
+        "expected_body_sha256": null
+      },
+      "prewrite_snapshot": {
+        "status": "NOT_CAPTURED",
+        "source": null,
+        "target": null
+      },
+      "single_use": true,
+      "cleanup": "restore both disposable stacks from pre-case snapshots or destroy their volumes; never delete by broad business predicate"
+    }
+  ]
+}

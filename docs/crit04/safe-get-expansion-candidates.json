@@ -1,0 +1,185 @@
+{
+  "RUOYICRM-005": {
+    "tenant": "tenant1",
+    "query": {
+      "userName": "nonexistent_synthetic"
+    }
+  },
+  "RUOYICRM-009": {
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-013": {
+    "tenant": "tenant1",
+    "query": {
+      "userName": "nonexistent_synthetic"
+    }
+  },
+  "RUOYICRM-017": {
+    "tenant": "tenant1",
+    "path_params": {
+      "configId": 999999
+    }
+  },
+  "RUOYICRM-018": {
+    "tenant": "tenant1",
+    "path_params": {
+      "configKey": "synthetic.absent"
+    }
+  },
+  "RUOYICRM-024": {
+    "tenant": "tenant1",
+    "path_params": {
+      "deptId": 1
+    }
+  },
+  "RUOYICRM-025": {
+    "tenant": "tenant1",
+    "path_params": {
+      "deptId": 1
+    }
+  },
+  "RUOYICRM-026": {
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-027": {
+    "tenant": "tenant1",
+    "path_params": {
+      "roleId": 1
+    }
+  },
+  "RUOYICRM-033": {
+    "tenant": "tenant1",
+    "path_params": {
+      "dictCode": 999999
+    }
+  },
+  "RUOYICRM-034": {
+    "tenant": "tenant1",
+    "path_params": {
+      "dictType": "synthetic_absent"
+    }
+  },
+  "RUOYICRM-040": {
+    "tenant": "tenant1",
+    "path_params": {
+      "dictId": 999999
+    }
+  },
+  "RUOYICRM-046": {
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-049": {
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-051": {
+    "tenant": "tenant1",
+    "path_params": {
+      "menuId": 999999
+    }
+  },
+  "RUOYICRM-053": {
+    "tenant": "tenant1",
+    "path_params": {
+      "roleId": 1
+    }
+  },
+  "RUOYICRM-058": {
+    "tenant": "tenant1",
+    "path_params": {
+      "noticeId": 999999
+    }
+  },
+  "RUOYICRM-064": {
+    "tenant": "tenant1",
+    "path_params": {
+      "postId": 999999
+    }
+  },
+  "RUOYICRM-076": {
+    "tenant": "tenant1",
+    "path_params": {
+      "roleId": 1
+    }
+  },
+  "RUOYICRM-083": {
+    "tenant": "tenant1",
+    "query": {
+      "roleId": 999999
+    }
+  },
+  "RUOYICRM-084": {
+    "tenant": "tenant1",
+    "query": {
+      "roleId": 1
+    }
+  },
+  "RUOYICRM-088": {
+    "tenant": "tenant1",
+    "query": {
+      "userName": "nonexistent_synthetic"
+    }
+  },
+  "RUOYICRM-092": {
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-093": {
+    "tenant": "tenant1",
+    "path_params": {
+      "userId": 999999
+    }
+  },
+  "RUOYICRM-099": {
+    "tenant": "tenant1",
+    "path_params": {
+      "userId": 999999
+    }
+  },
+  "RUOYICRM-104": {
+    "tenant": "tenant1",
+    "path_params": {
+      "id": 999999
+    }
+  },
+  "RUOYICRM-112": {
+    "tenant": "tenant1",
+    "path_params": {
+      "customerId": 999999
+    }
+  },
+  "RUOYICRM-114": {
+    "tenant": "tenant1",
+    "path_params": {
+      "id": 999999
+    }
+  },
+  "RUOYICRM-120": {
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-123": {
+    "tenant": "tenant1",
+    "path_params": {
+      "id": 999999
+    }
+  },
+  "RUOYICRM-130": {
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-132": {
+    "tenant": "tenant1",
+    "path_params": {
+      "id": 999999
+    }
+  },
+  "RUOYICRM-138": {
+    "tenant": "tenant1",
+    "path_params": {
+      "id": 999999
+    }
+  },
+  "RUOYICRM-140": {
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-141": {
+    "tenant": "tenant1"
+  }
+}

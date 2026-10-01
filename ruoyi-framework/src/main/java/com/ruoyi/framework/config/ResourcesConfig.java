@@ -2,11 +2,12 @@ package com.ruoyi.framework.config;
 
 import com.ruoyi.framework.interceptor.TenantInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -22,6 +23,8 @@ import com.ruoyi.framework.interceptor.RepeatSubmitInterceptor;
 @Configuration
 public class ResourcesConfig implements WebMvcConfigurer
 {
+    @Value("${security.cors.allowed-origins:}")
+    private String allowedOrigins;
     @Autowired
     private RepeatSubmitInterceptor repeatSubmitInterceptor;
 
@@ -35,9 +38,6 @@ public class ResourcesConfig implements WebMvcConfigurer
         registry.addResourceHandler(Constants.RESOURCE_PREFIX + "/**")
                 .addResourceLocations("file:" + RuoYiConfig.getProfile() + "/");
 
-        /** swagger配置 */
-        registry.addResourceHandler("/swagger-ui/**")
-                .addResourceLocations("classpath:/META-INF/resources/webjars/springfox-swagger-ui/");
     }
 
     /**
@@ -54,22 +54,33 @@ public class ResourcesConfig implements WebMvcConfigurer
      * 跨域配置
      */
     @Bean
-    public CorsFilter corsFilter()
+    public CorsConfigurationSource corsConfigurationSource()
     {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowCredentials(true);
-        // 设置访问源地址
-        config.addAllowedOriginPattern("*");
-        // 设置访问源请求头
-        config.addAllowedHeader("*");
-        // 设置访问源请求方法
-        config.addAllowedMethod("*");
-        // 有效期 1800秒
+        // The UI normally uses a same-origin proxy. Cross-origin deployment
+        // must list trusted origins explicitly; credentials and wildcard
+        // origins cannot be safely combined.
+        if (allowedOrigins != null)
+        {
+            for (String value : allowedOrigins.split(","))
+            {
+                String origin = value.trim();
+                if (!origin.isEmpty())
+                {
+                    if (origin.contains("*"))
+                    {
+                        throw new IllegalArgumentException("security.cors.allowed-origins must contain exact origins");
+                    }
+                    config.addAllowedOrigin(origin);
+                }
+            }
+        }
+        config.setAllowCredentials(false);
+        config.setAllowedHeaders(java.util.List.of("Authorization", "Content-Type", "tenant", "X-Requested-With"));
+        config.setAllowedMethods(java.util.List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         config.setMaxAge(1800L);
-        // 添加映射路径，拦截一切请求
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
-        // 返回新的CorsFilter
-        return new CorsFilter(source);
+        return source;
     }
 }

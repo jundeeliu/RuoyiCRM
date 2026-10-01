@@ -3,7 +3,9 @@ package com.ruoyi.framework.web.service;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
-import javax.servlet.http.HttpServletRequest;
+import javax.crypto.SecretKey;
+import jakarta.annotation.PostConstruct;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -17,8 +19,10 @@ import com.ruoyi.common.utils.ip.IpUtils;
 import com.ruoyi.common.utils.uuid.IdUtils;
 import eu.bitwalker.useragentutils.UserAgent;
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.io.Decoders;
+import io.jsonwebtoken.security.Keys;
 
 /**
  * token验证处理
@@ -36,6 +40,8 @@ public class TokenService
     @Value("${token.secret}")
     private String secret;
 
+    private SecretKey signingKey;
+
     // 令牌有效期（默认30分钟）
     @Value("${token.expireTime}")
     private int expireTime;
@@ -48,6 +54,29 @@ public class TokenService
 
     @Autowired
     private RedisCache redisCache;
+
+    @PostConstruct
+    public void initializeSigningKey()
+    {
+        if (secret == null || secret.isBlank())
+        {
+            throw new IllegalStateException("token.secret must be a Base64-encoded 64-byte HS512 key");
+        }
+        final byte[] decoded;
+        try
+        {
+            decoded = Decoders.BASE64.decode(secret.trim());
+        }
+        catch (RuntimeException e)
+        {
+            throw new IllegalStateException("token.secret must be valid Base64", e);
+        }
+        if (decoded.length < 64)
+        {
+            throw new IllegalStateException("token.secret must decode to at least 64 bytes for HS512");
+        }
+        signingKey = Keys.hmacShaKeyFor(decoded);
+    }
 
     /**
      * 获取用户身份信息
@@ -64,16 +93,27 @@ public class TokenService
             {
                 Claims claims = parseToken(token);
                 // 解析对应的权限以及用户信息
-                String uuid = (String) claims.get(Constants.LOGIN_USER_KEY);
+                String uuid = claims.get(Constants.LOGIN_USER_KEY, String.class);
+                String claimTenant = claims.get(Constants.LOGIN_TENANT_KEY, String.class);
+                if (StringUtils.isEmpty(uuid) || StringUtils.isEmpty(claimTenant))
+                {
+                    return null;
+                }
                 String userKey = getTokenKey(uuid);
                 LoginUser user = redisCache.getCacheObject(userKey);
-                return user;
+                return user != null && claimTenant.equals(user.getTenant()) ? user : null;
             }
-            catch (Exception e)
+            catch (JwtException | IllegalArgumentException e)
             {
+                return null;
             }
         }
         return null;
+    }
+
+    public boolean hasToken(HttpServletRequest request)
+    {
+        return request.getHeader(header) != null;
     }
 
     /**
@@ -173,8 +213,8 @@ public class TokenService
     private String createToken(Map<String, Object> claims)
     {
         String token = Jwts.builder()
-                .setClaims(claims)
-                .signWith(SignatureAlgorithm.HS512, secret).compact();
+                .claims(claims)
+                .signWith(signingKey, Jwts.SIG.HS512).compact();
         return token;
     }
 
@@ -187,9 +227,10 @@ public class TokenService
     private Claims parseToken(String token)
     {
         return Jwts.parser()
-                .setSigningKey(secret)
-                .parseClaimsJws(token)
-                .getBody();
+                .verifyWith(signingKey)
+                .build()
+                .parseSignedClaims(token)
+                .getPayload();
     }
 
     /**
@@ -215,7 +256,7 @@ public class TokenService
         String token = request.getHeader(header);
         if (StringUtils.isNotEmpty(token) && token.startsWith(Constants.TOKEN_PREFIX))
         {
-            token = token.replace(Constants.TOKEN_PREFIX, "");
+            token = token.substring(Constants.TOKEN_PREFIX.length());
         }
         return token;
     }

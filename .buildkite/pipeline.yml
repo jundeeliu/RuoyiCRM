@@ -1,0 +1,45 @@
+steps:
+  - label: ":vue: Locked frontend production and staging builds"
+    key: spring4-frontend-build
+    command: "bash scripts/ci_spring4_frontend.sh build"
+    timeout_in_minutes: 30
+
+  - label: ":mag: Frontend lint backlog gate"
+    key: spring4-frontend-lint
+    command: "bash scripts/ci_spring4_frontend.sh lint"
+    depends_on: spring4-frontend-build
+    timeout_in_minutes: 20
+
+  - label: ":package: Frontend dependency SBOM"
+    key: spring4-frontend-sbom
+    command: "bash scripts/ci_spring4_frontend.sh sbom"
+    depends_on: spring4-frontend-build
+    artifact_paths:
+      - "target/ui-bom.json"
+    timeout_in_minutes: 20
+
+  - label: ":lock: Frontend production dependency audit"
+    key: spring4-frontend-audit
+    command: "bash scripts/ci_spring4_frontend.sh audit"
+    depends_on: spring4-frontend-build
+    timeout_in_minutes: 20
+
+  - label: ":java: Spring Boot 4 build and regression"
+    key: spring4-regression
+    command: "bash scripts/ci_spring4_regression.sh"
+    timeout_in_minutes: 45
+
+  - label: ":database: Disposable MySQL and Redis routing"
+    key: spring4-physical-stack
+    command: "bash scripts/ci_spring4_physical.sh"
+    depends_on: spring4-regression
+    timeout_in_minutes: 30
+
+  - label: ":package: Application dependency SBOM"
+    key: spring4-sbom
+    command: "bash scripts/ci_spring4_sbom.sh"
+    depends_on: spring4-regression
+    artifact_paths:
+      - "target/bom.json"
+      - "target/crit-static-scan.json"
+    timeout_in_minutes: 20

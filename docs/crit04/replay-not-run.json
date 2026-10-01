@@ -1,0 +1,763 @@
+{
+  "schema": "ruoyicrm.crit04.replay-receipt.v1",
+  "status": "NOT_RUN_OR_FAILED",
+  "planned": 150,
+  "passed": 0,
+  "failed": 0,
+  "not_run": 150,
+  "external_evidence": "NOT_RUN",
+  "certification": "NOT_CERTIFIED",
+  "comparison_scope": "HTTP status, Content-Type, and exact body bytes only; database and Redis state NOT_RUN",
+  "results": [
+    {
+      "id": "RUOYICRM-001",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-002",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-003",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-004",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-005",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-006",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-007",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-008",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-009",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-010",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-011",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-012",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-013",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-014",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-015",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-016",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-017",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-018",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-019",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-020",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-021",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-022",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-023",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-024",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-025",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-026",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-027",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-028",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-029",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-030",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-031",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-032",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-033",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-034",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-035",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-036",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-037",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-038",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-039",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-040",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-041",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-042",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-043",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-044",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-045",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-046",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-047",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-048",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-049",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-050",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-051",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-052",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-053",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-054",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-055",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-056",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-057",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-058",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-059",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-060",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-061",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-062",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-063",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-064",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-065",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-066",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-067",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-068",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-069",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-070",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-071",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-072",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-073",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-074",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-075",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-076",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-077",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-078",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-079",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-080",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-081",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-082",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-083",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-084",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-085",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-086",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-087",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-088",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-089",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-090",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-091",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-092",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-093",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-094",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-095",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-096",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-097",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-098",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-099",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-100",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-101",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-102",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-103",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-104",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-105",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-106",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-107",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-108",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-109",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-110",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-111",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-112",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-113",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-114",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-115",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-116",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-117",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-118",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-119",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-120",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-121",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-122",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-123",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-124",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-125",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-126",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-127",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-128",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-129",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-130",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-131",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-132",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-133",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-134",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-135",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-136",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-137",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-138",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-139",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-140",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-141",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-142",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-143",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-144",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-145",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-146",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-147",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-148",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-149",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    },
+    {
+      "id": "RUOYICRM-150",
+      "status": "NOT_RUN",
+      "reason": "RUNTIME_UNAVAILABLE"
+    }
+  ]
+}

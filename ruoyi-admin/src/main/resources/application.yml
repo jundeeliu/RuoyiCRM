@@ -7,9 +7,9 @@ ruoyi:
   # 版权年份
   copyrightYear: 2021
   # 实例演示开关
-  demoEnabled: true
+  demoEnabled: ${RUOYI_DEMO_ENABLED:false}
   # 文件路径 示例（ Windows配置D:/ruoyi/uploadPath，Linux配置 /home/ruoyi/uploadPath）
-  profile: D:/ruoyi/uploadPath
+  profile: ${RUOYI_UPLOAD_PATH:./target/uploads}
   # 获取ip地址开关
   addressEnabled: false
   # 验证码类型 math 数组计算 char 字符验证
@@ -18,7 +18,7 @@ ruoyi:
 # 开发环境配置
 server:
   # 服务器的HTTP端口，默认为8080
-  port: 8080
+  port: ${RUOYI_HTTP_PORT:8080}
   servlet:
     # 应用的访问路径
     context-path: /
@@ -41,6 +41,10 @@ logging:
 
 # Spring配置
 spring:
+  # Preserve Jackson 2 wire semantics while migrating existing com.fasterxml annotations.
+  http:
+    converters:
+      preferred-json-mapper: jackson2
   # 资源信息
   messages:
     # 国际化资源文件路径
@@ -60,34 +64,35 @@ spring:
       # 热部署开关
       enabled: true
   # redis 配置
-  redis:
+  data:
+    redis:
     # 地址
-    host: localhost
+      host: ${RUOYI_REDIS_HOST:localhost}
     # 端口，默认为6379
-    port: 6379
+      port: ${RUOYI_REDIS_PORT:6379}
     # 数据库索引
-    database: 0
+      database: ${RUOYI_REDIS_DATABASE:0}
     # 密码
-    password: 
+      password: ${RUOYI_REDIS_PASSWORD:}
     # 连接超时时间
-    timeout: 10s
-    lettuce:
-      pool:
+      timeout: 10s
+      lettuce:
+        pool:
         # 连接池中的最小空闲连接
-        min-idle: 0
+          min-idle: 0
         # 连接池中的最大空闲连接
-        max-idle: 8
+          max-idle: 8
         # 连接池的最大数据库连接数
-        max-active: 8
+          max-active: 8
         # #连接池最大阻塞等待时间（使用负值表示没有限制）
-        max-wait: -1ms
+          max-wait: -1ms
 
 # token配置
 token:
     # 令牌自定义标识
     header: Authorization
     # 令牌密钥
-    secret: abcdefghijklmnopqrstuvwxyz
+    secret: ${RUOYI_JWT_SECRET_BASE64}
     # 令牌有效期（默认30分钟）
     expireTime: 30
   
@@ -109,9 +114,25 @@ pagehelper:
 # Swagger配置
 swagger:
   # 是否开启swagger
-  enabled: true
+  enabled: ${RUOYI_SWAGGER_ENABLED:false}
   # 请求前缀
   pathMapping: /dev-api
+springdoc:
+  api-docs:
+    enabled: ${RUOYI_SWAGGER_ENABLED:false}
+  swagger-ui:
+    enabled: ${RUOYI_SWAGGER_ENABLED:false}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: never
+      probes:
+        enabled: true
 
 # 防止XSS攻击
 xss: 

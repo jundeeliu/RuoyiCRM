@@ -1,0 +1,37 @@
+{
+  "base_url": "http://127.0.0.1:54610",
+  "certification": "NOT_CERTIFIED",
+  "checked_at": "2026-10-01T20:31:03.682510+00:00",
+  "external_evidence": "NOT_RUN",
+  "jar_sha256": "6829de6eaaab1d60620235c7f7aef4430bd4bf19feacbd08872b12c2f336c161",
+  "observations": [
+    {
+      "http_status": 200,
+      "json_status": "UP",
+      "path": "/actuator/health"
+    },
+    {
+      "http_status": 200,
+      "json_status": "UP",
+      "path": "/actuator/health/liveness"
+    },
+    {
+      "http_status": 200,
+      "json_status": "UP",
+      "path": "/actuator/health/readiness"
+    },
+    {
+      "http_status": 401,
+      "json_status": null,
+      "path": "/actuator/info"
+    },
+    {
+      "http_status": 401,
+      "json_status": null,
+      "path": "/actuator/prometheus"
+    }
+  ],
+  "pid": 33334,
+  "runtime": "LOCAL_EXECUTED_SELF_ATTESTED",
+  "schema": "ruoyicrm.crit10.actuator-probe.v1"
+}

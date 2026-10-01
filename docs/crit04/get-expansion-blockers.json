@@ -1,0 +1,54 @@
+{
+  "schema": "ruoyicrm.crit04.get-blockers.v1",
+  "target_jar_sha256": "6829de6eaaab1d60620235c7f7aef4430bd4bf19feacbd08872b12c2f336c161",
+  "source_revision": "d742330901b40126f482c5f092ca1ba43a3c7ebc",
+  "blocked_get_count": 4,
+  "cases": [
+    {
+      "case_id": "RUOYICRM-001",
+      "method": "GET",
+      "path": "/captchaImage",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/common/CaptchaController.java",
+      "line": 44,
+      "controller_sha256": "6eb8ed3cd656ff3db104bd0521266876fc41e2c5950652a24782d6345c50b72a",
+      "status": "NOT_RUN",
+      "blocker": "NONDETERMINISTIC_CAPTCHA",
+      "detail": "Controller creates random UUID/captcha image and writes captcha value to Redis; no stable exact-byte baseline oracle under current fixture."
+    },
+    {
+      "case_id": "RUOYICRM-002",
+      "method": "GET",
+      "path": "/common/download",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/common/CommonController.java",
+      "line": 40,
+      "controller_sha256": "d257076c87332474dbbdd439697ed7b5ebb0ac7f2e0e52b281b0be40f0a4d041",
+      "status": "NOT_RUN",
+      "blocker": "NONDETERMINISTIC_DOWNLOAD_HEADER",
+      "detail": "Controller prefixes Content-Disposition/download-filename with System.currentTimeMillis() and may delete file when delete=true; no stable exact-header oracle under current replay contract."
+    },
+    {
+      "case_id": "RUOYICRM-017",
+      "method": "GET",
+      "path": "/system/config/{configId}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysConfigController.java",
+      "line": 64,
+      "controller_sha256": "61ebc9467df73e192ca5d7394f78ca95f2e20c1256e60cef64b26f5be6731424",
+      "status": "NOT_RUN",
+      "blocker": "BASELINE_SCHEMA_FAILURE",
+      "detail": "Physical source request returned HTTP 200 / JSON code 500 because SysConfigMapper queries rycrm-master.sys_config, absent from source master DDL."
+    },
+    {
+      "case_id": "RUOYICRM-139",
+      "method": "GET",
+      "path": "/crm/pool/receive/{id}",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmPoolControler.java",
+      "line": 61,
+      "controller_sha256": "a1d1aea2b0f143b83ed7b572816f18cf815d5a7f27678e761fbedefa04c10dd4",
+      "status": "NOT_RUN",
+      "blocker": "GET_HAS_DB_WRITE",
+      "detail": "Controller calls receiveCustomerById(id, username) from GET; excluded from read-only replay and requires write fence/snapshots."
+    }
+  ],
+  "external_evidence": "NOT_RUN",
+  "certification": "NOT_CERTIFIED"
+}

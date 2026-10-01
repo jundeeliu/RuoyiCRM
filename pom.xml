@@ -16,24 +16,22 @@
         <ruoyi.version>3.8.1</ruoyi.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
+        <java.version>21</java.version>
+        <spring-boot.version>4.1.1</spring-boot.version>
         <maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
-        <druid.version>1.2.8</druid.version>
+        <druid.version>1.2.28</druid.version>
         <bitwalker.version>1.21</bitwalker.version>
-        <swagger.version>3.0.0</swagger.version>
+        <springdoc.version>3.1.0</springdoc.version>
         <kaptcha.version>2.3.2</kaptcha.version>
-        <mybatis-spring-boot.version>2.2.0</mybatis-spring-boot.version>
-        <pagehelper.boot.version>1.4.0</pagehelper.boot.version>
-        <fastjson.version>1.2.79</fastjson.version>
+        <mybatis-spring-boot.version>4.1.0</mybatis-spring-boot.version>
+        <pagehelper.boot.version>4.1.1</pagehelper.boot.version>
         <oshi.version>5.8.6</oshi.version>
         <jna.version>5.10.0</jna.version>
-        <commons.io.version>2.11.0</commons.io.version>
-        <commons.fileupload.version>1.4</commons.fileupload.version>
-        <commons.collections.version>3.2.2</commons.collections.version>
-        <poi.version>4.1.2</poi.version>
+        <commons.io.version>2.22.0</commons.io.version>
+        <commons.fileupload.version>1.6.0</commons.fileupload.version>
+        <poi.version>5.5.1</poi.version>
         <velocity.version>2.3</velocity.version>
-        <log4j2.version>2.17.1</log4j2.version>
-        <jwt.version>0.9.1</jwt.version>
+        <jwt.version>0.12.7</jwt.version>
     </properties>
 	
     <!-- 依赖声明 -->
@@ -44,7 +42,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>2.5.8</version>
+                <version>${spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -52,7 +50,7 @@
             <!-- 阿里数据库连接池 -->
             <dependency>
                 <groupId>com.alibaba</groupId>
-                <artifactId>druid-spring-boot-starter</artifactId>
+                <artifactId>druid-spring-boot-4-starter</artifactId>
                 <version>${druid.version}</version>
             </dependency>
 
@@ -96,17 +94,11 @@
                 <version>${jna.version}</version>
             </dependency>
 
-            <!-- Swagger3依赖 -->
+            <!-- Spring Boot 4 compatible OpenAPI UI -->
             <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-boot-starter</artifactId>
-                <version>${swagger.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>io.swagger</groupId>
-                        <artifactId>swagger-models</artifactId>
-                    </exclusion>
-                </exclusions>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+                <version>${springdoc.version}</version>
             </dependency>
 
             <!-- io常用工具类 -->
@@ -137,37 +129,10 @@
                 <version>${velocity.version}</version>
             </dependency>
 
-            <!-- collections工具类 -->
-            <dependency>
-                <groupId>commons-collections</groupId>
-                <artifactId>commons-collections</artifactId>
-                <version>${commons.collections.version}</version>
-            </dependency>
-
-            <!-- 阿里JSON解析器 -->
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>fastjson</artifactId>
-                <version>${fastjson.version}</version>
-            </dependency>
-
-            <!-- log4j日志组件 -->
-            <dependency>
-                <groupId>org.apache.logging.log4j</groupId>
-                <artifactId>log4j-api</artifactId>
-                <version>${log4j2.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.logging.log4j</groupId>
-                <artifactId>log4j-to-slf4j</artifactId>
-                <version>${log4j2.version}</version>
-            </dependency>
-
             <!-- Token生成与解析-->
             <dependency>
                 <groupId>io.jsonwebtoken</groupId>
-                <artifactId>jjwt</artifactId>
+                <artifactId>jjwt-api</artifactId>
                 <version>${jwt.version}</version>
             </dependency>
 
@@ -176,20 +141,6 @@
                 <groupId>com.github.penggle</groupId>
                 <artifactId>kaptcha</artifactId>
                 <version>${kaptcha.version}</version>
-            </dependency>
-
-            <!-- 定时任务-->
-            <dependency>
-                <groupId>com.ruoyi</groupId>
-                <artifactId>ruoyi-quartz</artifactId>
-                <version>${ruoyi.version}</version>
-            </dependency>
-
-            <!-- 代码生成-->
-            <dependency>
-                <groupId>com.ruoyi</groupId>
-                <artifactId>ruoyi-generator</artifactId>
-                <version>${ruoyi.version}</version>
             </dependency>
 
             <!-- 核心模块-->
@@ -250,10 +201,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
+                <version>3.14.1</version>
                 <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
+                    <release>${java.version}</release>
+                    <parameters>true</parameters>
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
             </plugin>

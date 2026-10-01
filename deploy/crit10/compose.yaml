@@ -1,0 +1,48 @@
+name: ${COMPOSE_PROJECT_NAME}
+
+services:
+  mysql:
+    image: mysql:8.4
+    restart: "no"
+    init: true
+    environment:
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql-root-password
+    secrets:
+      - mysql-root-password
+      - mysql-client-cnf
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ${CRIT10_INIT_DIR}:/docker-entrypoint-initdb.d:ro
+    ports:
+      - "127.0.0.1:${CRIT10_MYSQL_PORT}:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "--defaults-extra-file=/run/secrets/mysql-client-cnf", "ping", "-h", "127.0.0.1"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+    mem_limit: 1g
+
+  redis:
+    image: redis:7-bookworm
+    restart: "no"
+    init: true
+    command: ["redis-server", "--appendonly", "no", "--save", "", "--aclfile", "/run/secrets/redis-acl"]
+    secrets:
+      - redis-acl
+    volumes:
+      - redis_data:/data
+    ports:
+      - "127.0.0.1:${CRIT10_REDIS_PORT}:6379"
+    mem_limit: 256m
+
+secrets:
+  mysql-root-password:
+    file: ${CRIT10_RUNTIME_DIR}/mysql-root-password
+  mysql-client-cnf:
+    file: ${CRIT10_RUNTIME_DIR}/mysql-client.cnf
+  redis-acl:
+    file: ${CRIT10_RUNTIME_DIR}/redis.acl
+
+volumes:
+  mysql_data:
+  redis_data:

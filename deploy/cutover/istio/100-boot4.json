@@ -1,0 +1,36 @@
+{
+  "apiVersion": "networking.istio.io/v1",
+  "kind": "VirtualService",
+  "metadata": {
+    "name": "ruoyicrm-web-cutover",
+    "namespace": "ruoyicrm",
+    "annotations": {
+      "cutover.ruoyicrm.io/plan-id": "ruoyicrm-master-tenant-20261002"
+    }
+  },
+  "spec": {
+    "hosts": [
+      "ruoyicrm-web.ruoyicrm.svc.cluster.local"
+    ],
+    "http": [
+      {
+        "route": [
+          {
+            "destination": {
+              "host": "ruoyicrm-web.ruoyicrm.svc.cluster.local",
+              "subset": "legacy"
+            },
+            "weight": 0
+          },
+          {
+            "destination": {
+              "host": "ruoyicrm-web.ruoyicrm.svc.cluster.local",
+              "subset": "boot4"
+            },
+            "weight": 100
+          }
+        ]
+      }
+    ]
+  }
+}

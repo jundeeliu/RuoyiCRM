@@ -1,0 +1,8 @@
+{
+  "queries": {
+    "new_requests_per_minute": "60 * sum(rate(istio_requests_total{destination_service=\"ruoyicrm-web.ruoyicrm.svc.cluster.local\",destination_workload_namespace=\"ruoyicrm\",reporter=\"destination\",destination_version=\"boot4\"}[2m]))",
+    "new_5xx_per_minute": "60 * sum(rate(istio_requests_total{destination_service=\"ruoyicrm-web.ruoyicrm.svc.cluster.local\",destination_workload_namespace=\"ruoyicrm\",reporter=\"destination\",destination_version=\"boot4\",response_code=~\"5..\"}[2m]))",
+    "new_p95_ms": "histogram_quantile(0.95, sum by (le) (rate(istio_request_duration_milliseconds_bucket{destination_service=\"ruoyicrm-web.ruoyicrm.svc.cluster.local\",destination_workload_namespace=\"ruoyicrm\",reporter=\"destination\",destination_version=\"boot4\"}[2m])))",
+    "old_p95_ms": "histogram_quantile(0.95, sum by (le) (rate(istio_request_duration_milliseconds_bucket{destination_service=\"ruoyicrm-web.ruoyicrm.svc.cluster.local\",destination_workload_namespace=\"ruoyicrm\",reporter=\"destination\",destination_version=\"legacy\"}[2m])))"
+  }
+}

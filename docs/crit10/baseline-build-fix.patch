@@ -1,0 +1,17 @@
+diff --git a/ruoyi-admin/pom.xml b/ruoyi-admin/pom.xml
+index 767a536..3a4bf9b 100644
+--- a/ruoyi-admin/pom.xml
++++ b/ruoyi-admin/pom.xml
+@@ -52,12 +51,0 @@
+-        <!-- 定时任务-->
+-        <dependency>
+-            <groupId>com.ruoyi</groupId>
+-            <artifactId>ruoyi-quartz</artifactId>
+-        </dependency>
+-
+-        <!-- 代码生成-->
+-        <dependency>
+-            <groupId>com.ruoyi</groupId>
+-            <artifactId>ruoyi-generator</artifactId>
+-        </dependency>
+-

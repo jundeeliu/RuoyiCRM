@@ -1,10 +1,11 @@
 package com.ruoyi.common.core.domain.model;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import com.alibaba.fastjson.annotation.JSONField;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ruoyi.common.core.domain.entity.SysUser;
 
 /**
@@ -133,7 +134,7 @@ public class LoginUser implements UserDetails
         this.permissions = permissions;
     }
 
-    @JSONField(serialize = false)
+    @JsonIgnore
     @Override
     public String getPassword()
     {
@@ -149,7 +150,7 @@ public class LoginUser implements UserDetails
     /**
      * 账户是否未过期,过期无法验证
      */
-    @JSONField(serialize = false)
+    @JsonIgnore
     @Override
     public boolean isAccountNonExpired()
     {
@@ -161,7 +162,7 @@ public class LoginUser implements UserDetails
      * 
      * @return
      */
-    @JSONField(serialize = false)
+    @JsonIgnore
     @Override
     public boolean isAccountNonLocked()
     {
@@ -173,7 +174,7 @@ public class LoginUser implements UserDetails
      * 
      * @return
      */
-    @JSONField(serialize = false)
+    @JsonIgnore
     @Override
     public boolean isCredentialsNonExpired()
     {
@@ -185,7 +186,7 @@ public class LoginUser implements UserDetails
      * 
      * @return
      */
-    @JSONField(serialize = false)
+    @JsonIgnore
     @Override
     public boolean isEnabled()
     {
@@ -275,7 +276,9 @@ public class LoginUser implements UserDetails
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities()
     {
-        return null;
+        // ProviderManager in Spring Security 7 requires a non-null authority
+        // collection. Permission checks still use the explicit permissions set.
+        return List.of();
     }
 
     public String getTenant() {

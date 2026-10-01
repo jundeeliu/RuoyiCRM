@@ -1,0 +1,122 @@
+{
+  "RUOYICRM-015": {
+    "expected_status": 200,
+    "expected_body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-023": {
+    "expected_status": 200,
+    "expected_body_sha256": "5d599c57b04be44030d1ee91de0137d71837838b5a2b68567d9970bd0cc1743c",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-031": {
+    "expected_status": 200,
+    "expected_body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-038": {
+    "expected_status": 200,
+    "expected_body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-045": {
+    "expected_status": 200,
+    "expected_body_sha256": "5271e09c2aaba2805fc2f178cddc490385076f5e0eba9f6f30b80fa4395bb747",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-050": {
+    "expected_status": 200,
+    "expected_body_sha256": "5271e09c2aaba2805fc2f178cddc490385076f5e0eba9f6f30b80fa4395bb747",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-052": {
+    "expected_status": 200,
+    "expected_body_sha256": "5271e09c2aaba2805fc2f178cddc490385076f5e0eba9f6f30b80fa4395bb747",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-057": {
+    "expected_status": 200,
+    "expected_body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-062": {
+    "expected_status": 200,
+    "expected_body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-068": {
+    "expected_status": 200,
+    "expected_body_sha256": "5271e09c2aaba2805fc2f178cddc490385076f5e0eba9f6f30b80fa4395bb747",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-074": {
+    "expected_status": 200,
+    "expected_body_sha256": "87dc8c140b97cab6913870efbbeef1d371e4e9b1ea58a4bd5388350954045d4a",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-082": {
+    "expected_status": 200,
+    "expected_body_sha256": "260c52e5c6d9200256f9c2f6528f1bc4e047dd6e69fbf01122ebb68e08d628e4",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-101": {
+    "expected_status": 200,
+    "expected_body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-102": {
+    "expected_status": 200,
+    "expected_body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-111": {
+    "expected_status": 200,
+    "expected_body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-118": {
+    "expected_status": 200,
+    "expected_body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-119": {
+    "expected_status": 200,
+    "expected_body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-121": {
+    "expected_status": 200,
+    "expected_body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-129": {
+    "expected_status": 200,
+    "expected_body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-137": {
+    "expected_status": 200,
+    "expected_body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  }
+}

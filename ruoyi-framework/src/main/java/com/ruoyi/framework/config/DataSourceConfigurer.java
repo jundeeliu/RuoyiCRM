@@ -1,16 +1,15 @@
 package com.ruoyi.framework.config;
 
 import com.ruoyi.framework.datasource.DynamicRoutingDataSource;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.HashMap;
 import java.util.Map;
+import javax.sql.DataSource;
 
 @Configuration
-@Slf4j
 public class DataSourceConfigurer {
 
     @Value("${spring.datasource.druid.master.url}")
@@ -38,9 +37,10 @@ public class DataSourceConfigurer {
     public DynamicRoutingDataSource dynamicDataSource() {
         DynamicRoutingDataSource dynamicRoutingDataSource = new DynamicRoutingDataSource();
         Map<Object, Object> dataSourceMap = new HashMap<>(1);
-        dataSourceMap.put("default_db", dynamicRoutingDataSource.dataSource(getProperties()));
+        DataSource master = dynamicRoutingDataSource.dataSource(getProperties());
+        dataSourceMap.put(DynamicRoutingDataSource.MASTER_KEY, master);
         dynamicRoutingDataSource.setTargetDataSources(dataSourceMap);
-        dynamicRoutingDataSource.setDefaultTargetDataSource(dynamicRoutingDataSource.dataSource(getProperties()));
+        dynamicRoutingDataSource.setLenientFallback(false);
         return dynamicRoutingDataSource;
     }
 }

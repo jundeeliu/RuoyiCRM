@@ -1,0 +1,28 @@
+{
+  "schema": "ruoyicrm.crit04.baseline-oracle.v1",
+  "case_id": "RUOYICRM-027",
+  "baseline_source_revision": "d742330901b40126f482c5f092ca1ba43a3c7ebc",
+  "baseline_controller_sha256": "5a8066c773241db3d4650facda4bbaa1bb2a6765b7045720be5c3e85e3b4a52a",
+  "baseline_controller_line": 94,
+  "route": {
+    "http_method": "GET",
+    "path_template": "/system/dept/roleDeptTreeselect/{roleId}",
+    "java_method": "roleDeptTreeselect",
+    "permission_expression": null
+  },
+  "observation": {
+    "status": 200,
+    "content_type": "application/json",
+    "body_sha256": "2462144522b6615ac1f3f2109732f0a89470371df0a558389dcf47fb154d60e6",
+    "json_code": 200,
+    "canonical_json_sha256": "700299b23185f6aa7e2c7af28f8fc180988f8e94666acf536ab963a578628ead"
+  },
+  "fixture_expectation": {
+    "expected_status": 200,
+    "expected_body_sha256": "2462144522b6615ac1f3f2109732f0a89470371df0a558389dcf47fb154d60e6",
+    "expected_json_code": 200
+  },
+  "status": "LOCAL_BASELINE_CAPTURED",
+  "external_evidence": "NOT_RUN",
+  "certification": "NOT_CERTIFIED"
+}

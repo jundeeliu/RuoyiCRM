@@ -1,0 +1,195 @@
+{
+  "baseline": {
+    "body_sha256": "31ff59a3d81968dc7ddc2b273c9880aeecb82d875dae77367a839a06a7687995",
+    "content_type": "application/json;charset=UTF-8",
+    "json_code": 200,
+    "status": 200
+  },
+  "baseline_execution_status": "EXECUTED",
+  "batch31_certification": "NOT_RUN",
+  "case_id": "RUOYICRM-059",
+  "certification": "NOT_CERTIFIED",
+  "cleanup_status": "DISPOSABLE_JVMS_STOPPED_AND_BOTH_COMPOSE_PROJECTS_VOLUMES_DESTROYED",
+  "cleanup_verification": {
+    "docker_projects_absent": [
+      "ruoyicrm-crit10-1580f1739c",
+      "ruoyicrm-crit10-4033f54722"
+    ],
+    "jvm_pids_absent": [
+      25487,
+      33334
+    ],
+    "loopback_ports_closed": [
+      52906,
+      52907,
+      52908,
+      52909,
+      53112,
+      54610
+    ],
+    "named_volumes_remaining": 0,
+    "runtime_directories_remaining": 0,
+    "snapshot_restore_test": "NOT_RUN"
+  },
+  "cleanup_verified_at": "2026-10-01T20:46:18.809414+00:00",
+  "error_type": "FenceError",
+  "evidence_level": "LOCAL_EXECUTED_SELF_ATTESTED_PARTIAL_FAILURE",
+  "external_evidence": "NOT_RUN",
+  "fence": {
+    "certification": "NOT_CERTIFIED",
+    "external_evidence": "NOT_RUN",
+    "method": "POST",
+    "path": "/system/notice",
+    "source_jar_sha256": "27e857f89ed7261f01242b58cf56713234dd6e138ab838f4c2a6ff3a07d506af",
+    "source_project": "ruoyicrm-crit10-1580f1739c",
+    "source_snapshot_sha256": "771b942b4dc3c58ece1e3fcfa08ad4ea0bf80d262b897d864949f62c9ca8b8b4",
+    "status": "LOCAL_WRITE_FENCE_PASSED",
+    "target_jar_sha256": "6829de6eaaab1d60620235c7f7aef4430bd4bf19feacbd08872b12c2f336c161",
+    "target_project": "ruoyicrm-crit10-4033f54722",
+    "target_snapshot_sha256": "698c3aa575db5cc64c038e2a4a5c00f4fb3afbf9c1e8e4f8af19112f6425e6a3"
+  },
+  "fence_failure_assertion": "UNKNOWN_NOT_RECORDED_BY_INITIAL_RUNNER",
+  "postfailure_scope": {
+    "checked_at": "2026-10-01T20:45:04.960486+00:00",
+    "source_matched_rows": 1,
+    "source_storage": {
+      "mysql_version": "8.4.11",
+      "server_charset": "utf8mb4",
+      "session_timezone": "SYSTEM",
+      "system_timezone": "UTC",
+      "table_engine": "InnoDB"
+    },
+    "source_table_counts": {
+      "rycrm-tenant-1": 1,
+      "rycrm-tenant-2": 0
+    },
+    "target_matched_rows": 0,
+    "target_storage": {
+      "mysql_version": "8.4.11",
+      "server_charset": "utf8mb4",
+      "session_timezone": "SYSTEM",
+      "system_timezone": "UTC",
+      "table_engine": "InnoDB"
+    },
+    "target_table_counts": {
+      "rycrm-tenant-1": 0,
+      "rycrm-tenant-2": 0
+    }
+  },
+  "prewrite_rows": {
+    "source": 0,
+    "target": 0
+  },
+  "prewrite_table_counts": {
+    "source": {
+      "rycrm-tenant-1": 0,
+      "rycrm-tenant-2": 0
+    },
+    "target": {
+      "rycrm-tenant-1": 0,
+      "rycrm-tenant-2": 0
+    }
+  },
+  "reason": "WRITE_ATTEMPT_INDETERMINATE",
+  "schema": "ruoyicrm.crit04.notice-write-replay.v1",
+  "snapshot_artifacts": {
+    "source": {
+      "captured_at": "2026-10-01T20:35:08.212290+00:00",
+      "containers": {
+        "mysql": "05384d56fff226f46c57d93254c521734ae9bbeda823e96a359a645bb17b4810",
+        "redis": "f2124c014b5efb616e469da97856dfc4b5bfea3b95cb20b8c0c9a3be3708399f"
+      },
+      "mysql": {
+        "bytes": 115967,
+        "file": "prewrite-mysql.sql",
+        "sha256": "1d70d2ff0507ce242bbca62337dd8ed2834dc4bb6327a6206ff3b50196a5d30a"
+      },
+      "project": "ruoyicrm-crit10-1580f1739c",
+      "redis": {
+        "bytes": 1775,
+        "file": "prewrite-redis.rdb",
+        "sha256": "835857ba2f09df14f47625f8ee828a7e2a083fe71b06b0ffdfeecde59745df62"
+      },
+      "volumes": {
+        "mysql": "ruoyicrm-crit10-1580f1739c_mysql_data",
+        "redis": "ruoyicrm-crit10-1580f1739c_redis_data"
+      }
+    },
+    "target": {
+      "captured_at": "2026-10-01T20:35:19.921043+00:00",
+      "containers": {
+        "mysql": "4759ba138bbd7cee3199b748da963358e40dd939d4f35fd24976a46f5c732ad4",
+        "redis": "06f90dff9aefca95a8632d5911c3ea808cbd48f56fa4ba2fa16b706ba0295028"
+      },
+      "mysql": {
+        "bytes": 115967,
+        "file": "prewrite-mysql.sql",
+        "sha256": "21d30e31df3d42fa0b0914e73e54168a8dfe2efa4747b619d59bd430f321baf1"
+      },
+      "project": "ruoyicrm-crit10-4033f54722",
+      "redis": {
+        "bytes": 1871,
+        "file": "prewrite-redis.rdb",
+        "sha256": "4c3b684be00cfbc1cea561dbdd9d1b52ac63a403e6e03a76e8eee79013b21086"
+      },
+      "volumes": {
+        "mysql": "ruoyicrm-crit10-4033f54722_mysql_data",
+        "redis": "ruoyicrm-crit10-4033f54722_redis_data"
+      }
+    }
+  },
+  "source_canonical_rows": [
+    [
+      "<generated-positive-id>",
+      "CRIT04 w98790c6c notice",
+      "1",
+      "53796E74686574696320646973706F7361626C65207265706C6179206E6F7469636520773938373930633663",
+      "0",
+      "gm_273ff6e9",
+      "<generated-datetime>",
+      "",
+      "NULL",
+      "NULL"
+    ]
+  ],
+  "source_revision": "d7423309",
+  "source_rows": [
+    [
+      "3",
+      "CRIT04 w98790c6c notice",
+      "1",
+      "53796E74686574696320646973706F7361626C65207265706C6179206E6F7469636520773938373930633663",
+      "0",
+      "gm_273ff6e9",
+      "2026-10-01 20:36:06",
+      "",
+      "NULL",
+      "NULL"
+    ]
+  ],
+  "source_table_counts": {
+    "rycrm-tenant-1": 1,
+    "rycrm-tenant-2": 0
+  },
+  "status": "FAIL",
+  "storage_metadata": {
+    "source": {
+      "mysql_version": "8.4.11",
+      "server_charset": "utf8mb4",
+      "session_timezone": "SYSTEM",
+      "system_timezone": "UTC",
+      "table_engine": "InnoDB"
+    },
+    "target": {
+      "mysql_version": "8.4.11",
+      "server_charset": "utf8mb4",
+      "session_timezone": "SYSTEM",
+      "system_timezone": "UTC",
+      "table_engine": "InnoDB"
+    }
+  },
+  "subsequent_fence_checks": "3_READ_ONLY_PASS_DO_NOT_PROVE_INITIAL_FAILURE_CAUSE",
+  "target_execution_status": "NOT_RUN",
+  "target_rows": [],
+  "write_attempted": "SOURCE"
+}

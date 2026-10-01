@@ -1,0 +1,28 @@
+{
+  "apiVersion": "networking.istio.io/v1",
+  "kind": "DestinationRule",
+  "metadata": {
+    "name": "ruoyicrm-web-subsets",
+    "namespace": "ruoyicrm",
+    "annotations": {
+      "cutover.ruoyicrm.io/plan-id": "ruoyicrm-master-tenant-20261002"
+    }
+  },
+  "spec": {
+    "host": "ruoyicrm-web.ruoyicrm.svc.cluster.local",
+    "subsets": [
+      {
+        "name": "legacy",
+        "labels": {
+          "version": "legacy"
+        }
+      },
+      {
+        "name": "boot4",
+        "labels": {
+          "version": "boot4"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "schema": "ruoyicrm.crit04.baseline-oracle.v1",
+  "case_id": "RUOYICRM-146",
+  "baseline_source_revision": "d742330901b40126f482c5f092ca1ba43a3c7ebc",
+  "baseline_controller_sha256": "f688eadbe6a519ce0aeb0dfa3cd08a05cd167f3df217f08844212ec05601dd12",
+  "baseline_controller_line": 64,
+  "route": {
+    "http_method": "GET",
+    "path_template": "/system/config/{configId}",
+    "java_method": "getInfo",
+    "permission_expression": "@ss.hasPermi('system:config:query')"
+  },
+  "observation": {
+    "status": 200,
+    "content_type": "application/json;charset=utf-8",
+    "body_sha256": "e04e32aba23969d9313133b284c4834f9b2527732b914224f3d075262ed4636f",
+    "json_code": 401
+  },
+  "fixture_expectation": {
+    "expected_status": 200,
+    "expected_body_sha256": "e04e32aba23969d9313133b284c4834f9b2527732b914224f3d075262ed4636f",
+    "expected_json_code": 401
+  },
+  "status": "LOCAL_BASELINE_CAPTURED",
+  "external_evidence": "NOT_RUN",
+  "certification": "NOT_CERTIFIED"
+}

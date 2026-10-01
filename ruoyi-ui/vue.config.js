@@ -5,8 +5,6 @@ function resolve(dir) {
   return path.join(__dirname, dir)
 }
 
-const CompressionPlugin = require('compression-webpack-plugin')
-
 const name = process.env.VUE_APP_TITLE || 'RuoyiCRM' // 网页标题
 
 const port = process.env.port || process.env.npm_config_port || 80 // 端口
@@ -42,7 +40,6 @@ module.exports = {
         }
       }
     },
-    disableHostCheck: true
   },
   css: {
     loaderOptions: {
@@ -58,15 +55,7 @@ module.exports = {
         '@': resolve('src')
       }
     },
-    plugins: [
-      // http://doc.ruoyi.vip/ruoyi-vue/other/faq.html#使用gzip解压缩静态文件
-      new CompressionPlugin({
-        test: /\.(js|css|html)?$/i,     // 压缩文件格式
-        filename: '[path].gz[query]',   // 压缩后的文件名
-        algorithm: 'gzip',              // 使用gzip压缩
-        minRatio: 0.8                   // 压缩率小于1才会压缩
-      })
-    ],
+    plugins: [],
   },
   chainWebpack(config) {
     config.plugins.delete('preload') // TODO: need test

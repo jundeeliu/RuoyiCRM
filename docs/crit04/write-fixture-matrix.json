@@ -1,0 +1,2938 @@
+{
+  "schema": "ruoyicrm.crit04.write-fixture-matrix.v1",
+  "source_manifest": "docs/crit04/ruoyicrm-150.json",
+  "source_revision": "d7423309",
+  "cases_total": 80,
+  "execution_status": "NOT_RUN",
+  "write_isolation": "NOT_AUTHORIZED",
+  "notes": [
+    "Per-case fixture contracts are plans, not populated replay fixtures or captured baselines.",
+    "All writes require live scripts.dualrun.fence revalidation and two fresh disposable stacks.",
+    "Binary exports, file operations, password changes and database creation need separate workflow oracles."
+  ],
+  "cases": [
+    {
+      "id": "RUOYICRM-003",
+      "http_method": "POST",
+      "path_template": "/common/upload",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/common/CommonController.java",
+      "controller_line": 69,
+      "controller_sha256": "d257076c87332474dbbdd439697ed7b5ebb0ac7f2e0e52b281b0be40f0a4d041",
+      "java_method": "uploadFile",
+      "source_signature": "public AjaxResult uploadFile(MultipartFile file) throws Exception",
+      "classification": "SPECIAL_IO",
+      "planning_status": "BLOCKED_STORAGE_ISOLATION",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": false,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "multipart",
+        "path_params": [],
+        "json_fields": [],
+        "form_fields": [],
+        "multipart_fields": [
+          "file"
+        ]
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "private_upload_directory",
+        "synthetic_small_file"
+      ],
+      "side_effect_targets": [
+        "filesystem",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-006",
+      "http_method": "POST",
+      "path_template": "/monitor/logininfor/export",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/monitor/SysLogininforController.java",
+      "controller_line": 45,
+      "controller_sha256": "1f13e2342768d0f5ccf5e16d0fa09b41d51c51b1672f569410a4142e3db4df80",
+      "java_method": "export",
+      "source_signature": "public void export(HttpServletResponse response, SysLogininfor logininfor)",
+      "classification": "SYNTHETIC_ORACLE",
+      "planning_status": "BLOCKED_EXPORT_ORACLE",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "form",
+        "path_params": [],
+        "json_fields": [],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_export_rows",
+        "binary_excel_oracle"
+      ],
+      "side_effect_targets": [
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-007",
+      "http_method": "DELETE",
+      "path_template": "/monitor/logininfor/{infoIds}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/monitor/SysLogininforController.java",
+      "controller_line": 55,
+      "controller_sha256": "1f13e2342768d0f5ccf5e16d0fa09b41d51c51b1672f569410a4142e3db4df80",
+      "java_method": "remove",
+      "source_signature": "public AjaxResult remove(@PathVariable Long[] infoIds)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_SYNTHETIC_ROW",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "none",
+        "path_params": [
+          "infoIds"
+        ],
+        "json_fields": [],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_sys_logininfor_id"
+      ],
+      "side_effect_targets": [
+        "sys_logininfor",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-008",
+      "http_method": "DELETE",
+      "path_template": "/monitor/logininfor/clean",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/monitor/SysLogininforController.java",
+      "controller_line": 63,
+      "controller_sha256": "1f13e2342768d0f5ccf5e16d0fa09b41d51c51b1672f569410a4142e3db4df80",
+      "java_method": "clean",
+      "source_signature": "public AjaxResult clean()",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_SYNTHETIC_ROW",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "none",
+        "path_params": [],
+        "json_fields": [],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_sys_logininfor_rows",
+        "destructive_clean_scope_review"
+      ],
+      "side_effect_targets": [
+        "sys_logininfor",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-010",
+      "http_method": "POST",
+      "path_template": "/monitor/operlog/export",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/monitor/SysOperlogController.java",
+      "controller_line": 45,
+      "controller_sha256": "55dc3913c1eabc424f8bc4b2139be9c27d825c7ffd1d97b0eed5d3cdcde28b41",
+      "java_method": "export",
+      "source_signature": "public void export(HttpServletResponse response, SysOperLog operLog)",
+      "classification": "SYNTHETIC_ORACLE",
+      "planning_status": "BLOCKED_EXPORT_ORACLE",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "form",
+        "path_params": [],
+        "json_fields": [],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_export_rows",
+        "binary_excel_oracle"
+      ],
+      "side_effect_targets": [
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-011",
+      "http_method": "DELETE",
+      "path_template": "/monitor/operlog/{operIds}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/monitor/SysOperlogController.java",
+      "controller_line": 55,
+      "controller_sha256": "55dc3913c1eabc424f8bc4b2139be9c27d825c7ffd1d97b0eed5d3cdcde28b41",
+      "java_method": "remove",
+      "source_signature": "public AjaxResult remove(@PathVariable Long[] operIds)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_SYNTHETIC_ROW",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "none",
+        "path_params": [
+          "operIds"
+        ],
+        "json_fields": [],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_sys_oper_log_id"
+      ],
+      "side_effect_targets": [
+        "sys_oper_log",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-012",
+      "http_method": "DELETE",
+      "path_template": "/monitor/operlog/clean",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/monitor/SysOperlogController.java",
+      "controller_line": 63,
+      "controller_sha256": "55dc3913c1eabc424f8bc4b2139be9c27d825c7ffd1d97b0eed5d3cdcde28b41",
+      "java_method": "clean",
+      "source_signature": "public AjaxResult clean()",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_SYNTHETIC_ROW",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "none",
+        "path_params": [],
+        "json_fields": [],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_sys_oper_log_rows",
+        "destructive_clean_scope_review"
+      ],
+      "side_effect_targets": [
+        "sys_oper_log",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-014",
+      "http_method": "DELETE",
+      "path_template": "/monitor/online/{tokenId}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/monitor/SysUserOnlineController.java",
+      "controller_line": 86,
+      "controller_sha256": "0b2aa02698abbff31fbb095ca2904603fbc3ac11438622a7e02a10b532c1f2e4",
+      "java_method": "forceLogout",
+      "source_signature": "public AjaxResult forceLogout(@PathVariable String tokenId)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_SESSION_DEPENDENCY",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "none",
+        "path_params": [
+          "tokenId"
+        ],
+        "json_fields": [],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_online_session_token",
+        "dedicated_redis_keyspace"
+      ],
+      "side_effect_targets": [
+        "redis_session",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-016",
+      "http_method": "POST",
+      "path_template": "/system/config/export",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysConfigController.java",
+      "controller_line": 52,
+      "controller_sha256": "61ebc9467df73e192ca5d7394f78ca95f2e20c1256e60cef64b26f5be6731424",
+      "java_method": "export",
+      "source_signature": "public void export(HttpServletResponse response, SysConfig config)",
+      "classification": "SYNTHETIC_ORACLE",
+      "planning_status": "BLOCKED_EXPORT_ORACLE",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "form",
+        "path_params": [],
+        "json_fields": [],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_export_rows",
+        "binary_excel_oracle"
+      ],
+      "side_effect_targets": [
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-019",
+      "http_method": "POST",
+      "path_template": "/system/config",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysConfigController.java",
+      "controller_line": 84,
+      "controller_sha256": "61ebc9467df73e192ca5d7394f78ca95f2e20c1256e60cef64b26f5be6731424",
+      "java_method": "add",
+      "source_signature": "public AjaxResult add(@Validated @RequestBody SysConfig config)",
+      "classification": "DIRECT_SYNTHETIC",
+      "planning_status": "BLOCKED_AUTH_SNAPSHOT_ORACLE",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "json",
+        "path_params": [],
+        "json_fields": [
+          "configName",
+          "configKey",
+          "configValue"
+        ],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "unique_synthetic_business_key"
+      ],
+      "side_effect_targets": [
+        "sys_config",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-020",
+      "http_method": "PUT",
+      "path_template": "/system/config",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysConfigController.java",
+      "controller_line": 100,
+      "controller_sha256": "61ebc9467df73e192ca5d7394f78ca95f2e20c1256e60cef64b26f5be6731424",
+      "java_method": "edit",
+      "source_signature": "public AjaxResult edit(@Validated @RequestBody SysConfig config)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_SYNTHETIC_ROW",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "json",
+        "path_params": [],
+        "json_fields": [
+          "configId",
+          "configName",
+          "configKey",
+          "configValue"
+        ],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_config_row_id",
+        "before_after_snapshot"
+      ],
+      "side_effect_targets": [
+        "sys_config",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-021",
+      "http_method": "DELETE",
+      "path_template": "/system/config/{configIds}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysConfigController.java",
+      "controller_line": 116,
+      "controller_sha256": "61ebc9467df73e192ca5d7394f78ca95f2e20c1256e60cef64b26f5be6731424",
+      "java_method": "remove",
+      "source_signature": "public AjaxResult remove(@PathVariable Long[] configIds)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_SYNTHETIC_ROW",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "none",
+        "path_params": [
+          "configIds"
+        ],
+        "json_fields": [],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_config_row_id",
+        "before_after_snapshot"
+      ],
+      "side_effect_targets": [
+        "sys_config",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-022",
+      "http_method": "DELETE",
+      "path_template": "/system/config/refreshCache",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysConfigController.java",
+      "controller_line": 128,
+      "controller_sha256": "61ebc9467df73e192ca5d7394f78ca95f2e20c1256e60cef64b26f5be6731424",
+      "java_method": "refreshCache",
+      "source_signature": "public AjaxResult refreshCache()",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_CACHE_DEPENDENCY",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "none",
+        "path_params": [],
+        "json_fields": [],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_config_rows",
+        "redis_cache_snapshot"
+      ],
+      "side_effect_targets": [
+        "redis_cache",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-028",
+      "http_method": "POST",
+      "path_template": "/system/dept",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDeptController.java",
+      "controller_line": 109,
+      "controller_sha256": "5a8066c773241db3d4650facda4bbaa1bb2a6765b7045720be5c3e85e3b4a52a",
+      "java_method": "add",
+      "source_signature": "public AjaxResult add(@Validated @RequestBody SysDept dept)",
+      "classification": "DIRECT_SYNTHETIC",
+      "planning_status": "BLOCKED_PARENT_ROW",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "json",
+        "path_params": [],
+        "json_fields": [
+          "deptName",
+          "orderNum",
+          "parentId"
+        ],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "unique_synthetic_business_key"
+      ],
+      "side_effect_targets": [
+        "sys_dept",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-029",
+      "http_method": "PUT",
+      "path_template": "/system/dept",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDeptController.java",
+      "controller_line": 125,
+      "controller_sha256": "5a8066c773241db3d4650facda4bbaa1bb2a6765b7045720be5c3e85e3b4a52a",
+      "java_method": "edit",
+      "source_signature": "public AjaxResult edit(@Validated @RequestBody SysDept dept)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_SYNTHETIC_ROW",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "json",
+        "path_params": [],
+        "json_fields": [
+          "deptId",
+          "deptName",
+          "orderNum",
+          "parentId"
+        ],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_dept_row_id",
+        "before_after_snapshot"
+      ],
+      "side_effect_targets": [
+        "sys_dept",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-030",
+      "http_method": "DELETE",
+      "path_template": "/system/dept/{deptId}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDeptController.java",
+      "controller_line": 151,
+      "controller_sha256": "5a8066c773241db3d4650facda4bbaa1bb2a6765b7045720be5c3e85e3b4a52a",
+      "java_method": "remove",
+      "source_signature": "public AjaxResult remove(@PathVariable Long deptId)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_SYNTHETIC_ROW",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "none",
+        "path_params": [
+          "deptId"
+        ],
+        "json_fields": [],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_dept_row_id",
+        "before_after_snapshot"
+      ],
+      "side_effect_targets": [
+        "sys_dept",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-032",
+      "http_method": "POST",
+      "path_template": "/system/dict/data/export",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDictDataController.java",
+      "controller_line": 54,
+      "controller_sha256": "73f71bdde70570743a998f531ce7b89900e87dcb034b53b488825148a838c98c",
+      "java_method": "export",
+      "source_signature": "public void export(HttpServletResponse response, SysDictData dictData)",
+      "classification": "SYNTHETIC_ORACLE",
+      "planning_status": "BLOCKED_EXPORT_ORACLE",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "form",
+        "path_params": [],
+        "json_fields": [],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_export_rows",
+        "binary_excel_oracle"
+      ],
+      "side_effect_targets": [
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-035",
+      "http_method": "POST",
+      "path_template": "/system/dict/data",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDictDataController.java",
+      "controller_line": 91,
+      "controller_sha256": "73f71bdde70570743a998f531ce7b89900e87dcb034b53b488825148a838c98c",
+      "java_method": "add",
+      "source_signature": "public AjaxResult add(@Validated @RequestBody SysDictData dict)",
+      "classification": "DIRECT_SYNTHETIC",
+      "planning_status": "BLOCKED_DICT_TYPE_ORDERING",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "json",
+        "path_params": [],
+        "json_fields": [
+          "dictLabel",
+          "dictValue",
+          "dictType"
+        ],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "unique_synthetic_business_key"
+      ],
+      "side_effect_targets": [
+        "sys_dict_data",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-036",
+      "http_method": "PUT",
+      "path_template": "/system/dict/data",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDictDataController.java",
+      "controller_line": 103,
+      "controller_sha256": "73f71bdde70570743a998f531ce7b89900e87dcb034b53b488825148a838c98c",
+      "java_method": "edit",
+      "source_signature": "public AjaxResult edit(@Validated @RequestBody SysDictData dict)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_SYNTHETIC_ROW",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "json",
+        "path_params": [],
+        "json_fields": [
+          "dictCode",
+          "dictLabel",
+          "dictValue",
+          "dictType"
+        ],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_dict_data_row_id",
+        "before_after_snapshot"
+      ],
+      "side_effect_targets": [
+        "sys_dict_data",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-037",
+      "http_method": "DELETE",
+      "path_template": "/system/dict/data/{dictCodes}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDictDataController.java",
+      "controller_line": 115,
+      "controller_sha256": "73f71bdde70570743a998f531ce7b89900e87dcb034b53b488825148a838c98c",
+      "java_method": "remove",
+      "source_signature": "public AjaxResult remove(@PathVariable Long[] dictCodes)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_SYNTHETIC_ROW",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "none",
+        "path_params": [
+          "dictCodes"
+        ],
+        "json_fields": [],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_dict_data_row_id",
+        "before_after_snapshot"
+      ],
+      "side_effect_targets": [
+        "sys_dict_data",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-039",
+      "http_method": "POST",
+      "path_template": "/system/dict/type/export",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDictTypeController.java",
+      "controller_line": 49,
+      "controller_sha256": "188d476fd251c57cafb1e62e3bf717a938fb90f4e416be2aafca9bde54e9cc1f",
+      "java_method": "export",
+      "source_signature": "public void export(HttpServletResponse response, SysDictType dictType)",
+      "classification": "SYNTHETIC_ORACLE",
+      "planning_status": "BLOCKED_EXPORT_ORACLE",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "form",
+        "path_params": [],
+        "json_fields": [],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_export_rows",
+        "binary_excel_oracle"
+      ],
+      "side_effect_targets": [
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-041",
+      "http_method": "POST",
+      "path_template": "/system/dict/type",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDictTypeController.java",
+      "controller_line": 72,
+      "controller_sha256": "188d476fd251c57cafb1e62e3bf717a938fb90f4e416be2aafca9bde54e9cc1f",
+      "java_method": "add",
+      "source_signature": "public AjaxResult add(@Validated @RequestBody SysDictType dict)",
+      "classification": "DIRECT_SYNTHETIC",
+      "planning_status": "BLOCKED_AUTH_SNAPSHOT_ORACLE",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "json",
+        "path_params": [],
+        "json_fields": [
+          "dictName",
+          "dictType"
+        ],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "unique_synthetic_business_key"
+      ],
+      "side_effect_targets": [
+        "sys_dict_type",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-042",
+      "http_method": "PUT",
+      "path_template": "/system/dict/type",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDictTypeController.java",
+      "controller_line": 88,
+      "controller_sha256": "188d476fd251c57cafb1e62e3bf717a938fb90f4e416be2aafca9bde54e9cc1f",
+      "java_method": "edit",
+      "source_signature": "public AjaxResult edit(@Validated @RequestBody SysDictType dict)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_SYNTHETIC_ROW",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "json",
+        "path_params": [],
+        "json_fields": [
+          "dictId",
+          "dictName",
+          "dictType"
+        ],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_dict_type_row_id",
+        "before_after_snapshot"
+      ],
+      "side_effect_targets": [
+        "sys_dict_type",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-043",
+      "http_method": "DELETE",
+      "path_template": "/system/dict/type/{dictIds}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDictTypeController.java",
+      "controller_line": 104,
+      "controller_sha256": "188d476fd251c57cafb1e62e3bf717a938fb90f4e416be2aafca9bde54e9cc1f",
+      "java_method": "remove",
+      "source_signature": "public AjaxResult remove(@PathVariable Long[] dictIds)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_SYNTHETIC_ROW",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "none",
+        "path_params": [
+          "dictIds"
+        ],
+        "json_fields": [],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_dict_type_row_id",
+        "before_after_snapshot"
+      ],
+      "side_effect_targets": [
+        "sys_dict_type",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-044",
+      "http_method": "DELETE",
+      "path_template": "/system/dict/type/refreshCache",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysDictTypeController.java",
+      "controller_line": 116,
+      "controller_sha256": "188d476fd251c57cafb1e62e3bf717a938fb90f4e416be2aafca9bde54e9cc1f",
+      "java_method": "refreshCache",
+      "source_signature": "public AjaxResult refreshCache()",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_CACHE_DEPENDENCY",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "none",
+        "path_params": [],
+        "json_fields": [],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_dict_rows",
+        "redis_cache_snapshot"
+      ],
+      "side_effect_targets": [
+        "redis_cache",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-047",
+      "http_method": "POST",
+      "path_template": "/login",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysLoginController.java",
+      "controller_line": 47,
+      "controller_sha256": "40bf7586005fe5d4a427e14aaa078b2484b50826cd364bfa7572ae6a933d32df",
+      "java_method": "login",
+      "source_signature": "public AjaxResult login(HttpServletRequest request, @RequestBody LoginBody loginBody)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_AUTH_FLOW",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "none",
+        "tenant_header": true,
+        "media_type": "json",
+        "path_params": [],
+        "json_fields": [
+          "username",
+          "password",
+          "code",
+          "uuid"
+        ],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "synthetic_tenant_user",
+        "fresh_captcha_uuid_code",
+        "tenant_header",
+        "independent_token_capture"
+      ],
+      "side_effect_targets": [
+        "redis_captcha",
+        "redis_session",
+        "sys_logininfor"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-054",
+      "http_method": "POST",
+      "path_template": "/system/menu",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysMenuController.java",
+      "controller_line": 85,
+      "controller_sha256": "4435a54e4de497a9f9e4a7c3c0f3e462b29b782b0f635fb65acba0f339d7489f",
+      "java_method": "add",
+      "source_signature": "public AjaxResult add(@Validated @RequestBody SysMenu menu)",
+      "classification": "DIRECT_SYNTHETIC",
+      "planning_status": "BLOCKED_AUTH_SNAPSHOT_ORACLE",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "json",
+        "path_params": [],
+        "json_fields": [
+          "menuName",
+          "orderNum",
+          "menuType",
+          "parentId"
+        ],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "unique_synthetic_business_key"
+      ],
+      "side_effect_targets": [
+        "sys_menu",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-055",
+      "http_method": "PUT",
+      "path_template": "/system/menu",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysMenuController.java",
+      "controller_line": 105,
+      "controller_sha256": "4435a54e4de497a9f9e4a7c3c0f3e462b29b782b0f635fb65acba0f339d7489f",
+      "java_method": "edit",
+      "source_signature": "public AjaxResult edit(@Validated @RequestBody SysMenu menu)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_SYNTHETIC_ROW",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "json",
+        "path_params": [],
+        "json_fields": [
+          "menuId",
+          "menuName",
+          "orderNum",
+          "menuType",
+          "parentId"
+        ],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_menu_row_id",
+        "before_after_snapshot"
+      ],
+      "side_effect_targets": [
+        "sys_menu",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-056",
+      "http_method": "DELETE",
+      "path_template": "/system/menu/{menuId}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysMenuController.java",
+      "controller_line": 129,
+      "controller_sha256": "4435a54e4de497a9f9e4a7c3c0f3e462b29b782b0f635fb65acba0f339d7489f",
+      "java_method": "remove",
+      "source_signature": "public AjaxResult remove(@PathVariable(\"menuId\") Long menuId)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_SYNTHETIC_ROW",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "none",
+        "path_params": [
+          "menuId"
+        ],
+        "json_fields": [],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_menu_row_id",
+        "before_after_snapshot"
+      ],
+      "side_effect_targets": [
+        "sys_menu",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-059",
+      "http_method": "POST",
+      "path_template": "/system/notice",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysNoticeController.java",
+      "controller_line": 62,
+      "controller_sha256": "0ab92eaadc5aadfd494bf6df647cd84298e898d3145f1e476aee8eaa8d6611b6",
+      "java_method": "add",
+      "source_signature": "public AjaxResult add(@Validated @RequestBody SysNotice notice)",
+      "classification": "DIRECT_SYNTHETIC",
+      "planning_status": "BLOCKED_AUTH_SNAPSHOT_ORACLE",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "json",
+        "path_params": [],
+        "json_fields": [
+          "noticeTitle",
+          "noticeType",
+          "noticeContent"
+        ],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "unique_synthetic_business_key"
+      ],
+      "side_effect_targets": [
+        "sys_notice",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-060",
+      "http_method": "PUT",
+      "path_template": "/system/notice",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysNoticeController.java",
+      "controller_line": 74,
+      "controller_sha256": "0ab92eaadc5aadfd494bf6df647cd84298e898d3145f1e476aee8eaa8d6611b6",
+      "java_method": "edit",
+      "source_signature": "public AjaxResult edit(@Validated @RequestBody SysNotice notice)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_SYNTHETIC_ROW",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "json",
+        "path_params": [],
+        "json_fields": [
+          "noticeId",
+          "noticeTitle",
+          "noticeType",
+          "noticeContent"
+        ],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_notice_row_id",
+        "before_after_snapshot"
+      ],
+      "side_effect_targets": [
+        "sys_notice",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-061",
+      "http_method": "DELETE",
+      "path_template": "/system/notice/{noticeIds}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysNoticeController.java",
+      "controller_line": 86,
+      "controller_sha256": "0ab92eaadc5aadfd494bf6df647cd84298e898d3145f1e476aee8eaa8d6611b6",
+      "java_method": "remove",
+      "source_signature": "public AjaxResult remove(@PathVariable Long[] noticeIds)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_SYNTHETIC_ROW",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "none",
+        "path_params": [
+          "noticeIds"
+        ],
+        "json_fields": [],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_notice_row_id",
+        "before_after_snapshot"
+      ],
+      "side_effect_targets": [
+        "sys_notice",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-063",
+      "http_method": "POST",
+      "path_template": "/system/post/export",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysPostController.java",
+      "controller_line": 52,
+      "controller_sha256": "f51233a87dbb5f449c160174ecdc3fcb7e5937ce8450c5cd3963f86416e814cc",
+      "java_method": "export",
+      "source_signature": "public void export(HttpServletResponse response, SysPost post)",
+      "classification": "SYNTHETIC_ORACLE",
+      "planning_status": "BLOCKED_EXPORT_ORACLE",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "form",
+        "path_params": [],
+        "json_fields": [],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_export_rows",
+        "binary_excel_oracle"
+      ],
+      "side_effect_targets": [
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-065",
+      "http_method": "POST",
+      "path_template": "/system/post",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysPostController.java",
+      "controller_line": 75,
+      "controller_sha256": "f51233a87dbb5f449c160174ecdc3fcb7e5937ce8450c5cd3963f86416e814cc",
+      "java_method": "add",
+      "source_signature": "public AjaxResult add(@Validated @RequestBody SysPost post)",
+      "classification": "DIRECT_SYNTHETIC",
+      "planning_status": "BLOCKED_AUTH_SNAPSHOT_ORACLE",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "json",
+        "path_params": [],
+        "json_fields": [
+          "postCode",
+          "postName",
+          "postSort"
+        ],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "unique_synthetic_business_key"
+      ],
+      "side_effect_targets": [
+        "sys_post",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-066",
+      "http_method": "PUT",
+      "path_template": "/system/post",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysPostController.java",
+      "controller_line": 95,
+      "controller_sha256": "f51233a87dbb5f449c160174ecdc3fcb7e5937ce8450c5cd3963f86416e814cc",
+      "java_method": "edit",
+      "source_signature": "public AjaxResult edit(@Validated @RequestBody SysPost post)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_SYNTHETIC_ROW",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "json",
+        "path_params": [],
+        "json_fields": [
+          "postId",
+          "postCode",
+          "postName",
+          "postSort"
+        ],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_post_row_id",
+        "before_after_snapshot"
+      ],
+      "side_effect_targets": [
+        "sys_post",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-067",
+      "http_method": "DELETE",
+      "path_template": "/system/post/{postIds}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysPostController.java",
+      "controller_line": 115,
+      "controller_sha256": "f51233a87dbb5f449c160174ecdc3fcb7e5937ce8450c5cd3963f86416e814cc",
+      "java_method": "remove",
+      "source_signature": "public AjaxResult remove(@PathVariable Long[] postIds)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_SYNTHETIC_ROW",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "none",
+        "path_params": [
+          "postIds"
+        ],
+        "json_fields": [],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_post_row_id",
+        "before_after_snapshot"
+      ],
+      "side_effect_targets": [
+        "sys_post",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-070",
+      "http_method": "PUT",
+      "path_template": "/system/user/profile",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysProfileController.java",
+      "controller_line": 60,
+      "controller_sha256": "ff49058325b22be246542cc80feaadc61581fb065805474a003e2036789eb872",
+      "java_method": "updateProfile",
+      "source_signature": "public AjaxResult updateProfile(@RequestBody SysUser user)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_USER_PROFILE",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "json",
+        "path_params": [],
+        "json_fields": [
+          "nickName"
+        ],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_logged_in_user",
+        "current_profile_snapshot"
+      ],
+      "side_effect_targets": [
+        "sys_user",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-071",
+      "http_method": "PUT",
+      "path_template": "/system/user/profile/updatePwd",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysProfileController.java",
+      "controller_line": 95,
+      "controller_sha256": "ff49058325b22be246542cc80feaadc61581fb065805474a003e2036789eb872",
+      "java_method": "updatePwd",
+      "source_signature": "public AjaxResult updatePwd(String oldPassword, String newPassword)",
+      "classification": "SPECIAL_CREDENTIAL",
+      "planning_status": "BLOCKED_CREDENTIAL_ROTATION",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": false,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "form",
+        "path_params": [],
+        "json_fields": [],
+        "form_fields": [
+          "oldPassword",
+          "newPassword"
+        ],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_logged_in_user",
+        "disposable_known_old_password",
+        "relogin_and_restore_plan"
+      ],
+      "side_effect_targets": [
+        "sys_user",
+        "redis_session",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-072",
+      "http_method": "POST",
+      "path_template": "/system/user/profile/avatar",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysProfileController.java",
+      "controller_line": 123,
+      "controller_sha256": "ff49058325b22be246542cc80feaadc61581fb065805474a003e2036789eb872",
+      "java_method": "avatar",
+      "source_signature": "public AjaxResult avatar(@RequestParam(\"avatarfile\") MultipartFile file) throws IOException",
+      "classification": "SPECIAL_IO",
+      "planning_status": "BLOCKED_STORAGE_ISOLATION",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": false,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "multipart",
+        "path_params": [],
+        "json_fields": [],
+        "form_fields": [],
+        "multipart_fields": [
+          "avatarfile"
+        ]
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_logged_in_user",
+        "private_avatar_directory",
+        "synthetic_image_file"
+      ],
+      "side_effect_targets": [
+        "filesystem",
+        "sys_user",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-073",
+      "http_method": "POST",
+      "path_template": "/register",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysRegisterController.java",
+      "controller_line": 45,
+      "controller_sha256": "6c1840a148a3947be7f1edaf323b5579edfb1ce00cb8c2b7feec76183522c755",
+      "java_method": "registerTenant",
+      "source_signature": "public AjaxResult registerTenant(@RequestBody TenantRegisterBody tenantRegisterBody){",
+      "classification": "SPECIAL_DATABASE_CREATE",
+      "planning_status": "BLOCKED_DATABASE_CREATION",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": false,
+      "fixture_contract": {
+        "auth": "none",
+        "tenant_header": false,
+        "media_type": "json",
+        "path_params": [],
+        "json_fields": [
+          "tenantName",
+          "adminName",
+          "adminPass",
+          "code",
+          "uuid"
+        ],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "fresh_disposable_mysql_instance",
+        "tenant_admin_grant_scope",
+        "captcha_flow",
+        "database_cleanup_plan"
+      ],
+      "side_effect_targets": [
+        "mysql_database_create",
+        "master_tenant",
+        "sys_user",
+        "redis_captcha"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-075",
+      "http_method": "POST",
+      "path_template": "/system/role/export",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysRoleController.java",
+      "controller_line": 65,
+      "controller_sha256": "6456be479479129f64cef4f51650097a37396b6bff658cf9ebb95b62fb6f1049",
+      "java_method": "export",
+      "source_signature": "public void export(HttpServletResponse response, SysRole role)",
+      "classification": "SYNTHETIC_ORACLE",
+      "planning_status": "BLOCKED_EXPORT_ORACLE",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "form",
+        "path_params": [],
+        "json_fields": [],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_export_rows",
+        "binary_excel_oracle"
+      ],
+      "side_effect_targets": [
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-077",
+      "http_method": "POST",
+      "path_template": "/system/role",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysRoleController.java",
+      "controller_line": 89,
+      "controller_sha256": "6456be479479129f64cef4f51650097a37396b6bff658cf9ebb95b62fb6f1049",
+      "java_method": "add",
+      "source_signature": "public AjaxResult add(@Validated @RequestBody SysRole role)",
+      "classification": "DIRECT_SYNTHETIC",
+      "planning_status": "BLOCKED_AUTH_SNAPSHOT_ORACLE",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "json",
+        "path_params": [],
+        "json_fields": [
+          "roleName",
+          "roleKey",
+          "roleSort"
+        ],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "unique_synthetic_business_key"
+      ],
+      "side_effect_targets": [
+        "sys_role",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-078",
+      "http_method": "PUT",
+      "path_template": "/system/role",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysRoleController.java",
+      "controller_line": 110,
+      "controller_sha256": "6456be479479129f64cef4f51650097a37396b6bff658cf9ebb95b62fb6f1049",
+      "java_method": "edit",
+      "source_signature": "public AjaxResult edit(@Validated @RequestBody SysRole role)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_SYNTHETIC_ROW",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "json",
+        "path_params": [],
+        "json_fields": [
+          "roleId",
+          "roleName",
+          "roleKey",
+          "roleSort"
+        ],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_role_row_id",
+        "before_after_snapshot"
+      ],
+      "side_effect_targets": [
+        "sys_role",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-079",
+      "http_method": "PUT",
+      "path_template": "/system/role/dataScope",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysRoleController.java",
+      "controller_line": 145,
+      "controller_sha256": "6456be479479129f64cef4f51650097a37396b6bff658cf9ebb95b62fb6f1049",
+      "java_method": "dataScope",
+      "source_signature": "public AjaxResult dataScope(@RequestBody SysRole role)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_ROLE_GRAPH",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "json",
+        "path_params": [],
+        "json_fields": [
+          "roleId",
+          "dataScope",
+          "deptIds"
+        ],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_role_id",
+        "synthetic_dept_ids",
+        "data_scope_expected_rows"
+      ],
+      "side_effect_targets": [
+        "sys_role",
+        "sys_role_dept",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-080",
+      "http_method": "PUT",
+      "path_template": "/system/role/changeStatus",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysRoleController.java",
+      "controller_line": 158,
+      "controller_sha256": "6456be479479129f64cef4f51650097a37396b6bff658cf9ebb95b62fb6f1049",
+      "java_method": "changeStatus",
+      "source_signature": "public AjaxResult changeStatus(@RequestBody SysRole role)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_ROLE_GRAPH",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "json",
+        "path_params": [],
+        "json_fields": [
+          "roleId",
+          "status"
+        ],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_role_id",
+        "baseline_role_status"
+      ],
+      "side_effect_targets": [
+        "sys_role",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-081",
+      "http_method": "DELETE",
+      "path_template": "/system/role/{roleIds}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysRoleController.java",
+      "controller_line": 172,
+      "controller_sha256": "6456be479479129f64cef4f51650097a37396b6bff658cf9ebb95b62fb6f1049",
+      "java_method": "remove",
+      "source_signature": "public AjaxResult remove(@PathVariable Long[] roleIds)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_SYNTHETIC_ROW",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "none",
+        "path_params": [
+          "roleIds"
+        ],
+        "json_fields": [],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_role_row_id",
+        "before_after_snapshot"
+      ],
+      "side_effect_targets": [
+        "sys_role",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-085",
+      "http_method": "PUT",
+      "path_template": "/system/role/authUser/cancel",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysRoleController.java",
+      "controller_line": 217,
+      "controller_sha256": "6456be479479129f64cef4f51650097a37396b6bff658cf9ebb95b62fb6f1049",
+      "java_method": "cancelAuthUser",
+      "source_signature": "public AjaxResult cancelAuthUser(@RequestBody SysUserRole userRole)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_ROLE_USER_GRAPH",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "json",
+        "path_params": [],
+        "json_fields": [
+          "roleId",
+          "userId"
+        ],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_role_user_assignment"
+      ],
+      "side_effect_targets": [
+        "sys_user_role",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-086",
+      "http_method": "PUT",
+      "path_template": "/system/role/authUser/cancelAll",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysRoleController.java",
+      "controller_line": 228,
+      "controller_sha256": "6456be479479129f64cef4f51650097a37396b6bff658cf9ebb95b62fb6f1049",
+      "java_method": "cancelAuthUserAll",
+      "source_signature": "public AjaxResult cancelAuthUserAll(Long roleId, Long[] userIds)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_ROLE_USER_GRAPH",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "form",
+        "path_params": [],
+        "json_fields": [],
+        "form_fields": [
+          "roleId",
+          "userIds"
+        ],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_role_user_assignments"
+      ],
+      "side_effect_targets": [
+        "sys_user_role",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-087",
+      "http_method": "PUT",
+      "path_template": "/system/role/authUser/selectAll",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysRoleController.java",
+      "controller_line": 239,
+      "controller_sha256": "6456be479479129f64cef4f51650097a37396b6bff658cf9ebb95b62fb6f1049",
+      "java_method": "selectAuthUserAll",
+      "source_signature": "public AjaxResult selectAuthUserAll(Long roleId, Long[] userIds)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_ROLE_USER_GRAPH",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "form",
+        "path_params": [],
+        "json_fields": [],
+        "form_fields": [
+          "roleId",
+          "userIds"
+        ],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_role_id",
+        "synthetic_user_ids"
+      ],
+      "side_effect_targets": [
+        "sys_user_role",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-089",
+      "http_method": "POST",
+      "path_template": "/system/user/export",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysUserController.java",
+      "controller_line": 66,
+      "controller_sha256": "eb21c8fbfc57d76be6ca3fab61f3add378d14d56c62354d52ead4cbcffd8c416",
+      "java_method": "export",
+      "source_signature": "public void export(HttpServletResponse response, SysUser user)",
+      "classification": "SYNTHETIC_ORACLE",
+      "planning_status": "BLOCKED_EXPORT_ORACLE",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "form",
+        "path_params": [],
+        "json_fields": [],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_export_rows",
+        "binary_excel_oracle"
+      ],
+      "side_effect_targets": [
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-090",
+      "http_method": "POST",
+      "path_template": "/system/user/importData",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysUserController.java",
+      "controller_line": 76,
+      "controller_sha256": "eb21c8fbfc57d76be6ca3fab61f3add378d14d56c62354d52ead4cbcffd8c416",
+      "java_method": "importData",
+      "source_signature": "public AjaxResult importData(MultipartFile file, boolean updateSupport) throws Exception",
+      "classification": "SPECIAL_IO",
+      "planning_status": "BLOCKED_IMPORT_VALIDATION",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": false,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "multipart",
+        "path_params": [],
+        "json_fields": [],
+        "form_fields": [
+          "updateSupport"
+        ],
+        "multipart_fields": [
+          "file"
+        ]
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "private_import_file",
+        "synthetic_user_rows",
+        "updateSupport_contract",
+        "import_reconciliation"
+      ],
+      "side_effect_targets": [
+        "sys_user",
+        "filesystem",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-091",
+      "http_method": "POST",
+      "path_template": "/system/user/importTemplate",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysUserController.java",
+      "controller_line": 86,
+      "controller_sha256": "eb21c8fbfc57d76be6ca3fab61f3add378d14d56c62354d52ead4cbcffd8c416",
+      "java_method": "importTemplate",
+      "source_signature": "public void importTemplate(HttpServletResponse response)",
+      "classification": "SYNTHETIC_ORACLE",
+      "planning_status": "BLOCKED_EXPORT_ORACLE",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "none",
+        "path_params": [],
+        "json_fields": [],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "binary_template_oracle"
+      ],
+      "side_effect_targets": [
+        "http_binary_response"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-094",
+      "http_method": "POST",
+      "path_template": "/system/user",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysUserController.java",
+      "controller_line": 120,
+      "controller_sha256": "eb21c8fbfc57d76be6ca3fab61f3add378d14d56c62354d52ead4cbcffd8c416",
+      "java_method": "add",
+      "source_signature": "public AjaxResult add(@Validated @RequestBody SysUser user)",
+      "classification": "DIRECT_SYNTHETIC",
+      "planning_status": "BLOCKED_PRIVATE_PASSWORD",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "json",
+        "path_params": [],
+        "json_fields": [
+          "userName",
+          "nickName",
+          "password",
+          "deptId"
+        ],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "unique_synthetic_business_key"
+      ],
+      "side_effect_targets": [
+        "sys_user",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-095",
+      "http_method": "PUT",
+      "path_template": "/system/user",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysUserController.java",
+      "controller_line": 147,
+      "controller_sha256": "eb21c8fbfc57d76be6ca3fab61f3add378d14d56c62354d52ead4cbcffd8c416",
+      "java_method": "edit",
+      "source_signature": "public AjaxResult edit(@Validated @RequestBody SysUser user)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_SYNTHETIC_ROW",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "json",
+        "path_params": [],
+        "json_fields": [
+          "userId",
+          "userName",
+          "nickName",
+          "deptId"
+        ],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_user_row_id",
+        "before_after_snapshot"
+      ],
+      "side_effect_targets": [
+        "sys_user",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-096",
+      "http_method": "DELETE",
+      "path_template": "/system/user/{userIds}",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysUserController.java",
+      "controller_line": 171,
+      "controller_sha256": "eb21c8fbfc57d76be6ca3fab61f3add378d14d56c62354d52ead4cbcffd8c416",
+      "java_method": "remove",
+      "source_signature": "public AjaxResult remove(@PathVariable Long[] userIds)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_SYNTHETIC_ROW",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "none",
+        "path_params": [
+          "userIds"
+        ],
+        "json_fields": [],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_user_row_id",
+        "before_after_snapshot"
+      ],
+      "side_effect_targets": [
+        "sys_user",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-097",
+      "http_method": "PUT",
+      "path_template": "/system/user/resetPwd",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysUserController.java",
+      "controller_line": 186,
+      "controller_sha256": "eb21c8fbfc57d76be6ca3fab61f3add378d14d56c62354d52ead4cbcffd8c416",
+      "java_method": "resetPwd",
+      "source_signature": "public AjaxResult resetPwd(@RequestBody SysUser user)",
+      "classification": "SPECIAL_CREDENTIAL",
+      "planning_status": "BLOCKED_CREDENTIAL_ROTATION",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": false,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "json",
+        "path_params": [],
+        "json_fields": [
+          "userId",
+          "password"
+        ],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_user_id",
+        "password_restore_plan"
+      ],
+      "side_effect_targets": [
+        "sys_user",
+        "redis_session",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-098",
+      "http_method": "PUT",
+      "path_template": "/system/user/changeStatus",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysUserController.java",
+      "controller_line": 201,
+      "controller_sha256": "eb21c8fbfc57d76be6ca3fab61f3add378d14d56c62354d52ead4cbcffd8c416",
+      "java_method": "changeStatus",
+      "source_signature": "public AjaxResult changeStatus(@RequestBody SysUser user)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_USER_GRAPH",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "json",
+        "path_params": [],
+        "json_fields": [
+          "userId",
+          "status"
+        ],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_user_id",
+        "baseline_user_status"
+      ],
+      "side_effect_targets": [
+        "sys_user",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-100",
+      "http_method": "PUT",
+      "path_template": "/system/user/authRole",
+      "controller": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/system/SysUserController.java",
+      "controller_line": 230,
+      "controller_sha256": "eb21c8fbfc57d76be6ca3fab61f3add378d14d56c62354d52ead4cbcffd8c416",
+      "java_method": "insertAuthRole",
+      "source_signature": "public AjaxResult insertAuthRole(Long userId, Long[] roleIds)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_ROLE_USER_GRAPH",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "form",
+        "path_params": [],
+        "json_fields": [],
+        "form_fields": [
+          "userId",
+          "roleIds"
+        ],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_user_id",
+        "synthetic_role_ids"
+      ],
+      "side_effect_targets": [
+        "sys_user_role",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-103",
+      "http_method": "POST",
+      "path_template": "/crm/clues/export",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCluesController.java",
+      "controller_line": 66,
+      "controller_sha256": "ba2cc6e997dc4dc31095ddf22477eba732bc11b347e141ffc6da592b494b5df7",
+      "java_method": "export",
+      "source_signature": "public void export(HttpServletResponse response, CrmCustomer crmCustomer)",
+      "classification": "SYNTHETIC_ORACLE",
+      "planning_status": "BLOCKED_EXPORT_ORACLE",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "form",
+        "path_params": [],
+        "json_fields": [],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_export_rows",
+        "binary_excel_oracle"
+      ],
+      "side_effect_targets": [
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-105",
+      "http_method": "POST",
+      "path_template": "/crm/clues",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCluesController.java",
+      "controller_line": 89,
+      "controller_sha256": "ba2cc6e997dc4dc31095ddf22477eba732bc11b347e141ffc6da592b494b5df7",
+      "java_method": "add",
+      "source_signature": "public AjaxResult add(@RequestBody CrmCustomer crmCustomer)",
+      "classification": "DIRECT_SYNTHETIC",
+      "planning_status": "BLOCKED_AUTH_SNAPSHOT_ORACLE",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "json",
+        "path_params": [],
+        "json_fields": [
+          "cluesName",
+          "linkman",
+          "phone"
+        ],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "unique_synthetic_business_key"
+      ],
+      "side_effect_targets": [
+        "crm_customer",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-106",
+      "http_method": "PUT",
+      "path_template": "/crm/clues",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCluesController.java",
+      "controller_line": 103,
+      "controller_sha256": "ba2cc6e997dc4dc31095ddf22477eba732bc11b347e141ffc6da592b494b5df7",
+      "java_method": "edit",
+      "source_signature": "public AjaxResult edit(@RequestBody CrmCustomer crmCustomer)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_SYNTHETIC_ROW",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "json",
+        "path_params": [],
+        "json_fields": [
+          "id",
+          "cluesName",
+          "linkman",
+          "phone"
+        ],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_clues_row_id",
+        "before_after_snapshot"
+      ],
+      "side_effect_targets": [
+        "crm_customer",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-107",
+      "http_method": "DELETE",
+      "path_template": "/crm/clues/{ids}",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCluesController.java",
+      "controller_line": 115,
+      "controller_sha256": "ba2cc6e997dc4dc31095ddf22477eba732bc11b347e141ffc6da592b494b5df7",
+      "java_method": "remove",
+      "source_signature": "public AjaxResult remove(@PathVariable Long[] ids)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_SYNTHETIC_ROW",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "none",
+        "path_params": [
+          "ids"
+        ],
+        "json_fields": [],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_clues_row_id",
+        "before_after_snapshot"
+      ],
+      "side_effect_targets": [
+        "crm_customer",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-108",
+      "http_method": "DELETE",
+      "path_template": "/crm/clues/person/{ids}",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCluesController.java",
+      "controller_line": 126,
+      "controller_sha256": "ba2cc6e997dc4dc31095ddf22477eba732bc11b347e141ffc6da592b494b5df7",
+      "java_method": "personRemove",
+      "source_signature": "public AjaxResult personRemove(@PathVariable Long[] ids)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_SYNTHETIC_ROW",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "none",
+        "path_params": [
+          "ids"
+        ],
+        "json_fields": [],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_clues_row_id",
+        "before_after_snapshot"
+      ],
+      "side_effect_targets": [
+        "crm_customer",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-109",
+      "http_method": "POST",
+      "path_template": "/crm/clues/transfer",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCluesController.java",
+      "controller_line": 137,
+      "controller_sha256": "ba2cc6e997dc4dc31095ddf22477eba732bc11b347e141ffc6da592b494b5df7",
+      "java_method": "transfer",
+      "source_signature": "public AjaxResult transfer(@RequestParam(\"ids\") Long[] ids, @RequestParam(\"owner\") String newOwner){",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_OWNER_TRANSFER",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "form",
+        "path_params": [],
+        "json_fields": [],
+        "form_fields": [
+          "ids",
+          "owner"
+        ],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_clue_ids",
+        "synthetic_source_and_target_owners"
+      ],
+      "side_effect_targets": [
+        "crm_customer",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-110",
+      "http_method": "PUT",
+      "path_template": "/crm/clues/to-customer",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCluesController.java",
+      "controller_line": 147,
+      "controller_sha256": "ba2cc6e997dc4dc31095ddf22477eba732bc11b347e141ffc6da592b494b5df7",
+      "java_method": "toCustomer",
+      "source_signature": "public AjaxResult toCustomer( @RequestBody ToCustomerDTO customerDTO){",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_CLUE_CONVERSION",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "json",
+        "path_params": [],
+        "json_fields": [
+          "id",
+          "name",
+          "customerRank",
+          "customerStatus"
+        ],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_clue_id",
+        "clue_status_zero",
+        "customer_field_snapshot"
+      ],
+      "side_effect_targets": [
+        "crm_customer",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-113",
+      "http_method": "POST",
+      "path_template": "/crm/comment/export",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCommentController.java",
+      "controller_line": 72,
+      "controller_sha256": "ed39d5ddd9959cb137592c9b1de6fa40530bb88ad690cad4dd518bd39f2c30c2",
+      "java_method": "export",
+      "source_signature": "public void export(HttpServletResponse response, CrmComment crmComment)",
+      "classification": "SYNTHETIC_ORACLE",
+      "planning_status": "BLOCKED_EXPORT_ORACLE",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "form",
+        "path_params": [],
+        "json_fields": [],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_export_rows",
+        "binary_excel_oracle"
+      ],
+      "side_effect_targets": [
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-115",
+      "http_method": "POST",
+      "path_template": "/crm/comment",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCommentController.java",
+      "controller_line": 95,
+      "controller_sha256": "ed39d5ddd9959cb137592c9b1de6fa40530bb88ad690cad4dd518bd39f2c30c2",
+      "java_method": "add",
+      "source_signature": "public AjaxResult add(@RequestBody CommentDTO commentDTO)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_CUSTOMER_DEPENDENCY",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "json",
+        "path_params": [],
+        "json_fields": [
+          "customerId",
+          "content"
+        ],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_customer_id"
+      ],
+      "side_effect_targets": [
+        "crm_comment",
+        "crm_customer",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-116",
+      "http_method": "PUT",
+      "path_template": "/crm/comment",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCommentController.java",
+      "controller_line": 113,
+      "controller_sha256": "ed39d5ddd9959cb137592c9b1de6fa40530bb88ad690cad4dd518bd39f2c30c2",
+      "java_method": "edit",
+      "source_signature": "public AjaxResult edit(@RequestBody CrmComment crmComment)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_SYNTHETIC_ROW",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "json",
+        "path_params": [],
+        "json_fields": [
+          "id",
+          "customerId",
+          "content"
+        ],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_comment_row_id",
+        "before_after_snapshot"
+      ],
+      "side_effect_targets": [
+        "crm_comment",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-117",
+      "http_method": "DELETE",
+      "path_template": "/crm/comment/{ids}",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCommentController.java",
+      "controller_line": 124,
+      "controller_sha256": "ed39d5ddd9959cb137592c9b1de6fa40530bb88ad690cad4dd518bd39f2c30c2",
+      "java_method": "remove",
+      "source_signature": "public AjaxResult remove(@PathVariable Long[] ids)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_SYNTHETIC_ROW",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "none",
+        "path_params": [
+          "ids"
+        ],
+        "json_fields": [],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_comment_row_id",
+        "before_after_snapshot"
+      ],
+      "side_effect_targets": [
+        "crm_comment",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-122",
+      "http_method": "POST",
+      "path_template": "/crm/customer/export",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCustomerController.java",
+      "controller_line": 91,
+      "controller_sha256": "6cb5013a134022b89c01cde9b996ed10654e2be46c80eee87fb2f872a213bd0c",
+      "java_method": "export",
+      "source_signature": "public void export(HttpServletResponse response, CrmCustomer crmCustomer)",
+      "classification": "SYNTHETIC_ORACLE",
+      "planning_status": "BLOCKED_EXPORT_ORACLE",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "form",
+        "path_params": [],
+        "json_fields": [],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_export_rows",
+        "binary_excel_oracle"
+      ],
+      "side_effect_targets": [
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-124",
+      "http_method": "POST",
+      "path_template": "/crm/customer",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCustomerController.java",
+      "controller_line": 115,
+      "controller_sha256": "6cb5013a134022b89c01cde9b996ed10654e2be46c80eee87fb2f872a213bd0c",
+      "java_method": "add",
+      "source_signature": "public AjaxResult add(@RequestBody CrmCustomer crmCustomer)",
+      "classification": "DIRECT_SYNTHETIC",
+      "planning_status": "BLOCKED_AUTH_SNAPSHOT_ORACLE",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "json",
+        "path_params": [],
+        "json_fields": [
+          "name",
+          "linkman",
+          "phone"
+        ],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "unique_synthetic_business_key"
+      ],
+      "side_effect_targets": [
+        "crm_customer",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-125",
+      "http_method": "PUT",
+      "path_template": "/crm/customer",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCustomerController.java",
+      "controller_line": 129,
+      "controller_sha256": "6cb5013a134022b89c01cde9b996ed10654e2be46c80eee87fb2f872a213bd0c",
+      "java_method": "edit",
+      "source_signature": "public AjaxResult edit(@RequestBody CrmCustomer crmCustomer)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_SYNTHETIC_ROW",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "json",
+        "path_params": [],
+        "json_fields": [
+          "id",
+          "name",
+          "linkman",
+          "phone"
+        ],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_customer_row_id",
+        "before_after_snapshot"
+      ],
+      "side_effect_targets": [
+        "crm_customer",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-126",
+      "http_method": "DELETE",
+      "path_template": "/crm/customer/{ids}",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCustomerController.java",
+      "controller_line": 141,
+      "controller_sha256": "6cb5013a134022b89c01cde9b996ed10654e2be46c80eee87fb2f872a213bd0c",
+      "java_method": "remove",
+      "source_signature": "public AjaxResult remove(@PathVariable Long[] ids)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_SYNTHETIC_ROW",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "none",
+        "path_params": [
+          "ids"
+        ],
+        "json_fields": [],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_customer_row_id",
+        "before_after_snapshot"
+      ],
+      "side_effect_targets": [
+        "crm_customer",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-127",
+      "http_method": "POST",
+      "path_template": "/crm/customer/transfer",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCustomerController.java",
+      "controller_line": 152,
+      "controller_sha256": "6cb5013a134022b89c01cde9b996ed10654e2be46c80eee87fb2f872a213bd0c",
+      "java_method": "transfer",
+      "source_signature": "public AjaxResult transfer(@RequestParam(\"ids\") Long[] ids, @RequestParam(\"owner\") String newOwner){",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_OWNER_TRANSFER",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "form",
+        "path_params": [],
+        "json_fields": [],
+        "form_fields": [
+          "ids",
+          "owner"
+        ],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_customer_ids",
+        "synthetic_source_and_target_owners"
+      ],
+      "side_effect_targets": [
+        "crm_customer",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-128",
+      "http_method": "POST",
+      "path_template": "/crm/customer/to-pool",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmCustomerController.java",
+      "controller_line": 162,
+      "controller_sha256": "6cb5013a134022b89c01cde9b996ed10654e2be46c80eee87fb2f872a213bd0c",
+      "java_method": "toPool",
+      "source_signature": "public AjaxResult toPool(@RequestParam(\"ids\") Long[] ids, @RequestParam(\"poolType\") String poolType){",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_POOL_TRANSITION",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "form",
+        "path_params": [],
+        "json_fields": [],
+        "form_fields": [
+          "ids",
+          "poolType"
+        ],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_customer_ids",
+        "pool_type_contract"
+      ],
+      "side_effect_targets": [
+        "crm_customer",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-131",
+      "http_method": "POST",
+      "path_template": "/crm/order/export",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmOrderController.java",
+      "controller_line": 67,
+      "controller_sha256": "57828e855bb5b91285a22fa472b79debd66ad7ef6344ae6fe505f3a7a2741719",
+      "java_method": "export",
+      "source_signature": "public void export(HttpServletResponse response, CrmOrder crmOrder)",
+      "classification": "SYNTHETIC_ORACLE",
+      "planning_status": "BLOCKED_EXPORT_ORACLE",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "form",
+        "path_params": [],
+        "json_fields": [],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_export_rows",
+        "binary_excel_oracle"
+      ],
+      "side_effect_targets": [
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-133",
+      "http_method": "POST",
+      "path_template": "/crm/order",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmOrderController.java",
+      "controller_line": 90,
+      "controller_sha256": "57828e855bb5b91285a22fa472b79debd66ad7ef6344ae6fe505f3a7a2741719",
+      "java_method": "add",
+      "source_signature": "public AjaxResult add(@RequestBody CrmOrder crmOrder)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_CUSTOMER_DEPENDENCY",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "json",
+        "path_params": [],
+        "json_fields": [
+          "orderNo",
+          "customerId",
+          "amount"
+        ],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_customer_id",
+        "unique_synthetic_order_no"
+      ],
+      "side_effect_targets": [
+        "crm_order",
+        "crm_customer",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-134",
+      "http_method": "PUT",
+      "path_template": "/crm/order",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmOrderController.java",
+      "controller_line": 103,
+      "controller_sha256": "57828e855bb5b91285a22fa472b79debd66ad7ef6344ae6fe505f3a7a2741719",
+      "java_method": "edit",
+      "source_signature": "public AjaxResult edit(@RequestBody CrmOrder crmOrder)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_SYNTHETIC_ROW",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "json",
+        "path_params": [],
+        "json_fields": [
+          "id",
+          "orderNo",
+          "customerId",
+          "amount"
+        ],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_order_row_id",
+        "before_after_snapshot"
+      ],
+      "side_effect_targets": [
+        "crm_order",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-135",
+      "http_method": "DELETE",
+      "path_template": "/crm/order/{ids}",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmOrderController.java",
+      "controller_line": 115,
+      "controller_sha256": "57828e855bb5b91285a22fa472b79debd66ad7ef6344ae6fe505f3a7a2741719",
+      "java_method": "remove",
+      "source_signature": "public AjaxResult remove(@PathVariable Long[] ids)",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_SYNTHETIC_ROW",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "none",
+        "path_params": [
+          "ids"
+        ],
+        "json_fields": [],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_order_row_id",
+        "before_after_snapshot"
+      ],
+      "side_effect_targets": [
+        "crm_order",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    },
+    {
+      "id": "RUOYICRM-136",
+      "http_method": "PUT",
+      "path_template": "/crm/order/approve/{id}",
+      "controller": "ruoyi-crm/src/main/java/com/ruoyi/crm/controller/CrmOrderController.java",
+      "controller_line": 124,
+      "controller_sha256": "57828e855bb5b91285a22fa472b79debd66ad7ef6344ae6fe505f3a7a2741719",
+      "java_method": "approve",
+      "source_signature": "public AjaxResult approve(@PathVariable Long id){",
+      "classification": "SYNTHETIC_WORKFLOW",
+      "planning_status": "BLOCKED_ORDER_APPROVAL",
+      "execution_status": "NOT_RUN",
+      "baseline_oracle": "NOT_CAPTURED",
+      "synthetic_rows_feasible": true,
+      "fixture_contract": {
+        "auth": "tenant_scoped_admin_token",
+        "tenant_header": true,
+        "media_type": "none",
+        "path_params": [
+          "id"
+        ],
+        "json_fields": [],
+        "form_fields": [],
+        "multipart_fields": []
+      },
+      "prerequisites": [
+        "tenant_scoped_admin_token",
+        "synthetic_pending_order_id",
+        "approval_state_transition_oracle"
+      ],
+      "side_effect_targets": [
+        "crm_order",
+        "audit_log"
+      ],
+      "storage_scope": "TWO_DISPOSABLE_STACKS_ONLY"
+    }
+  ]
+}

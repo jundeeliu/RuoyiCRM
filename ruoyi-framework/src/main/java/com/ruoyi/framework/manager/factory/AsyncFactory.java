@@ -8,6 +8,7 @@ import com.ruoyi.common.utils.ip.AddressUtils;
 import com.ruoyi.common.utils.ip.IpUtils;
 import com.ruoyi.common.utils.spring.SpringUtils;
 import com.ruoyi.framework.datasource.DynamicDataSourceContextHolder;
+import com.ruoyi.framework.datasource.DynamicRoutingDataSource;
 import com.ruoyi.system.domain.SysLogininfor;
 import com.ruoyi.system.domain.SysOperLog;
 import com.ruoyi.system.service.ISysLogininforService;
@@ -53,6 +54,7 @@ public class AsyncFactory
             @Override
             public void run()
             {
+                runInDataSource(tenant, () -> {
                 String address = AddressUtils.getRealAddressByIP(ip);
                 StringBuilder s = new StringBuilder();
                 s.append(LogUtils.getBlock(ip));
@@ -83,11 +85,9 @@ public class AsyncFactory
                 {
                     logininfor.setStatus(Constants.FAIL);
                 }
-                //切换数据源
-                if(StringUtils.isNotBlank(tenant))
-                    DynamicDataSourceContextHolder.setDataSourceKey(tenant);
                 // 插入数据
                 SpringUtils.getBean(ISysLogininforService.class).insertLogininfor(logininfor);
+                });
             }
         };
     }
@@ -107,14 +107,30 @@ public class AsyncFactory
         {
             @Override
             public void run()
-
             {
-                //切换数据源
-                DynamicDataSourceContextHolder.setDataSourceKey(tenant);
+                runInDataSource(tenant, () -> {
                 // 远程查询操作地点
                 operLog.setOperLocation(AddressUtils.getRealAddressByIP(operLog.getOperIp()));
                 SpringUtils.getBean(ISysOperLogService.class).insertOperlog(operLog);
+                });
             }
         };
+    }
+
+    static void runInDataSource(String tenant, Runnable work)
+    {
+        // A worker thread is reused across unrelated tenants; never inherit its old key.
+        DynamicDataSourceContextHolder.clearDataSourceKey();
+        try
+        {
+            // System login/register events without a tenant intentionally use MASTER.
+            DynamicDataSourceContextHolder.setDataSourceKey(
+                    StringUtils.isNotBlank(tenant) ? tenant : DynamicRoutingDataSource.MASTER_KEY);
+            work.run();
+        }
+        finally
+        {
+            DynamicDataSourceContextHolder.clearDataSourceKey();
+        }
     }
 }

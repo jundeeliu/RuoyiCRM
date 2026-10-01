@@ -1,0 +1,22 @@
+{
+  "schema": "ruoyicrm.crit04.synthetic-auth-seed.v1",
+  "status": "LOCAL_SYNTHETIC_FIXTURE_SEEDED",
+  "baseline_project": "ruoyicrm-crit10-1580f1739c",
+  "target_project": "ruoyicrm-crit10-4033f54722",
+  "tenant": "tenant1",
+  "synthetic_username": "gm_273ff6e9",
+  "tables": [
+    "sys_dept",
+    "sys_role",
+    "sys_user",
+    "sys_user_role"
+  ],
+  "rows_per_stack": 4,
+  "completed_projects": [
+    "ruoyicrm-crit10-1580f1739c",
+    "ruoyicrm-crit10-4033f54722"
+  ],
+  "sample_inserts_used": false,
+  "external_evidence": "NOT_RUN",
+  "certification": "NOT_CERTIFIED"
+}

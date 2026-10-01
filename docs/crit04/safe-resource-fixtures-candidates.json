@@ -1,0 +1,8 @@
+{
+  "RUOYICRM-004": {
+    "tenant": "tenant1",
+    "query": {
+      "resource": "/profile/replay/synthetic.txt"
+    }
+  }
+}

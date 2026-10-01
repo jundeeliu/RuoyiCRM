@@ -1,0 +1,20 @@
+{
+  "schema": "ruoyicrm.crit04.synthetic-login.v1",
+  "status": "LOCAL_BOTH_TOKENS_ISSUED",
+  "observations": {
+    "baseline": {
+      "http_status": 200,
+      "json_code": 200,
+      "token_present": true
+    },
+    "target": {
+      "http_status": 200,
+      "json_code": 200,
+      "token_present": true
+    }
+  },
+  "tokens_saved_in_repository": false,
+  "synthetic_login_date_fixture": "2020-01-01 00:00:00",
+  "external_evidence": "NOT_RUN",
+  "certification": "NOT_CERTIFIED"
+}

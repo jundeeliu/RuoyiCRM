@@ -20,6 +20,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="updateTime"         column="update_time"           />
 		<result property="remark"             column="remark"                />
 	</resultMap>
+
+	<sql id="dataScopeFilter">
+		<choose>
+			<when test="dataScopeCriteria != null and dataScopeCriteria.unrestricted" />
+			<when test="dataScopeCriteria != null and dataScopeCriteria.denied == false">
+				AND (
+				<trim prefixOverrides="OR">
+					<if test="dataScopeCriteria.roleIds.size() > 0">
+						OR d.dept_id IN (SELECT rd.dept_id FROM sys_role_dept rd WHERE rd.role_id IN
+						<foreach collection="dataScopeCriteria.roleIds" item="scopeRoleId" open="(" separator="," close=")">#{scopeRoleId}</foreach>)
+					</if>
+					<if test="dataScopeCriteria.includeDepartment">
+						OR d.dept_id = #{dataScopeCriteria.deptId}
+					</if>
+					<if test="dataScopeCriteria.includeChildren">
+						OR d.dept_id IN (SELECT child.dept_id FROM sys_dept child WHERE child.dept_id = #{dataScopeCriteria.deptId}
+						OR find_in_set(#{dataScopeCriteria.deptId}, child.ancestors))
+					</if>
+				</trim>
+				)
+			</when>
+			<otherwise>AND 1 = 0</otherwise>
+		</choose>
+	</sql>
 	
 	<sql id="selectRoleVo">
 	    select distinct r.role_id, r.role_name, r.role_key, r.role_sort, r.data_scope, r.menu_check_strictly, r.dept_check_strictly,
@@ -52,7 +76,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			and date_format(r.create_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
 		</if>
 		<!-- 数据范围过滤 -->
-		${params.dataScope}
+		<include refid="dataScopeFilter"/>
 		order by r.role_sort
 	</select>
     
@@ -149,4 +173,4 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         </foreach> 
  	</delete>
  	
-</mapper> 
+</mapper>

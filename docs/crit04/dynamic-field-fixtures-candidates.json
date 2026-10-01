@@ -1,0 +1,14 @@
+{
+  "RUOYICRM-048": {
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-069": {
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-093": {
+    "tenant": "tenant1",
+    "path_params": {
+      "userId": 1
+    }
+  }
+}

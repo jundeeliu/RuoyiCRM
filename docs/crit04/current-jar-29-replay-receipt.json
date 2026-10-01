@@ -1,0 +1,1205 @@
+{
+  "schema": "ruoyicrm.crit04.replay-receipt.v1",
+  "status": "NOT_RUN_OR_FAILED",
+  "planned": 150,
+  "passed": 20,
+  "failed": 9,
+  "not_run": 121,
+  "external_evidence": "NOT_RUN",
+  "certification": "NOT_CERTIFIED",
+  "comparison_scope": "HTTP status, Content-Type, and exact body bytes only; database and Redis state NOT_RUN",
+  "results": [
+    {
+      "id": "RUOYICRM-001",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-002",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-003",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-004",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-005",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-006",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-007",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-008",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-009",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-010",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-011",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-012",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-013",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-014",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-015",
+      "status": "PASS",
+      "reason": null,
+      "baseline": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+        "json_code": 200,
+        "canonical_json_sha256": "6579b3f412c4be8d548129a9f9fb776623501e1a26b307dbcd6ed8feeece361a"
+      },
+      "target": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+        "json_code": 200,
+        "canonical_json_sha256": "6579b3f412c4be8d548129a9f9fb776623501e1a26b307dbcd6ed8feeece361a"
+      }
+    },
+    {
+      "id": "RUOYICRM-016",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-017",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-018",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-019",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-020",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-021",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-022",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-023",
+      "status": "PASS",
+      "reason": null,
+      "baseline": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "5d599c57b04be44030d1ee91de0137d71837838b5a2b68567d9970bd0cc1743c",
+        "json_code": 200,
+        "canonical_json_sha256": "f7ac5c3a6334ef5318faa270072de339670ad7b3bc950479dbb2ab40d66ffdd5"
+      },
+      "target": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "5d599c57b04be44030d1ee91de0137d71837838b5a2b68567d9970bd0cc1743c",
+        "json_code": 200,
+        "canonical_json_sha256": "f7ac5c3a6334ef5318faa270072de339670ad7b3bc950479dbb2ab40d66ffdd5"
+      }
+    },
+    {
+      "id": "RUOYICRM-024",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-025",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-026",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-027",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-028",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-029",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-030",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-031",
+      "status": "PASS",
+      "reason": null,
+      "baseline": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+        "json_code": 200,
+        "canonical_json_sha256": "6579b3f412c4be8d548129a9f9fb776623501e1a26b307dbcd6ed8feeece361a"
+      },
+      "target": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+        "json_code": 200,
+        "canonical_json_sha256": "6579b3f412c4be8d548129a9f9fb776623501e1a26b307dbcd6ed8feeece361a"
+      }
+    },
+    {
+      "id": "RUOYICRM-032",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-033",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-034",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-035",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-036",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-037",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-038",
+      "status": "PASS",
+      "reason": null,
+      "baseline": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+        "json_code": 200,
+        "canonical_json_sha256": "6579b3f412c4be8d548129a9f9fb776623501e1a26b307dbcd6ed8feeece361a"
+      },
+      "target": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+        "json_code": 200,
+        "canonical_json_sha256": "6579b3f412c4be8d548129a9f9fb776623501e1a26b307dbcd6ed8feeece361a"
+      }
+    },
+    {
+      "id": "RUOYICRM-039",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-040",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-041",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-042",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-043",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-044",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-045",
+      "status": "PASS",
+      "reason": null,
+      "baseline": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "5271e09c2aaba2805fc2f178cddc490385076f5e0eba9f6f30b80fa4395bb747",
+        "json_code": 200,
+        "canonical_json_sha256": "e269f67e0b9b68e0307b554eaa6f5dd93e593f53682c024d9e13761a430c25b5"
+      },
+      "target": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "5271e09c2aaba2805fc2f178cddc490385076f5e0eba9f6f30b80fa4395bb747",
+        "json_code": 200,
+        "canonical_json_sha256": "e269f67e0b9b68e0307b554eaa6f5dd93e593f53682c024d9e13761a430c25b5"
+      }
+    },
+    {
+      "id": "RUOYICRM-046",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-047",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-048",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-049",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-050",
+      "status": "PASS",
+      "reason": null,
+      "baseline": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "5271e09c2aaba2805fc2f178cddc490385076f5e0eba9f6f30b80fa4395bb747",
+        "json_code": 200,
+        "canonical_json_sha256": "e269f67e0b9b68e0307b554eaa6f5dd93e593f53682c024d9e13761a430c25b5"
+      },
+      "target": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "5271e09c2aaba2805fc2f178cddc490385076f5e0eba9f6f30b80fa4395bb747",
+        "json_code": 200,
+        "canonical_json_sha256": "e269f67e0b9b68e0307b554eaa6f5dd93e593f53682c024d9e13761a430c25b5"
+      }
+    },
+    {
+      "id": "RUOYICRM-051",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-052",
+      "status": "PASS",
+      "reason": null,
+      "baseline": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "5271e09c2aaba2805fc2f178cddc490385076f5e0eba9f6f30b80fa4395bb747",
+        "json_code": 200,
+        "canonical_json_sha256": "e269f67e0b9b68e0307b554eaa6f5dd93e593f53682c024d9e13761a430c25b5"
+      },
+      "target": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "5271e09c2aaba2805fc2f178cddc490385076f5e0eba9f6f30b80fa4395bb747",
+        "json_code": 200,
+        "canonical_json_sha256": "e269f67e0b9b68e0307b554eaa6f5dd93e593f53682c024d9e13761a430c25b5"
+      }
+    },
+    {
+      "id": "RUOYICRM-053",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-054",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-055",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-056",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-057",
+      "status": "PASS",
+      "reason": null,
+      "baseline": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+        "json_code": 200,
+        "canonical_json_sha256": "6579b3f412c4be8d548129a9f9fb776623501e1a26b307dbcd6ed8feeece361a"
+      },
+      "target": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+        "json_code": 200,
+        "canonical_json_sha256": "6579b3f412c4be8d548129a9f9fb776623501e1a26b307dbcd6ed8feeece361a"
+      }
+    },
+    {
+      "id": "RUOYICRM-058",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-059",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-060",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-061",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-062",
+      "status": "PASS",
+      "reason": null,
+      "baseline": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+        "json_code": 200,
+        "canonical_json_sha256": "6579b3f412c4be8d548129a9f9fb776623501e1a26b307dbcd6ed8feeece361a"
+      },
+      "target": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+        "json_code": 200,
+        "canonical_json_sha256": "6579b3f412c4be8d548129a9f9fb776623501e1a26b307dbcd6ed8feeece361a"
+      }
+    },
+    {
+      "id": "RUOYICRM-063",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-064",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-065",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-066",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-067",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-068",
+      "status": "PASS",
+      "reason": null,
+      "baseline": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "5271e09c2aaba2805fc2f178cddc490385076f5e0eba9f6f30b80fa4395bb747",
+        "json_code": 200,
+        "canonical_json_sha256": "e269f67e0b9b68e0307b554eaa6f5dd93e593f53682c024d9e13761a430c25b5"
+      },
+      "target": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "5271e09c2aaba2805fc2f178cddc490385076f5e0eba9f6f30b80fa4395bb747",
+        "json_code": 200,
+        "canonical_json_sha256": "e269f67e0b9b68e0307b554eaa6f5dd93e593f53682c024d9e13761a430c25b5"
+      }
+    },
+    {
+      "id": "RUOYICRM-069",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-070",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-071",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-072",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-073",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-074",
+      "status": "PASS",
+      "reason": null,
+      "baseline": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "87dc8c140b97cab6913870efbbeef1d371e4e9b1ea58a4bd5388350954045d4a",
+        "json_code": 200,
+        "canonical_json_sha256": "6904a9c7a112d2fca9435ffe3d0bd348bd1ff91d7f49abb7b681cee27cdd5010"
+      },
+      "target": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "87dc8c140b97cab6913870efbbeef1d371e4e9b1ea58a4bd5388350954045d4a",
+        "json_code": 200,
+        "canonical_json_sha256": "6904a9c7a112d2fca9435ffe3d0bd348bd1ff91d7f49abb7b681cee27cdd5010"
+      }
+    },
+    {
+      "id": "RUOYICRM-075",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-076",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-077",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-078",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-079",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-080",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-081",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-082",
+      "status": "PASS",
+      "reason": null,
+      "baseline": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "260c52e5c6d9200256f9c2f6528f1bc4e047dd6e69fbf01122ebb68e08d628e4",
+        "json_code": 200,
+        "canonical_json_sha256": "629f8885f444d9414c18f711fcd1e338edd75f2c3198fd1546991dc0bfafea0a"
+      },
+      "target": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "260c52e5c6d9200256f9c2f6528f1bc4e047dd6e69fbf01122ebb68e08d628e4",
+        "json_code": 200,
+        "canonical_json_sha256": "629f8885f444d9414c18f711fcd1e338edd75f2c3198fd1546991dc0bfafea0a"
+      }
+    },
+    {
+      "id": "RUOYICRM-083",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-084",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-085",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-086",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-087",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-088",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-089",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-090",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-091",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-092",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-093",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-094",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-095",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-096",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-097",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-098",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-099",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-100",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-101",
+      "status": "PASS",
+      "reason": null,
+      "baseline": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+        "json_code": 200,
+        "canonical_json_sha256": "6579b3f412c4be8d548129a9f9fb776623501e1a26b307dbcd6ed8feeece361a"
+      },
+      "target": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+        "json_code": 200,
+        "canonical_json_sha256": "6579b3f412c4be8d548129a9f9fb776623501e1a26b307dbcd6ed8feeece361a"
+      }
+    },
+    {
+      "id": "RUOYICRM-102",
+      "status": "PASS",
+      "reason": null,
+      "baseline": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+        "json_code": 200,
+        "canonical_json_sha256": "6579b3f412c4be8d548129a9f9fb776623501e1a26b307dbcd6ed8feeece361a"
+      },
+      "target": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+        "json_code": 200,
+        "canonical_json_sha256": "6579b3f412c4be8d548129a9f9fb776623501e1a26b307dbcd6ed8feeece361a"
+      }
+    },
+    {
+      "id": "RUOYICRM-103",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-104",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-105",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-106",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-107",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-108",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-109",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-110",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-111",
+      "status": "PASS",
+      "reason": null,
+      "baseline": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+        "json_code": 200,
+        "canonical_json_sha256": "6579b3f412c4be8d548129a9f9fb776623501e1a26b307dbcd6ed8feeece361a"
+      },
+      "target": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+        "json_code": 200,
+        "canonical_json_sha256": "6579b3f412c4be8d548129a9f9fb776623501e1a26b307dbcd6ed8feeece361a"
+      }
+    },
+    {
+      "id": "RUOYICRM-112",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-113",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-114",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-115",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-116",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-117",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-118",
+      "status": "PASS",
+      "reason": null,
+      "baseline": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+        "json_code": 200,
+        "canonical_json_sha256": "6579b3f412c4be8d548129a9f9fb776623501e1a26b307dbcd6ed8feeece361a"
+      },
+      "target": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+        "json_code": 200,
+        "canonical_json_sha256": "6579b3f412c4be8d548129a9f9fb776623501e1a26b307dbcd6ed8feeece361a"
+      }
+    },
+    {
+      "id": "RUOYICRM-119",
+      "status": "PASS",
+      "reason": null,
+      "baseline": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+        "json_code": 200,
+        "canonical_json_sha256": "6579b3f412c4be8d548129a9f9fb776623501e1a26b307dbcd6ed8feeece361a"
+      },
+      "target": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+        "json_code": 200,
+        "canonical_json_sha256": "6579b3f412c4be8d548129a9f9fb776623501e1a26b307dbcd6ed8feeece361a"
+      }
+    },
+    {
+      "id": "RUOYICRM-120",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-121",
+      "status": "PASS",
+      "reason": null,
+      "baseline": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+        "json_code": 200,
+        "canonical_json_sha256": "6579b3f412c4be8d548129a9f9fb776623501e1a26b307dbcd6ed8feeece361a"
+      },
+      "target": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+        "json_code": 200,
+        "canonical_json_sha256": "6579b3f412c4be8d548129a9f9fb776623501e1a26b307dbcd6ed8feeece361a"
+      }
+    },
+    {
+      "id": "RUOYICRM-122",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-123",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-124",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-125",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-126",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-127",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-128",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-129",
+      "status": "PASS",
+      "reason": null,
+      "baseline": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+        "json_code": 200,
+        "canonical_json_sha256": "6579b3f412c4be8d548129a9f9fb776623501e1a26b307dbcd6ed8feeece361a"
+      },
+      "target": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+        "json_code": 200,
+        "canonical_json_sha256": "6579b3f412c4be8d548129a9f9fb776623501e1a26b307dbcd6ed8feeece361a"
+      }
+    },
+    {
+      "id": "RUOYICRM-130",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-131",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-132",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-133",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-134",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-135",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-136",
+      "status": "NOT_RUN",
+      "reason": "WRITE_ISOLATION_NOT_AUTHORIZED"
+    },
+    {
+      "id": "RUOYICRM-137",
+      "status": "PASS",
+      "reason": null,
+      "baseline": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+        "json_code": 200,
+        "canonical_json_sha256": "6579b3f412c4be8d548129a9f9fb776623501e1a26b307dbcd6ed8feeece361a"
+      },
+      "target": {
+        "status": 200,
+        "content_type": "application/json",
+        "body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+        "json_code": 200,
+        "canonical_json_sha256": "6579b3f412c4be8d548129a9f9fb776623501e1a26b307dbcd6ed8feeece361a"
+      }
+    },
+    {
+      "id": "RUOYICRM-138",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-139",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-140",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-141",
+      "status": "NOT_RUN",
+      "reason": "FIXTURE_MISSING"
+    },
+    {
+      "id": "RUOYICRM-142",
+      "status": "FAIL",
+      "reason": "BEHAVIOR_DRIFT",
+      "baseline": {
+        "status": 200,
+        "content_type": "application/json;charset=utf-8",
+        "body_sha256": "a54719048d13634baaea5305f6a5a63bac51ca20b7c71b1531a37e9373915560",
+        "json_code": 401,
+        "canonical_json_sha256": "9767a73d969023e14526a3fd1df537f086f9fa78ed8278f5e2082ba6164db800"
+      },
+      "target": {
+        "status": 401,
+        "content_type": "application/json;charset=UTF-8",
+        "body_sha256": "a54719048d13634baaea5305f6a5a63bac51ca20b7c71b1531a37e9373915560",
+        "json_code": 401,
+        "canonical_json_sha256": "9767a73d969023e14526a3fd1df537f086f9fa78ed8278f5e2082ba6164db800"
+      },
+      "difference_dimensions": [
+        "HTTP_STATUS",
+        "CONTENT_TYPE"
+      ]
+    },
+    {
+      "id": "RUOYICRM-143",
+      "status": "FAIL",
+      "reason": "BEHAVIOR_DRIFT",
+      "baseline": {
+        "status": 200,
+        "content_type": "application/json;charset=utf-8",
+        "body_sha256": "301c6ba658c1d09d3d6e66ba8c76a0d15077099e4f2549138a2c12f03eb4cc83",
+        "json_code": 401,
+        "canonical_json_sha256": "fbd8ca3483049abf1eb1af214592d6a924c4e93ba6c1e44d12f365b0b7d0d9e5"
+      },
+      "target": {
+        "status": 401,
+        "content_type": "application/json;charset=UTF-8",
+        "body_sha256": "301c6ba658c1d09d3d6e66ba8c76a0d15077099e4f2549138a2c12f03eb4cc83",
+        "json_code": 401,
+        "canonical_json_sha256": "fbd8ca3483049abf1eb1af214592d6a924c4e93ba6c1e44d12f365b0b7d0d9e5"
+      },
+      "difference_dimensions": [
+        "HTTP_STATUS",
+        "CONTENT_TYPE"
+      ]
+    },
+    {
+      "id": "RUOYICRM-144",
+      "status": "FAIL",
+      "reason": "BEHAVIOR_DRIFT",
+      "baseline": {
+        "status": 200,
+        "content_type": "application/json;charset=utf-8",
+        "body_sha256": "ddd6891beea6b33f369aa51484469f745c3e69e5fd84a0922e950bc1ff280865",
+        "json_code": 401,
+        "canonical_json_sha256": "2fb23eae9fe5f953f26da483710ec915c7f5d996850cccc9f5b8bc6119b605a5"
+      },
+      "target": {
+        "status": 401,
+        "content_type": "application/json;charset=UTF-8",
+        "body_sha256": "ddd6891beea6b33f369aa51484469f745c3e69e5fd84a0922e950bc1ff280865",
+        "json_code": 401,
+        "canonical_json_sha256": "2fb23eae9fe5f953f26da483710ec915c7f5d996850cccc9f5b8bc6119b605a5"
+      },
+      "difference_dimensions": [
+        "HTTP_STATUS",
+        "CONTENT_TYPE"
+      ]
+    },
+    {
+      "id": "RUOYICRM-145",
+      "status": "FAIL",
+      "reason": "BEHAVIOR_DRIFT",
+      "baseline": {
+        "status": 200,
+        "content_type": "application/json;charset=utf-8",
+        "body_sha256": "cdffb843f17d42c7286953dc3238dbc74dc90b09481f0b2c0651c462dab1a098",
+        "json_code": 401,
+        "canonical_json_sha256": "876479ca0b89bd7fcf4eb87fa7f1438a7ef5050ad07775e0f3a9f211c77088f8"
+      },
+      "target": {
+        "status": 401,
+        "content_type": "application/json;charset=UTF-8",
+        "body_sha256": "cdffb843f17d42c7286953dc3238dbc74dc90b09481f0b2c0651c462dab1a098",
+        "json_code": 401,
+        "canonical_json_sha256": "876479ca0b89bd7fcf4eb87fa7f1438a7ef5050ad07775e0f3a9f211c77088f8"
+      },
+      "difference_dimensions": [
+        "HTTP_STATUS",
+        "CONTENT_TYPE"
+      ]
+    },
+    {
+      "id": "RUOYICRM-146",
+      "status": "FAIL",
+      "reason": "BEHAVIOR_DRIFT",
+      "baseline": {
+        "status": 200,
+        "content_type": "application/json;charset=utf-8",
+        "body_sha256": "e04e32aba23969d9313133b284c4834f9b2527732b914224f3d075262ed4636f",
+        "json_code": 401,
+        "canonical_json_sha256": "cb56c10cf20a60c4e278be0dca5590f7bd84c2050090a51ee164da8cdf24ccb8"
+      },
+      "target": {
+        "status": 401,
+        "content_type": "application/json;charset=UTF-8",
+        "body_sha256": "e04e32aba23969d9313133b284c4834f9b2527732b914224f3d075262ed4636f",
+        "json_code": 401,
+        "canonical_json_sha256": "cb56c10cf20a60c4e278be0dca5590f7bd84c2050090a51ee164da8cdf24ccb8"
+      },
+      "difference_dimensions": [
+        "HTTP_STATUS",
+        "CONTENT_TYPE"
+      ]
+    },
+    {
+      "id": "RUOYICRM-147",
+      "status": "FAIL",
+      "reason": "BEHAVIOR_DRIFT",
+      "baseline": {
+        "status": 200,
+        "content_type": "application/json;charset=utf-8",
+        "body_sha256": "473da60c831d7ae62a44e1f513d20f1a13438896cca55515b6bed93cd3c02417",
+        "json_code": 401,
+        "canonical_json_sha256": "d09d18613dd093ac6bf1b8ebc0f249a8d07750c3f7656fc13cf27647e9e5bb5c"
+      },
+      "target": {
+        "status": 401,
+        "content_type": "application/json;charset=UTF-8",
+        "body_sha256": "473da60c831d7ae62a44e1f513d20f1a13438896cca55515b6bed93cd3c02417",
+        "json_code": 401,
+        "canonical_json_sha256": "d09d18613dd093ac6bf1b8ebc0f249a8d07750c3f7656fc13cf27647e9e5bb5c"
+      },
+      "difference_dimensions": [
+        "HTTP_STATUS",
+        "CONTENT_TYPE"
+      ]
+    },
+    {
+      "id": "RUOYICRM-148",
+      "status": "FAIL",
+      "reason": "BEHAVIOR_DRIFT",
+      "baseline": {
+        "status": 200,
+        "content_type": "application/json;charset=utf-8",
+        "body_sha256": "eea3d468f66ac307970650bb4c65cd0bb7bd28e2954c94a97eb8133fe95c1490",
+        "json_code": 401,
+        "canonical_json_sha256": "839f624d6c26e1c3a62220d81dd13e50711441a690c136b5fce9e50209a8073d"
+      },
+      "target": {
+        "status": 401,
+        "content_type": "application/json;charset=UTF-8",
+        "body_sha256": "eea3d468f66ac307970650bb4c65cd0bb7bd28e2954c94a97eb8133fe95c1490",
+        "json_code": 401,
+        "canonical_json_sha256": "839f624d6c26e1c3a62220d81dd13e50711441a690c136b5fce9e50209a8073d"
+      },
+      "difference_dimensions": [
+        "HTTP_STATUS",
+        "CONTENT_TYPE"
+      ]
+    },
+    {
+      "id": "RUOYICRM-149",
+      "status": "FAIL",
+      "reason": "BEHAVIOR_DRIFT",
+      "baseline": {
+        "status": 200,
+        "content_type": "application/json;charset=utf-8",
+        "body_sha256": "2fecf3947ae7020266e01a1e8f0180377440380bdc140103f2952e246238a6b2",
+        "json_code": 401,
+        "canonical_json_sha256": "a7e96121909366c165db83d67fcf9e0d09ca7d479e96ea13c509a6694a4cfdc4"
+      },
+      "target": {
+        "status": 401,
+        "content_type": "application/json;charset=UTF-8",
+        "body_sha256": "2fecf3947ae7020266e01a1e8f0180377440380bdc140103f2952e246238a6b2",
+        "json_code": 401,
+        "canonical_json_sha256": "a7e96121909366c165db83d67fcf9e0d09ca7d479e96ea13c509a6694a4cfdc4"
+      },
+      "difference_dimensions": [
+        "HTTP_STATUS",
+        "CONTENT_TYPE"
+      ]
+    },
+    {
+      "id": "RUOYICRM-150",
+      "status": "FAIL",
+      "reason": "BEHAVIOR_DRIFT",
+      "baseline": {
+        "status": 200,
+        "content_type": "application/json;charset=utf-8",
+        "body_sha256": "3dc568bf55303db0808d5b65f4adbcdda27998b5d41e38644a3b7727754a049e",
+        "json_code": 401,
+        "canonical_json_sha256": "df42db1f1db263d9b93eac7129158b4ae3e839309900a6e6c0bd49e293fece47"
+      },
+      "target": {
+        "status": 401,
+        "content_type": "application/json;charset=UTF-8",
+        "body_sha256": "3dc568bf55303db0808d5b65f4adbcdda27998b5d41e38644a3b7727754a049e",
+        "json_code": 401,
+        "canonical_json_sha256": "df42db1f1db263d9b93eac7129158b4ae3e839309900a6e6c0bd49e293fece47"
+      },
+      "difference_dimensions": [
+        "HTTP_STATUS",
+        "CONTENT_TYPE"
+      ]
+    }
+  ]
+}

@@ -6,9 +6,9 @@ spring:
         druid:
             # 主库数据源
             master:
-                url: jdbc:mysql://localhost:3306/rycrm-master?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
-                username: root
-                password: root
+                url: ${RUOYI_MASTER_JDBC_URL}
+                username: ${RUOYI_MASTER_DB_USER}
+                password: ${RUOYI_MASTER_DB_PASSWORD}
             # 从库数据源
             slave:
                 # 从数据源开关/默认关闭
@@ -36,15 +36,15 @@ spring:
             testOnBorrow: false
             testOnReturn: false
             webStatFilter: 
-                enabled: true
+                enabled: false
             statViewServlet:
-                enabled: true
+                enabled: false
                 # 设置白名单，不填则允许所有访问
                 allow:
                 url-pattern: /druid/*
                 # 控制台管理用户名和密码
-                login-username: ruoyi
-                login-password: 123456
+                login-username: ${RUOYI_DRUID_ADMIN_USER:disabled}
+                login-password: ${RUOYI_DRUID_ADMIN_PASSWORD:disabled}
             filter:
                 stat:
                     enabled: true
@@ -54,13 +54,13 @@ spring:
                     merge-sql: true
                 wall:
                     config:
-                        multi-statement-allow: true
+                        multi-statement-allow: false
 tenant:
     database:
         #mysql 用于连接数据库服务器以生成数据库,URL 不指定数据库
-        host: localhost
-        port: 3306
-        username: root
-        password: root
+        host: ${RUOYI_TENANT_DB_HOST:localhost}
+        port: ${RUOYI_TENANT_DB_PORT:3306}
+        username: ${RUOYI_TENANT_DB_ADMIN_USER}
+        password: ${RUOYI_TENANT_DB_ADMIN_PASSWORD}
     #生成数据库名称的前缀
     prefix: ryt_

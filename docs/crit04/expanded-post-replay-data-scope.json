@@ -1,0 +1,43 @@
+{
+  "schema": "ruoyicrm.crit04.post-get-data-scope.v1",
+  "status": "LOCAL_SQL_OBSERVED",
+  "target_jar_sha256": "6829de6eaaab1d60620235c7f7aef4430bd4bf19feacbd08872b12c2f336c161",
+  "external_evidence": "NOT_RUN",
+  "certification": "NOT_CERTIFIED",
+  "stacks": [
+    {
+      "label": "baseline",
+      "project": "ruoyicrm-crit10-1580f1739c",
+      "nonempty_tables": {
+        "rycrm-master": {
+          "master_tenant": 2
+        },
+        "rycrm-tenant-1": {
+          "sys_dept": 1,
+          "sys_logininfor": 3,
+          "sys_role": 1,
+          "sys_user": 1,
+          "sys_user_role": 1
+        },
+        "rycrm-tenant-2": {}
+      }
+    },
+    {
+      "label": "target",
+      "project": "ruoyicrm-crit10-4033f54722",
+      "nonempty_tables": {
+        "rycrm-master": {
+          "master_tenant": 2
+        },
+        "rycrm-tenant-1": {
+          "sys_dept": 1,
+          "sys_logininfor": 3,
+          "sys_role": 1,
+          "sys_user": 1,
+          "sys_user_role": 1
+        },
+        "rycrm-tenant-2": {}
+      }
+    }
+  ]
+}

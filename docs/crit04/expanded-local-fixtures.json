@@ -1,0 +1,492 @@
+{
+  "RUOYICRM-142": {
+    "tenant": "tenant1",
+    "expected_status": 200,
+    "expected_body_sha256": "a54719048d13634baaea5305f6a5a63bac51ca20b7c71b1531a37e9373915560",
+    "expected_json_code": 401,
+    "baseline_oracle_sha256": "81a9e039050fa2f03bac43fbddc93bac304f26309466f57162f212f2da3bde7c"
+  },
+  "RUOYICRM-143": {
+    "tenant": "tenant1",
+    "expected_status": 200,
+    "expected_body_sha256": "301c6ba658c1d09d3d6e66ba8c76a0d15077099e4f2549138a2c12f03eb4cc83",
+    "expected_json_code": 401,
+    "baseline_oracle_sha256": "a6065b8fe20a6d43a98a5af9619d49c16ee0140f8fb5120ad5272f5e9332b76b"
+  },
+  "RUOYICRM-144": {
+    "tenant": "tenant1",
+    "expected_status": 200,
+    "expected_body_sha256": "ddd6891beea6b33f369aa51484469f745c3e69e5fd84a0922e950bc1ff280865",
+    "expected_json_code": 401,
+    "baseline_oracle_sha256": "343371f5d8cbe72d8aa150da72c78787fefecabf5cdef14181d4e47000b4b880"
+  },
+  "RUOYICRM-145": {
+    "tenant": "tenant1",
+    "expected_status": 200,
+    "expected_body_sha256": "cdffb843f17d42c7286953dc3238dbc74dc90b09481f0b2c0651c462dab1a098",
+    "expected_json_code": 401,
+    "baseline_oracle_sha256": "5f7333def9689dfcbe22a9bfef8d05ad13ca0e14a89c641da32ea438b9eeb9e8"
+  },
+  "RUOYICRM-146": {
+    "tenant": "tenant1",
+    "path_params": {
+      "configId": "1"
+    },
+    "expected_status": 200,
+    "expected_body_sha256": "e04e32aba23969d9313133b284c4834f9b2527732b914224f3d075262ed4636f",
+    "expected_json_code": 401,
+    "baseline_oracle_sha256": "2df471e5774c17c2d5fcbb3e5e9fe2d05b0db41d5cb31dfbb2f1c37aa1e6408a"
+  },
+  "RUOYICRM-147": {
+    "tenant": "tenant1",
+    "expected_status": 200,
+    "expected_body_sha256": "473da60c831d7ae62a44e1f513d20f1a13438896cca55515b6bed93cd3c02417",
+    "expected_json_code": 401,
+    "baseline_oracle_sha256": "73f5371e401b0023eb50c91262ddd134700fa83890234433d1870db7f6dd59a2"
+  },
+  "RUOYICRM-148": {
+    "tenant": "tenant1",
+    "path_params": {
+      "deptId": "100"
+    },
+    "expected_status": 200,
+    "expected_body_sha256": "eea3d468f66ac307970650bb4c65cd0bb7bd28e2954c94a97eb8133fe95c1490",
+    "expected_json_code": 401,
+    "baseline_oracle_sha256": "320f4cbc5296c8ede3935e16b6cd2e61d985fb18eb89cc9a5354c82bf9c72dae"
+  },
+  "RUOYICRM-149": {
+    "tenant": "tenant1",
+    "path_params": {
+      "deptId": "100"
+    },
+    "expected_status": 200,
+    "expected_body_sha256": "2fecf3947ae7020266e01a1e8f0180377440380bdc140103f2952e246238a6b2",
+    "expected_json_code": 401,
+    "baseline_oracle_sha256": "37a912668f28b11c1670a40b5eecc7f6f4dbcbe05dca5278926a90da09fbbb21"
+  },
+  "RUOYICRM-150": {
+    "tenant": "tenant1",
+    "expected_status": 200,
+    "expected_body_sha256": "3dc568bf55303db0808d5b65f4adbcdda27998b5d41e38644a3b7727754a049e",
+    "expected_json_code": 401,
+    "baseline_oracle_sha256": "48a27091d849f777ccdf5462877cb28229961fb6635d57225104b086e159777c"
+  },
+  "RUOYICRM-015": {
+    "expected_status": 200,
+    "expected_body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-023": {
+    "expected_status": 200,
+    "expected_body_sha256": "5d599c57b04be44030d1ee91de0137d71837838b5a2b68567d9970bd0cc1743c",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-031": {
+    "expected_status": 200,
+    "expected_body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-038": {
+    "expected_status": 200,
+    "expected_body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-045": {
+    "expected_status": 200,
+    "expected_body_sha256": "5271e09c2aaba2805fc2f178cddc490385076f5e0eba9f6f30b80fa4395bb747",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-050": {
+    "expected_status": 200,
+    "expected_body_sha256": "5271e09c2aaba2805fc2f178cddc490385076f5e0eba9f6f30b80fa4395bb747",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-052": {
+    "expected_status": 200,
+    "expected_body_sha256": "5271e09c2aaba2805fc2f178cddc490385076f5e0eba9f6f30b80fa4395bb747",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-057": {
+    "expected_status": 200,
+    "expected_body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-062": {
+    "expected_status": 200,
+    "expected_body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-068": {
+    "expected_status": 200,
+    "expected_body_sha256": "5271e09c2aaba2805fc2f178cddc490385076f5e0eba9f6f30b80fa4395bb747",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-074": {
+    "expected_status": 200,
+    "expected_body_sha256": "87dc8c140b97cab6913870efbbeef1d371e4e9b1ea58a4bd5388350954045d4a",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-082": {
+    "expected_status": 200,
+    "expected_body_sha256": "260c52e5c6d9200256f9c2f6528f1bc4e047dd6e69fbf01122ebb68e08d628e4",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-101": {
+    "expected_status": 200,
+    "expected_body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-102": {
+    "expected_status": 200,
+    "expected_body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-111": {
+    "expected_status": 200,
+    "expected_body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-118": {
+    "expected_status": 200,
+    "expected_body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-119": {
+    "expected_status": 200,
+    "expected_body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-121": {
+    "expected_status": 200,
+    "expected_body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-129": {
+    "expected_status": 200,
+    "expected_body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-137": {
+    "expected_status": 200,
+    "expected_body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+    "expected_json_code": 200,
+    "tenant": "tenant1"
+  },
+  "RUOYICRM-005": {
+    "tenant": "tenant1",
+    "query": {
+      "userName": "nonexistent_synthetic"
+    },
+    "expected_status": 200,
+    "expected_body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+    "expected_json_code": 200
+  },
+  "RUOYICRM-009": {
+    "tenant": "tenant1",
+    "expected_status": 200,
+    "expected_body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+    "expected_json_code": 200
+  },
+  "RUOYICRM-013": {
+    "tenant": "tenant1",
+    "query": {
+      "userName": "nonexistent_synthetic"
+    },
+    "expected_status": 200,
+    "expected_body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+    "expected_json_code": 200
+  },
+  "RUOYICRM-018": {
+    "tenant": "tenant1",
+    "path_params": {
+      "configKey": "synthetic.absent"
+    },
+    "expected_status": 200,
+    "expected_body_sha256": "3b86980be6fc479e64bfb72c7190a4a7afb552b176ceb27c9f4cfb142a3134d3",
+    "expected_json_code": 200
+  },
+  "RUOYICRM-024": {
+    "tenant": "tenant1",
+    "path_params": {
+      "deptId": 1
+    },
+    "expected_status": 200,
+    "expected_body_sha256": "5271e09c2aaba2805fc2f178cddc490385076f5e0eba9f6f30b80fa4395bb747",
+    "expected_json_code": 200
+  },
+  "RUOYICRM-025": {
+    "tenant": "tenant1",
+    "path_params": {
+      "deptId": 1
+    },
+    "expected_status": 200,
+    "expected_body_sha256": "1496d16c9ca8a8400d69454c2960c21b135456248477a2cd0f7ff9c69826b638",
+    "expected_json_code": 200
+  },
+  "RUOYICRM-026": {
+    "tenant": "tenant1",
+    "expected_status": 200,
+    "expected_body_sha256": "7bc9baf05e4287ec5488b41b3e5d4603f130430da8fd28fa3c6c10eec38890c5",
+    "expected_json_code": 200
+  },
+  "RUOYICRM-027": {
+    "tenant": "tenant1",
+    "path_params": {
+      "roleId": 1
+    },
+    "expected_status": 200,
+    "expected_body_sha256": "2462144522b6615ac1f3f2109732f0a89470371df0a558389dcf47fb154d60e6",
+    "expected_json_code": 200
+  },
+  "RUOYICRM-033": {
+    "tenant": "tenant1",
+    "path_params": {
+      "dictCode": 999999
+    },
+    "expected_status": 200,
+    "expected_body_sha256": "31ff59a3d81968dc7ddc2b273c9880aeecb82d875dae77367a839a06a7687995",
+    "expected_json_code": 200
+  },
+  "RUOYICRM-034": {
+    "tenant": "tenant1",
+    "path_params": {
+      "dictType": "synthetic_absent"
+    },
+    "expected_status": 200,
+    "expected_body_sha256": "5271e09c2aaba2805fc2f178cddc490385076f5e0eba9f6f30b80fa4395bb747",
+    "expected_json_code": 200
+  },
+  "RUOYICRM-040": {
+    "tenant": "tenant1",
+    "path_params": {
+      "dictId": 999999
+    },
+    "expected_status": 200,
+    "expected_body_sha256": "31ff59a3d81968dc7ddc2b273c9880aeecb82d875dae77367a839a06a7687995",
+    "expected_json_code": 200
+  },
+  "RUOYICRM-046": {
+    "tenant": "tenant1",
+    "expected_status": 200,
+    "expected_body_sha256": "a72dc543b5659ba39a4e0bad1334401c0a554761bbcc6f6e0b3036c97acdbf68"
+  },
+  "RUOYICRM-049": {
+    "tenant": "tenant1",
+    "expected_status": 200,
+    "expected_body_sha256": "5271e09c2aaba2805fc2f178cddc490385076f5e0eba9f6f30b80fa4395bb747",
+    "expected_json_code": 200
+  },
+  "RUOYICRM-051": {
+    "tenant": "tenant1",
+    "path_params": {
+      "menuId": 999999
+    },
+    "expected_status": 200,
+    "expected_body_sha256": "31ff59a3d81968dc7ddc2b273c9880aeecb82d875dae77367a839a06a7687995",
+    "expected_json_code": 200
+  },
+  "RUOYICRM-053": {
+    "tenant": "tenant1",
+    "path_params": {
+      "roleId": 1
+    },
+    "expected_status": 200,
+    "expected_body_sha256": "02c2a5fe0a1de12e40cdf9b756ed1a1107f9bbd1da3e927300a8674957120af5",
+    "expected_json_code": 200
+  },
+  "RUOYICRM-058": {
+    "tenant": "tenant1",
+    "path_params": {
+      "noticeId": 999999
+    },
+    "expected_status": 200,
+    "expected_body_sha256": "31ff59a3d81968dc7ddc2b273c9880aeecb82d875dae77367a839a06a7687995",
+    "expected_json_code": 200
+  },
+  "RUOYICRM-064": {
+    "tenant": "tenant1",
+    "path_params": {
+      "postId": 999999
+    },
+    "expected_status": 200,
+    "expected_body_sha256": "31ff59a3d81968dc7ddc2b273c9880aeecb82d875dae77367a839a06a7687995",
+    "expected_json_code": 200
+  },
+  "RUOYICRM-076": {
+    "tenant": "tenant1",
+    "path_params": {
+      "roleId": 1
+    },
+    "expected_status": 200,
+    "expected_body_sha256": "0823f00acc4c80c4d4e75f6035d0277dde90c68ff2021fa8c1f72915713712eb",
+    "expected_json_code": 200
+  },
+  "RUOYICRM-083": {
+    "tenant": "tenant1",
+    "query": {
+      "roleId": 999999
+    },
+    "expected_status": 200,
+    "expected_body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+    "expected_json_code": 200
+  },
+  "RUOYICRM-084": {
+    "tenant": "tenant1",
+    "query": {
+      "roleId": 1
+    },
+    "expected_status": 200,
+    "expected_body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+    "expected_json_code": 200
+  },
+  "RUOYICRM-088": {
+    "tenant": "tenant1",
+    "query": {
+      "userName": "nonexistent_synthetic"
+    },
+    "expected_status": 200,
+    "expected_body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+    "expected_json_code": 200
+  },
+  "RUOYICRM-092": {
+    "tenant": "tenant1",
+    "expected_status": 200,
+    "expected_body_sha256": "faf9cfcb6a8bf0d041078751c128b68f9f3122edcbb51a793ad0f11596c1653e",
+    "expected_json_code": 200
+  },
+  "RUOYICRM-099": {
+    "tenant": "tenant1",
+    "path_params": {
+      "userId": 999999
+    },
+    "expected_status": 200,
+    "expected_body_sha256": "4fe5cbdc7c33bcd020847f850bd0c9d27b8d3afe167ac8c35965595bc2ea99f9",
+    "expected_json_code": 200
+  },
+  "RUOYICRM-104": {
+    "tenant": "tenant1",
+    "path_params": {
+      "id": 999999
+    },
+    "expected_status": 200,
+    "expected_body_sha256": "31ff59a3d81968dc7ddc2b273c9880aeecb82d875dae77367a839a06a7687995",
+    "expected_json_code": 200
+  },
+  "RUOYICRM-112": {
+    "tenant": "tenant1",
+    "path_params": {
+      "customerId": 999999
+    },
+    "expected_status": 200,
+    "expected_body_sha256": "5271e09c2aaba2805fc2f178cddc490385076f5e0eba9f6f30b80fa4395bb747",
+    "expected_json_code": 200
+  },
+  "RUOYICRM-114": {
+    "tenant": "tenant1",
+    "path_params": {
+      "id": 999999
+    },
+    "expected_status": 200,
+    "expected_body_sha256": "31ff59a3d81968dc7ddc2b273c9880aeecb82d875dae77367a839a06a7687995",
+    "expected_json_code": 200
+  },
+  "RUOYICRM-120": {
+    "tenant": "tenant1",
+    "expected_status": 200,
+    "expected_body_sha256": "5271e09c2aaba2805fc2f178cddc490385076f5e0eba9f6f30b80fa4395bb747",
+    "expected_json_code": 200
+  },
+  "RUOYICRM-123": {
+    "tenant": "tenant1",
+    "path_params": {
+      "id": 999999
+    },
+    "expected_status": 200,
+    "expected_body_sha256": "31ff59a3d81968dc7ddc2b273c9880aeecb82d875dae77367a839a06a7687995",
+    "expected_json_code": 200
+  },
+  "RUOYICRM-130": {
+    "tenant": "tenant1",
+    "expected_status": 200,
+    "expected_body_sha256": "05240138fef73146fe558e677f91a0880ab82c95899c6e2bf1b28e9a67f8bc21",
+    "expected_json_code": 200
+  },
+  "RUOYICRM-132": {
+    "tenant": "tenant1",
+    "path_params": {
+      "id": 999999
+    },
+    "expected_status": 200,
+    "expected_body_sha256": "31ff59a3d81968dc7ddc2b273c9880aeecb82d875dae77367a839a06a7687995",
+    "expected_json_code": 200
+  },
+  "RUOYICRM-138": {
+    "tenant": "tenant1",
+    "path_params": {
+      "id": 999999
+    },
+    "expected_status": 200,
+    "expected_body_sha256": "31ff59a3d81968dc7ddc2b273c9880aeecb82d875dae77367a839a06a7687995",
+    "expected_json_code": 200
+  },
+  "RUOYICRM-140": {
+    "tenant": "tenant1",
+    "expected_status": 200,
+    "expected_body_sha256": "e9ca935fc0c1223339c7b415ab8aa4d5636cac975d33516ec96e064a5f0fff51",
+    "expected_json_code": 200
+  },
+  "RUOYICRM-141": {
+    "tenant": "tenant1",
+    "expected_status": 200,
+    "expected_body_sha256": "2099c10406a84926ed8253a794429fcdd27ed4be07ef494b52d28a12815b680a",
+    "expected_json_code": 200
+  },
+  "RUOYICRM-048": {
+    "tenant": "tenant1",
+    "expected_status": 200,
+    "expected_body_sha256": "2873bf54055530fff616098bd625b0c9eaa5b33f4efd6840499b84fbf423e60f",
+    "expected_json_code": 200
+  },
+  "RUOYICRM-069": {
+    "tenant": "tenant1",
+    "expected_status": 200,
+    "expected_body_sha256": "45b823a5b14219f381f862e18973fed9ecd96cb8ded903aca223947a0dacc4c9",
+    "expected_json_code": 200
+  },
+  "RUOYICRM-093": {
+    "tenant": "tenant1",
+    "path_params": {
+      "userId": 1
+    },
+    "expected_status": 200,
+    "expected_body_sha256": "52cf3c1316006b7bf63d3b4f45ccc64d2b468734a4a2ae4fa69b3d84687882b0",
+    "expected_json_code": 200
+  },
+  "RUOYICRM-004": {
+    "tenant": "tenant1",
+    "query": {
+      "resource": "/profile/replay/synthetic.txt"
+    },
+    "expected_status": 200,
+    "expected_body_sha256": "4532dd6393d7e0a99e0e71e23d3c3d09b462983255ab5d8b11d0a46f0a682310"
+  }
+}

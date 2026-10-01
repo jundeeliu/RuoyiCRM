@@ -21,6 +21,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="updateBy"   column="update_by"   />
 		<result property="updateTime" column="update_time" />
 	</resultMap>
+
+	<sql id="dataScopeFilter">
+		<choose>
+			<when test="dataScopeCriteria != null and dataScopeCriteria.unrestricted" />
+			<when test="dataScopeCriteria != null and dataScopeCriteria.denied == false">
+				AND (
+				<trim prefixOverrides="OR">
+					<if test="dataScopeCriteria.roleIds.size() > 0">
+						OR d.dept_id IN (SELECT rd.dept_id FROM sys_role_dept rd WHERE rd.role_id IN
+						<foreach collection="dataScopeCriteria.roleIds" item="scopeRoleId" open="(" separator="," close=")">#{scopeRoleId}</foreach>)
+					</if>
+					<if test="dataScopeCriteria.includeDepartment">
+						OR d.dept_id = #{dataScopeCriteria.deptId}
+					</if>
+					<if test="dataScopeCriteria.includeChildren">
+						OR d.dept_id IN (SELECT child.dept_id FROM sys_dept child WHERE child.dept_id = #{dataScopeCriteria.deptId}
+						OR find_in_set(#{dataScopeCriteria.deptId}, child.ancestors))
+					</if>
+				</trim>
+				)
+			</when>
+			<otherwise>AND 1 = 0</otherwise>
+		</choose>
+	</sql>
 	
 	<sql id="selectDeptVo">
         select d.dept_id, d.parent_id, d.ancestors, d.dept_name, d.order_num, d.leader, d.phone, d.email, d.status, d.del_flag, d.create_by, d.create_time 
@@ -43,7 +67,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			AND status = #{status}
 		</if>
 		<!-- 数据范围过滤 -->
-		${params.dataScope}
+		<include refid="dataScopeFilter"/>
 		order by d.parent_id, d.order_num
     </select>
     
@@ -154,4 +178,4 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update sys_dept set del_flag = '2' where dept_id = #{deptId}
 	</delete>
 
-</mapper> 
+</mapper>

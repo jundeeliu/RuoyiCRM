@@ -1,0 +1,211 @@
+{
+  "schema": "ruoyicrm.crit02.static-scc.v1",
+  "status": "ZERO_STATIC_SCC",
+  "runtime_startup": "NOT_RUN",
+  "certification": "NOT_CERTIFIED",
+  "scope": "Resolved @Autowired/@Resource field and explicit @Autowired constructor edges between concrete repository classes",
+  "classes": 193,
+  "resolved_edges": 66,
+  "unresolved_edges": [
+    {
+      "source": "com.ruoyi.web.controller.common.CaptchaController",
+      "dependency": "Producer",
+      "file": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/common/CaptchaController.java",
+      "line": 30
+    },
+    {
+      "source": "com.ruoyi.web.controller.common.CaptchaController",
+      "dependency": "Producer",
+      "file": "ruoyi-admin/src/main/java/com/ruoyi/web/controller/common/CaptchaController.java",
+      "line": 33
+    },
+    {
+      "source": "com.ruoyi.common.core.redis.RedisCache",
+      "dependency": "RedisTemplate",
+      "file": "ruoyi-common/src/main/java/com/ruoyi/common/core/redis/RedisCache.java",
+      "line": 25
+    },
+    {
+      "source": "com.ruoyi.crm.service.impl.CrmCommentServiceImpl",
+      "dependency": "CrmCommentMapper",
+      "file": "ruoyi-crm/src/main/java/com/ruoyi/crm/service/impl/CrmCommentServiceImpl.java",
+      "line": 25
+    },
+    {
+      "source": "com.ruoyi.crm.service.impl.CrmCustomerServiceImpl",
+      "dependency": "CrmCustomerMapper",
+      "file": "ruoyi-crm/src/main/java/com/ruoyi/crm/service/impl/CrmCustomerServiceImpl.java",
+      "line": 23
+    },
+    {
+      "source": "com.ruoyi.crm.service.impl.CrmOrderServiceImpl",
+      "dependency": "CrmOrderMapper",
+      "file": "ruoyi-crm/src/main/java/com/ruoyi/crm/service/impl/CrmOrderServiceImpl.java",
+      "line": 24
+    },
+    {
+      "source": "com.ruoyi.framework.config.MyBatisConfig",
+      "dependency": "Environment",
+      "file": "ruoyi-framework/src/main/java/com/ruoyi/framework/config/MyBatisConfig.java",
+      "line": 35
+    },
+    {
+      "source": "com.ruoyi.framework.web.service.SysLoginService",
+      "dependency": "AuthenticationManager",
+      "file": "ruoyi-framework/src/main/java/com/ruoyi/framework/web/service/SysLoginService.java",
+      "line": 39
+    },
+    {
+      "source": "com.ruoyi.system.service.impl.SysConfigServiceImpl",
+      "dependency": "SysConfigMapper",
+      "file": "ruoyi-system/src/main/java/com/ruoyi/system/service/impl/SysConfigServiceImpl.java",
+      "line": 28
+    },
+    {
+      "source": "com.ruoyi.system.service.impl.SysDeptServiceImpl",
+      "dependency": "SysDeptMapper",
+      "file": "ruoyi-system/src/main/java/com/ruoyi/system/service/impl/SysDeptServiceImpl.java",
+      "line": 32
+    },
+    {
+      "source": "com.ruoyi.system.service.impl.SysDeptServiceImpl",
+      "dependency": "SysRoleMapper",
+      "file": "ruoyi-system/src/main/java/com/ruoyi/system/service/impl/SysDeptServiceImpl.java",
+      "line": 35
+    },
+    {
+      "source": "com.ruoyi.system.service.impl.SysDictDataServiceImpl",
+      "dependency": "SysDictDataMapper",
+      "file": "ruoyi-system/src/main/java/com/ruoyi/system/service/impl/SysDictDataServiceImpl.java",
+      "line": 19
+    },
+    {
+      "source": "com.ruoyi.system.service.impl.SysDictTypeServiceImpl",
+      "dependency": "SysDictTypeMapper",
+      "file": "ruoyi-system/src/main/java/com/ruoyi/system/service/impl/SysDictTypeServiceImpl.java",
+      "line": 26
+    },
+    {
+      "source": "com.ruoyi.system.service.impl.SysDictTypeServiceImpl",
+      "dependency": "SysDictDataMapper",
+      "file": "ruoyi-system/src/main/java/com/ruoyi/system/service/impl/SysDictTypeServiceImpl.java",
+      "line": 29
+    },
+    {
+      "source": "com.ruoyi.system.service.impl.SysLogininforServiceImpl",
+      "dependency": "SysLogininforMapper",
+      "file": "ruoyi-system/src/main/java/com/ruoyi/system/service/impl/SysLogininforServiceImpl.java",
+      "line": 19
+    },
+    {
+      "source": "com.ruoyi.system.service.impl.SysMenuServiceImpl",
+      "dependency": "SysMenuMapper",
+      "file": "ruoyi-system/src/main/java/com/ruoyi/system/service/impl/SysMenuServiceImpl.java",
+      "line": 38
+    },
+    {
+      "source": "com.ruoyi.system.service.impl.SysMenuServiceImpl",
+      "dependency": "SysRoleMapper",
+      "file": "ruoyi-system/src/main/java/com/ruoyi/system/service/impl/SysMenuServiceImpl.java",
+      "line": 41
+    },
+    {
+      "source": "com.ruoyi.system.service.impl.SysMenuServiceImpl",
+      "dependency": "SysRoleMenuMapper",
+      "file": "ruoyi-system/src/main/java/com/ruoyi/system/service/impl/SysMenuServiceImpl.java",
+      "line": 44
+    },
+    {
+      "source": "com.ruoyi.system.service.impl.SysNoticeServiceImpl",
+      "dependency": "SysNoticeMapper",
+      "file": "ruoyi-system/src/main/java/com/ruoyi/system/service/impl/SysNoticeServiceImpl.java",
+      "line": 18
+    },
+    {
+      "source": "com.ruoyi.system.service.impl.SysOperLogServiceImpl",
+      "dependency": "SysOperLogMapper",
+      "file": "ruoyi-system/src/main/java/com/ruoyi/system/service/impl/SysOperLogServiceImpl.java",
+      "line": 18
+    },
+    {
+      "source": "com.ruoyi.system.service.impl.SysPostServiceImpl",
+      "dependency": "SysPostMapper",
+      "file": "ruoyi-system/src/main/java/com/ruoyi/system/service/impl/SysPostServiceImpl.java",
+      "line": 22
+    },
+    {
+      "source": "com.ruoyi.system.service.impl.SysPostServiceImpl",
+      "dependency": "SysUserPostMapper",
+      "file": "ruoyi-system/src/main/java/com/ruoyi/system/service/impl/SysPostServiceImpl.java",
+      "line": 25
+    },
+    {
+      "source": "com.ruoyi.system.service.impl.SysRoleServiceImpl",
+      "dependency": "SysRoleMapper",
+      "file": "ruoyi-system/src/main/java/com/ruoyi/system/service/impl/SysRoleServiceImpl.java",
+      "line": 36
+    },
+    {
+      "source": "com.ruoyi.system.service.impl.SysRoleServiceImpl",
+      "dependency": "SysRoleMenuMapper",
+      "file": "ruoyi-system/src/main/java/com/ruoyi/system/service/impl/SysRoleServiceImpl.java",
+      "line": 39
+    },
+    {
+      "source": "com.ruoyi.system.service.impl.SysRoleServiceImpl",
+      "dependency": "SysUserRoleMapper",
+      "file": "ruoyi-system/src/main/java/com/ruoyi/system/service/impl/SysRoleServiceImpl.java",
+      "line": 42
+    },
+    {
+      "source": "com.ruoyi.system.service.impl.SysRoleServiceImpl",
+      "dependency": "SysRoleDeptMapper",
+      "file": "ruoyi-system/src/main/java/com/ruoyi/system/service/impl/SysRoleServiceImpl.java",
+      "line": 45
+    },
+    {
+      "source": "com.ruoyi.system.service.impl.SysUserServiceImpl",
+      "dependency": "SysUserMapper",
+      "file": "ruoyi-system/src/main/java/com/ruoyi/system/service/impl/SysUserServiceImpl.java",
+      "line": 43
+    },
+    {
+      "source": "com.ruoyi.system.service.impl.SysUserServiceImpl",
+      "dependency": "SysRoleMapper",
+      "file": "ruoyi-system/src/main/java/com/ruoyi/system/service/impl/SysUserServiceImpl.java",
+      "line": 46
+    },
+    {
+      "source": "com.ruoyi.system.service.impl.SysUserServiceImpl",
+      "dependency": "SysPostMapper",
+      "file": "ruoyi-system/src/main/java/com/ruoyi/system/service/impl/SysUserServiceImpl.java",
+      "line": 49
+    },
+    {
+      "source": "com.ruoyi.system.service.impl.SysUserServiceImpl",
+      "dependency": "SysUserRoleMapper",
+      "file": "ruoyi-system/src/main/java/com/ruoyi/system/service/impl/SysUserServiceImpl.java",
+      "line": 52
+    },
+    {
+      "source": "com.ruoyi.system.service.impl.SysUserServiceImpl",
+      "dependency": "SysUserPostMapper",
+      "file": "ruoyi-system/src/main/java/com/ruoyi/system/service/impl/SysUserServiceImpl.java",
+      "line": 55
+    },
+    {
+      "source": "com.ruoyi.system.service.impl.SysUserServiceImpl",
+      "dependency": "Validator",
+      "file": "ruoyi-system/src/main/java/com/ruoyi/system/service/impl/SysUserServiceImpl.java",
+      "line": 61
+    },
+    {
+      "source": "com.ruoyi.tenant.service.impl.MasterTenantServiceImpl",
+      "dependency": "MasterTenantMapper",
+      "file": "ruoyi-tenant/src/main/java/com/ruoyi/tenant/service/impl/MasterTenantServiceImpl.java",
+      "line": 22
+    }
+  ],
+  "cycles": [],
+  "cycle_edges": []
+}

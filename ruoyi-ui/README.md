@@ -1,30 +1,20 @@
-## 开发
+# RuoyiCRM frontend
+
+This is the existing Vue 2 / Vue CLI 4 application. The verified local build toolchain is Node 24.21.0 and npm 11.19.0; `.nvmrc` pins the Node version. Use the committed `package-lock.json` and the official npm registry for repeatable installs.
 
 ```bash
-# 克隆项目
-git clone https://gitee.com/jundee/RuoyiCRM
-
-# 进入项目目录
 cd ruoyi-ui
-
-# 安装依赖
-npm install
-
-# 建议不要直接使用 cnpm 安装依赖，会有各种诡异的 bug。可以通过如下操作解决 npm 下载速度慢的问题
-npm install --registry=https://registry.npm.taobao.org
-
-# 启动服务
-npm run dev
-```
-
-浏览器访问 http://localhost:80
-
-## 发布
-
-```bash
-# 构建测试环境
-npm run build:stage
-
-# 构建生产环境
+nvm use
+npm ci --registry=https://registry.npmjs.org
+npm run test:dependency-contract
 npm run build:prod
+npm run test:compression
+npm run build:stage
+npm run test:compression
 ```
+
+`build:prod` and `build:stage` create `dist/` and precompressed `.gz` files for compressible JS, CSS, and HTML assets. The deployment server must send those files only with the correct `Content-Encoding: gzip` header. `npm run dev` starts the development server on port 80 and proxies API requests to port 8080.
+
+Run `npm run lint` separately. The existing source has a large lint backlog; the command now checks actual source files and currently exits nonzero. Keep that result visible in CI until the violations are fixed without disabling rules or bulk formatting unrelated code.
+
+The production dependency audit is `npm audit --omit=dev --registry=https://registry.npmjs.org`. At the checked lockfile revision it reports 0 critical, 0 high, 4 moderate, and 4 low findings, so the separate CI audit gate exits nonzero. Vue 2 has reached end of life; the build evidence does not establish frontend production readiness.

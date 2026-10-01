@@ -44,6 +44,33 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="dataScope"     column="data_scope"    />
 		<result property="status"       column="role_status"    />
 	</resultMap>
+
+	<sql id="dataScopeFilter">
+		<choose>
+			<when test="dataScopeCriteria != null and dataScopeCriteria.unrestricted" />
+			<when test="dataScopeCriteria != null and dataScopeCriteria.denied == false">
+				AND (
+				<trim prefixOverrides="OR">
+					<if test="dataScopeCriteria.roleIds.size() > 0">
+						OR d.dept_id IN (SELECT rd.dept_id FROM sys_role_dept rd WHERE rd.role_id IN
+						<foreach collection="dataScopeCriteria.roleIds" item="scopeRoleId" open="(" separator="," close=")">#{scopeRoleId}</foreach>)
+					</if>
+					<if test="dataScopeCriteria.includeDepartment">
+						OR d.dept_id = #{dataScopeCriteria.deptId}
+					</if>
+					<if test="dataScopeCriteria.includeChildren">
+						OR d.dept_id IN (SELECT child.dept_id FROM sys_dept child WHERE child.dept_id = #{dataScopeCriteria.deptId}
+						OR find_in_set(#{dataScopeCriteria.deptId}, child.ancestors))
+					</if>
+					<if test="dataScopeCriteria.includeSelf">
+						OR u.user_id = #{dataScopeCriteria.userId}
+					</if>
+				</trim>
+				)
+			</when>
+			<otherwise>AND 1 = 0</otherwise>
+		</choose>
+	</sql>
 	
 	<sql id="selectUserVo">
         select u.user_id, u.dept_id, u.user_name, u.nick_name, u.email, u.avatar, u.phonenumber, u.password, u.sex, u.status, u.del_flag, u.login_ip, u.login_date, u.create_by, u.create_time, u.remark, 
@@ -81,7 +108,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			AND (u.dept_id = #{deptId} OR u.dept_id IN ( SELECT t.dept_id FROM sys_dept t WHERE find_in_set(#{deptId}, ancestors) ))
 		</if>
 		<!-- 数据范围过滤 -->
-		${params.dataScope}
+		<include refid="dataScopeFilter"/>
 	</select>
 	
 	<select id="selectAllocatedList" parameterType="SysUser" resultMap="SysUserResult">
@@ -98,7 +125,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			AND u.phonenumber like concat('%', #{phonenumber}, '%')
 		</if>
 		<!-- 数据范围过滤 -->
-		${params.dataScope}
+		<include refid="dataScopeFilter"/>
 	</select>
 	
 	<select id="selectUnallocatedList" parameterType="SysUser" resultMap="SysUserResult">
@@ -116,7 +143,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			AND u.phonenumber like concat('%', #{phonenumber}, '%')
 		</if>
 		<!-- 数据范围过滤 -->
-		${params.dataScope}
+		<include refid="dataScopeFilter"/>
 	</select>
 	
 	<select id="selectUserByUserName" parameterType="String" resultMap="SysUserResult">
@@ -217,4 +244,4 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         </foreach> 
  	</delete>
 	
-</mapper> 
+</mapper>

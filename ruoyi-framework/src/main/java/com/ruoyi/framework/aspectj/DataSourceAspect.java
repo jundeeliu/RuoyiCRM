@@ -10,9 +10,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.core.annotation.Order;
+import org.springframework.aop.support.AopUtils;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.support.TransactionSynchronizationManager;
 import com.ruoyi.common.annotation.DataSource;
-import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.framework.datasource.DynamicDataSourceContextHolder;
 
 /**
@@ -38,11 +39,20 @@ public class DataSourceAspect
     public Object around(ProceedingJoinPoint point) throws Throwable
     {
         DataSource dataSource = getDataSource(point);
-
-        if (StringUtils.isNotNull(dataSource))
+        if (dataSource == null)
         {
-            DynamicDataSourceContextHolder.setDataSourceKey(dataSource.value().name());
+            return point.proceed();
         }
+
+        String previous = DynamicDataSourceContextHolder.getDataSourceKey();
+        String requested = dataSource.value().name();
+        if (!requested.equals(previous) && (TransactionSynchronizationManager.isActualTransactionActive()
+                || TransactionSynchronizationManager.isSynchronizationActive()))
+        {
+            throw new IllegalStateException("Cannot switch data source inside an active transaction");
+        }
+
+        DynamicDataSourceContextHolder.setDataSourceKey(requested);
 
         try
         {
@@ -50,8 +60,15 @@ public class DataSourceAspect
         }
         finally
         {
-            // 销毁数据源 在执行方法之后
-            DynamicDataSourceContextHolder.clearDataSourceKey();
+            // Restore the outer tenant scope after a nested MASTER call.
+            if (previous == null)
+            {
+                DynamicDataSourceContextHolder.clearDataSourceKey();
+            }
+            else
+            {
+                DynamicDataSourceContextHolder.setDataSourceKey(previous);
+            }
         }
     }
 
@@ -61,12 +78,21 @@ public class DataSourceAspect
     public DataSource getDataSource(ProceedingJoinPoint point)
     {
         MethodSignature signature = (MethodSignature) point.getSignature();
-        DataSource dataSource = AnnotationUtils.findAnnotation(signature.getMethod(), DataSource.class);
+        Class<?> targetClass = point.getTarget().getClass();
+        DataSource dataSource = AnnotationUtils.findAnnotation(
+                AopUtils.getMostSpecificMethod(signature.getMethod(), targetClass), DataSource.class);
         if (Objects.nonNull(dataSource))
         {
             return dataSource;
         }
 
-        return AnnotationUtils.findAnnotation(signature.getDeclaringType(), DataSource.class);
+        dataSource = AnnotationUtils.findAnnotation(signature.getMethod(), DataSource.class);
+        if (Objects.nonNull(dataSource))
+        {
+            return dataSource;
+        }
+        dataSource = AnnotationUtils.findAnnotation(targetClass, DataSource.class);
+        return dataSource != null ? dataSource
+                : AnnotationUtils.findAnnotation(signature.getDeclaringType(), DataSource.class);
     }
 }

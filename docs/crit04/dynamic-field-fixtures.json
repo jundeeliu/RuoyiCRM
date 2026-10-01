@@ -1,0 +1,23 @@
+{
+  "RUOYICRM-048": {
+    "tenant": "tenant1",
+    "expected_status": 200,
+    "expected_body_sha256": "2873bf54055530fff616098bd625b0c9eaa5b33f4efd6840499b84fbf423e60f",
+    "expected_json_code": 200
+  },
+  "RUOYICRM-069": {
+    "tenant": "tenant1",
+    "expected_status": 200,
+    "expected_body_sha256": "45b823a5b14219f381f862e18973fed9ecd96cb8ded903aca223947a0dacc4c9",
+    "expected_json_code": 200
+  },
+  "RUOYICRM-093": {
+    "tenant": "tenant1",
+    "path_params": {
+      "userId": 1
+    },
+    "expected_status": 200,
+    "expected_body_sha256": "52cf3c1316006b7bf63d3b4f45ccc64d2b468734a4a2ae4fa69b3d84687882b0",
+    "expected_json_code": 200
+  }
+}
